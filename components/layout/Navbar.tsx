@@ -4,11 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@/components/providers/ThemeProvider";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "../ui/Button";
 
-// Links updated based on Marketing Strategy [cite: 9-21]
 const navLinks = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "For Clients", href: "/for-clients" },
@@ -17,24 +16,28 @@ const navLinks = [
   { label: "Blog", href: "/blog" },
 ];
 
-export const Navbar =() => {
+export const Navbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const { toggleTheme, isDark } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setMounted(true), []);
 
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 w-full glass-panel"
       style={{
-        height: "80px", // Standardized height for editorial feel
-        borderBottom: "none", // Enforcing "No-Line" rule
+        height: "80px",
+        borderBottom: "none",
       }}
     >
       <div
         className="max-w-7xl mx-auto h-full flex items-center justify-between gap-6"
         style={{ padding: "0 clamp(1.25rem,5vw,3rem)" }}
       >
-        {/* Logo [cite: 170, 675] */}
+        {/* Logo */}
         <Link href="/" className="shrink-0">
           <Image
             src="/Logo.png"
@@ -46,7 +49,7 @@ export const Navbar =() => {
           />
         </Link>
 
-        {/* Desktop Nav - Using Editorial rhythm [cite: 3] */}
+        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-10 flex-1 justify-center">
           {navLinks.map((l) => {
             const active = pathname === l.href;
@@ -72,17 +75,17 @@ export const Navbar =() => {
 
         {/* Action Group */}
         <div className="flex items-center gap-4 shrink-0">
-          {/* Theme Toggle - Updated to architectural style */}
+          {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
             className="flex items-center justify-center w-10 h-10 rounded-xl bg-(--surface-low) transition-all duration-300 hover:brightness-110 cursor-pointer"
             style={{ color: "var(--primary)" }}
           >
-            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            {mounted && (isDark ? <Sun size={18} /> : <Moon size={18} />)}
           </button>
 
-          {/* Signature CTA [cite: 49, 51] */}
+          {/* CTA */}
           <Link href="/download" className="hidden lg:block">
             <Button variant="primary" size="sm">
               Download App
@@ -100,7 +103,7 @@ export const Navbar =() => {
         </div>
       </div>
 
-      {/* Mobile Drawer - Using Surface-Container-High  */}
+      {/* Mobile Drawer */}
       {open && (
         <div
           className="lg:hidden absolute top-20 left-0 right-0 z-50 flex flex-col shadow-ambient"
@@ -137,4 +140,4 @@ export const Navbar =() => {
       )}
     </header>
   );
-}
+};

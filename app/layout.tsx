@@ -53,6 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${tonesa.variable} ${monexa.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
