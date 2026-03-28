@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
 
 import {Navbar} from "@/components/layout/Navbar";
-
+import { Footer } from "@/components/layout/Footer";
 // ── Setup Tonesa for Headings ──
 const tonesa = localFont({
   src: [
@@ -62,7 +62,7 @@ export default function RootLayout({
             <main className="grow ">
               {children}
             </main>
-            
+            <Footer/>
           </div>
         </ThemeProvider>
       </body>
