@@ -2,16 +2,16 @@
 
 import React, { useState } from 'react';
 import Link from "next/link";
-import Image from "next/image";
-import { 
-  FaInstagram, 
-  FaFacebookF, 
-  FaLinkedinIn, 
-  FaXTwitter 
+import Image from "next/image"
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaXTwitter
 } from "react-icons/fa6";
-import { 
-  IoCallOutline, 
-  IoMailOutline, 
+import {
+  IoCallOutline,
+  IoMailOutline,
   IoLocationOutline,
   IoSend
 } from "react-icons/io5";
@@ -27,7 +27,6 @@ interface FooterSection {
   links: FooterLink[];
 }
 
-const DEFAULT_IMAGE = "https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg";
 
 const footerLinks: Record<string, FooterSection> = {
   clients: {
@@ -95,35 +94,39 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#1A1A1A] text-white pt-20 pb-10 font-sans">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* Newsletter & Brand Intro Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10 mb-16">
           <div className="lg:col-span-5">
-            <Link href="/" className="inline-block mb-6">
-               <div className="flex items-center gap-3">
-                 <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center font-bold text-primary">H</div>
-                 <span className="text-2xl font-bold tracking-tighter">HelpMe NG</span>
-               </div>
+            <Link href="/" className="shrink-0">
+              <Image
+                src="/Logo.png"
+                alt="HelpMe NG"
+                width={140}
+                height={40}
+                className="object-contain w-auto h-auto"
+                loading="eager"
+              />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               Trusted Services. Verified Professionals. Nigeria&apos;s most trusted service marketplace connecting you with verified experts for every need.
             </p>
           </div>
-          
+
           <div className="lg:col-span-7">
             <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
               <h4 className="text-lg font-bold mb-2">Subscribe to our newsletter</h4>
               <p className="text-sm text-gray-400 mb-6">Get the latest updates on expert availability and TAS earning opportunities.</p>
               <form className="flex flex-col sm:flex-row gap-3">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
+                <input
+                  type="email"
+                  placeholder="Enter your email"
                   className="flex-1 bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-secondary transition-colors"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <Button variant="outline" className="flex items-center gap-2">
-                  Subscribe <IoSend size={14}/>
+                  Subscribe <IoSend size={14} />
                 </Button>
               </form>
             </div>
@@ -154,7 +157,7 @@ export const Footer: React.FC = () => {
         <div className="border-y border-white/10 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-secondary">
-              <IoCallOutline size={20}/>
+              <IoCallOutline size={20} />
             </div>
             <div>
               <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Call Support</p>
@@ -163,7 +166,7 @@ export const Footer: React.FC = () => {
           </div>
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-secondary">
-              <IoMailOutline size={20}/>
+              <IoMailOutline size={20} />
             </div>
             <div>
               <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Email Us</p>
@@ -172,7 +175,7 @@ export const Footer: React.FC = () => {
           </div>
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-secondary">
-              <IoLocationOutline size={20}/>
+              <IoLocationOutline size={20} />
             </div>
             <div>
               <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Offices</p>
@@ -185,10 +188,10 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-4">
           <div className="flex flex-col gap-4 items-center md:items-start">
             <div className="flex gap-6">
-              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaInstagram size={20}/></Link>
-              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaFacebookF size={18}/></Link>
-              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaXTwitter size={18}/></Link>
-              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaLinkedinIn size={20}/></Link>
+              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaInstagram size={20} /></Link>
+              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaFacebookF size={18} /></Link>
+              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaXTwitter size={18} /></Link>
+              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaLinkedinIn size={20} /></Link>
             </div>
             <p className="text-[12px] text-white/40">
               © {year} HelpMe NG. Built by Chrivon Tech Solutions Limited.
@@ -196,12 +199,12 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
-             <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-[10px] uppercase font-bold text-white/60">
-               App Store
-             </div>
-             <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-[10px] uppercase font-bold text-white/60">
-               Google Play
-             </div>
+            <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-[10px] uppercase font-bold text-white/60">
+              App Store
+            </div>
+            <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-[10px] uppercase font-bold text-white/60">
+              Google Play
+            </div>
           </div>
         </div>
       </div>

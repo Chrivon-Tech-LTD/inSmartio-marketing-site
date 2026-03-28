@@ -41,7 +41,7 @@ export const Navbar =() => {
             alt="HelpMe NG"
             width={140}
             height={40}
-            className="object-contain"
+            className="object-contain w-auto h-auto"
             loading="eager"
           />
         </Link>
