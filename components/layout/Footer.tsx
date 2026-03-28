@@ -1,8 +1,8 @@
 "use client";
 
+import React, { useState } from 'react';
 import Link from "next/link";
 import Image from "next/image";
-// Using React Icons instead of Lucide
 import { 
   FaInstagram, 
   FaFacebookF, 
@@ -12,10 +12,24 @@ import {
 import { 
   IoCallOutline, 
   IoMailOutline, 
-  IoLocationOutline 
+  IoLocationOutline,
+  IoSend
 } from "react-icons/io5";
+import { Button } from "../ui/Button";
 
-const footerLinks = {
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+interface FooterSection {
+  title: string;
+  links: FooterLink[];
+}
+
+const DEFAULT_IMAGE = "https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg";
+
+const footerLinks: Record<string, FooterSection> = {
   clients: {
     title: "For Clients",
     links: [
@@ -33,6 +47,7 @@ const footerLinks = {
       { label: "Become an Expert", href: "/register" },
       { label: "Expert Earnings", href: "/for-experts#earnings" },
       { label: "Verification", href: "/for-experts#verification" },
+      { label: "Payment Models", href: "/for-experts#models" },
     ],
   },
   tas: {
@@ -50,51 +65,82 @@ const footerLinks = {
       { label: "About Us", href: "/about" },
       { label: "Contact", href: "/contact" },
       { label: "Careers", href: "/careers" },
+      { label: "Press", href: "/press" },
+    ],
+  },
+  resources: {
+    title: "Resources",
+    links: [
       { label: "Blog", href: "/blog" },
       { label: "Case Studies", href: "/case-study/helpme-ng" },
+      { label: "FAQs", href: "/faqs" },
+      { label: "Help Center", href: "/help" },
+    ],
+  },
+  legal: {
+    title: "Legal",
+    links: [
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "TAS Agreement", href: "/tas-agreement" },
+      { label: "Cookie Policy", href: "/cookies" },
     ],
   },
 };
 
-export const Footer = () =>{
+export const Footer: React.FC = () => {
+  const [email, setEmail] = useState("");
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-[#1A1A1A] text-white pt-20 pb-10 font-sans">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 mb-16">
-          
-          <div className="col-span-2">
+        
+        {/* Newsletter & Brand Intro Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10 mb-16">
+          <div className="lg:col-span-5">
             <Link href="/" className="inline-block mb-6">
-              <Image 
-                src="/logo-white.png" 
-                alt="HelpMe NG" 
-                width={150} 
-                height={50} 
-                className="brightness-0 invert"
-              />
+               <div className="flex items-center gap-3">
+                 <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center font-bold text-primary">H</div>
+                 <span className="text-2xl font-bold tracking-tighter">HelpMe NG</span>
+               </div>
             </Link>
-            <p className="text-(--color-on-ink-muted) text-sm leading-relaxed max-w-xs mb-8">
-              Trusted Services. Verified Professionals. <br />
-              Nigeria&apos;s most trusted service marketplace where every professional is verified. [cite: 171, 472]
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+              Trusted Services. Verified Professionals. Nigeria&apos;s most trusted service marketplace connecting you with verified experts for every need.
             </p>
-            <div className="flex gap-4">
-              <Link href="https://instagram.com/helpme_ng" className="text-white/40 hover:text-secondary transition-colors"><FaInstagram size={20}/></Link>
-              <Link href="https://facebook.com/helpme_ng" className="text-white/40 hover:text-secondary transition-colors"><FaFacebookF size={18}/></Link>
-              <Link href="https://twitter.com/helpme_ng" className="text-white/40 hover:text-secondary transition-colors"><FaXTwitter size={18}/></Link>
-              <Link href="https://linkedin.com/company/helpme-ng" className="text-white/40 hover:text-secondary transition-colors"><FaLinkedinIn size={20}/></Link>
+          </div>
+          
+          <div className="lg:col-span-7">
+            <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
+              <h4 className="text-lg font-bold mb-2">Subscribe to our newsletter</h4>
+              <p className="text-sm text-gray-400 mb-6">Get the latest updates on expert availability and TAS earning opportunities.</p>
+              <form className="flex flex-col sm:flex-row gap-3">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  className="flex-1 bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-secondary transition-colors"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Button variant="outline" className="flex items-center gap-2">
+                  Subscribe <IoSend size={14}/>
+                </Button>
+              </form>
             </div>
           </div>
+        </div>
 
+        {/* Links Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 mb-16">
           {Object.values(footerLinks).map((section) => (
             <div key={section.title} className="col-span-1">
-              <h4 className="text-[12px] font-bold uppercase tracking-[0.2em] mb-8 text-white">
+              <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] mb-8 text-white">
                 {section.title}
               </h4>
               <ul className="space-y-4">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-sm text-(--color-on-ink-muted) hover:text-white transition-colors">
+                    <Link href={link.href} className="text-sm text-gray-400 hover:text-white transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -104,41 +150,61 @@ export const Footer = () =>{
           ))}
         </div>
 
+        {/* Contact Strip */}
         <div className="border-y border-white/10 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-secondary"><IoCallOutline size={20}/></div>
+            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-secondary">
+              <IoCallOutline size={20}/>
+            </div>
             <div>
               <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Call Support</p>
-              <p className="text-sm font-semibold">+234 800 HELPME [cite: 189]</p>
+              <p className="text-sm font-semibold">+234 800 HELPME (0800 435763)</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-secondary"><IoMailOutline size={20}/></div>
+            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-secondary">
+              <IoMailOutline size={20}/>
+            </div>
             <div>
               <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Email Us</p>
-              <p className="text-sm font-semibold">support@helpme.ng [cite: 189]</p>
+              <p className="text-sm font-semibold">support@helpme.ng</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-secondary"><IoLocationOutline size={20}/></div>
+            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-secondary">
+              <IoLocationOutline size={20}/>
+            </div>
             <div>
-              <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Lagos Office</p>
-              <p className="text-sm font-semibold">Admiralty Way, Lekki Phase 1 [cite: 519]</p>
+              <p className="text-xs text-white/40 uppercase tracking-widest mb-1">Offices</p>
+              <p className="text-sm font-semibold text-white/80">Lagos | Abuja, Nigeria</p>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[12px] text-white/40">
-            © {year} HelpMe NG. Built by Chrivon Tech Solutions Limited. [cite: 192]
-          </p>
-          <div className="flex gap-8 text-[12px] text-white/40">
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service [cite: 188]</Link>
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy [cite: 188]</Link>
-            <Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy [cite: 188]</Link>
+        {/* Social & Legal Footer */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-4">
+          <div className="flex flex-col gap-4 items-center md:items-start">
+            <div className="flex gap-6">
+              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaInstagram size={20}/></Link>
+              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaFacebookF size={18}/></Link>
+              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaXTwitter size={18}/></Link>
+              <Link href="#" className="text-white/40 hover:text-white transition-colors"><FaLinkedinIn size={20}/></Link>
+            </div>
+            <p className="text-[12px] text-white/40">
+              © {year} HelpMe NG. Built by Chrivon Tech Solutions Limited.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4">
+             <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-[10px] uppercase font-bold text-white/60">
+               App Store
+             </div>
+             <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-[10px] uppercase font-bold text-white/60">
+               Google Play
+             </div>
           </div>
         </div>
       </div>
     </footer>
   );
-}
+};

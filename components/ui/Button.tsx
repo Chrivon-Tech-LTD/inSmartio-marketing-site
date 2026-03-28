@@ -1,6 +1,6 @@
 import React from "react";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+type ButtonVariant = "primary" | "outline" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -11,19 +11,15 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  // Signature CTA: Gradient from Primary to Primary Container [cite: 629]
-  primary: "bg-gradient-to-br from-[var(--primary)] to-[var(--primary-container)] text-white border-none shadow-ambient hover:brightness-105",
-  // Secondary: Surface-low background with primary text [cite: 5, 166]
-  secondary: "bg-[var(--surface-low)] text-[var(--primary)] border-none hover:bg-[var(--surface-high)]",
-  // Outline: Used only if mandatory, otherwise use background shifts [cite: 4]
-  outline: "bg-transparent border border-[var(--text-secondary)]/20 text-[var(--text-primary)] hover:border-[var(--primary)] hover:text-[var(--primary)]",
-  ghost: "bg-transparent text-[var(--primary)] hover:bg-[var(--surface-low)] border-none",
+  primary: "bg-(--color-primary) hover:bg-(--color-primary-hover) text-white border-none shadow-md hover:shadow-lg",
+  outline: "bg-transparent border border-(--color-border) text-(--color-text) hover:border-(--color-primary) hover:text-(--color-primary)",
+  ghost: "bg-transparent text-(--color-primary) hover:bg-(--color-bg-soft) border-none",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: "px-5 py-2.5 text-[14px] font-medium",
-  md: "px-8 py-4 text-[16px] font-semibold tracking-[0.5px]", // [cite: 633]
-  lg: "px-10 py-5 text-[18px] font-bold tracking-[0.5px]",
+  sm: "px-4 py-2 text-[10px] tracking-widest",
+  md: "px-6 py-3 text-[11px] tracking-widest",
+  lg: "px-8 py-4 text-xs tracking-widest",
 };
 
 export function Button({
@@ -38,8 +34,8 @@ export function Button({
     <button
       className={[
         "inline-flex items-center justify-center gap-2",
-        "font-sans transition-all duration-300 cursor-pointer active:scale-95",
-        "rounded-xl", // 0.75rem corner radius as per doc [cite: 5]
+        "font-bold uppercase transition-all duration-300 cursor-pointer active:scale-95",
+        "rounded-xl", 
         "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
         "disabled:opacity-50 disabled:cursor-not-allowed",
         variantStyles[variant],

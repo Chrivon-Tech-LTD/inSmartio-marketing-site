@@ -37,7 +37,7 @@ export const Navbar =() => {
         {/* Logo [cite: 170, 675] */}
         <Link href="/" className="shrink-0">
           <Image
-            src="/logo.png"
+            src="/Logo.png"
             alt="HelpMe NG"
             width={140}
             height={40}
