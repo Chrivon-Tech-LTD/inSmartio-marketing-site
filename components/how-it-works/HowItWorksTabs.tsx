@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ClientTab } from './tabs/ClientTab';
+import  {ClientTab}  from './tabs/ClientTab';
 import { ExpertTab } from './tabs/ExpertTab';
 import { TASTab } from './tabs/TASTab';
 
-type TabType = 'client' | 'expert' | 'tas';
+type TabType = 'client' | 'expert' | 'ta';
 
 export const HowItWorksTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('client');
@@ -15,7 +15,7 @@ export const HowItWorksTabs: React.FC = () => {
       {/* Segmented Control Switcher */}
       <div className="flex justify-center mb-20">
         <div className="bg-gray-100 p-1.5 rounded-2xl flex gap-2 border border-gray-200 shadow-inner">
-          {(['client', 'expert', 'tas'] as const).map((tab) => (
+          {(['client', 'expert', 'ta'] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -37,7 +37,7 @@ export const HowItWorksTabs: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         {activeTab === 'client' && <ClientTab />}
         {activeTab === 'expert' && <ExpertTab />}
-        {activeTab === 'tas' && <TASTab />}
+        {activeTab === 'ta' && <TASTab />}
       </div>
     </div>
   );

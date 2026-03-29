@@ -1,63 +1,59 @@
-import React from 'react';
-import Image from 'next/image';
-import { AppStoreButtons } from '../ui/AppStoreButtons';
-
-const DEFAULT_IMAGE = "https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg";
-
+import React from "react";
+import { AppStoreButtons } from "../ui/AppStoreButtons";
+import Image from "next/image";
 export const AppDownload: React.FC = () => {
   return (
-    <section className="py-24 bg-surface-lowest">
+    <section className="py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="bg-primary rounded-3xl overflow-hidden shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
-            
-            {/* Content Side */}
-            <div className="p-8 md:p-16 lg:p-20 text-white">
-              <span className="section-label text-secondary mb-6 block uppercase tracking-widest text-xs font-bold">
-                Get HelpMe NG Today
-              </span>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                Download the app and find trusted professionals in minutes.
-              </h2>
-              <p className="text-white/70 text-lg mb-10">
-                Available on iOS and Android. Start your journey toward reliable services or earn as a verified professional.
+
+        <div className="bg-primary rounded-3xl p-10 md:p-16 lg:p-20 shadow-2xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+          {/* LEFT SIDE */}
+          <div className="text-white">
+
+            <span className="text-secondary text-xs font-bold uppercase tracking-widest mb-6 block">
+              Get HelpMe NG Today
+            </span>
+
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+              Find Trusted Professionals{" "}
+              <br className="hidden md:block" />
+              In Minutes.
+            </h2>
+
+            <p className="text-white/70 text-lg mb-10 max-w-md">
+              Download the app to book reliable services or earn as a verified professional.
+            </p>
+
+            <AppStoreButtons align="left" size="md" />
+
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="flex justify-center lg:justify-end">
+
+            {/* QR CARD */}
+            <div className="bg-gray-100 rounded-3xl p-8 shadow-xl text-center w-full">
+
+             <Image
+                src="https://i.pinimg.com/736x/78/d5/01/78d5016be7c774417abb6421183fa67c.jpg"
+                alt="QR code to download HelpMe NG app"
+                width={200}
+                height={200}
+                className="mx-auto mb-6"
+              />
+             
+
+              <p className="text-gray-500 text-xs uppercase tracking-widest mt-4">
+                Scan to download
               </p>
 
-              <AppStoreButtons align='left'/>
-            </div>
-
-            {/* QR Code & Visual Side */}
-            <div className="relative h-full min-h-100 bg-white/5 flex items-center justify-center p-12">
-              <div className="absolute inset-0 opacity-20">
-                <Image 
-                  src={DEFAULT_IMAGE}
-                  alt="Background pattern"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-              
-              <div className="relative z-10 flex flex-col items-center">
-                {/* QR Code Placeholder (Center) */}
-                <div className="bg-white p-4 rounded-2xl shadow-ambient mb-6">
-                  <div className="w-48 h-48 bg-gray-100 flex items-center justify-center border-2 border-dashed border-primary/20 rounded-lg">
-                    <p className="text-primary text-xs font-bold text-center px-4">
-                      QR Code linking to App Store
-                    </p>
-                  </div>
-                </div>
-                <p className="text-white/60 text-xs font-medium uppercase tracking-widest">
-                  Scan to download
-                </p>
-              </div>
-
-              {/* Decorative floating phone element (optional aesthetic) */}
-              <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-secondary/20 rounded-full blur-3xl" />
             </div>
 
           </div>
+
         </div>
+
       </div>
     </section>
   );

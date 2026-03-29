@@ -21,7 +21,7 @@ export const HowItWorksCTA: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button variant="primary" size="lg" className="px-10">
+              <Button variant="secondary" size="lg" className="px-10">
                 Get Started Now
               </Button>
               <Button variant="outline" size="lg" className="px-10 border-white/20 text-white hover:bg-white/10">

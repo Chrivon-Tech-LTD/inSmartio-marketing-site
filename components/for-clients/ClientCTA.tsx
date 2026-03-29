@@ -20,7 +20,7 @@ export const ClientCTA: React.FC = () => {
               Download the HelpMe NG app today and get <span className="text-secondary font-bold">10% off</span> your first Escrow-protected booking.
             </p>
             
-            <AppStoreButtons align='center'/>
+            <AppStoreButtons align='center' size='md'/>
           </div>
         </div>
       </div>

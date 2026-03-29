@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button } from '../ui/Button';
+import { AppStoreButtons } from '../ui/AppStoreButtons';
 
-const DEFAULT_IMAGE = "https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg";
+const DEFAULT_IMAGE = "https://i.pinimg.com/1200x/71/99/57/71995749daeafee5e253d4e39b53c9e9.jpg";
 
 export const ClientHero: React.FC = () => {
   return (
@@ -23,14 +23,7 @@ export const ClientHero: React.FC = () => {
             No more searching endlessly. No more overpaying. Just reliable, verified experts at fair prices. Experience a curated marketplace where quality meets reliability.
           </p>
           
-          <div className="flex flex-wrap gap-4">
-            <Button variant="primary" size="lg" className="px-8">
-              Start Finding Experts
-            </Button>
-            <Button variant="outline" size="lg" className="px-8">
-              How It Works
-            </Button>
-          </div>
+          <AppStoreButtons align='left'/>
         </div>
 
         {/* Right: Asymmetric Image Card */}

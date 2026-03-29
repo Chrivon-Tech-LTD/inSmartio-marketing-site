@@ -1,105 +1,121 @@
-import React from 'react';
-import Image from 'next/image';
-import { 
-  ClipboardEdit, 
-  Users, 
-  MessageSquare, 
-  ShieldCheck, 
-  Star 
-} from 'lucide-react';
+"use client";
 
-const DEFAULT_IMAGE = "https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg";
+import React, { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const clientSteps = [
-  {
-    id: 1,
-    title: "Post",
-    icon: <ClipboardEdit className="w-5 h-5 text-primary" />,
-    desc: "Describe your task or project in detail. Set your budget and timeframe to attract the right experts across Nigeria."
-  },
-  {
-    id: 2,
-    title: "Bids",
-    icon: <Users className="w-5 h-5 text-primary" />,
-    desc: "Review competitive bids from verified professionals. Compare profiles, ratings, and past work history instantly."
-  },
-  {
-    id: 3,
-    title: "Negotiate",
-    icon: <MessageSquare className="w-5 h-5 text-primary" />,
-    desc: "Chat securely within the platform. Finalize terms, milestones, and deliverables before starting the project."
-  },
-  {
-    id: 4,
-    title: "Pay & Complete",
-    icon: <ShieldCheck className="w-5 h-5 text-primary" />,
-    desc: "Release funds only when you are 100% satisfied with the work. Our secure escrow system protects your investment."
-  },
-  {
-    id: 5,
-    title: "Review",
-    icon: <Star className="w-5 h-5 text-primary" />,
-    desc: "Share your experience. Your feedback helps maintain our high standards of service and builds the expert's reputation."
-  }
+  { id: "1", label: "Post Your Job", desc: "Tell us what you need. Add photos, describe the job, set your budget, and choose preferences." },
+  { id: "2", label: "Receive Bids", desc: "Verified experts in your area send you bids. Compare prices, ratings, and verification levels." },
+  { id: "3", label: "Negotiate & Hire", desc: "Message experts to ask questions or negotiate price. Choose the best fit for you." },
+  { id: "4", label: "Pay & Complete", desc: "Pay securely into escrow (funds held until you're satisfied) or pay cash directly." },
+  { id: "5", label: "Review", desc: "Share your experience. Your feedback builds trust in the community." }
 ];
 
 export const ClientTab: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // ══ SCROLL SPY LOGIC ══
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, offsetWidth } = scrollRef.current;
+      const index = Math.round(scrollLeft / offsetWidth);
+      setActiveIndex(index);
+    }
+  };
+
+  const scrollTo = (index: number) => {
+    if (scrollRef.current) {
+      const width = scrollRef.current.offsetWidth;
+      scrollRef.current.scrollTo({
+        left: index * width,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-      
-      {/* Left Column: Steps */}
-      <div className="lg:col-span-5 space-y-12">
-        {clientSteps.map((step) => (
-          <div key={step.id} className="group flex gap-6">
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center shadow-sm group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                {step.icon}
+    <div className="w-full">
+      {/* 1. HORIZONTAL SNAP CONTAINER (No Scrollbar) */}
+      <div 
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-12 px-4 -mx-4 no-scrollbar scroll-smooth"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {clientSteps.map((step, i) => (
+          <div 
+            key={step.id} 
+            className="w-[280px] md:w-[320px] snap-center shrink-0 flex flex-col gap-8"
+          >
+            {/* Step Content */}
+            <div className="px-2">
+              <div className="flex items-center gap-3 mb-4">
+                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-secondary">Step {step.id}</span>
+                 <div className="h-px flex-1 bg-gray-100" />
               </div>
-              {step.id !== 5 && (
-                <div className="w-px h-full bg-gray-100 mt-4" />
-              )}
-            </div>
-            <div className="pb-8">
-              <h3 className="text-xl font-bold text-primary mb-3">
-                {step.id}. {step.title}
-              </h3>
-              <p className="text-gray-500 leading-relaxed text-sm md:text-base">
+              <h3 className="text-xl font-bold text-primary mb-3">{step.label}</h3>
+              <p className="text-xs text-gray-500 leading-relaxed min-h-[48px] line-clamp-3">
                 {step.desc}
               </p>
             </div>
+
+            {/* Plain Mockup (Standardized H/W) */}
+            <motion.div
+              className="relative w-full rounded-[2.8rem] overflow-hidden flex flex-col items-center justify-center border border-gray-100 shadow-sm bg-white"
+              style={{ aspectRatio: "9/19" }}
+              animate={{ 
+                scale: activeIndex === i ? 1 : 0.95,
+                opacity: activeIndex === i ? 1 : 0.5 
+              }}
+              transition={{ duration: 0.4 }}
+            >
+              {/* Device Notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-50 rounded-b-2xl border-x border-b border-gray-100" />
+
+              {/* Central Label */}
+              <div className="flex flex-col items-center gap-5 relative z-10">
+                <div className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg bg-gray-50 text-primary shadow-inner">
+                  {step.id}
+                </div>
+                <div className="text-center px-6">
+                  <p className="font-bold text-primary text-lg mb-1 tracking-tight">{step.label}</p>
+                  <p className="text-[9px] text-gray-300 uppercase tracking-[0.2em] font-bold">App Interface</p>
+                </div>
+              </div>
+
+              {/* Bottom Skeleton Detail */}
+              <div className="absolute bottom-12 left-10 right-10 flex flex-col gap-3">
+                <div className="h-1 w-full bg-gray-50 rounded-full" />
+                <div className="h-1 w-1/2 bg-gray-50 rounded-full" />
+              </div>
+            </motion.div>
           </div>
         ))}
       </div>
 
-      {/* Right Column: Visual Mockup */}
-      <div className="lg:col-span-7 sticky top-32">
-        <div className="relative aspect-4/3 w-full bg-gray-50 rounded-4xl p-4 shadow-inner border border-gray-100">
-          {/* Main App Screenshot Mockup */}
-          <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-            <Image 
-              src={DEFAULT_IMAGE} 
-              alt="HelpMe NG Client Dashboard" 
-              fill 
-              className="object-cover"
-              unoptimized
+      {/* 2. INTERACTIVE DOTS (Synced with Scroll) */}
+      <div className="flex justify-center items-center gap-3 mt-4">
+        {clientSteps.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => scrollTo(i)}
+            className="group py-2 px-1 focus:outline-none"
+          >
+            <motion.div 
+              className="h-1 rounded-full cursor-pointer"
+              animate={{ 
+                width: activeIndex === i ? 40 : 12,
+                backgroundColor: activeIndex === i ? "var(--color-primary)" : "var(--color-border)"
+              }}
+              style={{ 
+                backgroundColor: activeIndex === i ? "#0A0A2E" : "#E5E7EB" 
+              }}
+              transition={{ duration: 0.3, ease: "circOut" }}
             />
-            {/* Dark Overlay to mimic the Dark Mode Dashboard in design */}
-            <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
-          </div>
-
-          {/* Floating Escrow Secured Chip (From Design) */}
-          <div className="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white flex items-center gap-4 max-w-xs animate-float">
-            <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-              <ShieldCheck size={24} />
-            </div>
-            <div>
-              <p className="text-xs font-bold text-primary">Escrow Secured</p>
-              <p className="text-[10px] text-gray-500 leading-tight">Payment held safely until delivery</p>
-            </div>
-          </div>
-        </div>
+          </button>
+        ))}
       </div>
-
     </div>
   );
 };

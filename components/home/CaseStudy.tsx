@@ -1,131 +1,140 @@
-import React from 'react';
+import React from "react";
 import { Button } from "../ui/Button";
-import { Card } from "../ui/Card";
-import Image from "next/image";
 
-// Types for the metrics and tech stack
 interface Metric {
   value: string;
   label: string;
 }
 
-const DEFAULT_IMAGE = "https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg";
-
 const metrics: Metric[] = [
-  { value: "+45%", label: "expert registration month-over-month" },
-  { value: "-67%", label: "dispute rate vs. industry average" },
+  { value: "+45%", label: "expert registration growth" },
+  { value: "-67%", label: "dispute rate reduction" },
   { value: "+89%", label: "repeat client rate" },
 ];
 
-const techStack: string[] = ["Product Strategy", "UI/UX Design", "Mobile App", "Payment Engine"];
+const techStack = [
+  "Product Strategy",
+  "UI/UX Design",
+  "Mobile App",
+  "Payment Engine",
+];
 
 export const CaseStudy: React.FC = () => {
   return (
-    <section className="py-24 bg-surface">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Header Section from 2.4 */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div className="max-w-2xl">
-            <span className="section-label uppercase tracking-widest text-sm font-bold text-primary">
-              Featured Case Study • Marketplace
+    <section className="relative py-28 bg-white overflow-hidden">
+
+      {/* Background Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-200 bg-primary/10 blur-3xl rounded-full opacity-30" />
+
+      <div className="relative max-w-7xl mx-auto px-6">
+
+        {/* HEADER */}
+        <div className="mb-16">
+          <span className="text-xs uppercase tracking-widest font-semibold text-primary bg-primary/10 px-4 py-1 rounded-full">
+            Featured Case Study • Marketplace
+          </span>
+
+          <h2 className="mt-6 text-3xl md:text-5xl font-bold text-gray-900 max-w-2xl">
+            Turning Trust Into{" "}
+            <span className="bg-linear-to-r from-primary to-indigo-500 bg-clip-text text-transparent">
+              Measurable Results
             </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold text-primary leading-tight">
-              Work that turns trust into measurable results
-            </h2>
-          </div>
-          <Button variant="ghost" className="hidden md:flex items-center gap-2">
-            View all projects →
-          </Button>
+          </h2>
         </div>
 
-        {/* Featured Card */}
-        <Card className="p-0 overflow-hidden bg-[#1A1A1A] text-white border-none shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            
-            {/* Image Section */}
-            <div className="relative h-100 lg:h-full min-h-125 bg-[#2A2A2A]">
-              <Image
-                src={DEFAULT_IMAGE}
-                alt="HelpMe NG - Nigeria's Trusted Service Marketplace"
-                fill
-                className="object-cover opacity-80"
-                unoptimized // Useful for external pinterest links
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-[#1A1A1A] via-transparent to-transparent" />
-              
-              {/* Floating Tech Stack Chips from Case Study Card */}
-              <div className="absolute bottom-8 left-8 flex flex-wrap gap-2">
-                {techStack.map((tech) => (
-                  <span 
-                    key={tech} 
-                    className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-white/90 border border-white/10 text-[10px] uppercase font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
+        {/* MAIN PANEL */}
+        <div className="relative bg-white border border-gray-200 rounded-3xl shadow-2xl p-10 lg:p-16 overflow-hidden">
+
+          {/* TECH STACK FLOATING */}
+          <div className="absolute top-6 right-6 flex flex-wrap gap-2">
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-[10px] uppercase tracking-widest"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            {/* LEFT SIDE (STORY) */}
+            <div>
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-10">
+                HelpMe NG – Nigeria’s Trusted Service Marketplace
+              </h3>
+
+              {/* PROBLEM */}
+              <div className="mb-8">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
+                  Problem
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  Nigerians struggle to find trustworthy professionals. Clients
+                  get overcharged, while experts struggle to find consistent
+                  work.
+                </p>
+              </div>
+
+              {/* SOLUTION */}
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                  Solution
+                </p>
+
+                <ul className="space-y-3 text-gray-600 text-sm">
+                  <li className="flex gap-3">
+                    <span className="text-primary">✓</span>
+                    Multi-tier verification system (NIN, BVN, guarantor)
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-primary">✓</span>
+                    Escrow payment protection
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-primary">✓</span>
+                    Dual payment models (subscription & commission)
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-primary">✓</span>
+                    TAS recruitment program
+                  </li>
+                </ul>
               </div>
             </div>
 
-            {/* Content Section */}
-            <div className="p-8 lg:p-16 flex flex-col justify-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
-                HelpMe NG – Nigeria&apos;s Trusted Service Marketplace
-              </h3>
-              
-              <div className="space-y-8 mb-12">
-                {/* Problem Section */}
-                <div>
-                  <p className="text-secondary text-xs font-bold uppercase tracking-widest mb-3">Problem</p>
-                  <p className="text-white/70 text-base leading-relaxed">
-                    Nigerians struggle to find trustworthy professionals. Clients get overcharged, experts struggle to find work.
+            {/* RIGHT SIDE (METRICS HERO) */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+              {metrics.map((metric, i) => (
+                <div
+                  key={i}
+                  className="bg-gray-50 rounded-2xl p-6 text-center border border-gray-200 hover:shadow-lg transition"
+                >
+                  <p className="text-4xl font-extrabold text-primary">
+                    {metric.value}
+                  </p>
+                  <p className="text-xs uppercase tracking-widest text-gray-500 mt-2">
+                    {metric.label}
                   </p>
                 </div>
-                
-                {/* Solution Section */}
-                <div>
-                  <p className="text-secondary text-xs font-bold uppercase tracking-widest mb-3">Solution</p>
-                  <ul className="text-white/70 text-sm space-y-3">
-                    <li className="flex items-start gap-3">
-                      <span className="text-secondary">•</span>
-                      <span>Multi-tier verification system (NIN, BVN, guarantor)</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-secondary">•</span>
-                      <span>Escrow payment protection</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-secondary">•</span>
-                      <span>Dual payment models (subscription & commission)</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-secondary">•</span>
-                      <span>TAS recruitment program</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              ))}
 
-              {/* Success Metrics Section */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-white/10">
-                {metrics.map((metric, idx) => (
-                  <div key={idx}>
-                    <p className="text-3xl font-bold text-white">{metric.value}</p>
-                    <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1">
-                      {metric.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-12">
-                <Button variant="primary" size="lg" className="w-full sm:w-auto">
-                  Read Full Case Study
-                </Button>
-              </div>
             </div>
+
           </div>
-        </Card>
+
+          {/* CTA */}
+          <div className="mt-16 flex justify-center">
+            <Button size="lg">
+              Read Full Case Study
+            </Button>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

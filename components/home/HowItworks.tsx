@@ -1,82 +1,113 @@
-import React from 'react';
-import { ClipboardEdit, Users, MessageSquare, CheckCircle2, LucideIcon } from 'lucide-react';
-import { Button } from '../ui/Button';
+import React from "react";
+import {
+  ClipboardEdit,
+  Users,
+  MessageSquare,
+  CheckCircle2,
+} from "lucide-react";
+import { Button } from "../ui/Button";
 
-interface Step {
-  id: number;
-  icon: React.ReactElement<LucideIcon>;
-  title: string;
-  description: string;
-}
-
-const steps: Step[] = [
+const steps = [
   {
     id: 1,
-    icon: <ClipboardEdit className="w-8 h-8 text-primary" />,
+    icon: ClipboardEdit,
     title: "Post Your Job",
-    description: "Tell us what you need, add photos, set your budget."
+    description: "Tell us what you need, add photos, set your budget.",
   },
   {
     id: 2,
-    icon: <Users className="w-8 h-8 text-primary" />,
+    icon: Users,
     title: "Receive Bids",
-    description: "Verified experts in your area send you quotes."
+    description: "Verified experts in your area send you quotes.",
   },
   {
     id: 3,
-    icon: <MessageSquare className="w-8 h-8 text-primary" />,
+    icon: MessageSquare,
     title: "Choose & Negotiate",
-    description: "Compare bids, message experts, agree on price."
+    description: "Compare bids, message experts, agree on price.",
   },
   {
     id: 4,
-    icon: <CheckCircle2 className="w-8 h-8 text-primary" />,
+    icon: CheckCircle2,
     title: "Get It Done",
-    description: "Expert completes the work. Pay securely and leave a review."
-  }
+    description:
+      "Expert completes the work. Pay securely and leave a review.",
+  },
 ];
 
-export const HowItWorks: React.FC = () => {
+export const HowItWorks = () => {
   return (
-    <section className="py-24 bg-surface">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Headline from 2.3 */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary">
-            Get Help in 4 Simple Steps
+    <section className="relative py-28 bg-white overflow-hidden">
+
+      {/* Background Glow */}
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 w-175 h-175 bg-primary/10 blur-3xl rounded-full opacity-30" />
+
+      <div className="relative max-w-7xl mx-auto px-6">
+
+        {/* HEADER */}
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
+            Get Help in{" "}
+            <span className="bg-linear-to-r from-primary to-indigo-500 bg-clip-text text-transparent">
+              4 Simple Steps
+            </span>
           </h2>
+          <p className="mt-4 text-gray-500 max-w-xl mx-auto">
+            From posting a job to getting it done — fast, simple and secure.
+          </p>
         </div>
 
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
-          {steps.map((step, index) => (
-            <div key={step.id} className="relative flex flex-col items-center text-center">
-              {/* Step Icon Container */}
-              <div className="w-16 h-16 rounded-full bg-surface-variant flex items-center justify-center mb-6 shadow-sm border border-primary/10">
-                {step.icon}
-              </div>
-              
-              <h3 className="text-xl font-bold mb-3 text-primary">
-                {step.id}. {step.title}
-              </h3>
-              <p className="text-text-muted leading-relaxed">
-                {step.description}
-              </p>
+        {/* TIMELINE */}
+        <div className="relative">
 
-              {/* Connecting line for Desktop */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-[60%] w-full h-0.5 bg-gray-100 -z-10" />
-              )}
-            </div>
-          ))}
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
+
+            {steps.map((step, i) => {
+              const Icon = step.icon;
+              const isUp = i % 2 === 0;
+
+              return (
+                <div
+                  key={step.id}
+                  className={`relative flex flex-col items-center text-center ${
+                    isUp ? "md:-translate-y-10" : "md:translate-y-10"
+                  }`}
+                >
+
+                  {/* NODE */}
+                  <div className="relative z-10 w-16 h-16 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center mb-6">
+                    <Icon className="w-7 h-7 text-primary" />
+                  </div>
+
+                  {/* STEP NUMBER BADGE */}
+                  <div className="absolute top-0 right-0 translate-x-3 -translate-y-3 bg-primary text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">
+                    {step.id}
+                  </div>
+
+                  {/* CARD */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300">
+                    <h3 className="font-semibold text-lg text-gray-900 mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      {step.description}
+                    </p>
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        {/* CTA from 2.4 / 2.3 */}
-        <div className="mt-16 text-center">
-          <Button variant="outline" size="lg">
+        {/* CTA */}
+        <div className="mt-20 text-center">
+          <Button size="lg">
             Learn More
           </Button>
         </div>
+
       </div>
     </section>
   );

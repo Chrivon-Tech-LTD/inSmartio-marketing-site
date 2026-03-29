@@ -1,5 +1,4 @@
 import {Navbar} from "@/components/layout/Navbar";
-import {Footer} from "@/components/layout/Footer";
 import {Hero} from "@/components/home/HeroSection";
 import {Values} from "@/components/home/Values";
 import { CaseStudy } from "@/components/home/CaseStudy";
@@ -27,8 +26,7 @@ export default function Home() {
       <TrustedBy/>
       <Pricing/>
       <AddOns/>
-      {/* Other sections like HowItWorks and TAS will go here */}
-      <Footer />
+      
     </main>
   );
 }

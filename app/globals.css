@@ -10,7 +10,7 @@
   --text-primary: #212121;
   --text-secondary: #757575;
 
-  --font-display: 'Tonase', serif;
+ --font-display: var(--font-dm-sans), sans-serif;
   --font-sans: 'Monexa', sans-serif;
 }
 
@@ -107,4 +107,12 @@
     background-color: var(--surface);
     @apply px-4 py-3 rounded-md border border-[#E2E8F0] transition-all focus:ring-2 focus:ring-[#737781] focus:outline-none;
   }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }

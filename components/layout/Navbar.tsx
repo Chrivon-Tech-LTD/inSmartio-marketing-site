@@ -29,7 +29,7 @@ export const Navbar = () => {
     <header
       className="fixed top-0 left-0 right-0 z-50 w-full glass-panel"
       style={{
-        height: "80px",
+        height: "70px",
         borderBottom: "none",
       }}
     >
@@ -42,8 +42,8 @@ export const Navbar = () => {
           <Image
             src="/Logo.png"
             alt="HelpMe NG"
-            width={140}
-            height={40}
+            width={100}
+            height={30}
             className="object-contain w-auto h-auto"
             loading="eager"
           />

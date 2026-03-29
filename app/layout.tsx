@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
+import { DM_Sans } from "next/font/google"; // Import DM Sans from Google
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
 
-import {Navbar} from "@/components/layout/Navbar";
+import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-// ── Setup Tonesa for Headings ──
-const tonesa = localFont({
-  src: [
-    {
-      path: "../public/fonts/Tonase.otf",
-      weight: "700",
-      style: "normal",
-    },
 
-  ],
-  variable: "--font-tonesa",
+// ── Setup DM Sans for Headings (Replaces Tonase) ──
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-dm-sans", // This variable will be used in your globals.css
 });
 
 // ── Setup Monexa for Body ──
@@ -33,7 +29,7 @@ const monexa = localFont({
     },
     {
       path: "../public/fonts/TBJMonexa-SemiBold.otf",
-      weight: "500",
+      weight: "600",
       style: "normal",
     },
   ],
@@ -41,7 +37,7 @@ const monexa = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Chrivon | The Editorial Marketplace",
+  title: "HelpMe NG | The Editorial Marketplace",
   description: "A high-end marketplace for Nigerian professionals.",
 };
 
@@ -54,16 +50,17 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${tonesa.variable} ${monexa.variable} h-full antialiased`}
+      /* Combined both font variables here */
+      className={`${dmSans.variable} ${monexa.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider defaultTheme="light">
           <div className="flex flex-col min-h-screen">
-            <Navbar/>
-            <main className="grow ">
+            <Navbar />
+            <main className="grow">
               {children}
             </main>
-            <Footer/>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

@@ -16,6 +16,7 @@ import {
   IoSend
 } from "react-icons/io5";
 import { Button } from "../ui/Button";
+import { AppStoreButtons } from '../ui/AppStoreButtons';
 
 interface FooterLink {
   label: string;
@@ -102,13 +103,13 @@ export const Footer: React.FC = () => {
               <Image
                 src="/Logo.png"
                 alt="HelpMe NG"
-                width={140}
-                height={40}
+                width={100}
+                height={30}
                 className="object-contain w-auto h-auto"
                 loading="eager"
               />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm mt-8">
               Trusted Services. Verified Professionals. Nigeria&apos;s most trusted service marketplace connecting you with verified experts for every need.
             </p>
           </div>
@@ -199,12 +200,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-[10px] uppercase font-bold text-white/60">
-              App Store
-            </div>
-            <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-[10px] uppercase font-bold text-white/60">
-              Google Play
-            </div>
+            <AppStoreButtons align='center' size='sm' />
           </div>
         </div>
       </div>
