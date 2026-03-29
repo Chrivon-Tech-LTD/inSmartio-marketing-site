@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const clientSteps = [
@@ -46,7 +46,7 @@ export const ClientTab: React.FC = () => {
         {clientSteps.map((step, i) => (
           <div 
             key={step.id} 
-            className="w-[280px] md:w-[320px] snap-center shrink-0 flex flex-col gap-8"
+            className="w-70 md:w-[320px] snap-center shrink-0 flex flex-col gap-8"
           >
             {/* Step Content */}
             <div className="px-2">
@@ -55,7 +55,7 @@ export const ClientTab: React.FC = () => {
                  <div className="h-px flex-1 bg-gray-100" />
               </div>
               <h3 className="text-xl font-bold text-primary mb-3">{step.label}</h3>
-              <p className="text-xs text-gray-500 leading-relaxed min-h-[48px] line-clamp-3">
+              <p className="text-xs text-gray-500 leading-relaxed min-h-12 line-clamp-3">
                 {step.desc}
               </p>
             </div>
