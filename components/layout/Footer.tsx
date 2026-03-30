@@ -72,7 +72,7 @@ const footerLinks: Record<string, FooterSection> = {
     title: "Resources",
     links: [
       { label: "Blog", href: "/blog" },
-      { label: "Case Studies", href: "/case-study/helpme-ng" },
+      { label: "Case Studies", href: "/case-study" },
       { label: "FAQs", href: "/faqs" },
       { label: "Help Center", href: "/help" },
     ],
