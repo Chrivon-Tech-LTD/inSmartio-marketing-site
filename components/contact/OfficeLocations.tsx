@@ -39,8 +39,8 @@ export function OfficeLocations() {
       ))}
       
       {/* Visual Map Placeholder Card (As seen in your design) */}
-      <div className="editorial-card p-0! overflow-hidden relative min-h-[200px] bg-slate-200">
-         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent z-10" />
+      <div className="editorial-card p-0! overflow-hidden relative min-h-50 bg-slate-200">
+         <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-transparent z-10" />
          <div className="absolute inset-0 flex items-center justify-center z-20">
             <span className="glass-panel px-4 py-2 rounded-full text-xs font-bold shadow-ambient">
               Live Satellite View: Active
