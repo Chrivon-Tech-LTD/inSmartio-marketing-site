@@ -8,6 +8,12 @@ import { TASSteps } from '@/components/for-tas/TASSteps';
 import { TASTestimonials } from '@/components/for-tas/TASTestimonials';
 import { TASFinalCTA } from '@/components/for-tas/TASFinalCTA';
 import { Footer } from '@/components/layout/Footer';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "HelpMe NG TAS Program – Earn by Recruiting Experts",
+  description: "Refer skilled professionals and earn ₦7,000 per expert plus ongoing commissions. Join the TAS program today.",
+};
 
 export default function ForTASPage() {
   return (

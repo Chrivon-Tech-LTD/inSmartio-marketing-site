@@ -5,7 +5,12 @@ import { VerificationFramework } from '@/components/for-experts/VerificationFram
 import { ExpertPaymentModels } from '@/components/for-experts/ExpertPaymentModels';
 import { EarningsCalculator } from '@/components/for-experts/EarningsCalculator';
 import { TASOpportunity } from '@/components/for-experts/TASOpportunity';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: "HelpMe NG for Experts – Grow Your Business",
+  description: "Become a verified expert. Get more clients, get paid on time, and build your reputation. Join thousands of professionals.",
+};
 
 export default function ForExpertsPage() {
   return (

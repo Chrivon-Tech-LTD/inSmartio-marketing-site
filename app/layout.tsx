@@ -37,8 +37,8 @@ const monexa = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "HelpMe NG | The Editorial Marketplace",
-  description: "A high-end marketplace for Nigerian professionals.",
+  title: "HelpMe NG – Trusted Services, Verified Professionals",
+  description: "Find trusted professionals in Nigeria. Post jobs, compare bids, and pay securely. Plumbers, electricians, tutors, cleaners, and more.",
 };
 
 export default function RootLayout({

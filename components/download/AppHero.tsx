@@ -1,4 +1,4 @@
-// src/components/download/AppHero.tsx
+
 import React from "react";
 import Image from "next/image";
 import { QrCode } from "lucide-react";

@@ -7,8 +7,8 @@ import { Metrics } from "@/components/case-study/Metrics";
 import { Testimonial } from "@/components/case-study/Testimonial";
 
 export const metadata = {
-  title: "HelpMe NG Case Study | Chrivon Tech Solutions",
-  description: "Exploring the infrastructure of trust in the Nigerian service economy.",
+  title: "HelpMe NG Case Study – Nigeria's Trusted Service Marketplace",
+  description: "How we built a multi-tier verification system, dual payment models, and a TAS recruitment program to solve Nigeria's service industry trust deficit.",
 };
 
 export default function CaseStudyPage() {

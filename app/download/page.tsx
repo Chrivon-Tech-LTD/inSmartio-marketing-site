@@ -6,8 +6,8 @@ import { AppTestimonials } from "@/components/download/AppTestimonials";
 import { Button } from "@/components/ui/Button";
 
 export const metadata = {
-  title: "Download HelpMe NG | Get Help in Minutes",
-  description: "The most powerful way to get help in Nigeria is already in your pocket.",
+  title: "Download HelpMe NG App – iOS and Android",
+  description: "Download the HelpMe NG app to find trusted professionals. Available on App Store and Google Play. Get help in minutes.",
 };
 
 export default function DownloadPage() {
