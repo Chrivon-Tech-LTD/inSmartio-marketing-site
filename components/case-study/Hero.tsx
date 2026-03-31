@@ -13,18 +13,9 @@ export function Hero() {
           </h1>
           <p className="text-text-muted text-lg max-w-lg mb-8">
             Nigeria&apos;s Trusted Service Marketplace. A strategic exploration into building trust, 
-            efficiency, and professional accountability in a fragmented digital economy.
+            efficiency, and professional accountability in a fragmented digital economy. How we built a multi-tier verification system, dual payment models, and a TAS recruitment program to solve Nigeria&#39;s service industry trust deficit.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <div className="editorial-card py-4 px-6 border border-slate-200!">
-              <p className="section-label text-[10px] mb-1">Duration</p>
-              <p className="font-bold text-text-main">6 Months Build</p>
-            </div>
-            <div className="editorial-card py-4 px-6 border border-slate-200!">
-              <p className="section-label text-[10px] mb-1">Role</p>
-              <p className="font-bold text-text-main">Strategic Design</p>
-            </div>
-          </div>
+         
         </div>
 
         <div className="relative group">

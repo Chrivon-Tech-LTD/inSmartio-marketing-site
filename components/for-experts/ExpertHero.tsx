@@ -18,16 +18,14 @@ export const ExpertHero: React.FC = () => {
             with <span className="text-secondary">HelpMe NG.</span>
           </h1>
           <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-lg mb-10">
-            Join Nigeria&apos;s most trusted ecosystem of skilled professionals. We provide the infrastructure; you provide the excellence.
+            Join Nigeria&apos;s most trusted ecosystem of skilled professionals. Get more clients, get paid on time, and build your reputation as a verified professional.
           </p>
           
           <div className="flex flex-wrap gap-4">
             <Button variant="primary" size="lg" className="px-10">
-              Get Started Now
+              Become an Expert
             </Button>
-            <Button variant="ghost" size="lg" className="text-gray-400">
-              View Success Stories
-            </Button>
+            
           </div>
         </div>
 

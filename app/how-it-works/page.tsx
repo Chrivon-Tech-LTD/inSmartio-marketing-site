@@ -2,7 +2,6 @@ import React from 'react';
 import type { Metadata } from "next";
 import { HowItWorksHero } from '@/components/how-it-works/HowItWorksHero';
 import { HowItWorksTabs } from '@/components/how-it-works/HowItWorksTabs';
-import { HowItWorksCTA } from '@/components/how-it-works/HowItWorkCTA';
 
 export const metadata: Metadata = {
   title: "How HelpMe NG Works – Step by Step Guide",
@@ -20,7 +19,7 @@ export default function HowItWorksPage() {
         <HowItWorksTabs />
       </div>
 
-      <HowItWorksCTA />
+      
       
       
     </main>

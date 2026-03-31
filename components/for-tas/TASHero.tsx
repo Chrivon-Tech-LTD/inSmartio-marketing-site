@@ -20,16 +20,14 @@ export const TASHero: React.FC = () => {
             <span className="text-secondary">Join the TAS Program.</span>
           </h1>
           <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-lg mb-10">
-            Become a Talent Acquisition Specialist and build a high-income stream by connecting Nigeria&apos;s top professionals with the HelpMe ecosystem.
+            Know skilled professionals? Refer them to HelpMe NG and earn ₦7,000 per expert, plus ongoing commissions. Build a team and scale your earnings
           </p>
           
           <div className="flex flex-wrap gap-4">
             <Button variant="primary" size="lg" className="px-10">
-              Apply as TAS Agent
+              Apply for TAS Program
             </Button>
-            <Button variant="ghost" size="lg" className="text-gray-400">
-              View Commission Structure
-            </Button>
+            
           </div>
         </div>
 

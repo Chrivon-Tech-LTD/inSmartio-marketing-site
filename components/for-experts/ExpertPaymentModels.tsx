@@ -10,7 +10,7 @@ const models = [
     bids: "10 per month",
     maxJob: "₦50,000",
     cash: true,
-    bestFor: "Established Pros",
+   
     recommended: true
   },
   {
@@ -20,7 +20,7 @@ const models = [
     bids: "Unlimited",
     maxJob: "Based on Tier",
     cash: false,
-    bestFor: "Starters"
+    
   }
 ];
 
@@ -36,7 +36,7 @@ export const ExpertPaymentModels: React.FC = () => {
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <h3 className="text-xl font-bold text-primary">{m.type}</h3>
-                  <p className="text-xs text-secondary font-bold uppercase tracking-wider mt-1">Best for: {m.bestFor}</p>
+                  
                 </div>
                 <div className="text-right">
                   <p className="text-2xl font-bold text-primary">{m.fee}</p>

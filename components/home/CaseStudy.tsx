@@ -35,7 +35,7 @@ export const CaseStudy: React.FC = () => {
           </span>
 
           <h2 className="mt-6 text-3xl md:text-5xl font-bold text-gray-900 max-w-2xl">
-            Turning Trust Into{" "}
+            Work That Trust Into{" "}
             <span className="bg-linear-to-r from-primary to-indigo-500 bg-clip-text text-transparent">
               Measurable Results
             </span>

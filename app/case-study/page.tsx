@@ -1,10 +1,7 @@
 // src/app/case-study/page.tsx
 import React from "react";
 import { Hero } from "@/components/case-study/Hero";
-import { Challenge } from "@/components/case-study/Challenge";
-import { Solutions } from "@/components/case-study/Solutions";
-import { Metrics } from "@/components/case-study/Metrics";
-import { Testimonial } from "@/components/case-study/Testimonial";
+import { CaseStudyOverview } from "@/components/case-study/Overview";
 
 export const metadata = {
   title: "HelpMe NG Case Study – Nigeria's Trusted Service Marketplace",
@@ -18,25 +15,11 @@ export default function CaseStudyPage() {
       */}
       
       <Hero />
+      <CaseStudyOverview />
       
-      <div className="space-y-0"> {/* Precise section spacing */}
-        <Challenge />
-        <Solutions />
-        <Metrics />
-        <Testimonial />
-      </div>
+      
 
-      {/* Quick Case Study Footer Signature */}
-      <footer className="py-12 bg-surface border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-text-muted text-sm font-medium">
-            © 2026 HelpMe NG Case Study.
-          </p>
-          <p className="section-label text-text-muted! opacity-50">
-            Built with React, Next.js & Tailwind CSS
-          </p>
-        </div>
-      </footer>
+      
     </main>
   );
 }
