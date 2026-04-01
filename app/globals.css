@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light Mode Colors */
+  --primary: #1A4B8C;
+  --secondary: #F9A826;
+  --success: #2E7D32;
+  --tas: #6B4EFF;
+  --background: #F5F5F5;
+  --surface: #FFFFFF;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --border: rgba(0, 0, 0, 0.1);
+  --glass: rgba(255, 255, 255, 0.8);
+
+  --font-display: var(--font-dm-sans), sans-serif;
+  --font-sans: var(--font-monexa), sans-serif;
+}
+
+/* ── DARK MODE DEFINITIONS ── */
+[data-theme='dark'] {
+  --primary: #1A4B8C;      /* Slightly lighter blue for better contrast on dark */
+  --secondary: #F9A826;
+  --background: #0F172A; 
+  --surface: #1E293B;
+  --text-primary: #F8FAF8;
+  --text-secondary: #94A3B8;
+  --border: rgba(255, 255, 255, 0.1);
+  --glass: rgba(15, 23, 42, 0.8); /* Dark glass */
 }
 
 @theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-success: var(--success);
+  --color-tas: var(--tas);
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-text-main: var(--text-primary);
+  --color-text-muted: var(--text-secondary);
+  --color-border: var(--border);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  
+  --shadow-ambient: 0 40px 40px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth switch */
+    @apply antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--text-primary);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .glass-panel {
+    background-color: var(--glass);
+    backdrop-filter: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Fixed buttons to use theme variables */
+  .btn-primary {
+    background-color: var(--primary);
+    @apply text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:brightness-110 shadow-md;
+  }
+
+  .btn-secondary {
+    background-color: var(--secondary);
+    @apply text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:brightness-110;
+  }
 }
