@@ -7,7 +7,7 @@ interface Testimonial {
   role: string;
   text: string;
   name: string;
-  location: string; // Used for location or professional title per document
+  location: string;
   rating: number;
   image: string;
   subtext?: string;
@@ -45,30 +45,30 @@ const testimonials: Testimonial[] = [
 
 export const Testimonials: React.FC = () => {
   return (
-    <section className="py-24 bg-surface-low">
+    <section className="py-24 bg-background transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="section-label uppercase tracking-widest text-sm font-bold text-primary">
+          <span className="text-xs uppercase tracking-widest font-bold text-secondary bg-secondary/10 px-4 py-1 rounded-full">
             Testimonials
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-primary">
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-text-main font-display">
             Trusted by Thousands of Nigerians
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
-            <Card key={i} className="flex flex-col h-full bg-white border-none shadow-xl p-8 rounded-2xl">
-              <div className="text-primary/20 mb-6">
+            <Card key={i} className="flex flex-col h-full bg-surface border border-text-muted/10 shadow-ambient p-8 rounded-2xl transition-all duration-300">
+              <div className="text-secondary/40 mb-6">
                 <FaQuoteLeft size={32} />
               </div>
               
-              <p className="text-gray-600 text-sm leading-relaxed mb-8 flex-1 italic">
+              <p className="text-text-muted text-sm leading-relaxed mb-8 flex-1 italic font-sans">
                 &quot;{t.text}&quot;
               </p>
 
-              <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden">
+              <div className="flex items-center gap-4 pt-6 border-t border-text-muted/10">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
                   <Image 
                     src={t.image} 
                     alt={t.name} 
@@ -78,21 +78,21 @@ export const Testimonials: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-gray-900">{t.name}</h4>
+                  <h4 className="text-sm font-bold text-text-main">{t.name}</h4>
                   <div className="flex flex-col">
                     <p className="text-[10px] uppercase tracking-wider text-primary font-bold">
                       {t.location}
                     </p>
                     {t.subtext && (
-                      <p className="text-[9px] text-gray-500 font-medium">{t.subtext}</p>
+                      <p className="text-[9px] text-text-muted font-medium mt-0.5">{t.subtext}</p>
                     )}
                   </div>
-                  <div className="flex gap-0.5 mt-1">
+                  <div className="flex gap-0.5 mt-1.5">
                     {[...Array(5)].map((_, starIdx) => (
                       <FaStar 
                         key={starIdx} 
                         size={10} 
-                        className={starIdx < Math.floor(t.rating) ? "text-yellow-500" : "text-gray-200"} 
+                        className={starIdx < Math.floor(t.rating) ? "text-secondary" : "text-text-muted/20"} 
                       />
                     ))}
                   </div>

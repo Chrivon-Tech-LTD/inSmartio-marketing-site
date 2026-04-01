@@ -29,10 +29,10 @@ export const Hero = () => {
           </p>
 
           <div className="mb-10">
-            <p className="text-sm font-medium mb-2 text-gray-900">
+            <p className="text-sm font-medium mb-2 text-gray-900 dark:text-gray-300">
               Find a plumber, electrician, tutor, cleaner, or any professional you need.
             </p>
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-sm text-text-muted leading-relaxed">
               All experts are verified through our multi-tier trust system. Get multiple bids, negotiate prices, and pay securely.
             </p>
           </div>

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  /* Light Mode Colors */
   --primary: #1A4B8C;
   --secondary: #F9A826;
   --success: #2E7D32;
@@ -9,9 +10,23 @@
   --surface: #FFFFFF;
   --text-primary: #212121;
   --text-secondary: #757575;
+  --border: rgba(0, 0, 0, 0.1);
+  --glass: rgba(255, 255, 255, 0.8);
 
- --font-display: var(--font-dm-sans), sans-serif;
-  --font-sans: 'Monexa', sans-serif;
+  --font-display: var(--font-dm-sans), sans-serif;
+  --font-sans: var(--font-monexa), sans-serif;
+}
+
+/* ── DARK MODE DEFINITIONS ── */
+[data-theme='dark'] {
+  --primary: #1A4B8C;      /* Slightly lighter blue for better contrast on dark */
+  --secondary: #F9A826;
+  --background: #0F172A; 
+  --surface: #1E293B;
+  --text-primary: #F8FAF8;
+  --text-secondary: #94A3B8;
+  --border: rgba(255, 255, 255, 0.1);
+  --glass: rgba(15, 23, 42, 0.8); /* Dark glass */
 }
 
 @theme inline {
@@ -23,11 +38,12 @@
   --color-surface: var(--surface);
   --color-text-main: var(--text-primary);
   --color-text-muted: var(--text-secondary);
+  --color-border: var(--border);
 
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
-
-  --shadow-ambient: 0 40px 40px rgba(33, 33, 33, 0.06);
+  
+  --shadow-ambient: 0 40px 40px rgba(0, 0, 0, 0.2);
 }
 
 @layer base {
@@ -41,78 +57,31 @@
     background-color: var(--background);
     color: var(--text-primary);
     font-family: var(--font-sans);
-    overflow-x: hidden;
-    max-width: 100vw;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth switch */
     @apply antialiased;
   }
 
-  h1 {
+  h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-size: clamp(56px, 8vw, 64px);
-    @apply font-bold leading-[110%] tracking-[-0.01em];
-  }
-
-  h2 {
-    font-family: var(--font-display);
-    font-size: clamp(40px, 6vw, 44px);
-    @apply font-semibold leading-[120%] tracking-[-0.005em];
-  }
-
-  h3 {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 32px);
-    @apply font-semibold leading-[130%];
-  }
-
-  h4 {
-    font-family: var(--font-display);
-    font-size: clamp(22px, 3vw, 24px);
-    @apply font-medium leading-[130%];
-  }
-
-  p {
-    @apply text-[16px] leading-[160%] font-normal;
+    color: var(--text-primary);
   }
 }
 
 @layer components {
+  .glass-panel {
+    background-color: var(--glass);
+    backdrop-filter: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Fixed buttons to use theme variables */
   .btn-primary {
-    background: linear-gradient(135deg, var(--primary), #2a5ba1);
-    @apply text-white px-8 py-4 rounded-xl font-semibold text-[16px] tracking-[0.5px] transition-all duration-300 hover:brightness-105 shadow-md;
+    background-color: var(--primary);
+    @apply text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:brightness-110 shadow-md;
   }
 
   .btn-secondary {
-    background-color: var(--surface);
-    color: var(--primary);
-    @apply px-8 py-4 rounded-xl font-semibold text-[16px] transition-all duration-300 hover:bg-[#eeeeee];
+    background-color: var(--secondary);
+    @apply text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:brightness-110;
   }
-
-  .editorial-card {
-    background-color: var(--surface);
-    box-shadow: var(--ambient-glow);
-    @apply rounded-2xl p-8 border-none;
-  }
-
-  .glass-panel {
-    background-color: rgba(255, 255, 255, 0.8);
-    @apply backdrop-blur-[20px];
-  }
-
-  .section-label {
-    color: var(--secondary);
-    @apply text-[12px] font-semibold uppercase tracking-[0.2em];
-  }
-
-  .input-field {
-    background-color: var(--surface);
-    @apply px-4 py-3 rounded-md border border-[#E2E8F0] transition-all focus:ring-2 focus:ring-[#737781] focus:outline-none;
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-.animate-float {
-  animation: float 4s ease-in-out infinite;
 }

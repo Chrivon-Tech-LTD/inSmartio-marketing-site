@@ -10,7 +10,7 @@ interface PricingTier {
   price: string;
   features: string[];
   isPopular?: boolean;
-  category?: string; // Added to label the cards internally
+  category?: string;
 }
 
 const clientPlan: PricingTier = {
@@ -45,23 +45,22 @@ const tasPlans: PricingTier[] = [
 
 export const Pricing: React.FC = () => {
   return (
-    <section className="py-24 bg-surface">
+    <section className="py-24 bg-background transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 tracking-tight font-display">
             Choose Your Perfect Plan
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="text-text-muted max-w-2xl mx-auto">
             Flexible options for clients, experts, and businesses. Start with what you need and scale as you grow.
           </p>
         </div>
 
-        {/* ══ CLIENT & EXPERT ROW (3 COLS) ══ */}
+        {/* ══ CLIENT & EXPERT ROW ══ */}
         <div className="mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-            {/* Client Card */}
             <div className="flex flex-col">
               <h3 className="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-6 text-center lg:text-left">
                 Free Always
@@ -69,11 +68,10 @@ export const Pricing: React.FC = () => {
               <PricingCard tier={clientPlan} />
             </div>
 
-            {/* Expert Cards */}
             {expertPlans.map((tier, index) => (
               <div key={tier.plan} className="flex flex-col">
                 <h3 className="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-6 text-center lg:text-left">
-                  {index === 0 ? "For Experts" : "\u00A0"} {/* Keeps alignment even if label is empty */}
+                  {index === 0 ? "For Experts" : "\u00A0"}
                 </h3>
                 <PricingCard tier={tier} />
               </div>
@@ -81,9 +79,9 @@ export const Pricing: React.FC = () => {
           </div>
         </div>
 
-        {/* ══ TAS SECTION (4 COLS) ══ */}
-        <div className="pt-16 border-t border-gray-100">
-          <h3 className="text-xl font-bold mb-10 text-center text-primary">
+        {/* ══ TAS SECTION ══ */}
+        <div className="pt-16 border-t border-text-muted/10">
+          <h3 className="text-xl font-bold mb-10 text-center text-primary font-display">
             TAS Growth Tiers
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -98,33 +96,51 @@ export const Pricing: React.FC = () => {
   );
 };
 
-const PricingCard: React.FC<{ tier: PricingTier }> = ({ tier }) => (
-  <Card className={`p-8 flex flex-col h-full border-2 transition-all duration-500 hover:shadow-xl ${tier.isPopular ? 'border-secondary shadow-2xl relative bg-white' : 'border-gray-100 bg-white/50'}`}>
-    {tier.isPopular && (
-      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-white px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-widest">
-        Recommended
-      </span>
-    )}
-    
-    <div className="mb-8">
-      <h4 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-1">{tier.plan}</h4>
-      <div className="text-4xl font-bold text-primary">{tier.price}</div>
-    </div>
+const PricingCard: React.FC<{ tier: PricingTier }> = ({ tier }) => {
+  const isPopular = tier.isPopular;
 
-    <ul className="space-y-4 mb-10 flex-1">
-      {tier.features.map((feature) => (
-        <li key={feature} className="flex gap-3 text-sm text-gray-500 items-start">
-          <Check size={16} className="text-secondary shrink-0 mt-0.5" />
-          <span className="leading-tight">{feature}</span>
-        </li>
-      ))}
-    </ul>
+  return (
+    <Card className={`
+      p-8 flex flex-col h-full border-2 transition-all duration-500 hover:shadow-ambient relative
+      ${isPopular 
+        ? 'border-primary bg-primary shadow-2xl scale-105 z-10' 
+        : 'border-text-muted/10 bg-surface shadow-sm'}
+    `}>
+      {isPopular && (
+        <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">
+          Recommended
+        </span>
+      )}
+      
+      <div className="mb-8">
+        <h4 className={`text-xs font-bold uppercase tracking-widest mb-2 ${isPopular ? 'text-white/60' : 'text-text-muted'}`}>
+          {tier.plan}
+        </h4>
+        <div className={`text-4xl font-black font-display ${isPopular ? 'text-white' : 'text-primary'}`}>
+          {tier.price}
+        </div>
+      </div>
 
-    <Button 
-      variant={tier.isPopular ? "primary" : "outline"} 
-      className="w-full py-6 font-bold"
-    >
-      Get Started
-    </Button>
-  </Card>
-);
+      <ul className="space-y-4 mb-10 flex-1">
+        {tier.features.map((feature) => (
+          <li key={feature} className="flex gap-3 text-sm items-start">
+            <Check 
+              size={18} 
+              className={`shrink-0 mt-0.5 ${isPopular ? 'text-secondary' : 'text-primary'}`} 
+            />
+            <span className={`leading-tight font-medium ${isPopular ? 'text-white/90' : 'text-text-muted'}`}>
+              {feature}
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <Button 
+        variant={isPopular ? "secondary" : "primary"} 
+        className={`w-full py-6 font-bold uppercase tracking-widest text-[11px] ${isPopular ? 'hover:brightness-110 shadow-xl' : ''}`}
+      >
+        Get Started
+      </Button>
+    </Card>
+  );
+};

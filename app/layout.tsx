@@ -7,11 +7,10 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-// ── Setup DM Sans for Headings (Replaces Tonase) ──
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  display: "swap",
-  variable: "--font-dm-sans", // This variable will be used in your globals.css
+  weight: ["400", "500", "700"],
+  variable: "--font-dm-sans",
 });
 
 // ── Setup Monexa for Body ──
@@ -50,8 +49,9 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
       /* Combined both font variables here */
-      className={`${dmSans.variable} ${monexa.variable} h-full antialiased`}
+      className={` ${monexa.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider defaultTheme="light">

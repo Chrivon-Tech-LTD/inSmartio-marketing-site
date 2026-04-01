@@ -1,4 +1,4 @@
-import {Navbar} from "@/components/layout/Navbar";
+
 import {Hero} from "@/components/home/HeroSection";
 import {Values} from "@/components/home/Values";
 import { CaseStudy } from "@/components/home/CaseStudy";
@@ -14,12 +14,11 @@ import { AddOns } from "@/components/home/Addons";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Navbar />
+      
       <Hero />
       <Values />
       <HowItWorks/>
       <CaseStudy/>
-      
       <Testimonials/>
       <TASSection/>
       <AppDownload/>
