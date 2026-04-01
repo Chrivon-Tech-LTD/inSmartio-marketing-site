@@ -10,7 +10,6 @@ const models = [
     bids: "10 per month",
     maxJob: "₦50,000",
     cash: true,
-   
     recommended: true
   },
   {
@@ -20,51 +19,82 @@ const models = [
     bids: "Unlimited",
     maxJob: "Based on Tier",
     cash: false,
-    
+    recommended: false
   }
 ];
 
 export const ExpertPaymentModels: React.FC = () => {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-primary mb-12">Flexible Payment Models</h2>
+    <section className="py-20 md:py-24 bg-white dark:bg-background transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* HEADER */}
+        <div className="mb-12 md:mb-16 border-l-4 border-primary pl-6 md:pl-8">
+          <span className="text-secondary text-[10px] font-black uppercase tracking-[0.3em] mb-2 block">
+            Earning Flexibility
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black text-primary font-display">
+            Flexible Payment Models
+          </h2>
+          <p className="text-text-muted mt-4 max-w-xl font-medium text-sm md:text-base">
+            Choose the model that fits your business stage. Switch anytime as you grow.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {models.map((m, i) => (
-            <Card key={i} className={`p-8 border-2 transition-all ${m.recommended ? 'border-secondary shadow-lg' : 'border-gray-100'}`}>
-              <div className="flex justify-between items-start mb-6">
-                <div>
-                  <h3 className="text-xl font-bold text-primary">{m.type}</h3>
+            <Card 
+              key={i} 
+              className={`p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border-2 transition-all duration-500 bg-surface flex flex-col justify-between group
+                ${m.recommended 
+                  ? 'border-secondary shadow-ambient lg:scale-105 z-10' 
+                  : 'border-text-muted/10 shadow-sm hover:border-primary/30'
+                }`}
+            >
+              <div>
+                {/* Responsive Header: Stacks on mobile, splits on desktop */}
+                <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-8 md:mb-10">
+                  <div className="w-full sm:max-w-[200px]">
+                    {m.recommended && (
+                      <span className="bg-secondary text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full mb-3 inline-block">
+                        Most Popular
+                      </span>
+                    )}
+                    <h3 className="text-xl md:text-2xl font-black text-primary font-display leading-tight">
+                      {m.type}
+                    </h3>
+                  </div>
                   
+                  <div className="text-left sm:text-right w-full sm:w-auto border-t sm:border-t-0 border-text-muted/5 pt-4 sm:pt-0">
+                    <p className="text-2xl md:text-3xl font-black text-text-main font-display">{m.fee}</p>
+                    <p className="text-[10px] text-text-muted font-black uppercase tracking-widest mt-1">Platform Fee</p>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-2xl font-bold text-primary">{m.fee}</p>
-                  <p className="text-[10px] text-gray-400 uppercase">Platform Fee</p>
+
+                {/* Data Rows */}
+                <div className="space-y-5 md:space-y-6 mb-8">
+                  <PriceRow label="Job Commission" value={m.commission} />
+                  <PriceRow label="Bids per Month" value={m.bids} />
+                  <PriceRow label="Max Job Value" value={m.maxJob} />
+                  
+                  <div className="flex justify-between items-center text-xs md:text-base pt-2">
+                    <span className="text-text-muted font-medium">Cash Payments</span>
+                    {m.cash ? (
+                      <span className="flex items-center gap-1.5 text-success font-black bg-success/5 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-xs">
+                        <CheckCircle2 size={14} className="md:w-4 md:h-4" /> Allowed
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1.5 text-text-muted font-black bg-text-muted/5 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-xs opacity-60">
+                        <XCircle size={14} className="md:w-4 md:h-4" /> Digital Only
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-4 mb-8">
-                <div className="flex justify-between text-sm border-b border-gray-50 pb-2">
-                  <span className="text-gray-500">Commission</span>
-                  <span className="font-bold text-primary">{m.commission}</span>
-                </div>
-                <div className="flex justify-between text-sm border-b border-gray-50 pb-2">
-                  <span className="text-gray-500">Bids/Month</span>
-                  <span className="font-bold text-primary">{m.bids}</span>
-                </div>
-                <div className="flex justify-between text-sm border-b border-gray-50 pb-2">
-                  <span className="text-gray-500">Max Job Value</span>
-                  <span className="font-bold text-primary">{m.maxJob}</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-500">Cash Payments</span>
-                  {m.cash ? 
-                    <span className="flex items-center gap-1 text-green-600 font-bold"><CheckCircle2 size={14}/> Allowed</span> : 
-                    <span className="flex items-center gap-1 text-red-400 font-bold"><XCircle size={14}/> Digital Only</span>
-                  }
-                </div>
-              </div>
+              <p className="text-[10px] md:text-[11px] text-text-muted font-medium italic mt-4 opacity-60">
+                * {m.recommended ? "Perfect for established full-time pros." : "Ideal for starting out with zero risk."}
+              </p>
             </Card>
           ))}
         </div>
@@ -72,3 +102,10 @@ export const ExpertPaymentModels: React.FC = () => {
     </section>
   );
 };
+
+const PriceRow = ({ label, value }: { label: string, value: string }) => (
+  <div className="flex justify-between items-center text-xs md:text-base border-b border-text-muted/5 pb-4">
+    <span className="text-text-muted font-medium">{label}</span>
+    <span className="font-black text-text-main">{value}</span>
+  </div>
+);

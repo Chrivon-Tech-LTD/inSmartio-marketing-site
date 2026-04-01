@@ -33,79 +33,80 @@ const tiers = [
 
 export const VerificationFramework: React.FC = () => {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white dark:bg-background transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
+        
+        {/* HEADER */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Verification Tiers</h2>
+          <span className="text-secondary text-[10px] font-black uppercase tracking-[0.3em] mb-3 block">
+            The Trust Protocol
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black text-primary font-display">
+            Verification Tiers
+          </h2>
         </div>
 
-        <div className="overflow-x-auto rounded-4xl border border-gray-100 shadow-sm">
-          <table className="w-full text-left bg-white border-collapse">
+        {/* TABLE CONTAINER */}
+        <div className="overflow-x-auto rounded-[2.5rem] border border-text-muted/10 shadow-ambient bg-surface transition-colors duration-300">
+          <table className="w-full text-left border-collapse min-w-[800px]">
             <thead>
-              <tr className="bg-surface-lowest">
-                <th className="p-8 text-xs font-bold uppercase tracking-widest text-gray-400 border-b border-gray-100">Tier</th>
+              <tr className="bg-primary/5">
+                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-text-muted border-b border-text-muted/10">
+                  Feature Matrix
+                </th>
                 {tiers.map((t) => (
-                  <th key={t.name} className="p-8 border-b border-gray-100 text-xl font-bold text-primary">
-                    {t.name}
+                  <th key={t.name} className="p-8 border-b border-text-muted/10">
+                    <div className="flex flex-col gap-1">
+                      <span className="text-xl font-black text-primary font-display">{t.name}</span>
+                      <span className="text-[9px] font-bold text-text-muted uppercase tracking-wider">Expert Level</span>
+                    </div>
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="text-sm">
-              <tr>
-                <td className="p-8 font-bold text-primary border-b border-gray-50">Badge</td>
+            
+            <tbody className="text-sm md:text-base">
+              {/* Badge Row */}
+              <tr className="group">
+                <td className="p-8 font-black text-text-main border-b border-text-muted/10 bg-primary/[0.02]">Trust Badge</td>
                 {tiers.map((t) => (
-                  <td key={t.name} className="p-8 border-b border-gray-50 text-left align-left">
-                    <div className="flex justify-left items-start gap-1">
+                  <td key={t.name} className="p-8 border-b border-text-muted/10">
+                    <div className="flex gap-1.5">
                       {Array.from({ length: t.badgeCount }).map((_, i) => (
-                        <CheckCircle2 key={i} className="text-green-500" size={16} />
+                        <CheckCircle2 key={i} className="text-success" size={18} />
                       ))}
                     </div>
                   </td>
                 ))}
               </tr>
 
+              {/* Requirements Row */}
               <tr>
-                <td className="p-8 font-bold text-primary border-b border-gray-50">Requirements</td>
+                <td className="p-8 font-black text-text-main border-b border-text-muted/10 bg-primary/[0.02]">Requirements</td>
                 {tiers.map((t) => (
-                  <td key={t.name} className="p-8 border-b border-gray-50 space-y-2">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="text-green-500" size={16} />
-                      <span>{t.identity}</span>
-                    </div>
-
-                    {t.security ? (
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="text-green-500" size={16} />
-                        <span>{t.security}</span>
-                      </div>
-                    ) : (
-                      <Minus className="text-gray-200" />
-                    )}
-
-                    {t.guarantor ? (
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="text-green-500" size={16} />
-                        <span>{t.guarantor}</span>
-                      </div>
-                    ) : null}
+                  <td key={t.name} className="p-8 border-b border-text-muted/10 space-y-3">
+                    <RequirementItem label={t.identity} active={true} />
+                    <RequirementItem label={t.security || "Police Check"} active={!!t.security} />
+                    <RequirementItem label={t.guarantor || "Guarantors"} active={!!t.guarantor} />
                   </td>
                 ))}
               </tr>
 
+              {/* Max Job Row */}
               <tr>
-                <td className="p-8 font-bold text-primary border-b border-gray-50">Max Job Value</td>
+                <td className="p-8 font-black text-text-main border-b border-text-muted/10 bg-primary/[0.02]">Max Job Value</td>
                 {tiers.map((t) => (
-                  <td key={t.name} className="p-8 border-b border-gray-50 font-bold">
+                  <td key={t.name} className="p-8 border-b border-text-muted/10 font-black text-primary text-lg">
                     {t.maxJob}
                   </td>
                 ))}
               </tr>
 
+              {/* Time Row */}
               <tr>
-                <td className="p-8 font-bold text-primary">Verification Time</td>
+                <td className="p-8 font-black text-text-main bg-primary/[0.02]">Verification Time</td>
                 {tiers.map((t) => (
-                  <td key={t.name} className="p-8">
+                  <td key={t.name} className="p-8 font-bold text-text-muted">
                     {t.time}
                   </td>
                 ))}
@@ -114,10 +115,29 @@ export const VerificationFramework: React.FC = () => {
           </table>
         </div>
 
-        <div className="mt-6 text-center text-sm text-gray-500">
-          Tier 3 Fee: ₦5,000 (one-time)
+        {/* FOOTNOTE */}
+        <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-4 px-8 py-4 bg-surface rounded-2xl border border-text-muted/10">
+          <p className="text-sm text-text-muted font-medium italic">
+            * Tier 3 requires a one-time processing fee of <span className="text-text-main font-black">₦5,000</span> for background clearance.
+          </p>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
+            <span className="text-[10px] font-black uppercase tracking-widest text-success">Systems Online</span>
+          </div>
         </div>
       </div>
     </section>
   );
 };
+
+/* Requirements Helper */
+const RequirementItem = ({ label, active }: { label: string, active: boolean }) => (
+  <div className={`flex items-center gap-3 ${active ? 'text-text-main' : 'opacity-20'}`}>
+    {active ? (
+      <CheckCircle2 className="text-success shrink-0" size={16} />
+    ) : (
+      <Minus className="text-text-muted shrink-0" size={16} />
+    )}
+    <span className={active ? 'font-bold' : 'font-medium'}>{label}</span>
+  </div>
+);
