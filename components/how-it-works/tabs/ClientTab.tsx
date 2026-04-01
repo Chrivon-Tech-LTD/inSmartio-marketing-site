@@ -15,28 +15,28 @@ export const ClientTab: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // ══ SCROLL SPY LOGIC ══
   const handleScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, offsetWidth } = scrollRef.current;
-      const index = Math.round(scrollLeft / offsetWidth);
-      setActiveIndex(index);
+      // We use a small threshold to make the index switch feel more natural
+      const index = Math.round(scrollLeft / (offsetWidth - 48)); // Adjusting for gap
+      if (index !== activeIndex) setActiveIndex(index);
     }
   };
 
   const scrollTo = (index: number) => {
     if (scrollRef.current) {
-      const width = scrollRef.current.offsetWidth;
+      const itemWidth = 320 + 24; // width + gap
       scrollRef.current.scrollTo({
-        left: index * width,
+        left: index * itemWidth,
         behavior: 'smooth'
       });
     }
   };
 
   return (
-    <div className="w-full">
-      {/* 1. HORIZONTAL SNAP CONTAINER (No Scrollbar) */}
+    <div className="w-full transition-colors duration-300">
+      {/* 1. HORIZONTAL SNAP CONTAINER */}
       <div 
         ref={scrollRef}
         onScroll={handleScroll}
@@ -52,66 +52,67 @@ export const ClientTab: React.FC = () => {
             <div className="px-2">
               <div className="flex items-center gap-3 mb-4">
                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-secondary">Step {step.id}</span>
-                 <div className="h-px flex-1 bg-gray-100" />
+                 <div className="h-px flex-1 bg-text-muted/10" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">{step.label}</h3>
-              <p className="text-xs text-gray-500 leading-relaxed min-h-12 line-clamp-3">
+              <h3 className="text-xl font-bold text-text-main mb-3 font-display">{step.label}</h3>
+              <p className="text-xs text-text-muted leading-relaxed min-h-12 line-clamp-3">
                 {step.desc}
               </p>
             </div>
 
-            {/* Plain Mockup (Standardized H/W) */}
+            {/* Plain Mockup */}
             <motion.div
-              className="relative w-full rounded-[2.8rem] overflow-hidden flex flex-col items-center justify-center border border-gray-100 shadow-sm bg-white"
+              className="relative w-full rounded-[2.8rem] overflow-hidden flex flex-col items-center justify-center border border-text-muted/10 shadow-ambient bg-surface"
               style={{ aspectRatio: "9/19" }}
               animate={{ 
-                scale: activeIndex === i ? 1 : 0.95,
-                opacity: activeIndex === i ? 1 : 0.5 
+                scale: activeIndex === i ? 1 : 0.92,
+                opacity: activeIndex === i ? 1 : 0.4 
               }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
             >
               {/* Device Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-50 rounded-b-2xl border-x border-b border-gray-100" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-background rounded-b-2xl border-x border-b border-text-muted/10" />
 
               {/* Central Label */}
               <div className="flex flex-col items-center gap-5 relative z-10">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg bg-gray-50 text-primary shadow-inner">
+                <div className="w-14 h-14 rounded-full flex items-center justify-center font-black text-lg bg-background text-primary shadow-inner border border-text-muted/5">
                   {step.id}
                 </div>
                 <div className="text-center px-6">
-                  <p className="font-bold text-primary text-lg mb-1 tracking-tight">{step.label}</p>
-                  <p className="text-[9px] text-gray-300 uppercase tracking-[0.2em] font-bold">App Interface</p>
+                  <p className="font-bold text-text-main text-lg mb-1 tracking-tight font-display">{step.label}</p>
+                  <p className="text-[9px] text-text-muted uppercase tracking-[0.2em] font-black opacity-60">App Interface</p>
                 </div>
               </div>
 
               {/* Bottom Skeleton Detail */}
-              <div className="absolute bottom-12 left-10 right-10 flex flex-col gap-3">
-                <div className="h-1 w-full bg-gray-50 rounded-full" />
-                <div className="h-1 w-1/2 bg-gray-50 rounded-full" />
+              <div className="absolute bottom-12 left-10 right-10 flex flex-col gap-3 opacity-20">
+                <div className="h-1.5 w-full bg-text-muted rounded-full" />
+                <div className="h-1.5 w-1/2 bg-text-muted rounded-full" />
               </div>
             </motion.div>
           </div>
         ))}
       </div>
 
-      {/* 2. INTERACTIVE DOTS (Synced with Scroll) */}
-      <div className="flex justify-center items-center gap-3 mt-4">
+      {/* 2. INTERACTIVE DOTS */}
+      <div className="flex justify-center items-center gap-4 mt-6">
         {clientSteps.map((_, i) => (
           <button
             key={i}
             onClick={() => scrollTo(i)}
-            className="group py-2 px-1 focus:outline-none"
+            className="group py-2 px-1 focus:outline-none cursor-pointer"
           >
             <motion.div 
-              className="h-1 rounded-full cursor-pointer"
+              className="h-1.5 rounded-full"
               animate={{ 
-                width: activeIndex === i ? 40 : 12,
-                backgroundColor: activeIndex === i ? "var(--color-primary)" : "var(--color-border)"
+                width: activeIndex === i ? 48 : 12,
+                backgroundColor: activeIndex === i ? "var(--primary)" : "var(--border)"
               }}
+              // CSS Variables handle the theme switch automatically
               style={{ 
-                backgroundColor: activeIndex === i ? "#0A0A2E" : "#E5E7EB" 
+                backgroundColor: activeIndex === i ? "var(--primary)" : "rgba(var(--text-secondary), 0.2)" 
               }}
-              transition={{ duration: 0.3, ease: "circOut" }}
+              transition={{ duration: 0.4, ease: "circOut" }}
             />
           </button>
         ))}

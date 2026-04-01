@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import  {ClientTab}  from './tabs/ClientTab';
+import { ClientTab } from './tabs/ClientTab';
 import { ExpertTab } from './tabs/ExpertTab';
 import { TASTab } from './tabs/TASTab';
 
@@ -10,34 +10,45 @@ type TabType = 'client' | 'expert' | 'ta';
 export const HowItWorksTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('client');
 
+  const tabs = [
+    { id: 'client', label: 'For Clients' },
+    { id: 'expert', label: 'For Experts' },
+    { id: 'ta', label: 'For TAS' },
+  ] as const;
+
   return (
-    <div className="w-full">
+    <div className="w-full bg-background transition-colors duration-300">
       {/* Segmented Control Switcher */}
-      <div className="flex justify-center mb-20">
-        <div className="bg-gray-100 p-1.5 rounded-2xl flex gap-2 border border-gray-200 shadow-inner">
-          {(['client', 'expert', 'ta'] as const).map((tab) => (
+      <div className="flex justify-center mb-16 md:mb-20 px-6">
+        <div className="w-full max-w-2xl bg-surface p-1.5 rounded-2xl grid grid-cols-1 sm:flex sm:flex-row gap-2 border border-text-muted/10 shadow-inner">
+          {tabs.map((tab) => (
             <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
               className={`
-                px-8 py-3 rounded-xl text-sm font-bold transition-all duration-300
-                ${activeTab === tab 
-                  ? 'bg-primary text-white shadow-lg scale-105' 
-                  : 'text-gray-500 hover:text-primary'
+                px-4 md:px-8 py-3.5 rounded-xl text-xs md:text-sm font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer w-full
+                ${activeTab === tab.id 
+                  ? 'bg-primary text-white shadow-lg scale-[1.02] sm:scale-105' 
+                  : 'text-text-muted hover:text-primary hover:bg-primary/5'
                 }
               `}
             >
-              For {tab.charAt(0).toUpperCase() + tab.slice(1)}s
+              {tab.label}
             </button>
           ))}
         </div>
       </div>
 
       {/* Dynamic Content Rendering */}
-      <div className="max-w-7xl mx-auto px-6">
-        {activeTab === 'client' && <ClientTab />}
-        {activeTab === 'expert' && <ExpertTab />}
-        {activeTab === 'ta' && <TASTab />}
+      <div className="max-w-7xl mx-auto px-4 md:px-6 pb-20 ">
+        <div 
+          key={activeTab} 
+          className="transition-all duration-500 animate-in fade-in slide-in-from-bottom-2"
+        >
+          {activeTab === 'client' && <ClientTab />}
+          {activeTab === 'expert' && <ExpertTab />}
+          {activeTab === 'ta' && <TASTab />}
+        </div>
       </div>
     </div>
   );

@@ -1,15 +1,22 @@
-// src/components/about/OurImpact.tsx
 import React from "react";
 import { 
   Users, 
   Briefcase, 
   Banknote, 
   MapPin, 
-  Star 
+  Star,
+  LucideIcon
 } from "lucide-react";
 import { Card } from "../ui/Card";
 
-const impactStats = [
+interface ImpactStat {
+  label: string;
+  value: string;
+  icon: LucideIcon;
+  desc: string;
+}
+
+const impactStats: ImpactStat[] = [
   { 
     label: "Verified Experts", 
     value: "5,000+", 
@@ -44,39 +51,50 @@ const impactStats = [
 
 export function OurImpact() {
   return (
-    <section className="py-24 px-6 bg-surface">
+    <section className="py-24 px-6 bg-surface transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
+        
+        {/* HEADER */}
         <div className="mb-16 border-l-4 border-primary pl-8">
-          <span className="section-label mb-2 block">8.5 Our Impact</span>
-          <h2 className="text-text-main">Empowering the Ecosystem</h2>
-          <p className="text-text-muted mt-4 max-w-xl">
+          <span className="text-secondary text-[10px] font-black uppercase tracking-[0.3em] mb-2 block">
+            Our Impact
+          </span>
+          <h2 className="text-text-main font-display text-3xl md:text-5xl font-bold">
+            Empowering the Ecosystem
+          </h2>
+          <p className="text-text-muted mt-4 max-w-xl font-sans text-lg">
             Our mission is defined by the growth of our experts and the 
             satisfaction of our clients. These numbers tell our story.
           </p>
         </div>
 
+        {/* GRID LAYOUT */}
+        {/* Adjusted to grid-cols-10 for cleaner 5-item desktop layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {impactStats.map((stat, i) => {
             const Icon = stat.icon;
             return (
               <Card 
                 key={i} 
-                className="p-8 bg-background border border-slate-100! shadow-ambient group hover:-translate-y-2 transition-all duration-500 rounded-[2.5rem]"
+                className="p-8 bg-background border border-text-muted/10 shadow-xl group hover:-translate-y-2 transition-all duration-500 rounded-[2.5rem] flex flex-col justify-between"
               >
-                <div className="w-12 h-12 bg-primary/5 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-500">
-                  <Icon size={24} />
+                <div>
+                  <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+                    <Icon size={24} />
+                  </div>
+                  
+                  <div className="space-y-1">
+                    <p className="text-3xl font-display font-black text-text-main tracking-tight">
+                      {stat.value}
+                    </p>
+                    <p className="text-[10px] uppercase font-black tracking-widest text-secondary">
+                      {stat.label}
+                    </p>
+                  </div>
                 </div>
                 
-                <div className="space-y-1">
-                  <p className="text-3xl font-display font-bold text-text-main tracking-tight">
-                    {stat.value}
-                  </p>
-                  <p className="text-[10px] uppercase font-bold tracking-widest text-secondary">
-                    {stat.label}
-                  </p>
-                </div>
                 
-                <p className="mt-4 text-[11px] text-text-muted leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <p className="mt-6 text-[12px] text-text-muted leading-relaxed transition-opacity duration-500 font-medium">
                   {stat.desc}
                 </p>
               </Card>

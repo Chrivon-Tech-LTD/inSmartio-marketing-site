@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function HowItWorksPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen">
       {/* Navigation should be here */}
       
       <HowItWorksHero />
