@@ -8,7 +8,7 @@ export const TASOpportunity: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Main Banner Container */}
-        <div className="bg-linear-to-br from-[#0A0A2E] to-[#1A4B8C] rounded-[3rem] p-6 md:p-10 md:p-20 relative overflow-hidden shadow-ambient group">
+        <div className="bg-linear-to-br from-[#0A0A2E] to-[#1A4B8C] rounded-[3rem] p-6 md:p-10 relative overflow-hidden shadow-ambient group">
           
           {/* Background Image Overlay with enhanced blending */}
           <div className="absolute right-0 top-0 w-full lg:w-1/2 h-full opacity-20 lg:opacity-40 mix-blend-luminosity pointer-events-none">

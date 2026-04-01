@@ -79,7 +79,7 @@ export const EarningsCalculator: React.FC = () => {
               </div>
 
               {/* Model Switcher - Preserving your Segmented Style */}
-              <div className="flex gap-2 p-1.5 bg-surface border border-text-muted/10 rounded-[1.5rem] w-full sm:w-fit shadow-inner">
+              <div className="flex gap-2 p-1.5 bg-surface border border-text-muted/10 rounded-3xl w-full sm:w-fit shadow-inner">
                 {(['subscription', 'commission'] as const).map((model) => (
                   <button 
                     key={model}

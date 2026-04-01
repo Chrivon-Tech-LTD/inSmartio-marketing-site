@@ -48,7 +48,7 @@ export const VerificationFramework: React.FC = () => {
 
         {/* TABLE CONTAINER */}
         <div className="overflow-x-auto rounded-[2.5rem] border border-text-muted/10 shadow-ambient bg-surface transition-colors duration-300">
-          <table className="w-full text-left border-collapse min-w-[800px]">
+          <table className="w-full text-left border-collapse min-w-200">
             <thead>
               <tr className="bg-primary/5">
                 <th className="p-8 text-[10px] font-black uppercase tracking-widest text-text-muted border-b border-text-muted/10">
@@ -68,7 +68,7 @@ export const VerificationFramework: React.FC = () => {
             <tbody className="text-sm md:text-base">
               {/* Badge Row */}
               <tr className="group">
-                <td className="p-8 font-black text-text-main border-b border-text-muted/10 bg-primary/[0.02]">Trust Badge</td>
+                <td className="p-8 font-black text-text-main border-b border-text-muted/10 bg-primary/2">Trust Badge</td>
                 {tiers.map((t) => (
                   <td key={t.name} className="p-8 border-b border-text-muted/10">
                     <div className="flex gap-1.5">
@@ -82,7 +82,7 @@ export const VerificationFramework: React.FC = () => {
 
               {/* Requirements Row */}
               <tr>
-                <td className="p-8 font-black text-text-main border-b border-text-muted/10 bg-primary/[0.02]">Requirements</td>
+                <td className="p-8 font-black text-text-main border-b border-text-muted/10 bg-primary/2">Requirements</td>
                 {tiers.map((t) => (
                   <td key={t.name} className="p-8 border-b border-text-muted/10 space-y-3">
                     <RequirementItem label={t.identity} active={true} />
@@ -94,7 +94,7 @@ export const VerificationFramework: React.FC = () => {
 
               {/* Max Job Row */}
               <tr>
-                <td className="p-8 font-black text-text-main border-b border-text-muted/10 bg-primary/[0.02]">Max Job Value</td>
+                <td className="p-8 font-black text-text-main border-b border-text-muted/10 bg-primary/2">Max Job Value</td>
                 {tiers.map((t) => (
                   <td key={t.name} className="p-8 border-b border-text-muted/10 font-black text-primary text-lg">
                     {t.maxJob}
@@ -104,7 +104,7 @@ export const VerificationFramework: React.FC = () => {
 
               {/* Time Row */}
               <tr>
-                <td className="p-8 font-black text-text-main bg-primary/[0.02]">Verification Time</td>
+                <td className="p-8 font-black text-text-main bg-primary/2">Verification Time</td>
                 {tiers.map((t) => (
                   <td key={t.name} className="p-8 font-bold text-text-muted">
                     {t.time}

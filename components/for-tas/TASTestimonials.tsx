@@ -33,7 +33,7 @@ export const TASTestimonials: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {testimonials.map((t, i) => (
-            <Card key={i} className="bg-surface p-10 rounded-[3rem] border border-slate-100 shadow-ambient relative flex flex-col justify-between">
+            <Card key={i} className="bg-surface px-6 py-10 md:p-10 rounded-[3rem] border border-slate-100 shadow-ambient relative flex flex-col justify-between">
               {/* Quote Icon Background */}
               <Quote className="text-primary opacity-5 absolute top-10 right-10" size={80} />
               

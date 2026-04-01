@@ -30,7 +30,7 @@ export const TASCalculator: React.FC = () => {
         <div className="bg-surface rounded-[3rem] overflow-hidden shadow-ambient border border-slate-100 grid grid-cols-1 lg:grid-cols-12">
           
           {/* Left: Input Fields (6.4) */}
-          <div className="lg:col-span-7 p-10 md:p-16">
+          <div className="lg:col-span-7 p-6 md:p-16">
             <span className="section-label mb-2 block uppercase tracking-widest text-secondary font-bold text-[10px]">6.4 Earnings Calculator</span>
             <h2 className="text-text-main mb-12 font-display">Estimate Your Impact</h2>
             
@@ -88,7 +88,7 @@ export const TASCalculator: React.FC = () => {
           </div>
 
           {/* Right: Results Dashboard (Vibrant Blue Layout) */}
-          <div className="lg:col-span-5 bg-primary p-10 md:p-16 text-white flex flex-col justify-center relative overflow-hidden">
+          <div className="lg:col-span-5 bg-primary p-6 md:p-16 text-white flex flex-col justify-center relative overflow-hidden">
             {/* Subtle background detail */}
             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
                 <div className="w-32 h-32 border-4 border-white rounded-full"></div>

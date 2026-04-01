@@ -69,7 +69,7 @@ export const TASSteps: React.FC = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Path 1: Existing Expert */}
-            <div className="editorial-card group border-t-4! border-t-primary! hover:shadow-ambient transition-all p-10 bg-surface">
+            <div className="editorial-card group border-t-4! border-t-primary! hover:shadow-ambient transition-all p-6 md:p-10 bg-surface">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-3 bg-primary/10 rounded-2xl text-primary">
                   <UserRoundCheck size={32} />
@@ -86,7 +86,7 @@ export const TASSteps: React.FC = () => {
             </div>
 
             {/* Path 2: Dedicated TAS */}
-            <div className="editorial-card group border-t-4! border-t-secondary! hover:shadow-ambient transition-all p-10 bg-surface">
+            <div className="editorial-card group border-t-4! border-t-secondary! hover:shadow-ambient transition-all p-6 md:p-10 bg-surface">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-3 bg-secondary/10 rounded-2xl text-secondary">
                   <Briefcase size={32} />
@@ -105,7 +105,7 @@ export const TASSteps: React.FC = () => {
         </div>
 
         {/* --- SECTION 6.5: STEPS (THE JOURNEY) --- */}
-        <div className="bg-surface rounded-[3.5rem] p-10 md:p-16 border border-slate-100 shadow-sm relative overflow-hidden">
+        <div className="bg-surface rounded-[3.5rem] px-6 py-10 md:p-16  shadow-sm relative overflow-hidden">
           <div className="mb-16 relative z-10">
              <h3 className="font-display text-2xl font-bold text-text-main mb-2">The Enrollment Process</h3>
              <p className="text-text-muted text-[10px] uppercase tracking-[0.25em] font-bold">Standard 6-Step Verification</p>

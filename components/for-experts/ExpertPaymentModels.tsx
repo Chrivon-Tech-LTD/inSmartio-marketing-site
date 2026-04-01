@@ -45,7 +45,7 @@ export const ExpertPaymentModels: React.FC = () => {
           {models.map((m, i) => (
             <Card 
               key={i} 
-              className={`p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border-2 transition-all duration-500 bg-surface flex flex-col justify-between group
+              className={`p-6 md:p-10 rounded-4xl md:rounded-[2.5rem] border-2 transition-all duration-500 bg-surface flex flex-col justify-between group
                 ${m.recommended 
                   ? 'border-secondary shadow-ambient lg:scale-105 z-10' 
                   : 'border-text-muted/10 shadow-sm hover:border-primary/30'
@@ -54,7 +54,7 @@ export const ExpertPaymentModels: React.FC = () => {
               <div>
                 {/* Responsive Header: Stacks on mobile, splits on desktop */}
                 <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-8 md:mb-10">
-                  <div className="w-full sm:max-w-[200px]">
+                  <div className="w-full sm:max-w-50">
                     {m.recommended && (
                       <span className="bg-secondary text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full mb-3 inline-block">
                         Most Popular
