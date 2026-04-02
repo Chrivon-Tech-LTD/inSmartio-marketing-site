@@ -52,7 +52,7 @@ export const GrowthPathways: React.FC = () => {
         </div>
 
         {/* TABLE CONTAINER */}
-        <div className="overflow-x-auto rounded-[2.5rem] border border-text-muted/10 shadow-ambient bg-surface">
+        <div className="overflow-x-auto rounded-lg border border-text-muted/10 shadow-ambient bg-surface">
           <table className="w-full text-left border-collapse min-w-200">
             <thead>
               <tr className="bg-primary/2 border-b border-text-muted/10">

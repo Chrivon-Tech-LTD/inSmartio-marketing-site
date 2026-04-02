@@ -31,8 +31,8 @@ export const TASCalculator: React.FC = () => {
           
           {/* Left: Input Fields (6.4) */}
           <div className="lg:col-span-7 p-6 md:p-16">
-            <span className="section-label mb-2 block uppercase tracking-widest text-secondary font-bold text-[10px]">6.4 Earnings Calculator</span>
-            <h2 className="text-text-main mb-12 font-display">Estimate Your Impact</h2>
+            <span className="section-label mb-2 block uppercase tracking-widest text-secondary font-bold text-[10px]">Earnings Calculator</span>
+            <h2 className=" text-bold mb-12">Estimate Your Impact</h2>
             
             <div className="space-y-10">
               {/* Model 1 Slider */}

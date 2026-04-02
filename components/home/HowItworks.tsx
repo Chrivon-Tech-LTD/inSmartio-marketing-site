@@ -43,27 +43,34 @@ const steps: Step[] = [
 
 export const HowItWorks = () => {
   return (
-    <section className="relative py-28 bg-background transition-colors duration-300 overflow-hidden">
+    <section className="relative py-16 md:py-28 bg-background transition-colors duration-300 overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute left-1/2 top-0 -translate-x-1/2 w-175 h-175 bg-primary/10 blur-3xl rounded-full opacity-30" />
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 w-72 h-72 md:w-175 md:h-175 bg-primary/10 blur-3xl rounded-full opacity-30" />
 
       <div className="relative max-w-7xl mx-auto px-6">
         {/* HEADER */}
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold text-text-main font-display">
+        <div className="text-center mb-12 md:mb-24">
+          <h2 className="text-3xl md:text-5xl font-bold text-text-main font-display leading-tight">
             Get Help in{" "}
             <span className="text-primary">
               4 Simple Steps
             </span>
           </h2>
-          <p className="mt-4 text-text-muted max-w-xl mx-auto">
+          <p className="mt-4 text-text-muted max-w-xl mx-auto text-sm md:text-base">
             From posting a job to getting it done — fast, simple and secure.
           </p>
         </div>
 
-        {/* TIMELINE */}
+        {/* TIMELINE CONTAINER */}
         <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
+          
+          {/* CONNECTIVE LINE - Hidden on small mobile, visible as horizontal on MD+ */}
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-text-muted/10 -translate-y-1/2 z-0" />
+          
+          {/* CONNECTIVE LINE - Vertical for Mobile */}
+          <div className="md:hidden absolute left-7.75 top-0 h-full w-0.5 bg-text-muted/10 z-0" />
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12 relative z-10">
             {steps.map((step, i) => {
               const Icon = step.icon;
               const isUp = i % 2 === 0;
@@ -71,12 +78,12 @@ export const HowItWorks = () => {
               return (
                 <div
                   key={step.id}
-                  className={`relative flex flex-col items-center text-center transition-transform duration-500 ${
+                  className={`relative flex flex-row md:flex-col items-start md:items-center gap-6 md:gap-0 transition-transform duration-500 ${
                     isUp ? "md:-translate-y-10" : "md:translate-y-10"
                   }`}
                 >
-                  {/* NODE */}
-                  <div className="relative z-10 w-16 h-16 rounded-full bg-surface border border-text-muted/10 shadow-lg flex items-center justify-center mb-6 transition-colors duration-300">
+                  {/* NODE (Icon Container) */}
+                  <div className="relative shrink-0 w-16 h-16 rounded-full bg-surface border border-text-muted/10 shadow-lg flex items-center justify-center mb-0 md:mb-8 transition-colors duration-300">
                     <Icon className="w-7 h-7 text-primary" />
                     
                     {/* STEP NUMBER BADGE */}
@@ -86,11 +93,11 @@ export const HowItWorks = () => {
                   </div>
 
                   {/* CARD */}
-                  <div className="bg-surface border border-text-muted/10 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 group">
-                    <h3 className="font-bold text-lg text-text-main mb-2 font-display transition-colors">
+                  <div className="flex-1 bg-surface border border-text-muted/10 rounded-xl p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-300 group text-left md:text-center">
+                    <h3 className="font-bold text-base md:text-lg text-text-main mb-2 font-display transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-text-muted leading-relaxed">
+                    <p className="text-xs md:text-sm text-text-muted leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -99,8 +106,6 @@ export const HowItWorks = () => {
             })}
           </div>
         </div>
-
-       
       </div>
     </section>
   );

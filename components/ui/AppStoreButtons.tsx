@@ -11,46 +11,45 @@ export function AppStoreButtons({
   size = "sm" 
 }: AppStoreButtonsProps) {
   
-  // We define the height for each size. 
-  // The App Store badge is roughly 3:1 ratio, Google Play is roughly 3.4:1.
-  const heights = {
-    sm: 40,
-    md: 52,
-    lg: 64,
+  // 1. Define fixed container dimensions for perfect matching
+  const dimensions = {
+    sm: { h: "h-10", w: "w-[130px]" },
+    md: { h: "h-12", w: "w-[150px]" },
+    lg: { h: "h-14", w: "w-[180px]" },
   };
 
-  const selectedHeight = heights[size];
-  const alignmentClass = align === "left" ? "justify-start" : "justify-center";
+  const selected = dimensions[size];
 
   return (
-    <div className={`flex flex-wrap items-center ${alignmentClass} gap-3`}>
-      {/* App Store - Using h-[px] to force visual alignment */}
+    <div className={`flex flex-wrap items-center gap-3 w-full justify-center lg:${align === "left" ? "justify-start" : "justify-center"}`}>
+      
+      {/* App Store Wrapper */}
       <Link
         href="/download"
-        className="transition-transform hover:scale-105 active:scale-95"
+        className={`relative ${selected.h} ${selected.w} transition-transform hover:scale-105 active:scale-95`}
       >
         <Image
           src="/assets/download.svg"
           alt="Download on the App Store"
-          width={selectedHeight * 3} // Approximate aspect ratio
-          height={selectedHeight}
-          style={{ height: `${selectedHeight}px`, width: 'auto' }}
-          className="object-contain"
+          fill // Uses the parent div's size
+          style={{ objectFit: 'contain' }} // Prevents stretching
+          className="object-left lg:object-center" // Aligns logo within the box
+          priority
         />
       </Link>
 
-      {/* Google Play */}
+      {/* Google Play Wrapper */}
       <Link
         href="/download"
-        className="transition-transform hover:scale-105 active:scale-95"
+        className={`relative ${selected.h} ${selected.w} transition-transform hover:scale-105 active:scale-95`}
       >
         <Image
           src="/assets/play.png"
           alt="Get it on Google Play"
-          width={selectedHeight * 3.4} // Google Play is wider
-          height={selectedHeight}
-          style={{ height: `${selectedHeight}px`, width: 'auto' }}
-          className="object-contain"
+          fill
+          style={{ objectFit: 'contain' }}
+          className="object-left lg:object-center"
+          priority
         />
       </Link>
     </div>

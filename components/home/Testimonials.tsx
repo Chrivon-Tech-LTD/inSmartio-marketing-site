@@ -45,30 +45,39 @@ const testimonials: Testimonial[] = [
 
 export const Testimonials: React.FC = () => {
   return (
-    <section className="py-24 bg-background transition-colors duration-300">
+    <section className="py-16 md:py-24 bg-background transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-xs uppercase tracking-widest font-bold text-secondary bg-secondary/10 px-4 py-1 rounded-full">
+        
+        {/* Header - Responsive alignment */}
+        <div className="text-center mb-12 md:mb-16">
+          <span className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-secondary bg-secondary/10 px-4 py-1 rounded-full">
             Testimonials
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-text-main font-display">
-            Trusted by Thousands of Nigerians
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-text-main font-display leading-tight">
+            Trusted by Thousands <br className="md:hidden" /> of Nigerians
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Responsive Grid: 1 col on mobile, 2 on tablet (optional), 3 on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
           {testimonials.map((t, i) => (
-            <Card key={i} className="flex flex-col h-full bg-surface border border-text-muted/10 shadow-ambient p-8 rounded-2xl transition-all duration-300">
-              <div className="text-secondary/40 mb-6">
-                <FaQuoteLeft size={32} />
+            <Card 
+              key={i} 
+              className={`
+                flex flex-col h-full bg-surface border border-text-muted/10 shadow-ambient p-6 md:p-8 rounded-2xl transition-all duration-300
+                ${i === 2 ? 'sm:col-span-2 lg:col-span-1' : ''} /* Centers the 3rd card on medium tablets */
+              `}
+            >
+              <div className="text-secondary/40 mb-4 md:mb-6">
+                <FaQuoteLeft size={28} className="md:w-8 md:h-8" />
               </div>
               
               <p className="text-text-muted text-sm leading-relaxed mb-8 flex-1 italic font-sans">
                 &quot;{t.text}&quot;
               </p>
 
-              <div className="flex items-center gap-4 pt-6 border-t border-text-muted/10">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
+              <div className="flex items-center gap-4 pt-6 border-t border-text-muted/10 mt-auto">
+                <div className="relative shrink-0 w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
                   <Image 
                     src={t.image} 
                     alt={t.name} 
@@ -77,14 +86,14 @@ export const Testimonials: React.FC = () => {
                     unoptimized
                   />
                 </div>
-                <div>
-                  <h4 className="text-sm font-bold text-text-main">{t.name}</h4>
+                <div className="min-w-0">
+                  <h4 className="text-sm font-bold text-text-main truncate">{t.name}</h4>
                   <div className="flex flex-col">
-                    <p className="text-[10px] uppercase tracking-wider text-primary font-bold">
+                    <p className="text-[10px] uppercase tracking-wider text-primary font-bold truncate">
                       {t.location}
                     </p>
                     {t.subtext && (
-                      <p className="text-[9px] text-text-muted font-medium mt-0.5">{t.subtext}</p>
+                      <p className="text-[9px] text-text-muted font-medium mt-0.5 truncate">{t.subtext}</p>
                     )}
                   </div>
                   <div className="flex gap-0.5 mt-1.5">

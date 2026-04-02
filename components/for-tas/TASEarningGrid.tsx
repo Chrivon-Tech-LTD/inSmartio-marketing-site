@@ -47,7 +47,7 @@ export const TASEarningsGrid: React.FC = () => {
     <section className="py-24 bg-background px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
-          <span className="section-label"> Earnings Overview</span>
+          <h3 className="text-text-main font-display text-4xl font-bold"> Earnings Overview</h3>
           <h2 className="text-text-main mt-2">Your Earnings as a TAS</h2>
         </div>
         

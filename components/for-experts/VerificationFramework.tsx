@@ -47,7 +47,7 @@ export const VerificationFramework: React.FC = () => {
         </div>
 
         {/* TABLE CONTAINER */}
-        <div className="overflow-x-auto rounded-[2.5rem] border border-text-muted/10 shadow-ambient bg-surface transition-colors duration-300">
+        <div className="overflow-x-auto rounded-lg border border-text-muted/10 shadow-lg bg-surface transition-colors duration-300">
           <table className="w-full text-left border-collapse min-w-200">
             <thead>
               <tr className="bg-primary/5">

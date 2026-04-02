@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google"; // Import DM Sans from Google
+import { DM_Sans, Montserrat } from "next/font/google"; // Import DM Sans from Google
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
@@ -12,6 +12,13 @@ const dmSans = DM_Sans({
   weight: ["400", "500", "700"],
   variable: "--font-dm-sans",
 });
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-montserrat', // This creates a CSS variable
+});
+
 
 // ── Setup Monexa for Body ──
 const monexa = localFont({
@@ -51,7 +58,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       suppressHydrationWarning
       /* Combined both font variables here */
-      className={` ${monexa.variable} ${dmSans.variable} h-full antialiased`}
+      className={` ${monexa.variable} ${dmSans.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider defaultTheme="light">

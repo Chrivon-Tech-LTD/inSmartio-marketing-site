@@ -55,11 +55,11 @@ export default function ContactPage() {
               Where to find us
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-text-main font-display tracking-tight">
-              Our Local Presence
+              Our Location
             </h2>
           </div>
           
-          <div className="rounded-[3rem] overflow-hidden border border-text-muted/10 shadow-sm bg-surface">
+          <div className=" overflow-hidden ">
             <OfficeLocations />
           </div>
         </div>

@@ -22,9 +22,9 @@ export const ClientHero: React.FC = () => {
           
           <h1 className="text-text-main text-4xl md:text-7xl font-black leading-[1.1] mb-8 font-display">
             Find Trusted <br />
-            <span className="hidden lg:inline">Professionals in</span> <br className="hidden lg:block" />
+            
             <span className="text-primary lg:text-text-main">Professionals </span> 
-            in <span className="text-secondary">Minutes.</span>
+            in <span className="text-primary">Minutes.</span>
           </h1>
           
           <p className="text-text-muted text-base md:text-xl leading-relaxed max-w-xl mb-10 mx-auto lg:mx-0 font-medium">

@@ -11,12 +11,12 @@ export const HowItWorksHero: React.FC = () => {
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         
         {/* Breadcrumb / Label - Matches "The Chrivon Standard" style */}
-        <span className="text-secondary text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 block drop-shadow-sm">
+        <span className="text-secondary text-[10px] md:text-xs font-medium uppercase tracking-[0.3em] mb-6 block drop-shadow-sm">
           How It Works
         </span>
 
         {/* Main Headline */}
-        <h1 className="text-text-main text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] mb-8 font-display">
+        <h1 className="text-text-main text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8 font-display">
           How HelpMe NG Works <br />
           <span className="text-primary">— Simple, Safe, and Fair.</span>
         </h1>

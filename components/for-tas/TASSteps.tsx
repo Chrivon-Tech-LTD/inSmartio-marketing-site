@@ -63,13 +63,13 @@ export const TASSteps: React.FC = () => {
         {/* --- SECTION 6.5: TWO PATHS (THE ENTRY POINTS) --- */}
         <div className="mb-24">
           <div className="text-center mb-12">
-            <span className="section-label block mb-2 font-bold text-secondary uppercase tracking-[0.2em] text-[10px]">6.5 Onboarding Paths</span>
+            <span className="section-label block mb-2 font-bold text-secondary uppercase tracking-[0.2em] text-[10px]">Onboarding Paths</span>
             <h2 className="text-text-main font-display text-4xl font-bold">How to Become a TAS</h2>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Path 1: Existing Expert */}
-            <div className="editorial-card group border-t-4! border-t-primary! hover:shadow-ambient transition-all p-6 md:p-10 bg-surface">
+            <div className="editorial-card group  hover:shadow-ambient transition-all p-6 md:p-10 bg-surface">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-3 bg-primary/10 rounded-2xl text-primary">
                   <UserRoundCheck size={32} />
@@ -86,7 +86,7 @@ export const TASSteps: React.FC = () => {
             </div>
 
             {/* Path 2: Dedicated TAS */}
-            <div className="editorial-card group border-t-4! border-t-secondary! hover:shadow-ambient transition-all p-6 md:p-10 bg-surface">
+            <div className="editorial-card group hover:shadow-ambient transition-all p-6 md:p-10 bg-surface">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-3 bg-secondary/10 rounded-2xl text-secondary">
                   <Briefcase size={32} />

@@ -6,7 +6,7 @@ import { ChevronDown, Send } from "lucide-react";
 
 export function ContactForm() {
   return (
-    <div className="bg-white dark:bg-surface p-6 md:p-12 rounded-[2.5rem] shadow-ambient border border-text-muted/10 transition-all duration-300">
+    <div className="bg-white dark:bg-surface p-6 md:p-12 rounded-[2.5rem]  border border-text-muted/10 transition-all duration-300">
       
       {/* HEADER */}
       <div className="mb-10">
@@ -20,8 +20,8 @@ export function ContactForm() {
 
       <form className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {/* INPUTS */}
-        <Input label="Full Name" placeholder="Esther Alayande" />
-        <Input label="Email Address" type="email" placeholder="esther@example.com" />
+        <Input label="Full Name" placeholder="John Doe" />
+        <Input label="Email Address" type="email" placeholder="john@example.com" />
         <Input label="Phone Number" type="tel" placeholder="+234..." />
         
         {/* THEMED SELECT */}

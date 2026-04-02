@@ -10,11 +10,11 @@ export function AppHero() {
       {/* Strategic Background Accents */}
       <div className="absolute top-0 right-0 w-100 md:w-175 h-100 md:h-175 bg-primary/5 blur-[100px] md:blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div className="relative z-10 px-6 flex flex-col lg:grid lg:grid-cols-12 gap-16 lg:gap-8 items-center">
         
-        {/* LEFT: Content */}
-        <div className="text-center lg:text-left order-2 lg:order-1 px-2 md:px-0">
-          <span className="text-secondary text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">
+        {/* LEFT: Content (Spans 7 columns on large screens) */}
+        <div className="text-center lg:text-left order-2 lg:order-1 col-span-1 lg:col-span-7 px-2 md:px-0">
+          <span className="text-secondary text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mb-4 block">
             Mobile App Re-Imagined
           </span>
           
@@ -25,7 +25,7 @@ export function AppHero() {
           </h1>
 
           <p className="text-text-muted text-sm md:text-xl leading-relaxed max-w-lg mb-10 mx-auto lg:mx-0 font-medium">
-            Access Nigeria&apos;s most trusted marketplace for professional services and talent directly from your pocket. 
+            Access Nigeria&apos;s most trusted marketplace for professional services directly from your pocket. 
             High-fidelity experiences, now on Android and iOS.
           </p>
 
@@ -34,7 +34,7 @@ export function AppHero() {
           </div>
 
           {/* QR Code Editorial Card */}
-          <div className="mx-auto lg:mx-0 max-w-sm flex items-center gap-6 p-5 bg-surface rounded-2xl border border-text-muted/10 shadow-ambient transition-all hover:shadow-xl group">
+          <div className="mx-auto lg:mx-0 max-w-sm flex items-center gap-6 p-5 bg-surface border border-text-muted/10 rounded-2xl shadow-ambient transition-all hover:shadow-xl group">
             <div className="bg-text-main p-3 rounded-xl text-white shadow-lg transition-transform group-hover:scale-110">
               <QrCode size={40} className="md:w-12 md:h-12" />
             </div>
@@ -47,11 +47,11 @@ export function AppHero() {
           </div>
         </div>
 
-        {/* RIGHT: Mockup Visuals */}
-        <div className="relative w-full flex justify-center lg:justify-end order-1 lg:order-2 px-4 md:px-0">
-          {/* Main iPhone Mockup */}
-          <div className="relative z-10 w-56 md:w-72 aspect-9/19 rounded-[2.5rem] md:rounded-[3.5rem] border-[6px] md:border-10 border-text-main overflow-hidden shadow-ambient animate-float bg-surface">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-text-main rounded-b-xl z-30 hidden md:block" />
+        {/* RIGHT: Mockup Visuals (Responsive visibility) */}
+        <div className="relative col-span-1 lg:col-span-5 flex items-center justify-center lg:justify-end gap-6 md:gap-8 order-1 lg:order-2 px-4 md:px-0">
+          
+          {/* Main iPhone Mockup - HIDDEN ON MOBILE/TABLET, SHOWN ON DESKTOP */}
+          <div className="hidden lg:block relative z-20 lg:w-56 aspect-9/19 rounded-4xl md:rounded-[3rem] border-4 md:border-8 border-text-main overflow-hidden shadow-2xl bg-surface -rotate-6 transition-transform hover:rotate-0 duration-500">
             <Image 
                src="/app-screen-1.jpg" 
                alt="App Home" 
@@ -61,17 +61,17 @@ export function AppHero() {
             />
           </div>
 
-          {/* Secondary Android Mockup - Hidden on small mobile, visible on tablet+ */}
-          <div className="absolute top-12 -right-2 md:-right-8 z-20 w-52 md:w-64 aspect-9/19 rounded-[2.5rem] md:rounded-[3.5rem] border-[6px] md:border-10 border-slate-900 overflow-hidden shadow-ambient hidden sm:block">
-            <div className="absolute inset-0 bg-primary/95 flex items-center justify-center p-6 md:p-10 text-center text-white">
-              <p className="font-display font-black text-lg md:text-2xl leading-tight tracking-tight">
+          {/* Secondary Android Mockup - Responsive Widths and Tilted on Desktop */}
+          <div className="w-64 sm:w-72 lg:w-56 aspect-9/19 rounded-4xl md:rounded-[3rem] border-4 md:border-8 border-slate-900 overflow-hidden shadow-2xl bg-primary flex rotate-0 lg:rotate-6 transition-transform hover:rotate-0 duration-500 lg:mt-12">
+            <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8 text-center text-white">
+              <p className="font-display font-black text-xl md:text-2xl lg:text-xl leading-tight tracking-tight">
                 Accountability <br /> you can trust.
               </p>
             </div>
           </div>
           
           {/* Decorative Glow */}
-          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl hidden lg:block" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 rounded-full blur-3xl -z-10" />
         </div>
 
       </div>
