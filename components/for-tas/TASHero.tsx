@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Button } from '../ui/Button';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 
-const TAS_HERO = "https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg";
+const TAS_HERO = "https://i.pinimg.com/1200x/c1/59/f4/c159f47aea63fd7f76436684fd9c62d8.jpg";
 
 export const TASHero: React.FC = () => {
   return (

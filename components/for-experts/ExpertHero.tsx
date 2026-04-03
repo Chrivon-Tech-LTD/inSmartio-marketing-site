@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from '../ui/Button';
 
-const EXPERT_HERO = "https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg";
+const EXPERT_HERO = "https://i.pinimg.com/736x/d6/ac/6d/d6ac6d5bd234d8676a7fb99d1d02eb42.jpg";
 
 export const ExpertHero: React.FC = () => {
   return (

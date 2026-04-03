@@ -13,16 +13,16 @@ interface Testimonial {
   subtext?: string;
 }
 
-const DEFAULT_IMAGE = "https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg";
+
 
 const testimonials: Testimonial[] = [
   {
     role: "Client",
     text: "I needed a plumber urgently on a Sunday. Within 30 minutes, I had 4 bids. The plumber I hired was professional, on time, and the price was fair. Payment protection gave me peace of mind.",
-    name: "Chinedu O.",
+    name: "Chiamaka O.",
     location: "Lekki",
     rating: 5.0,
-    image: DEFAULT_IMAGE
+    image: "https://i.pinimg.com/1200x/1d/d1/7d/1dd17d3fd13e4f719c0ae4db99b470aa.jpg"
   },
   {
     role: "Expert",
@@ -30,7 +30,7 @@ const testimonials: Testimonial[] = [
     name: "Adebayo S.",
     location: "Plumber",
     rating: 4.9,
-    image: DEFAULT_IMAGE
+    image: "https://i.pinimg.com/736x/fc/e6/93/fce693e4be192e6943e4a0fc3957a005.jpg"
   },
   {
     role: "TAS Agent",
@@ -39,7 +39,7 @@ const testimonials: Testimonial[] = [
     location: "TAS Agent",
     subtext: "🏆 Tier 3 Master TAS",
     rating: 5.0,
-    image: DEFAULT_IMAGE
+    image: "https://i.pinimg.com/736x/a1/3f/e5/a13fe593cd044397afc8ce5d47598333.jpg"
   }
 ];
 
@@ -83,6 +83,7 @@ export const Testimonials: React.FC = () => {
                     alt={t.name} 
                     fill 
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     unoptimized
                   />
                 </div>

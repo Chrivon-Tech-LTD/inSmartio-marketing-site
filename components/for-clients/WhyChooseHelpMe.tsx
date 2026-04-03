@@ -1,6 +1,14 @@
 import React from 'react';
 import { ShieldCheck, Lock, Users, MessageSquare, MapPin, Star } from 'lucide-react';
 import { Card } from '../ui/Card';
+import Image from 'next/image';
+const AVATAR_IMAGES = [
+  "https://i.pinimg.com/736x/d6/ac/6d/d6ac6d5bd234d8676a7fb99d1d02eb42.jpg",
+  "https://i.pinimg.com/736x/f2/32/02/f232022f5082fc77fcbd6aa3edc1aed4.jpg",
+  "https://i.pinimg.com/1200x/48/9b/4e/489b4e5cc9fc9b3a85ecd4d3ff3d4241.jpg",
+  "https://i.pinimg.com/1200x/d4/eb/76/d4eb7675c8533ab32cefcbc953fbd2e8.jpg",
+  "https://i.pinimg.com/736x/d6/ac/6d/d6ac6d5bd234d8676a7fb99d1d02eb42.jpg",
+];
 
 export const WhyChooseHelpMe: React.FC = () => {
   return (
@@ -15,14 +23,14 @@ export const WhyChooseHelpMe: React.FC = () => {
             Why choose HelpMe NG?
           </h2>
           <p className="text-text-muted mt-4 max-w-2xl font-medium leading-relaxed">
-            We&apos;ve built a platform focused on your security and satisfaction, 
+            We&apos;ve built a platform focused on your security and satisfaction,
             ensuring every interaction is professional, transparent, and protected.
           </p>
         </div>
 
         {/* ASYMMETRIC UNIFIED GRID */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          
+
           {/* 1. Verified Experts - Wide Card */}
           <Card className="md:col-span-8 p-10 bg-surface border border-text-muted/10 flex flex-col md:flex-row gap-8 items-start shadow-sm hover:shadow-ambient transition-all duration-500 group">
             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0 transition-colors group-hover:bg-primary group-hover:text-white">
@@ -31,15 +39,15 @@ export const WhyChooseHelpMe: React.FC = () => {
             <div>
               <h3 className="text-2xl font-black text-text-main mb-4 font-display">Verified Experts</h3>
               <p className="text-text-muted leading-relaxed text-sm md:text-base font-medium">
-                Every expert undergoes a multi-stage background check, including physical address 
-                verification, NIN/BVN confirmation, and skill assessment. Tier 3 experts include 
+                Every expert undergoes a multi-stage background check, including physical address
+                verification, NIN/BVN confirmation, and skill assessment. Tier 3 experts include
                 police clearance for absolute peace of mind.
               </p>
             </div>
           </Card>
 
           {/* 2. Payment Protection */}
-          <FeatureCard 
+          <FeatureCard
             colSpan="md:col-span-4"
             icon={<Lock className="w-8 h-8 text-primary" />}
             title="Payment Protection"
@@ -47,7 +55,7 @@ export const WhyChooseHelpMe: React.FC = () => {
           />
 
           {/* 3. Compare Bids */}
-          <FeatureCard 
+          <FeatureCard
             colSpan="md:col-span-4"
             icon={<Users className="w-8 h-8 text-primary" />}
             title="Compare Bids"
@@ -55,7 +63,7 @@ export const WhyChooseHelpMe: React.FC = () => {
           />
 
           {/* 4. Negotiate */}
-          <FeatureCard 
+          <FeatureCard
             colSpan="md:col-span-4"
             icon={<MessageSquare className="w-8 h-8 text-primary" />}
             title="Direct Negotiation"
@@ -63,7 +71,7 @@ export const WhyChooseHelpMe: React.FC = () => {
           />
 
           {/* 5. Safety First */}
-          <FeatureCard 
+          <FeatureCard
             colSpan="md:col-span-4"
             icon={<MapPin className="w-8 h-8 text-primary" />}
             title="Safety First"
@@ -81,18 +89,27 @@ export const WhyChooseHelpMe: React.FC = () => {
                 <p className="text-text-muted font-medium">100% verified feedback from clients in your neighborhood.</p>
               </div>
             </div>
-            
+
             {/* Avatar Stack Mockup */}
-            <div className="flex -space-x-4">
-              {[1, 2, 3, 4, 5].map(i => (
-                <div 
-                  key={i} 
-                  className="w-12 h-12 rounded-full border-4 border-surface bg-primary/10 flex items-center justify-center overflow-hidden shadow-sm"
+            <div className="flex -space-x-3 md:-space-x-4 items-center">
+              {AVATAR_IMAGES.map((imgUrl, i) => (
+                <div
+                  key={i}
+                  className="relative w-10 h-10 md:w-12 md:h-12 rounded-full border-[3px] md:border-4 border-surface bg-surface overflow-hidden shadow-sm shrink-0 transition-transform hover:-translate-y-1 hover:z-30 cursor-pointer"
+                  style={{ zIndex: AVATAR_IMAGES.length - i }}
                 >
-                  <div className="w-full h-full bg-linear-to-br from-primary/20 to-secondary/20" />
+                  <Image
+                    src={imgUrl}
+                    alt={`Verified Expert ${i + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="48px"
+                  />
                 </div>
               ))}
-              <div className="w-12 h-12 rounded-full border-4 border-surface bg-primary text-white flex items-center justify-center text-[10px] font-black">
+
+              {/* +10k Counter Badge */}
+              <div className="relative z-10 w-10 h-10 md:w-12 md:h-12 rounded-full border-[3px] md:border-4 border-surface bg-primary text-white flex items-center justify-center text-[10px] font-black shrink-0 shadow-lg ml-[-12px] md:ml-[-16px]">
                 +10k
               </div>
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { AppStoreButtons } from '../ui/AppStoreButtons';
 
-const DEFAULT_IMAGE = "https://i.pinimg.com/1200x/71/99/57/71995749daeafee5e253d4e39b53c9e9.jpg";
+const IMAGE = "https://i.pinimg.com/736x/f2/32/02/f232022f5082fc77fcbd6aa3edc1aed4.jpg";
 
 export const ClientHero: React.FC = () => {
   return (
@@ -41,7 +41,7 @@ export const ClientHero: React.FC = () => {
           {/* Main Image Frame */}
           <div className="absolute right-0 top-0 w-[95%] lg:w-[90%] h-[95%] lg:h-[90%] rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden shadow-ambient transform rotate-2 border border-text-muted/10">
             <Image 
-              src={DEFAULT_IMAGE} 
+              src={IMAGE} 
               alt="Trusted Professional" 
               fill 
               className="object-cover -rotate-2 scale-110"

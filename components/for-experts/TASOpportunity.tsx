@@ -8,7 +8,7 @@ export const TASOpportunity: React.FC = () => {
     <section className="relative py-20 md:py-32 bg-background transition-colors duration-300 overflow-hidden">
       
       {/* --- Background Image Column (Desktop Right / Mobile Top-ish) --- */}
-      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0">
+      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0 hidden md:flex">
         <Image 
           src="https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg" 
           alt="Professional TAS Supervisor"

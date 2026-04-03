@@ -35,7 +35,7 @@ const articles = [
     excerpt: "What to look for, what to ask, and how to avoid being overcharged in the local market.",
     tag: "Guides",
     readTime: "4 min",
-    image: "https://images.unsplash.com/photo-1581244273443-c7a379f5eaa6?q=80&w=800&auto=format&fit=crop",
+    image: "https://i.pinimg.com/736x/6d/66/af/6d66af4d10a9a7d19d1df880b0ce3b23.jpg",
     author: "Grace A."
   }
 ];

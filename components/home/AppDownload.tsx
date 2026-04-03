@@ -39,7 +39,7 @@ export const AppDownload: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row items-center lg:items-start gap-8 justify-center lg:justify-start">
                 {/* Ensure AppStoreButtons handles its own mobile centering internally */}
-                <AppStoreButtons align="center" size="sm" />
+                <AppStoreButtons align="left" size="sm" />
                 
                 {/* Trust Badges - Visible on mobile now, but centered */}
                 <div className="flex items-center gap-6 sm:gap-4 border-t sm:border-t-0 sm:border-l border-white/20 pt-6 sm:pt-0 sm:pl-8 w-full sm:w-auto justify-center">
