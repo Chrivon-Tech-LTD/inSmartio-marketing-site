@@ -24,7 +24,7 @@ export function BlogHero() {
         {/* Main Headline */}
         <h1 className="text-text-main text-4xl md:text-6xl lg:text-7xl font-black mb-8 max-w-5xl leading-[1.1] font-display tracking-tight px-2">
           Insights from the <br className="hidden sm:block" />
-          <span className="text-primary italic font-light">HelpMe NG Team</span>
+          <span className="text-primary">HelpMe NG Team</span>
         </h1>
 
         {/* Supporting Text */}

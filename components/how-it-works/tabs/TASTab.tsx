@@ -45,7 +45,7 @@ export const TASTab: React.FC = () => {
       </div>
 
       {/* Earnings Logic Panel */}
-      <div className="bg-surface rounded-[3rem] px-3 py-8 md:p-16 border border-text-muted/10 shadow-ambient">
+      <div className="bg-surface rounded-[3rem] px-8 py-12 md:p-16 border border-text-muted/10 shadow-ambient">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <span className="text-secondary text-[10px] font-black uppercase tracking-[0.3em] mb-4 block">
@@ -64,8 +64,8 @@ export const TASTab: React.FC = () => {
                 { label: "Model 1 Experts", value: "₦1,000 per month they stay subscribed" },
                 { label: "Performance Bonus", value: "Tier bonuses up to 15% on ALL earnings" }
               ].map((item, i) => (
-                <div key={i} className="flex justify-between items-center p-5 bg-background rounded-2xl shadow-sm border border-text-muted/5 transition-all hover:border-primary/20">
-                  <span className="text-sm font-black text-text-main">{item.label}</span>
+                <div key={i} className="flex flex-col md:flex-row md:justify-between md:items-center p-5 bg-background rounded-2xl shadow-sm border border-text-muted/5 transition-all hover:border-primary/20">
+                  <span className="text-sm font-black text-text-main mb-2 md:mb-0">{item.label}</span>
                   <span className="text-sm text-secondary font-black">{item.value}</span>
                 </div>
               ))}
@@ -73,7 +73,7 @@ export const TASTab: React.FC = () => {
           </div>
 
           {/* Tier 3+ Build Your Team (Step 6) */}
-          <div className="bg-primary text-white px-3 py-8 md:p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
+          <div className="bg-primary text-white px-4 py-8 md:p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
              <div className="relative z-10">
                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110">
                  <Users className="text-secondary w-7 h-7" />

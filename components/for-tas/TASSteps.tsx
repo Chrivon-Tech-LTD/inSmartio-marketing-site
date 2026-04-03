@@ -129,7 +129,7 @@ export const TASSteps: React.FC = () => {
                   </div>
                   <div className="pt-1">
                     <h4 className="text-text-main font-bold mb-2 font-display text-lg">{step.title}</h4>
-                    <p className="text-xs text-text-muted leading-relaxed font-medium">{step.desc}</p>
+                    <p className="text-sm text-text-muted leading-relaxed font-medium">{step.desc}</p>
                   </div>
                 </div>
               );

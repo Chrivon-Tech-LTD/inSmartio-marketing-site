@@ -47,7 +47,7 @@ export const TASSection: React.FC = () => {
                   <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg bg-secondary/10 transition-colors group-hover:bg-secondary/20">
                     <Icon className="text-secondary text-base md:text-lg" />
                   </div>
-                  <p className="text-xs md:text-sm text-text-main font-medium leading-snug">{b.text}</p>
+                  <p className="text-sm text-text-main font-medium leading-snug">{b.text}</p>
                 </div>
               );
             })}

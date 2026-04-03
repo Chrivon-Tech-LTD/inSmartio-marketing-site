@@ -49,7 +49,7 @@ export const ReferralTools: React.FC = () => {
     <section className="py-24 bg-background px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
-          <span className="section-label block mb-2 uppercase tracking-[0.2em] font-bold text-secondary text-[10px]">6.6 Agent Toolkit</span>
+          <span className="section-label block mb-2 uppercase tracking-[0.2em] font-bold text-secondary text-[10px]">Agent Toolkit</span>
           <h2 className="text-text-main font-display text-4xl font-bold max-w-xl">
             Everything you need to scale your network.
           </h2>

@@ -4,7 +4,7 @@ import { WhyChooseHelpMe } from '@/components/for-clients/WhyChooseHelpMe';
 import { PaymentComparison } from '@/components/for-clients/PaymentComparison';
 import { VerificationTiers } from '@/components/for-clients/VerificationTiers';
 import { ClientFAQ } from '@/components/for-clients/ClientFAQ';
-import { ClientCTA } from '@/components/for-clients/ClientCTA';
+
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -31,8 +31,7 @@ export default function ForClientsPage() {
       {/* FAQ Section (4.5) */}
       <ClientFAQ />
 
-      {/* Final CTA Section */}
-      <ClientCTA />
+     
 
       
     </main>

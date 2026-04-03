@@ -34,7 +34,7 @@ export const CaseStudy: React.FC = () => {
 
           <h2 className="mt-6 text-3xl md:text-5xl font-bold text-text-main max-w-2xl mx-auto md:mx-0 font-display leading-tight">
             Work That Trust Into{" "}
-            <span className="bg-linear-to-r from-primary to-indigo-500 bg-clip-text text-transparent">
+            <span className="text-primary">
               Measurable Results
             </span>
           </h2>
@@ -65,10 +65,10 @@ export const CaseStudy: React.FC = () => {
 
               {/* PROBLEM */}
               <div className="mb-8">
-                <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary mb-3">
+                <p className="text-base md:text-xs font-bold uppercase tracking-widest text-primary mb-3">
                   Problem
                 </p>
-                <p className="text-text-muted text-sm md:text-base leading-relaxed">
+                <p className="text-text-muted text-base leading-relaxed">
                   Nigerians struggle to find trustworthy professionals. Clients
                   get overcharged, while experts struggle to find consistent
                   work.
@@ -77,11 +77,11 @@ export const CaseStudy: React.FC = () => {
 
               {/* SOLUTION */}
               <div>
-                <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                <p className="text-base md:text-xs font-bold uppercase tracking-widest text-primary mb-4">
                   Solution
                 </p>
 
-                <ul className="space-y-3 md:space-y-4 text-text-muted text-xs md:text-sm">
+                <ul className="space-y-3 md:space-y-4 text-text-muted text-sm">
                   {[
                     "Multi-tier verification system (NIN, BVN, guarantor)",
                     "Escrow payment protection",

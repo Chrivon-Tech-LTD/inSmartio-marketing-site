@@ -106,7 +106,7 @@ export const Navbar = () => {
       {/* Mobile Drawer */}
       {open && (
         <div
-          className="lg:hidden absolute top-20 left-0 right-0 z-50 flex flex-col shadow-ambient"
+          className="lg:hidden absolute top-17 left-0 right-0 z-50 flex flex-col shadow-ambient"
           style={{ background: "var(--surface)" }}
         >
           <nav className="flex flex-col px-8 py-6 gap-2">

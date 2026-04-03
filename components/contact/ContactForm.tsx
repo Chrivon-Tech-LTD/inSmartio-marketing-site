@@ -20,9 +20,9 @@ export function ContactForm() {
 
       <form className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {/* INPUTS */}
-        <Input label="Full Name" placeholder="John Doe" />
-        <Input label="Email Address" type="email" placeholder="john@example.com" />
-        <Input label="Phone Number" type="tel" placeholder="+234..." />
+        <Input label="Full Name" placeholder="John Doe" className="border border-text-muted/10 rounded-2xl px-4 py-3  focus:outline-none focus:border-primary/40"/>
+        <Input label="Email Address" type="email" placeholder="john@example.com" className="border border-text-muted/10 rounded-2xl px-4 py-3  focus:outline-none focus:border-primary/40"/>
+        <Input label="Phone Number" type="tel" placeholder="+234..." className="border border-text-muted/10 rounded-2xl px-4 py-3  focus:outline-none focus:border-primary/40"/>
         
         {/* THEMED SELECT */}
         <div className="flex flex-col gap-2 w-full group">
@@ -43,7 +43,7 @@ export function ContactForm() {
         </div>
 
         {/* TEXTAREA */}
-        <div className="md:col-span-2">
+        <div className="md:col-span-2 border border-text-muted/10 rounded-2xl px-4 py-3  focus:outline-none focus:border-primary/40 ">
           <Input 
             label="Message" 
             isTextArea 

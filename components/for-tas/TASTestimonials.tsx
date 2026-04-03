@@ -11,14 +11,14 @@ const testimonials = [
     author: "Chidi E.",
     location: "Enugu",
     tier: "Tier 3 Master TAS",
-    image: "/avatars/chidi.jpg" // Replace with actual asset path
+    image: "https://i.pinimg.com/736x/f2/32/02/f232022f5082fc77fcbd6aa3edc1aed4.jpg" // Replace with actual asset path
   },
   {
     quote: "I'm a social media manager, so reaching people online is easy. I've recruited 15 experts in 3 months just by sharing my referral link on Instagram. The dashboard shows me exactly how many people signed up through my link.",
     author: "Grace A.",
     location: "Lagos",
     tier: "Tier 2 Senior TAS",
-    image: "/avatars/grace.jpg" // Replace with actual asset path
+    image: "https://i.pinimg.com/1200x/48/9b/4e/489b4e5cc9fc9b3a85ecd4d3ff3d4241.jpg" // Replace with actual asset path
   }
 ];
 
@@ -27,7 +27,7 @@ export const TASTestimonials: React.FC = () => {
     <section className="py-24 bg-background px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
-          <span className="section-label block mb-2 uppercase tracking-[0.2em] font-bold text-secondary text-[10px]">6.7 Social Proof</span>
+          <span className="section-label block mb-2 uppercase tracking-[0.2em] font-bold text-secondary text-[10px]">Social Proof</span>
           <h2 className="text-text-main font-display text-4xl font-bold">Voices of Our Agents</h2>
         </div>
 
@@ -38,7 +38,7 @@ export const TASTestimonials: React.FC = () => {
               <Quote className="text-primary opacity-5 absolute top-10 right-10" size={80} />
               
               <div className="relative z-10">
-                <p className="text-text-main text-lg leading-relaxed mb-10 font-medium italic">
+                <p className="text-text-main text-base md:text-lg leading-relaxed mb-10">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </div>

@@ -1,64 +1,47 @@
 import React from "react";
-import Image from "next/image";
 
 export function AboutHero() {
   return (
-    <section className="relative pt-24 md:pt-32 pb-20 px-6 bg-background transition-colors duration-300 overflow-hidden">
+    <section className="relative pt-24 md:pt-40 pb-20 px-6 bg-background transition-colors duration-300 overflow-hidden">
       
-      {/* Subtle Background Glow for Dark Mode Depth */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+      {/* Strategic Background Accents for Depth */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none opacity-50" />
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-secondary/5 blur-[100px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center text-center">
         
-        {/* TEXT CONTENT */}
-        <div className="relative z-10 order-2 lg:order-1 text-center lg:text-left">
-          <span className="text-secondary text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 block drop-shadow-sm">
+        {/* Editorial Label - Centered with symmetrical lines */}
+        <div className="flex items-center justify-center gap-4 mb-8 md:mb-10">
+          <div className="h-px w-8 md:w-12 bg-secondary/50" />
+          <span className="text-secondary text-[10px] md:text-xs font-black uppercase tracking-[0.4em] block">
             The Chrivon Standard
           </span>
-          
-          <h1 className="text-text-main mb-6 leading-[1.1] font-display text-4xl md:text-6xl lg:text-7xl">
-            
-            <span className="text-primary font-medium block mt-2">
-              Trusted Services. Verified Professionals.
-            </span>
-          </h1>
-
-          <p className="text-text-muted text-base md:text-lg max-w-lg mb-10 leading-relaxed mx-auto lg:mx-0 font-sans">
-            We are bridging the gap between talent and trust, creating a marketplace 
-            where Nigerian professionalism meets global standards through verification and integrity.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-             {/* Add a CTA here if needed, like "See our impact" */}
-          </div>
+          <div className="h-px w-8 md:w-12 bg-secondary/50" />
         </div>
+        
+        {/* Main Headline - Using your 7xl scale for impact */}
+        <h1 className="text-text-main mb-8 leading-[1.15] md:leading-[1.1] font-bold font-display text-4xl md:text-6xl lg:text-7xl tracking-tight max-w-4xl">
+          Bridging the gap between <br className="hidden md:block" />
+          <span className="text-primary font-black italic">Talent and Trust.</span>
+        </h1>
 
-        {/* IMAGE COMPOSITION */}
-        <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end py-10">
-          
-          {/* Main Hero Image */}
-          <div className="relative z-10 rounded-4xl overflow-hidden shadow-ambient w-full max-w-112.5 aspect-4/5 border border-text-muted/10">
-            <Image 
-              src="/about-hero-main.jpg" 
-              alt="Professional using HelpMe NG" 
-              fill 
-              className="object-cover"
-              priority
-            />
+        {/* Supporting Text - Preserving your original copy */}
+        <p className="text-text-muted text-base md:text-xl max-w-2xl leading-relaxed font-medium mb-12">
+          We are creating a marketplace where Nigerian professionalism meets 
+          global standards through verification and integrity. 
+          Ensuring that every connection is built on a foundation of accountability.
+        </p>
+
+        {/* Optional Stats or Decorative Indicator */}
+        <div className="flex flex-col items-center gap-6 opacity-40">
+          <div className="flex gap-2">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="w-1.5 h-1.5 bg-text-muted rounded-full" />
+            ))}
           </div>
-
-          {/* Overlapping small image */}
-          <div className="absolute -bottom-4 -left-4 md:-bottom-10 md:-left-12 z-20 w-3/4 md:w-1/2 aspect-video rounded-2xl overflow-hidden border-[6px] md:border-10 border-surface shadow-ambient transition-transform duration-500 hover:scale-105">
-            <Image 
-              src="/about-hero-sub.jpg" 
-              alt="Team working" 
-              fill 
-              className="object-cover"
-            />
-          </div>
-
-          {/* Decorative Shape (Hidden on Mobile) */}
-          <div className="absolute -top-6 -right-6 w-32 h-32 bg-secondary/10 rounded-full blur-2xl hidden md:block" />
+          <span className="text-[9px] font-black uppercase tracking-[0.3em] text-text-muted">
+            Founded on Integrity
+          </span>
         </div>
 
       </div>

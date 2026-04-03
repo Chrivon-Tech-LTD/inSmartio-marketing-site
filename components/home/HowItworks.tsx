@@ -97,7 +97,7 @@ export const HowItWorks = () => {
                     <h3 className="font-bold text-base md:text-lg text-text-main mb-2 font-display transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                    <p className="text-sm text-text-muted leading-relaxed">
                       {step.description}
                     </p>
                   </div>

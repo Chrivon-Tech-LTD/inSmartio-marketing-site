@@ -28,9 +28,9 @@ export const CaseStudyOverview: React.FC = () => {
         {/* PROJECT HEADER */}
         <div className="border-l-4 border-primary pl-6">
           <span className="block mb-2 uppercase tracking-[0.3em] font-black text-secondary text-[10px]">
-            7.2 Project Documentation
+            Project Documentation
           </span>
-          <h2 className="text-text-main font-display text-3xl md:text-5xl font-black uppercase tracking-tight">
+          <h2 className="text-text-main font-display text-3xl md:text-5xl font-black  tracking-tight">
             Case Study Content
           </h2>
         </div>
@@ -47,10 +47,10 @@ export const CaseStudyOverview: React.FC = () => {
               key={i}
               className="bg-surface p-4 md:p-6 rounded-2xl border border-text-muted/10 shadow-sm"
             >
-              <p className="text-[9px] md:text-[10px] uppercase font-black text-text-muted tracking-widest mb-1">
+              <p className="text-[10px] md:text-[10px] uppercase font-black text-text-muted tracking-widest mb-1">
                 {item.label}
               </p>
-              <p className="text-xs md:text-sm font-black text-text-main truncate">
+              <p className="text-sm font-black text-text-main truncate">
                 {item.value}
               </p>
             </div>
@@ -96,7 +96,7 @@ export const CaseStudyOverview: React.FC = () => {
                       "Bidding system",
                       "TAS program"
                     ].map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-[12px] md:text-[13px] font-black text-text-main">
+                      <li key={i} className="flex items-center gap-3 text-sm md:text-[13px] font-black text-text-main">
                         <CheckCircle2 size={16} className="text-success shrink-0" />
                         {item}
                       </li>
@@ -146,7 +146,7 @@ export const CaseStudyOverview: React.FC = () => {
             <div className="bg-surface p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] border border-text-muted/10 shadow-sm relative group">
               <Quote className="text-primary opacity-20 mb-4" size={28} />
 
-              <p className="text-text-main font-bold italic mb-6 leading-relaxed text-xs md:text-sm">
+              <p className="text-text-main font-bold italic mb-6 leading-relaxed text-sm">
                 “Chrivon engineered a trust ecosystem. The execution was precise and deeply aligned with the Nigerian market.”
               </p>
 

@@ -63,7 +63,7 @@ export const AddOns: React.FC = () => {
           {addOns.map((item, index) => (
             <Card 
               key={index} 
-              className="p-5 md:p-6 border border-text-muted/10 bg-surface shadow-sm hover:shadow-ambient transition-all duration-300 group flex h-full"
+              className="p-4 md:p-6 border border-text-muted/10 bg-surface shadow-sm hover:shadow-ambient transition-all duration-300 group flex h-full"
             >
               <div className="flex flex-row items-start gap-4 w-full">
                 {/* Icon Container - Scaled for mobile */}
@@ -79,11 +79,11 @@ export const AddOns: React.FC = () => {
                     </h3>
                   </div>
                   
-                  <p className="text-secondary font-black text-xs md:text-sm mb-3 uppercase tracking-wider">
+                  <p className="text-secondary font-black text-sm mb-3 uppercase tracking-wider">
                     {item.price}
                   </p>
                   
-                  <p className="text-text-muted text-xs md:text-sm leading-relaxed mb-5 font-sans line-clamp-3">
+                  <p className="text-text-muted text-sm leading-relaxed mb-5 font-sans line-clamp-3">
                     {item.description}
                   </p>
 

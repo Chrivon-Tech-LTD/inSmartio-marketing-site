@@ -3,18 +3,18 @@ import { Button } from '../ui/Button';
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-black">
+    <section className="relative min-h-[85vh] flex items-center justify-center mt-20 pt-32 pb-20 overflow-hidden bg-black">
       
       {/* --- Background Image & Dark Overlay --- */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg"
+          src="https://i.pinimg.com/736x/d3/9f/d1/d39fd1958d5fa517a51979bf14082e0f.jpg"
           alt="Nigerian professional at work"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/75 backdrop-blur-[1px] z-10" />
+        <div className="absolute inset-0 bg-black/65 backdrop-blur-[1px] z-10" />
         <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40 z-10" />
       </div>
 
@@ -22,7 +22,7 @@ export const Hero = () => {
       {/* Changed px-6 to px-4 for tighter mobile screens but added max-w to keep it safe */}
       <div className="relative z-20 max-w-4xl mx-auto px-6 md:px-8 text-center">
         
-        <span className="mb-6 block text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-secondary">
+        <span className="mb-6 block text-[9px] md:text-xs uppercase tracking-[0.2em] font-bold text-secondary tracking-widest font-bold text-secondary bg-secondary/10 px-4 py-1 rounded-full inline-block">
           Great services are delivered by great professionals
         </span>
 
