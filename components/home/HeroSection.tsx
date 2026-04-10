@@ -22,7 +22,7 @@ export const Hero = () => {
       {/* Changed px-6 to px-4 for tighter mobile screens but added max-w to keep it safe */}
       <div className="relative z-20 max-w-4xl mx-auto px-6 md:px-8 text-center">
         
-        <span className="mb-6 block text-[9px] md:text-xs uppercase tracking-[0.2em] font-bold text-secondary tracking-widest font-bold text-secondary bg-secondary/10 px-4 py-1 rounded-full inline-block">
+        <span className="mb-6 block text-[9px] md:text-xs uppercase tracking-[0.2em] font-bold text-secondary bg-secondary/10 px-4 py-1 rounded-full">
           Great services are delivered by great professionals
         </span>
 
