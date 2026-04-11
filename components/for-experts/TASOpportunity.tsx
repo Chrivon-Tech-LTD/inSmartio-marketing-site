@@ -10,9 +10,10 @@ export const TASOpportunity: React.FC = () => {
       {/* --- Background Image Column (Desktop Right / Mobile Top-ish) --- */}
       <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0 hidden md:flex">
         <Image 
-          src="https://i.pinimg.com/1200x/41/df/1d/41df1d25cd9d6b931b40af70c6f863b3.jpg" 
+          src="https://i.pinimg.com/736x/3f/f7/3d/3ff73df5dcd6599e8a4b9dd94d679741.jpg" 
           alt="Professional TAS Supervisor"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover object-center grayscale-30 lg:grayscale-0 brightness-50 lg:brightness-100"
           priority
         />

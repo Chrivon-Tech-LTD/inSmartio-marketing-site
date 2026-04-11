@@ -14,19 +14,19 @@ export function Leadership() {
       name: "Christian IKENNA", 
       role: "CoFounder & CEO, Chrivon Tech Solutions", 
       bio: "Vision-led operator focused on scaling software products for African markets.", 
-      img: "/team-christian.jpg" 
+      img: "/assets/founder/christian.avif" 
     },
     { 
       name: "B. Eugene LOKO", 
       role: "CoFounder & Principal Data & Product Strategist", 
       bio: "A cornerstone of Chrivon's pan-African brain trust with 19 years of experience.", 
-      img: "/team-eugene.jpg" 
+      img: "https://www.chrivon.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FBonna.4bacb802.png&w=256&q=75" 
     },
     { 
       name: "Onaneye Joseph", 
       role: "Full-Stack Product Engineer & Tech Entrepreneur", 
       bio: "Full-stack developer focused on building scalable fintech and growth platforms.", 
-      img: "/team-joseph.jpg" 
+      img: "/assets/founder/Adedire.avif" 
     },
   ];
 

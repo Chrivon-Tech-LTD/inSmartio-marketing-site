@@ -6,7 +6,6 @@ import { GrowthPathways } from '@/components/for-tas/GrowthPathways';
 import { TASSteps } from '@/components/for-tas/TASSteps';
 import { TASTestimonials } from '@/components/for-tas/TASTestimonials';
 
-import { Footer } from '@/components/layout/Footer';
 import { Metadata } from 'next';
 import { ReferralTools } from '@/components/for-tas/ReferalTools';
 
@@ -26,7 +25,7 @@ export default function ForTASPage() {
       <TASSteps />
       <ReferralTools/>
       <TASTestimonials />
-      <Footer />
+      
     </main>
   );
 }

@@ -3,7 +3,7 @@ import { DM_Sans, Montserrat } from "next/font/google"; // Import DM Sans from G
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
-
+//import ToolBackground from "@/components/ui/ToolBackground";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -61,8 +61,10 @@ export default function RootLayout({
       className={` ${monexa.variable} ${dmSans.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
+        
         <ThemeProvider defaultTheme="light">
           <div className="flex flex-col min-h-screen">
+            
             <Navbar />
             <main className="grow">
               {children}

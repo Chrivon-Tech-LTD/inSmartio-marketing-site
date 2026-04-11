@@ -22,6 +22,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "www.liblogo.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.chrivon.com",
       }
     ],
   },

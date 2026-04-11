@@ -34,8 +34,16 @@ const pathways = [
 ];
 
 export const GrowthPathways: React.FC = () => {
+  /**
+   * STYLING NOTE:
+   * Forced Dark Mode implementation:
+   * Background: #060D1A
+   * Surface: #0E1E3A
+   * Text Main: #D8E8FF
+   * Text Muted: #7A9DC4
+   */
   return (
-    <section className="py-24 bg-white dark:bg-background transition-colors duration-300">
+    <section className="py-24 bg-[#060D1A] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* HEADER */}
@@ -43,23 +51,23 @@ export const GrowthPathways: React.FC = () => {
           <span className="text-secondary text-[10px] font-black uppercase tracking-[0.3em] mb-3 block">
             TAS Career Tiers
           </span>
-          <h2 className="text-primary text-3xl md:text-5xl font-black font-display leading-tight">
+          <h2 className="text-[#D8E8FF] text-3xl md:text-5xl font-black font-display leading-tight">
             Growth Pathways
           </h2>
-          <p className="text-text-muted mt-4 max-w-2xl mx-auto font-medium">
+          <p className="text-[#7A9DC4] mt-4 max-w-2xl mx-auto font-medium">
             Scale your impact and unlock higher performance bonuses and exclusive platform benefits as you grow your network.
           </p>
         </div>
 
         {/* TABLE CONTAINER */}
-        <div className="overflow-x-auto rounded-lg border border-text-muted/10 shadow-ambient bg-surface">
+        <div className="overflow-x-auto rounded-lg border border-white/5 shadow-ambient bg-[#0E1E3A]">
           <table className="w-full text-left border-collapse min-w-200">
             <thead>
-              <tr className="bg-primary/2 border-b border-text-muted/10">
-                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-text-muted">Tier Level</th>
-                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-text-muted">Expert Count</th>
-                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-text-muted">Perf. Bonus</th>
-                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-text-muted">Exclusive Benefits</th>
+              <tr className="bg-primary/2 border-b border-white/5">
+                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Tier Level</th>
+                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Expert Count</th>
+                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Perf. Bonus</th>
+                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Exclusive Benefits</th>
               </tr>
             </thead>
             
@@ -67,8 +75,8 @@ export const GrowthPathways: React.FC = () => {
               {pathways.map((p, i) => (
                 <tr 
                   key={i} 
-                  className={`border-b border-text-muted/5 last:border-none transition-all duration-300 group
-                    ${p.isPopular ? 'bg-secondary/3 hover:bg-secondary/6' : 'hover:bg-primary/2'}
+                  className={`border-b border-white/5 last:border-none transition-all duration-300 group
+                    ${p.isPopular ? 'bg-secondary/10 hover:bg-secondary/15' : 'hover:bg-primary/5'}
                   `}
                 >
                   <td className="p-8">
@@ -79,7 +87,7 @@ export const GrowthPathways: React.FC = () => {
                         {p.icon}
                       </div>
                       <div className="flex flex-col">
-                        <span className="font-black text-text-main font-display text-lg tracking-tight">
+                        <span className="font-black text-[#D8E8FF] font-display text-lg tracking-tight">
                           {p.tier}
                         </span>
                         {p.isPopular && (
@@ -92,8 +100,8 @@ export const GrowthPathways: React.FC = () => {
                   </td>
                   
                   <td className="p-8">
-                    <span className="text-text-main font-bold">
-                      {p.experts} <span className="text-text-muted text-xs font-medium ml-1">Experts</span>
+                    <span className="text-[#D8E8FF] font-bold">
+                      {p.experts} <span className="text-[#7A9DC4] text-xs font-medium ml-1">Experts</span>
                     </span>
                   </td>
                   
@@ -103,7 +111,7 @@ export const GrowthPathways: React.FC = () => {
                     </div>
                   </td>
                   
-                  <td className="p-8 text-text-muted leading-relaxed max-w-xs font-medium">
+                  <td className="p-8 text-[#7A9DC4] leading-relaxed max-w-xs font-medium">
                     {p.benefits}
                   </td>
                 </tr>
@@ -114,9 +122,9 @@ export const GrowthPathways: React.FC = () => {
 
         {/* MOBILE SCROLL HINT */}
         <div className="mt-6 flex justify-center lg:hidden">
-          <div className="flex items-center gap-2 px-4 py-2 bg-text-muted/5 rounded-full">
+          <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full">
             <div className="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse" />
-            <span className="text-[10px] font-black text-text-muted uppercase tracking-widest">Swipe to view matrix</span>
+            <span className="text-[10px] font-black text-[#7A9DC4] uppercase tracking-widest">Swipe to view matrix</span>
           </div>
         </div>
       </div>

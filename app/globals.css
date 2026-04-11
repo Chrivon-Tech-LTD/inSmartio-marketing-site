@@ -6,12 +6,14 @@
   --secondary: #F9A826;
   --success: #2E7D32;
   --tas: #6B4EFF;
-  --background: #F5F5F5;
-  --surface: #FFFFFF;
-  --text-primary: #212121;
-  --text-secondary: #757575;
-  --border: rgba(0, 0, 0, 0.1);
-  --glass: rgba(255, 255, 255, 0.8);
+  --background: #D6E2F2;
+  --surface: #EBF1FA;
+  --surface-raised: #F2F6FC;
+  --surface-hover: #B8CEEA;
+  --text-primary: #0B1A30;
+  --text-secondary: #3D5A7A;
+  --border: rgba(26, 75, 140, 0.12);
+  --glass: rgba(214, 226, 242, 0.80);
 
   --font-display: var(--font-montserrat), sans-serif;
   --font-sans: var(--font-monexa), sans-serif;
@@ -19,14 +21,20 @@
 
 /* ── DARK MODE DEFINITIONS ── */
 [data-theme='dark'] {
-  --primary: #1A4B8C;      /* Slightly lighter blue for better contrast on dark */
+  --primary: #1A4B8C;
   --secondary: #F9A826;
-  --background: #0F172A; 
-  --surface: #1E293B;
-  --text-primary: #F8FAF8;
-  --text-secondary: #94A3B8;
-  --border: rgba(255, 255, 255, 0.1);
-  --glass: rgba(15, 23, 42, 0.8); /* Dark glass */
+
+  /* Deep navy-black — NOT generic charcoal */
+  --background: #060D1A;
+  --surface: #0E1E3A;        /* Card surface: clearly navy, not grey    */
+  --surface-raised: #162848; /* Inputs, raised elements                 */
+  --surface-hover: #1C3358;  /* Hover state                             */
+
+  --text-primary: #D8E8FF;   /* Cool blue-white, harmonizes with navy   */
+  --text-secondary: #7A9DC4;
+
+  --border: rgba(255, 255, 255, 0.07);
+  --glass: rgba(9, 19, 42, 0.82); /* Dark navy-tinted glass             */
 }
 
 @theme inline {
@@ -42,7 +50,7 @@
 
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
-  
+
   --shadow-ambient: 0 40px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -57,7 +65,7 @@
     background-color: var(--background);
     color: var(--text-primary);
     font-family: var(--font-sans);
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth switch */
+    transition: background-color 0.3s ease, color 0.3s ease;
     @apply antialiased;
   }
 
@@ -70,11 +78,11 @@
 @layer components {
   .glass-panel {
     background-color: var(--glass);
-    backdrop-filter: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
   }
 
-  /* Fixed buttons to use theme variables */
   .btn-primary {
     background-color: var(--primary);
     @apply text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:brightness-110 shadow-md;
@@ -84,4 +92,57 @@
     background-color: var(--secondary);
     @apply text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:brightness-110;
   }
+}
+
+/* ============================================================
+   TOOL BACKGROUND
+   ============================================================ */
+
+.tool-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.tool-icon {
+  position: absolute;
+  color: var(--primary);
+  opacity: 0.07;
+  will-change: transform;
+}
+
+/* Three drift personalities — slow, dreamy, slightly different arcs */
+@keyframes drift1 {
+  0%   { transform: translate(0px,   0px)  rotate(var(--r, 0deg)); }
+  25%  { transform: translate(10px, -16px) rotate(calc(var(--r, 0deg) + 12deg)); }
+  50%  { transform: translate(-8px,  12px) rotate(calc(var(--r, 0deg) - 6deg)); }
+  75%  { transform: translate(14px,   6px) rotate(calc(var(--r, 0deg) + 8deg)); }
+  100% { transform: translate(0px,   0px)  rotate(var(--r, 0deg)); }
+}
+
+@keyframes drift2 {
+  0%   { transform: translate(0px,   0px)  rotate(var(--r, 0deg)); }
+  30%  { transform: translate(-12px, 14px) rotate(calc(var(--r, 0deg) - 14deg)); }
+  60%  { transform: translate(10px, -10px) rotate(calc(var(--r, 0deg) + 9deg)); }
+  100% { transform: translate(0px,   0px)  rotate(var(--r, 0deg)); }
+}
+
+@keyframes drift3 {
+  0%   { transform: translate(0px,   0px)  rotate(var(--r, 0deg)); }
+  20%  { transform: translate(16px,  10px) rotate(calc(var(--r, 0deg) + 18deg)); }
+  55%  { transform: translate(-6px, -14px) rotate(calc(var(--r, 0deg) - 10deg)); }
+  80%  { transform: translate(8px,   18px) rotate(calc(var(--r, 0deg) + 5deg)); }
+  100% { transform: translate(0px,   0px)  rotate(var(--r, 0deg)); }
+}
+
+.drift-1 { animation: drift1 11s ease-in-out infinite; }
+.drift-2 { animation: drift2 13s ease-in-out infinite; }
+.drift-3 { animation: drift3  9s ease-in-out infinite; }
+
+/* Dark mode — icons lighten slightly so they stay visible on near-black bg */
+[data-theme='dark'] .tool-icon {
+  color: #5A8FD4;
+  opacity: 0.06;
 }

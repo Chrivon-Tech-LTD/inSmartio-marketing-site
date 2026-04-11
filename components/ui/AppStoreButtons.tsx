@@ -49,6 +49,7 @@ export function AppStoreButtons({
           fill
           style={{ objectFit: 'contain' }}
           className="object-left lg:object-center"
+          sizes="(max-width: 768px) 135px, 150px"
           priority
         />
       </Link>
