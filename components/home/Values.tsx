@@ -1,4 +1,10 @@
-import { ShieldCheck, Eye, ShieldAlert, Zap, Users, Repeat, LucideIcon, BadgeCheck, Lock, Clock4, Star, UserCheck, RefreshCw, Fingerprint, ScanFace, } from "lucide-react";
+'use client';
+
+import { motion } from "framer-motion";
+import { 
+  ShieldCheck, Eye, ShieldAlert, Zap, Users, Repeat, LucideIcon, 
+  BadgeCheck, Lock, Clock4, Star, UserCheck, RefreshCw, Fingerprint, ScanFace, 
+} from "lucide-react";
 
 interface IllustrationIcon {
   icon: LucideIcon;
@@ -14,7 +20,6 @@ interface ValueItem {
   desc: string;
 }
 
-// ── Value cards ────────────────────────────────────────────────────
 const valuesData: ValueItem[] = [
   {
     mainIcon: ShieldCheck,
@@ -79,15 +84,18 @@ const valuesData: ValueItem[] = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────────
 export const Values = () => (
   <section className="relative py-16 md:py-28 bg-background transition-colors duration-300 overflow-hidden">
-    {/* Ambient glow */}
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 md:w-176 md:h-176 bg-primary/8 blur-3xl rounded-full opacity-50 pointer-events-none" />
 
     <div className="relative max-w-7xl mx-auto px-6">
       {/* HEADER */}
-      <div className="text-center mb-12 md:mb-20">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-12 md:mb-20"
+      >
         <span className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-primary bg-primary/8 px-4 py-1.5 rounded-full">
           Why Nigerians Trust HelpMe NG
         </span>
@@ -95,14 +103,23 @@ export const Values = () => (
           Built on Trust. <br />
           <span className="text-text-muted">Backed by Verification.</span>
         </h2>
-      </div>
+      </motion.div>
 
-      {/* CLEAN GRID (All Cards) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* GRID */}
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={{
+          visible: { transition: { staggerChildren: 0.1 } },
+          hidden: {}
+        }}
+      >
         {valuesData.map((item, i) => (
           <ValueCard key={i} item={item} />
         ))}
-      </div>
+      </motion.div>
     </div>
   </section>
 );
@@ -111,28 +128,60 @@ const ValueCard = ({ item }: { item: ValueItem }) => {
   const { mainIcon: MainIcon, floaters, title, desc } = item;
 
   return (
-    <div className="bg-surface border border-border rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col">
+    <motion.div 
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+      }}
+      whileHover={{ y: -5 }}
+      className="bg-surface border border-border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col group"
+    >
       <div className="relative bg-primary/6 flex items-center justify-center py-10 overflow-hidden">
-        <div className="absolute w-28 h-28 rounded-full border border-primary/10" />
-        <div className="absolute w-44 h-44 rounded-full border border-primary/6" />
+        {/* Animated Background Circles */}
+        <motion.div 
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute w-28 h-28 rounded-full border border-primary/10" 
+        />
+        <motion.div 
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute w-44 h-44 rounded-full border border-primary/6" 
+        />
 
+        {/* Floating Background Icons */}
         {floaters.map((f, i) => (
-          <f.icon
+          <motion.div
             key={i}
-            size={f.size}
-            className={`absolute ${f.position} ${f.className}`}
-          />
+            className={`absolute ${f.position}`}
+            animate={{ 
+              y: [0, -8, 0],
+              opacity: [0.6, 1, 0.6] 
+            }}
+            transition={{ 
+              duration: 3 + i, 
+              repeat: Infinity, 
+              ease: "easeInOut",
+              delay: i * 0.5 
+            }}
+          >
+            <f.icon size={f.size} className={f.className} />
+          </motion.div>
         ))}
 
-        <div className="relative z-10 w-16 h-16 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center">
+        {/* Main Icon with subtle pop */}
+        <motion.div 
+          whileHover={{ scale: 1.1, rotate: 5 }}
+          className="relative z-10 w-16 h-16 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center"
+        >
           <MainIcon size={30} className="text-secondary" strokeWidth={1.75} />
-        </div>
+        </motion.div>
       </div>
 
       <div className="p-6 flex flex-col flex-1">
         <h4 className="font-bold text-base md:text-lg text-text-main mb-2 font-display">{title}</h4>
         <p className="text-sm text-text-muted leading-relaxed">{desc}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };

@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion, Variants } from 'framer-motion';
 import { Card } from '../ui/Card';
 import { TrendingUp, BadgeCheck, Building2, Headset, Code2, ArrowRight } from 'lucide-react';
 
@@ -51,12 +54,25 @@ const addOns: AddOn[] = [
 ];
 
 export const AddOns: React.FC = () => {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
   return (
     <section className="py-20 md:py-28 bg-background transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-4"
+        >
           <div>
             <p className="text-secondary text-xs font-semibold uppercase tracking-[0.2em] mb-3">
               Add-ons
@@ -68,16 +84,15 @@ export const AddOns: React.FC = () => {
           <p className="text-text-muted text-sm md:text-base max-w-xs leading-relaxed">
             Powerful extras for experts and businesses ready to grow faster on the platform.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 
-          Layout: 
-          - Row 1: 3 cards 
-          - Row 2: 2 cards centered 
-          Using a CSS trick: max-w on the bottom row wrapper 
-        */}
-        <div className="space-y-5">
-
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="space-y-5"
+        >
           {/* Top row — 3 cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {addOns.slice(0, 3).map((item, index) => (
@@ -91,91 +106,111 @@ export const AddOns: React.FC = () => {
               <AddOnCard key={index + 3} item={item} />
             ))}
           </div>
-
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 20, scale: 0.98 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" } 
+  }
+};
+
 function AddOnCard({ item }: { item: AddOn }) {
   return (
-    <Card
-      className={`
-        group relative flex flex-col p-6 md:p-7 rounded-2xl border transition-all duration-300
-        hover:-translate-y-1 hover:shadow-ambient
-        ${item.highlight
-          ? 'bg-primary border-primary'
-          : 'bg-surface border-border hover:border-primary/30'
-        }
-      `}
-    >
-      {/* Top row: icon + price */}
-      <div className="flex items-start justify-between mb-5">
-        {/* Icon */}
-        <div
-          className={`
-            p-2.5 rounded-xl
-            ${item.highlight
-              ? 'bg-white/15 text-white'
-              : 'bg-secondary/10 text-secondary'
-            }
-          `}
-        >
-          {item.icon}
-        </div>
-
-        {/* Price pill */}
-        <div className="text-right">
-          <div
-            className={`text-lg font-black font-display leading-none
-              ${item.highlight ? 'text-secondary' : 'text-primary'}
-            `}
-          >
-            {item.price}
-          </div>
-          <div
-            className={`text-[10px] font-semibold uppercase tracking-wider mt-0.5
-              ${item.highlight ? 'text-white/60' : 'text-text-muted'}
-            `}
-          >
-            {item.priceNote}
-          </div>
-        </div>
-      </div>
-
-      {/* Title */}
-      <h3
-        className={`font-bold text-base md:text-lg font-display mb-2 leading-snug
-          ${item.highlight ? 'text-white' : 'text-text-main'}
-        `}
-      >
-        {item.title}
-      </h3>
-
-      {/* Description */}
-      <p
-        className={`text-sm leading-relaxed flex-1 mb-6
-          ${item.highlight ? 'text-white/70' : 'text-text-muted'}
-        `}
-      >
-        {item.description}
-      </p>
-
-      {/* CTA */}
-      <button
+    <motion.div variants={cardVariants}>
+      <Card
         className={`
-          group/btn inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider
-          transition-all duration-200 w-fit
+          group relative flex flex-col h-full p-6 md:p-7 rounded-2xl border transition-all duration-300
+          hover:-translate-y-1 hover:shadow-ambient overflow-hidden
           ${item.highlight
-            ? 'text-secondary hover:gap-2.5'
-            : 'text-primary hover:gap-2.5'
+            ? 'bg-primary border-primary shadow-lg shadow-primary/20'
+            : 'bg-surface border-border hover:border-primary/30'
           }
         `}
       >
-        Add to plan
-        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
-      </button>
-    </Card>
+        {/* Shimmer effect for highlight card */}
+        {item.highlight && (
+          <motion.div 
+            animate={{ x: ['-100%', '200%'] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-transparent skew-x-12 pointer-events-none"
+          />
+        )}
+
+        {/* Top row: icon + price */}
+        <div className="relative z-10 flex items-start justify-between mb-5">
+          <motion.div
+            whileHover={{ rotate: 10, scale: 1.1 }}
+            className={`
+              p-2.5 rounded-xl
+              ${item.highlight
+                ? 'bg-white/15 text-white'
+                : 'bg-secondary/10 text-secondary'
+              }
+            `}
+          >
+            {item.icon}
+          </motion.div>
+
+          <div className="text-right">
+            <div
+              className={`text-lg font-black font-display leading-none
+                ${item.highlight ? 'text-secondary' : 'text-primary'}
+              `}
+            >
+              {item.price}
+            </div>
+            <div
+              className={`text-[10px] font-semibold uppercase tracking-wider mt-0.5
+                ${item.highlight ? 'text-white/60' : 'text-text-muted'}
+              `}
+            >
+              {item.priceNote}
+            </div>
+          </div>
+        </div>
+
+        {/* Title */}
+        <h3
+          className={`relative z-10 font-bold text-base md:text-lg font-display mb-2 leading-snug
+            ${item.highlight ? 'text-white' : 'text-text-main'}
+          `}
+        >
+          {item.title}
+        </h3>
+
+        {/* Description */}
+        <p
+          className={`relative z-10 text-sm leading-relaxed flex-1 mb-6
+            ${item.highlight ? 'text-white/70' : 'text-text-muted'}
+          `}
+        >
+          {item.description}
+        </p>
+
+        {/* CTA */}
+        <motion.button
+          whileHover={{ x: 5 }}
+          className={`
+            relative z-10 group/btn inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider
+            transition-all duration-200 w-fit
+            ${item.highlight
+              ? 'text-secondary'
+              : 'text-primary'
+            }
+          `}
+        >
+          Add to plan
+          <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
+        </motion.button>
+      </Card>
+    </motion.div>
   );
 }

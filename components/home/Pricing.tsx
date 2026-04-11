@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { motion, Variants } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { Card } from '../ui/Card';
 import { Check } from 'lucide-react';
@@ -44,61 +45,97 @@ const tasPlans: PricingTier[] = [
 ];
 
 export const Pricing: React.FC = () => {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
   return (
     <section className="py-16 md:py-24 bg-background transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 md:mb-16"
+        >
           <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 tracking-tight font-display">
             Choose Your Perfect Plan
           </h2>
           <p className="text-text-muted max-w-2xl mx-auto text-sm md:text-base">
             Flexible options for clients, experts, and businesses. Start with what you need and scale as you grow.
           </p>
-        </div>
+        </motion.div>
 
         {/* ══ CLIENT & EXPERT ROW ══ */}
-        <div className="mb-16 md:mb-20">
-          {/* gap-12 on mobile ensures the 'Popular' tag has room between stacked cards */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-16 md:mb-20"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-8 items-stretch">
             
-            {/* Client Card Container */}
-            <div className="flex flex-col">
+            {/* Client Card */}
+            <motion.div variants={cardSlideUp} className="flex flex-col">
               <h3 className="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-4 md:mb-6 text-center lg:text-left">
                 Free Always
               </h3>
               <PricingCard tier={clientPlan} />
-            </div>
+            </motion.div>
 
             {/* Expert Cards */}
             {expertPlans.map((tier, index) => (
-              <div key={tier.plan} className="flex flex-col">
+              <motion.div key={tier.plan} variants={cardSlideUp} className="flex flex-col">
                 <h3 className="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-4 md:mb-6 text-center lg:text-left">
                   {index === 0 ? "For Experts" : "\u00A0"}
                 </h3>
                 <PricingCard tier={tier} />
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* ══ TAS SECTION ══ */}
-        <div className="pt-12 md:pt-16 border-t border-text-muted/10">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="pt-12 md:pt-16 border-t border-text-muted/10"
+        >
           <h3 className="text-xl font-bold mb-8 md:mb-10 text-center text-primary font-display">
             TAS Growth Tiers
           </h3>
-          {/* sm:grid-cols-2 lg:grid-cols-4 allows a smooth transition from phone to tablet to desktop */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
             {tasPlans.map((tier) => (
-              <PricingCard key={tier.plan} tier={tier} />
+              <motion.div key={tier.plan} variants={cardSlideUp}>
+                <PricingCard tier={tier} />
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
       </div>
     </section>
   );
+};
+
+// Animation variants for the cards
+const cardSlideUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
 const PricingCard: React.FC<{ tier: PricingTier }> = ({ tier }) => {
@@ -112,9 +149,14 @@ const PricingCard: React.FC<{ tier: PricingTier }> = ({ tier }) => {
         : 'border-text-muted/10 bg-surface shadow-sm'}
     `}>
       {isPopular && (
-        <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg z-20 whitespace-nowrap">
+        <motion.span 
+          initial={{ y: 10, opacity: 0, x: "-50%" }}
+          animate={{ y: 0, opacity: 1, x: "-50%" }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="absolute -top-4 left-1/2 bg-secondary text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg z-20 whitespace-nowrap"
+        >
           Recommended
-        </span>
+        </motion.span>
       )}
       
       <div className="mb-6 md:mb-8">
@@ -127,8 +169,14 @@ const PricingCard: React.FC<{ tier: PricingTier }> = ({ tier }) => {
       </div>
 
       <ul className="space-y-3 md:space-y-4 mb-8 md:mb-10 flex-1">
-        {tier.features.map((feature) => (
-          <li key={feature} className="flex gap-3 text-sm items-start">
+        {tier.features.map((feature, idx) => (
+          <motion.li 
+            key={feature}
+            initial={{ opacity: 0, x: -5 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 * idx }}
+            className="flex gap-3 text-sm items-start"
+          >
             <Check 
               size={18} 
               className={`shrink-0 mt-0.5 ${isPopular ? 'text-secondary' : 'text-primary'}`} 
@@ -136,7 +184,7 @@ const PricingCard: React.FC<{ tier: PricingTier }> = ({ tier }) => {
             <span className={`leading-tight font-medium ${isPopular ? 'text-white/90' : 'text-text-muted'}`}>
               {feature}
             </span>
-          </li>
+          </motion.li>
         ))}
       </ul>
 

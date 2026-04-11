@@ -1,4 +1,7 @@
+'use client';
+
 import React from "react";
+import { motion } from "framer-motion";
 import {
   ClipboardEdit,
   Users,
@@ -42,14 +45,6 @@ const steps: Step[] = [
 ];
 
 export const HowItWorks = () => {
-  /**
-   * STYLING NOTE:
-   * Forced Dark Mode using HEX values from theme:
-   * Background: #060D1A
-   * Surface: #0E1E3A
-   * Text Primary: #D8E8FF
-   * Text Secondary: #7A9DC4
-   */
   return (
     <section className="relative py-16 md:py-28 bg-[#060D1A] overflow-hidden">
       {/* Background Glow */}
@@ -57,7 +52,12 @@ export const HowItWorks = () => {
 
       <div className="relative max-w-7xl mx-auto px-6">
         {/* HEADER */}
-        <div className="text-center mb-12 md:mb-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 md:mb-24"
+        >
           <h2 className="text-3xl md:text-5xl font-bold text-[#D8E8FF] font-display leading-tight">
             Get Help in{" "}
             <span className="text-primary">
@@ -67,16 +67,32 @@ export const HowItWorks = () => {
           <p className="mt-4 text-[#7A9DC4] max-w-xl mx-auto text-sm md:text-base">
             From posting a job to getting it done — fast, simple and secure.
           </p>
-        </div>
+        </motion.div>
 
         {/* TIMELINE CONTAINER */}
         <div className="relative">
           
-          {/* CONNECTIVE LINE - Horizontal on MD+ */}
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-white/5 -translate-y-1/2 z-0" />
+          {/* ANIMATED CONNECTIVE LINE - Horizontal on MD+ */}
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-white/5 -translate-y-1/2 z-0">
+            <motion.div 
+              initial={{ width: 0 }}
+              whileInView={{ width: "100%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="h-full bg-linear-to-r from-primary/50 to-primary"
+            />
+          </div>
           
-          {/* CONNECTIVE LINE - Vertical for Mobile */}
-          <div className="md:hidden absolute left-7.75 top-0 h-full w-0.5 bg-white/5 z-0" />
+          {/* ANIMATED CONNECTIVE LINE - Vertical for Mobile */}
+          <div className="md:hidden absolute left-7.75 top-0 h-full w-0.5 bg-white/5 z-0">
+             <motion.div 
+              initial={{ height: 0 }}
+              whileInView={{ height: "100%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="w-full bg-linear-to-b from-primary/50 to-primary"
+            />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12 relative z-10">
             {steps.map((step, i) => {
@@ -84,32 +100,48 @@ export const HowItWorks = () => {
               const isUp = i % 2 === 0;
 
               return (
-                <div
+                <motion.div
                   key={step.id}
-                  className={`relative flex flex-row md:flex-col items-start md:items-center gap-6 md:gap-0 transition-transform duration-500 ${
-                    isUp ? "md:-translate-y-10" : "md:translate-y-10"
-                  }`}
+                  initial={{ opacity: 0, y: isUp ? -40 : 40 }}
+                  whileInView={{ opacity: 1, y: isUp ? -40 : 40 }} // Maintains the layout position
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.2, duration: 0.6 }}
+                  // On Desktop, we keep the forced translation for the zigzag, 
+                  // on Mobile we remove it for a clean list.
+                  className={`relative flex flex-row md:flex-col items-start md:items-center gap-6 md:gap-0 
+                    ${isUp ? "md:-translate-y-10" : "md:translate-y-10"}`}
                 >
                   {/* NODE (Icon Container) */}
-                  <div className="relative shrink-0 w-16 h-16 rounded-full bg-[#0E1E3A] border border-white/10 shadow-lg flex items-center justify-center mb-0 md:mb-8 transition-colors duration-300">
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="relative shrink-0 w-16 h-16 rounded-full bg-[#0E1E3A] border border-white/10 shadow-lg flex items-center justify-center mb-0 md:mb-8 transition-colors duration-300"
+                  >
                     <Icon className="w-7 h-7 text-primary" />
                     
                     {/* STEP NUMBER BADGE */}
-                    <div className="absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold w-6 h-6 rounded-full flex items-center justify-center border-2 border-[#0E1E3A]">
+                    <motion.div 
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ delay: (i * 0.2) + 0.3, type: "spring" }}
+                      className="absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold w-6 h-6 rounded-full flex items-center justify-center border-2 border-[#0E1E3A]"
+                    >
                       {step.id}
-                    </div>
-                  </div>
+                    </motion.div>
+                  </motion.div>
 
                   {/* CARD */}
-                  <div className="flex-1 bg-[#0E1E3A] border border-white/10 rounded-xl p-5 md:p-6 shadow-md hover:shadow-ambient hover:border-primary/30 transition-all duration-300 group text-left md:text-center">
-                    <h3 className="font-bold text-base md:text-lg text-[#D8E8FF] mb-2 font-display transition-colors">
+                  <motion.div 
+                    whileHover={{ y: -5, borderColor: "rgba(var(--primary), 0.3)" }}
+                    className="flex-1 bg-[#0E1E3A] border border-white/10 rounded-xl p-5 md:p-6 shadow-md hover:shadow-ambient transition-all duration-300 group text-left md:text-center"
+                  >
+                    <h3 className="font-bold text-base md:text-lg text-[#D8E8FF] mb-2 font-display">
                       {step.title}
                     </h3>
                     <p className="text-sm text-[#7A9DC4] leading-relaxed">
                       {step.description}
                     </p>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               );
             })}
           </div>

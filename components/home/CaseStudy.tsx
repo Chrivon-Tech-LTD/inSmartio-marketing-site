@@ -1,4 +1,7 @@
+'use client';
+
 import React from "react";
+import { motion, Variants } from "framer-motion";
 import { Button } from "../ui/Button";
 
 interface Metric {
@@ -20,14 +23,62 @@ const techStack = [
 ];
 
 export const CaseStudy: React.FC = () => {
+  // Explicitly typing variants fixes the "string is not assignable to AnimationGeneratorType" error
+  const containerVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { duration: 0.5 } 
+    },
+  };
+
+  const metricVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      transition: { 
+        type: "spring", 
+        stiffness: 100, 
+        damping: 15 
+      } 
+    },
+  };
+
   return (
     <section className="relative py-16 md:py-28 bg-background transition-colors duration-300 overflow-hidden">
-      {/* Background Glow - Scaled for mobile */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 md:w-200 md:h-200 bg-primary/10 blur-3xl rounded-full opacity-30" />
+      {/* Background Glow */}
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3] 
+        }}
+        transition={{ duration: 8, repeat: Infinity }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 md:w-200 md:h-200 bg-primary/10 blur-3xl rounded-full pointer-events-none" 
+      />
 
       <div className="relative max-w-7xl mx-auto px-6">
         {/* HEADER */}
-        <div className="mb-10 md:mb-16 text-center md:text-left">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-10 md:mb-16 text-center md:text-left"
+        >
           <span className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-secondary bg-secondary/10 px-4 py-1 rounded-full inline-block">
             Featured Case Study • Marketplace
           </span>
@@ -38,20 +89,29 @@ export const CaseStudy: React.FC = () => {
               Measurable Results
             </span>
           </h2>
-        </div>
+        </motion.div>
 
         {/* MAIN PANEL */}
-        <div className="relative bg-surface border border-text-muted/10 rounded-2xl md:rounded-3xl shadow-ambient p-6 md:p-10 lg:p-16 overflow-hidden transition-colors duration-300">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="relative bg-surface border border-text-muted/10 rounded-2xl md:rounded-3xl shadow-ambient p-6 md:p-10 lg:p-16 overflow-hidden transition-colors duration-300"
+        >
           
-          {/* TECH STACK - Responsive Positioning */}
+          {/* TECH STACK */}
           <div className="flex flex-wrap gap-2 mb-8 lg:absolute lg:top-8 lg:right-8 lg:mb-0 lg:justify-end">
-            {techStack.map((tech) => (
-              <span
+            {techStack.map((tech, i) => (
+              <motion.span
                 key={tech}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + (i * 0.1) }}
                 className="px-3 py-1 rounded-full bg-primary/5 text-text-muted text-[9px] md:text-[10px] font-bold uppercase tracking-widest border border-text-muted/5 whitespace-nowrap"
               >
                 {tech}
-              </span>
+              </motion.span>
             ))}
           </div>
 
@@ -59,12 +119,12 @@ export const CaseStudy: React.FC = () => {
             
             {/* LEFT SIDE (STORY) */}
             <div className="order-2 lg:order-1">
-              <h3 className="text-xl md:text-2xl font-bold text-text-main mb-6 md:mb-10 font-display">
+              <motion.h3 variants={itemVariants} className="text-xl md:text-2xl font-bold text-text-main mb-6 md:mb-10 font-display">
                 HelpMe NG – Nigeria’s Trusted Service Marketplace
-              </h3>
+              </motion.h3>
 
               {/* PROBLEM */}
-              <div className="mb-8">
+              <motion.div variants={itemVariants} className="mb-8">
                 <p className="text-base md:text-xs font-bold uppercase tracking-widest text-primary mb-3">
                   Problem
                 </p>
@@ -73,10 +133,10 @@ export const CaseStudy: React.FC = () => {
                   get overcharged, while experts struggle to find consistent
                   work.
                 </p>
-              </div>
+              </motion.div>
 
               {/* SOLUTION */}
-              <div>
+              <motion.div variants={itemVariants}>
                 <p className="text-base md:text-xs font-bold uppercase tracking-widest text-primary mb-4">
                   Solution
                 </p>
@@ -88,40 +148,56 @@ export const CaseStudy: React.FC = () => {
                     "Dual payment models (subscription & commission)",
                     "TAS recruitment program",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex gap-3 items-start">
+                    <motion.li 
+                      key={idx} 
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.8 + (idx * 0.1) }}
+                      className="flex gap-3 items-start"
+                    >
                       <span className="text-primary font-bold shrink-0">✓</span>
                       <span>{item}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             </div>
 
             {/* RIGHT SIDE (METRICS HERO) */}
             <div className="order-1 lg:order-2 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4 md:gap-6">
               {metrics.map((metric, i) => (
-                <div
+                <motion.div
                   key={i}
+                  variants={metricVariants}
+                  whileHover={{ scale: 1.02, x: 5 }}
                   className="bg-background rounded-xl md:rounded-2xl p-6 md:p-8 text-center border border-text-muted/10 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <p className="text-3xl md:text-4xl font-black text-secondary transition-transform group-hover:scale-105">
+                  <motion.p 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.5 + (i * 0.2) }}
+                    className="text-3xl md:text-4xl font-black text-secondary"
+                  >
                     {metric.value}
-                  </p>
+                  </motion.p>
                   <p className="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-text-muted mt-2 leading-tight">
                     {metric.label}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
 
           {/* CTA */}
-          <div className="mt-10 md:mt-16 flex justify-center">
-            <Button size="lg" variant="primary" className="w-full sm:w-auto">
+          <motion.div 
+            variants={itemVariants}
+            className="mt-10 md:mt-16 flex justify-center"
+          >
+            <Button size="lg" variant="primary" className="w-full sm:w-auto px-12">
               Read Full Case Study
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
