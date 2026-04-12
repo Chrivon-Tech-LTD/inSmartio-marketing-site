@@ -1,19 +1,51 @@
 "use client";
 
-import React from "react";
-import { Mail, Phone, MessageCircle } from "lucide-react";
-// Using Simple Icons (si) for brand-perfect logos
-import { SiInstagram, SiX, } from "react-icons/si";
+import React, { useRef } from "react";
+import { HiOutlineEnvelope, HiOutlinePhone } from "react-icons/hi2";
+import { SiInstagram, SiX, SiWhatsapp } from "react-icons/si";
+import { FaLinkedinIn } from "react-icons/fa6"; 
+import { motion, useInView, Variants } from "framer-motion";
+
+/* ── Animation Variants ────────────────────────────────────────── */
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.2 }
+  }
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, x: 20 },
+  visible: { 
+    opacity: 1, 
+    x: 0, 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+  }
+};
 
 export function ContactSidebar() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <div className="space-y-6 md:space-y-8">
+    <motion.div 
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      className="space-y-6 md:space-y-8"
+    >
       
       {/* EMAIL SUPPORT CARD */}
-      <div className="bg-white dark:bg-surface p-8 rounded-4xl border border-text-muted/10 border-l-4 border-l-primary shadow-sm hover:shadow-ambient transition-all duration-500 group">
+      <motion.div 
+        variants={cardVariants}
+        whileHover={{ x: -5 }}
+        className="bg-white dark:bg-surface p-8 rounded-4xl border border-text-muted/10 border-l-4 border-l-primary shadow-sm hover:shadow-ambient transition-all duration-500 group"
+      >
         <div className="flex items-center gap-4 mb-6 text-primary">
           <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center transition-transform group-hover:scale-110">
-            <Mail size={20} />
+            <HiOutlineEnvelope size={20} />
           </div>
           <h4 className="text-[11px] font-black uppercase tracking-[0.2em] font-display">Email Support</h4>
         </div>
@@ -24,13 +56,17 @@ export function ContactSidebar() {
           <ContactLine label="Experts" value="experts@helpme.ng" />
           <ContactLine label="TAS Agents" value="tas@helpme.ng" />
         </div>
-      </div>
+      </motion.div>
 
       {/* PHONE SUPPORT CARD */}
-      <div className="bg-white dark:bg-surface p-8 rounded-4xl border border-text-muted/10 border-l-4 border-l-secondary shadow-sm hover:shadow-ambient transition-all duration-500 group">
+      <motion.div 
+        variants={cardVariants}
+        whileHover={{ x: -5 }}
+        className="bg-white dark:bg-surface p-8 rounded-4xl border border-text-muted/10 border-l-4 border-l-secondary shadow-sm hover:shadow-ambient transition-all duration-500 group"
+      >
         <div className="flex items-center gap-4 mb-6 text-secondary">
           <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center transition-transform group-hover:scale-110">
-            <Phone size={20} />
+            <HiOutlinePhone size={20} />
           </div>
           <h4 className="text-[11px] font-black uppercase tracking-[0.2em] font-display">Live Support</h4>
         </div>
@@ -41,10 +77,13 @@ export function ContactSidebar() {
             Mon - Fri, 8am - 6pm WAT
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* SOCIAL COMMUNITY CARD */}
-      <div className="bg-surface p-8 rounded-[2.5rem] border border-text-muted/10 text-center shadow-sm">
+      <motion.div 
+        variants={cardVariants}
+        className="bg-surface p-8 rounded-[2.5rem] border border-text-muted/10 text-center shadow-sm"
+      >
         <h4 className="text-[10px] font-black uppercase tracking-[0.3em] mb-8 text-text-muted">
           Join Our Community
         </h4>
@@ -52,34 +91,44 @@ export function ContactSidebar() {
         <div className="flex justify-center gap-3 md:gap-4 flex-wrap">
           <SocialIcon icon={<SiX size={16} />} href="https://x.com/helpme_ng" />
           <SocialIcon icon={<SiInstagram size={18} />} href="https://instagram.com/helpme_ng" />
-          <SocialIcon icon={<SiX size={18} />} href="https://linkedin.com/company/helpme-ng" />
-          <SocialIcon icon={<MessageCircle size={18} />} href="#" />
+          <SocialIcon icon={<FaLinkedinIn size={18} />} href="https://linkedin.com/company/helpme-ng" />
+          <SocialIcon icon={<SiWhatsapp size={18} />} href="#" />
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
-/* HELPER COMPONENTS */
+/* ── Helper Components ────────────────────────────────────────── */
 
 const ContactLine = ({ label, value }: { label: string; value: string }) => (
-  <div className="flex flex-col gap-0.5 group/line cursor-pointer">
+  <motion.div 
+    whileHover={{ x: 5 }}
+    className="flex flex-col gap-0.5 group/line cursor-pointer"
+  >
     <span className="text-[9px] font-black text-text-muted uppercase tracking-widest opacity-60">
       {label}
     </span>
     <span className="text-sm font-bold text-text-main group-hover/line:text-primary transition-colors truncate">
       {value}
     </span>
-  </div>
+  </motion.div>
 );
 
 const SocialIcon = ({ icon, href }: { icon: React.ReactNode; href: string }) => (
-  <a 
+  <motion.a 
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="w-12 h-12 rounded-2xl bg-white dark:bg-background text-text-muted hover:text-white hover:bg-primary cursor-pointer transition-all duration-300 border border-text-muted/10 flex items-center justify-center shadow-sm hover:shadow-lg hover:-translate-y-1"
+    whileHover={{ 
+      y: -5, 
+      scale: 1.1, 
+      backgroundColor: "var(--color-primary)", 
+      color: "#ffffff" 
+    }}
+    whileTap={{ scale: 0.95 }}
+    className="w-12 h-12 rounded-2xl bg-white dark:bg-background text-text-muted cursor-pointer transition-all duration-300 border border-text-muted/10 flex items-center justify-center shadow-sm hover:shadow-lg"
   >
     {icon}
-  </a>
+  </motion.a>
 );

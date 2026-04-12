@@ -24,14 +24,18 @@ export default function ForExpertsPage() {
       {/* 5.3 Verification Table */}
       <VerificationFramework />
 
-      {/* 5.4 Payment Models */}
-      <ExpertPaymentModels />
+       {/* 5.6 TAS Path Cross-sell */}
+      <TASOpportunity />
 
       {/* 5.5 Calculator */}
       <EarningsCalculator />
+      
+      {/* 5.4 Payment Models */}
+      <ExpertPaymentModels />
 
-      {/* 5.6 TAS Path Cross-sell */}
-      <TASOpportunity />
+      
+
+      
 
       
     </main>

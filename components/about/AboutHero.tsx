@@ -1,48 +1,167 @@
+"use client";
+
 import React from "react";
+import { motion, Variants } from "framer-motion";
+import Image from "next/image";
+/* ── Animation Variants ────────────────────────────────────────── */
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.9,
+      delay: i * 0.15,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+};
+
+const dotContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 0.4,
+    transition: { staggerChildren: 0.1, delayChildren: 0.8 },
+  },
+};
 
 export function AboutHero() {
   return (
     <section className="relative pt-24 md:pt-40 pb-20 px-6 bg-background transition-colors duration-300 overflow-hidden">
-      
-      {/* Strategic Background Accents for Depth */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none opacity-50" />
-      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-secondary/5 blur-[100px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center text-center">
-        
-        {/* Editorial Label - Centered with symmetrical lines */}
-        <div className="flex items-center justify-center gap-4 mb-8 md:mb-10">
-          <div className="h-px w-8 md:w-12 bg-secondary/50" />
-          <span className="text-secondary text-[10px] md:text-xs font-black uppercase tracking-[0.4em] block">
-            The Chrivon Standard
-          </span>
-          <div className="h-px w-8 md:w-12 bg-secondary/50" />
+      {/* Background Accents */}
+      <motion.div
+        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none"
+      />
+      <motion.div
+        animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute bottom-0 left-1/4 w-64 h-64 bg-secondary/5 blur-[100px] rounded-full pointer-events-none"
+      />
+
+      {/* Two-column layout */}
+      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        {/* ── Left: Text Content ── */}
+        <div className="flex flex-col items-start text-left">
+
+          {/* Editorial Label */}
+          <motion.div
+            custom={0}
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            className="flex items-center gap-4 mb-8 md:mb-10"
+          >
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: 48 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="h-px bg-secondary/50"
+            />
+            <span className="text-secondary text-[10px] md:text-xs font-black uppercase tracking-[0.4em] block">
+              The Chrivon Standard
+            </span>
+          </motion.div>
+
+          {/* Main Headline */}
+          <motion.h1
+            custom={1}
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            className="text-text-main mb-8 leading-[1.15] md:leading-[1.1] font-bold font-display text-4xl md:text-5xl lg:text-6xl tracking-tight"
+          >
+            Bridging the gap between{" "}
+            <span className="text-primary font-black italic">Talent and Trust.</span>
+          </motion.h1>
+
+          {/* Supporting Text */}
+          <motion.p
+            custom={2}
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            className="text-text-muted text-base md:text-lg max-w-lg leading-relaxed font-medium mb-12"
+          >
+            We are creating a marketplace where Nigerian professionalism meets
+            global standards through verification and integrity.
+            Ensuring that every connection is built on a foundation of accountability.
+          </motion.p>
+
+          {/* Decorative Indicator */}
+          <motion.div
+            variants={dotContainer}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col items-start gap-4"
+          >
+            <div className="flex gap-2">
+              {[1, 2, 3].map((i) => (
+                <motion.div
+                  key={i}
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="w-1.5 h-1.5 bg-text-muted rounded-full"
+                />
+              ))}
+            </div>
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+              className="text-[9px] font-black uppercase tracking-[0.3em] text-text-muted"
+            >
+              Founded on Integrity
+            </motion.span>
+          </motion.div>
         </div>
-        
-        {/* Main Headline - Using your 7xl scale for impact */}
-        <h1 className="text-text-main mb-8 leading-[1.15] md:leading-[1.1] font-bold font-display text-4xl md:text-6xl lg:text-7xl tracking-tight max-w-4xl">
-          Bridging the gap between <br className="hidden md:block" />
-          <span className="text-primary font-black italic">Talent and Trust.</span>
-        </h1>
 
-        {/* Supporting Text - Preserving your original copy */}
-        <p className="text-text-muted text-base md:text-xl max-w-2xl leading-relaxed font-medium mb-12">
-          We are creating a marketplace where Nigerian professionalism meets 
-          global standards through verification and integrity. 
-          Ensuring that every connection is built on a foundation of accountability.
-        </p>
+        {/* ── Right: Image ── */}
+        <motion.div
+          custom={3}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          className="relative w-full h-105 md:h-135 rounded-2xl overflow-hidden"
+        >
+          {/* Main photo */}
+          <Image
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&auto=format&fit=crop&q=80"
+            alt="Nigerian professionals collaborating"
+            width={900}
+            height={600}
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
 
-        {/* Optional Stats or Decorative Indicator */}
-        <div className="flex flex-col items-center gap-6 opacity-40">
-          <div className="flex gap-2">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="w-1.5 h-1.5 bg-text-muted rounded-full" />
-            ))}
-          </div>
-          <span className="text-[9px] font-black uppercase tracking-[0.3em] text-text-muted">
-            Founded on Integrity
-          </span>
-        </div>
+          {/* Subtle dark gradient overlay at bottom for blending */}
+          <div className="absolute inset-0 bg-linear-to-t from-background/60 via-transparent to-transparent" />
+
+          {/* Floating stat card */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute bottom-6 left-6 right-6 bg-background/80 backdrop-blur-md border border-secondary/20 rounded-xl px-5 py-4 flex items-center justify-between"
+          >
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted font-black mb-0.5">
+                Verified Professionals
+              </p>
+              <p className="text-2xl font-black text-text-main leading-none">12,400+</p>
+            </div>
+            <div className="w-px h-10 bg-secondary/20" />
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted font-black mb-0.5">
+                Trust Score Avg.
+              </p>
+              <p className="text-2xl font-black text-primary leading-none">98%</p>
+            </div>
+          </motion.div>
+        </motion.div>
 
       </div>
     </section>
