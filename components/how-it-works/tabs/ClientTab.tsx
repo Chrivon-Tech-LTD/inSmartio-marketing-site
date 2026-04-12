@@ -1,7 +1,29 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
+
+/* ── Animation Variants ────────────────────────────────────────── */
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+  },
+};
 
 const clientSteps = [
   { id: "1", label: "Post Your Job", desc: "Tell us what you need. Add photos, describe the job, set your budget, and choose preferences." },
@@ -14,19 +36,20 @@ const clientSteps = [
 export const ClientTab: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   const handleScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, offsetWidth } = scrollRef.current;
-      // We use a small threshold to make the index switch feel more natural
-      const index = Math.round(scrollLeft / (offsetWidth - 48)); // Adjusting for gap
+      const index = Math.round(scrollLeft / (offsetWidth - 48));
       if (index !== activeIndex) setActiveIndex(index);
     }
   };
 
   const scrollTo = (index: number) => {
     if (scrollRef.current) {
-      const itemWidth = 320 + 24; // width + gap
+      const itemWidth = 320 + 24; 
       scrollRef.current.scrollTo({
         left: index * itemWidth,
         behavior: 'smooth'
@@ -35,7 +58,13 @@ export const ClientTab: React.FC = () => {
   };
 
   return (
-    <div className="w-full transition-colors duration-300">
+    <motion.div 
+      ref={containerRef}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      className="w-full transition-colors duration-300"
+    >
       {/* 1. HORIZONTAL SNAP CONTAINER */}
       <div 
         ref={scrollRef}
@@ -44,15 +73,21 @@ export const ClientTab: React.FC = () => {
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {clientSteps.map((step, i) => (
-          <div 
+          <motion.div 
             key={step.id} 
+            variants={cardVariants}
             className="w-70 md:w-[320px] snap-center shrink-0 flex flex-col gap-8"
           >
             {/* Step Content */}
             <div className="px-2">
               <div className="flex items-center gap-3 mb-4">
                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-secondary">Step {step.id}</span>
-                 <div className="h-px flex-1 bg-text-muted/10" />
+                 <motion.div 
+                   initial={{ width: 0 }}
+                   animate={isInView ? { width: "100%" } : {}}
+                   transition={{ duration: 1, delay: 0.5 + i * 0.1 }}
+                   className="h-px bg-text-muted/10" 
+                 />
               </div>
               <h3 className="text-xl font-bold text-text-main mb-3 font-display">{step.label}</h3>
               <p className="text-xs text-text-muted leading-relaxed min-h-12 line-clamp-3">
@@ -60,37 +95,48 @@ export const ClientTab: React.FC = () => {
               </p>
             </div>
 
-            {/* Plain Mockup */}
+            {/* Plain Mockup with Scale Animation */}
             <motion.div
               className="relative w-full rounded-[2.8rem] overflow-hidden flex flex-col items-center justify-center border border-text-muted/10 shadow-ambient bg-surface"
               style={{ aspectRatio: "9/19" }}
               animate={{ 
-                scale: activeIndex === i ? 1 : 0.92,
-                opacity: activeIndex === i ? 1 : 0.4 
+                scale: activeIndex === i ? 1 : 0.88,
+                opacity: activeIndex === i ? 1 : 0.3,
+                filter: activeIndex === i ? "blur(0px)" : "blur(2px)" 
               }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              whileHover={{ scale: activeIndex === i ? 1.02 : 0.9 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
               {/* Device Notch */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-background rounded-b-2xl border-x border-b border-text-muted/10" />
 
-              {/* Central Label */}
               <div className="flex flex-col items-center gap-5 relative z-10">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center font-black text-lg bg-background text-primary shadow-inner border border-text-muted/5">
+                <motion.div 
+                  animate={activeIndex === i ? { y: [0, -5, 0] } : {}}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="w-14 h-14 rounded-full flex items-center justify-center font-black text-lg bg-background text-primary shadow-inner border border-text-muted/5"
+                >
                   {step.id}
-                </div>
+                </motion.div>
                 <div className="text-center px-6">
                   <p className="font-bold text-text-main text-lg mb-1 tracking-tight font-display">{step.label}</p>
                   <p className="text-[9px] text-text-muted uppercase tracking-[0.2em] font-black opacity-60">App Interface</p>
                 </div>
               </div>
 
-              {/* Bottom Skeleton Detail */}
-              <div className="absolute bottom-12 left-10 right-10 flex flex-col gap-3 opacity-20">
-                <div className="h-1.5 w-full bg-text-muted rounded-full" />
-                <div className="h-1.5 w-1/2 bg-text-muted rounded-full" />
+              {/* Animated Skeleton Lines */}
+              <div className="absolute bottom-12 left-10 right-10 flex flex-col gap-3">
+                <motion.div 
+                  animate={{ opacity: activeIndex === i ? 0.4 : 0.1 }}
+                  className="h-1.5 w-full bg-text-muted rounded-full" 
+                />
+                <motion.div 
+                   animate={{ opacity: activeIndex === i ? 0.4 : 0.1, width: activeIndex === i ? "60%" : "40%" }}
+                   className="h-1.5 bg-text-muted rounded-full" 
+                />
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
@@ -105,18 +151,14 @@ export const ClientTab: React.FC = () => {
             <motion.div 
               className="h-1.5 rounded-full"
               animate={{ 
-                width: activeIndex === i ? 48 : 12,
-                backgroundColor: activeIndex === i ? "var(--primary)" : "var(--border)"
-              }}
-              // CSS Variables handle the theme switch automatically
-              style={{ 
-                backgroundColor: activeIndex === i ? "var(--primary)" : "rgba(var(--text-secondary), 0.2)" 
+                width: activeIndex === i ? 40 : 8,
+                backgroundColor: activeIndex === i ? "var(--color-primary)" : "rgba(var(--color-text-muted), 0.2)"
               }}
               transition={{ duration: 0.4, ease: "circOut" }}
             />
           </button>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
