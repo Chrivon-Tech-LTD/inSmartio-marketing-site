@@ -33,29 +33,29 @@ const footerLinks: Record<string, FooterSection> = {
     title: "For Clients",
     links: [
       { label: "How It Works", href: "/how-it-works" },
-      { label: "Post a Job", href: "/post-job" },
-      { label: "Find Experts", href: "/categories" },
-      { label: "Payment Options", href: "/how-it-works#payments" },
-      { label: "Safety Tips", href: "/safety" },
+      { label: "Post a Job", href: "/how-it-works" },
+      { label: "Find Experts", href: "/how-it-works" },
+      { label: "Payment Options", href: "/how-it-works" },
+      { label: "Safety Tips", href: "/how-it-works" },
     ],
   },
   experts: {
     title: "For Experts",
     links: [
       { label: "How It Works", href: "/how-it-works#experts" },
-      { label: "Become an Expert", href: "/register" },
-      { label: "Expert Earnings", href: "/for-experts#earnings" },
-      { label: "Verification", href: "/for-experts#verification" },
-      { label: "Payment Models", href: "/for-experts#models" },
+      { label: "Become an Expert", href: "/how-it-works" },
+      { label: "Expert Earnings", href: "/how-it-works" },
+      { label: "Verification", href: "/how-it-works" },
+      { label: "Payment Models", href: "/how-it-works" },
     ],
   },
   tas: {
     title: "For TAS",
     links: [
       { label: "How It Works", href: "/how-it-works#tas" },
-      { label: "Apply Now", href: "/for-tas#apply" },
-      { label: "TAS Tiers", href: "/for-tas#tiers" },
-      { label: "Earnings Calculator", href: "/for-tas#calculator" },
+      { label: "Apply Now", href: "/how-it-works#apply" },
+      { label: "TAS Tiers", href: "/how-it-works#tiers" },
+      { label: "Earnings Calculator", href: "/how-it-works#calculator" },
     ],
   },
   company: {
@@ -79,7 +79,7 @@ const footerLinks: Record<string, FooterSection> = {
   legal: {
     title: "Legal",
     links: [
-      { label: "Terms of Service", href: "/terms" },
+      { label: "Terms of Service", href: "/terms-of-service" },
       { label: "Privacy Policy", href: "/privacy" },
       { label: "TAS Agreement", href: "/tas-agreement" },
       { label: "Cookie Policy", href: "/cookies" },

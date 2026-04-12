@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { 
   Target, 
   Lightbulb, 
@@ -9,9 +9,40 @@ import {
   CheckCircle2,
   Layers
 } from 'lucide-react';
+import { motion, useInView, Variants } from 'framer-motion';
 import { Card } from '../ui/Card';
 
+/* ── Animation Variants ────────────────────────────────────────── */
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+  }
+};
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+  }
+};
+
+const metaItemVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    transition: { duration: 0.5, ease: "easeOut" } 
+  }
+};
+
 export const CaseStudyOverview: React.FC = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const results = [
     "5,000+ verified experts",
     "20,000+ jobs completed",
@@ -26,50 +57,69 @@ export const CaseStudyOverview: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 space-y-12 md:space-y-16">
         
         {/* PROJECT HEADER */}
-        <div className="border-l-4 border-primary pl-6">
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          className="border-l-4 border-primary pl-6"
+        >
           <span className="block mb-2 uppercase tracking-[0.3em] font-black text-secondary text-[10px]">
             Project Documentation
           </span>
-          <h2 className="text-text-main font-display text-3xl md:text-5xl font-black  tracking-tight">
+          <h2 className="text-text-main font-display text-3xl md:text-5xl font-black tracking-tight">
             Case Study Content
           </h2>
-        </div>
+        </motion.div>
 
-        {/* META BAR */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* META BAR - Animated Meta Data */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+        >
           {[
             { label: "Type", value: "Marketplace" },
             { label: "Duration", value: "6 Mo Build" },
             { label: "Tech", value: "React Native" },
             { label: "Team", value: "8 Experts" }
           ].map((item, i) => (
-            <div
+            <motion.div
               key={i}
-              className="bg-surface p-4 md:p-6 rounded-2xl border border-text-muted/10 shadow-sm"
+              variants={metaItemVariants}
+              whileHover={{ y: -4, borderColor: "rgba(var(--primary), 0.3)" }}
+              className="bg-surface p-4 md:p-6 rounded-2xl border border-text-muted/10 shadow-sm transition-colors"
             >
-              <p className="text-[10px] md:text-[10px] uppercase font-black text-text-muted tracking-widest mb-1">
+              <p className="text-[10px] uppercase font-black text-text-muted tracking-widest mb-1">
                 {item.label}
               </p>
               <p className="text-sm font-black text-text-main truncate">
                 {item.value}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* MAIN CASE STUDY GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* LEFT COLUMN: Narrative */}
-          <div className="lg:col-span-7 h-full">
+          <motion.div 
+            variants={fadeInUp}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="lg:col-span-7 h-full"
+          >
             <Card className="h-full p-8 md:p-12 bg-surface border border-text-muted/10 shadow-ambient rounded-[2.5rem] md:rounded-[3rem] flex flex-col justify-between group">
               <div className="space-y-10 md:space-y-12">
                 {/* THE PROBLEM */}
-                <div>
+                <motion.div variants={fadeInUp}>
                   <div className="flex items-center gap-4 mb-6 text-primary">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center transition-transform group-hover:scale-110">
+                    <motion.div 
+                      whileHover={{ rotate: 15 }}
+                      className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center"
+                    >
                        <Target size={22} />
-                    </div>
+                    </motion.div>
                     <h3 className="text-base md:text-lg font-black uppercase tracking-widest font-display">
                       The Problem
                     </h3>
@@ -77,14 +127,17 @@ export const CaseStudyOverview: React.FC = () => {
                   <p className="text-text-muted leading-relaxed text-sm md:text-base font-medium">
                     Nigerians struggle to find trustworthy professionals. Clients face overcharging and poor workmanship, while experts face irregular income. No unified system existed to solve this trust gap.
                   </p>
-                </div>
+                </motion.div>
 
                 {/* THE SOLUTION */}
-                <div className="pt-10 border-t border-text-muted/10">
+                <motion.div variants={fadeInUp} className="pt-10 border-t border-text-muted/10">
                   <div className="flex items-center gap-4 mb-6 text-secondary">
-                    <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center transition-transform group-hover:scale-110">
+                    <motion.div 
+                      whileHover={{ scale: 1.1 }}
+                      className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center"
+                    >
                        <Lightbulb size={22} />
-                    </div>
+                    </motion.div>
                     <h3 className="text-base md:text-lg font-black uppercase tracking-widest font-display">
                       The Solution
                     </h3>
@@ -96,26 +149,42 @@ export const CaseStudyOverview: React.FC = () => {
                       "Bidding system",
                       "TAS program"
                     ].map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm md:text-[13px] font-black text-text-main">
+                      <motion.li 
+                        key={i} 
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ delay: 0.6 + (i * 0.1) }}
+                        className="flex items-center gap-3 text-sm md:text-[13px] font-black text-text-main"
+                      >
                         <CheckCircle2 size={16} className="text-success shrink-0" />
                         {item}
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               </div>
 
-              <div className="mt-12 flex items-center gap-2 text-[10px] font-black text-text-muted uppercase tracking-[0.3em] opacity-40">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 0.4 } : {}}
+                transition={{ delay: 1 }}
+                className="mt-12 flex items-center gap-2 text-[10px] font-black text-text-muted uppercase tracking-[0.3em]"
+              >
                 <Layers size={14} /> Chrivon Framework v4.0
-              </div>
+              </motion.div>
             </Card>
-          </div>
+          </motion.div>
 
           {/* RIGHT COLUMN: Stats & Social Proof */}
           <div className="lg:col-span-5 flex flex-col gap-6 md:gap-8">
 
-            {/* PROJECT IMPACT (RESULTS) - Height set to grow */}
-            <div className="bg-primary p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] text-white shadow-ambient relative overflow-hidden group min-h-100 flex flex-col">
+            {/* PROJECT IMPACT (RESULTS) */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-primary p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] text-white shadow-ambient relative overflow-hidden group min-h-100 flex flex-col"
+            >
               <BarChart4
                 size={140}
                 className="absolute -bottom-8 -right-8 opacity-10 rotate-12 group-hover:rotate-0 transition-transform duration-700"
@@ -128,22 +197,34 @@ export const CaseStudyOverview: React.FC = () => {
 
                 <div className="grid grid-cols-1 gap-4">
                   {results.map((result, i) => (
-                    <div
+                    <motion.div
                       key={i}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.4 + (i * 0.1) }}
                       className="flex items-center gap-4 border-b border-white/10 pb-3 last:border-none"
                     >
-                      <div className="shrink-0 w-1.5 h-1.5 bg-secondary rounded-full shadow-[0_0_8px_rgba(255,165,0,0.5)]" />
+                      <motion.div 
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+                        className="shrink-0 w-1.5 h-1.5 bg-secondary rounded-full shadow-[0_0_8px_rgba(255,165,0,0.5)]" 
+                      />
                       <p className="text-sm md:text-base font-black tracking-tight leading-tight">
                         {result}
                       </p>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* CLIENT TESTIMONIAL - Height set to auto-hug content */}
-            <div className="bg-surface p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] border border-text-muted/10 shadow-sm relative group">
+            {/* CLIENT TESTIMONIAL */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.5 }}
+              className="bg-surface p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] border border-text-muted/10 shadow-sm relative group"
+            >
               <Quote className="text-primary opacity-20 mb-4" size={28} />
 
               <p className="text-text-main font-bold italic mb-6 leading-relaxed text-sm">
@@ -163,7 +244,7 @@ export const CaseStudyOverview: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>

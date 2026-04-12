@@ -64,6 +64,7 @@ export const ClientTab: React.FC = () => {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       className="w-full transition-colors duration-300"
+      id="how-it-works-client"
     >
       {/* 1. HORIZONTAL SNAP CONTAINER */}
       <div 
