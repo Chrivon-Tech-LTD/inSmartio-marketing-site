@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { 
   Link2, 
   Smartphone, 
@@ -9,6 +9,7 @@ import {
   MessageSquareText,
   ArrowRight
 } from 'lucide-react';
+import { motion, useInView, Variants } from 'framer-motion';
 
 const tools = [
   { 
@@ -43,233 +44,123 @@ const tools = [
   }
 ];
 
+/* ── Animation Variants ────────────────────────────────────────── */
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+  }
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
+  }
+};
+
 export const ReferralTools: React.FC = () => {
-  const [hovered, setHovered] = useState<number | null>(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section
-      style={{
-        background: "#060D1A",
-        padding: "6rem 1.5rem",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Subtle radial glow top-right */}
-      <div style={{
-        position: "absolute", top: "-6rem", right: "-6rem",
-        width: "28rem", height: "28rem",
-        background: "radial-gradient(circle, rgba(26,75,140,0.35) 0%, transparent 70%)",
-        pointerEvents: "none",
-      }} />
-      {/* Subtle radial glow bottom-left */}
-      <div style={{
-        position: "absolute", bottom: "-4rem", left: "-4rem",
-        width: "20rem", height: "20rem",
-        background: "radial-gradient(circle, rgba(249,168,38,0.08) 0%, transparent 70%)",
-        pointerEvents: "none",
-      }} />
+    <section className="relative py-24 px-6 bg-[#060D1A] overflow-hidden">
+      {/* Dynamic Background Glows */}
+      <motion.div 
+        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 8, repeat: Infinity }}
+        className="absolute -top-24 -right-24 w-md h-112 bg-primary/20 blur-[120px] rounded-full pointer-events-none" 
+      />
+      
+      <div className="relative z-10 max-w-7xl mx-auto">
 
-      <div style={{ maxWidth: "80rem", margin: "0 auto", position: "relative", zIndex: 1 }}>
-
-        {/* ── Header ── */}
-        <div style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          marginBottom: "4rem",
-        }}>
-          <span style={{
-            color: "#F9A826",
-            fontSize: "0.625rem",
-            fontWeight: 700,
-            textTransform: "uppercase",
-            letterSpacing: "0.2em",
-          }}>
+        {/* Header */}
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          className="flex flex-col gap-4 mb-16"
+        >
+          <span className="text-secondary text-[10px] font-black uppercase tracking-[0.2em]">
             Agent Toolkit
           </span>
 
-          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: "1.5rem" }}>
-            <h2 style={{
-              color: "#EEF4FF",
-              fontSize: "clamp(2rem, 5vw, 3rem)",
-              fontWeight: 700,
-              lineHeight: 1.15,
-              fontFamily: "var(--font-display)",
-              maxWidth: "26rem",
-              margin: 0,
-            }}>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <h2 className="text-[#EEF4FF] text-3xl md:text-5xl font-black font-display leading-[1.15] max-w-md">
               Everything you need to scale your network.
             </h2>
-            <p style={{
-              color: "#7A9DC4",
-              fontSize: "0.9rem",
-              lineHeight: 1.7,
-              maxWidth: "22rem",
-              margin: 0,
-            }}>
+            <p className="text-[#7A9DC4] text-sm md:text-base leading-relaxed max-w-sm font-medium">
               A suite of professional marketing and tracking tools to help you recruit and manage experts efficiently.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        {/* ── Grid ──
-            Row 1: 3 cards full width
-            Row 2: 2 cards centered (matches AddOns pattern)
-        */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-
-          {/* Top row — 3 */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: "1.25rem",
-          }}>
+        {/* Tool Grid */}
+        <motion.div 
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="flex flex-col gap-5"
+        >
+          {/* Top row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {tools.slice(0, 3).map((tool, i) => (
-              <ToolCard key={i} tool={tool} index={i} hovered={hovered} setHovered={setHovered} />
+              <ToolCard key={i} tool={tool} />
             ))}
           </div>
 
-          {/* Bottom row — 2 centered */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: "1.25rem",
-            maxWidth: "66.666%",
-            margin: "0 auto",
-            width: "100%",
-          }}>
+          {/* Bottom row centered */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:max-w-[66%] lg:mx-auto w-full">
             {tools.slice(3).map((tool, i) => (
-              <ToolCard key={i + 3} tool={tool} index={i + 3} hovered={hovered} setHovered={setHovered} />
+              <ToolCard key={i + 3} tool={tool} />
             ))}
           </div>
-
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-function ToolCard({ 
-  tool, index, hovered, setHovered 
-}: { 
-  tool: typeof tools[0]; 
-  index: number;
-  hovered: number | null;
-  setHovered: (i: number | null) => void;
-}) {
+function ToolCard({ tool }: { tool: typeof tools[0] }) {
   const Icon = tool.icon;
-  const isHovered = hovered === index;
 
   return (
-    <div
-      onMouseEnter={() => setHovered(index)}
-      onMouseLeave={() => setHovered(null)}
-      style={{
-        background: isHovered ? "#0E1E3A" : "#0A1628",
-        border: `1px solid ${isHovered ? "rgba(26,75,140,0.6)" : "rgba(255,255,255,0.06)"}`,
-        borderRadius: "1.5rem",
-        padding: "2rem",
-        display: "flex",
-        flexDirection: "column",
-        gap: "0",
-        cursor: "pointer",
-        transition: "all 0.3s ease",
-        transform: isHovered ? "translateY(-4px)" : "translateY(0)",
-        boxShadow: isHovered
-          ? "0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(26,75,140,0.3)"
-          : "0 4px 16px rgba(0,0,0,0.2)",
-        position: "relative",
-        overflow: "hidden",
-      }}
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ y: -5, backgroundColor: "#0E1E3A", borderColor: "rgba(26,75,140,0.6)" }}
+      className="relative group bg-[#0A1628] border border-white/5 rounded-3xl p-8 cursor-pointer transition-colors duration-300 shadow-lg overflow-hidden flex flex-col h-full"
     >
-      {/* Glow on hover */}
-      {isHovered && (
-        <div style={{
-          position: "absolute", top: 0, right: 0,
-          width: "8rem", height: "8rem",
-          background: "radial-gradient(circle, rgba(26,75,140,0.25) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }} />
-      )}
+      {/* Inner Glow on hover */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-      {/* Top row: icon + tag */}
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "1.5rem" }}>
-        <div style={{
-          width: "3rem", height: "3rem",
-          borderRadius: "0.875rem",
-          background: isHovered ? "#1A4B8C" : "rgba(26,75,140,0.15)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          color: isHovered ? "#ffffff" : "#5A8FD4",
-          transition: "all 0.3s ease",
-          flexShrink: 0,
-        }}>
+      <div className="flex items-start justify-between mb-6">
+        <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
           <Icon size={20} />
         </div>
 
         {tool.tag && (
-          <span style={{
-            fontSize: "0.6rem",
-            fontWeight: 700,
-            textTransform: "uppercase",
-            letterSpacing: "0.1em",
-            padding: "3px 10px",
-            borderRadius: "999px",
-            background: tool.tag === "New" ? "rgba(249,168,38,0.15)" : "rgba(26,75,140,0.2)",
-            color: tool.tag === "New" ? "#F9A826" : "#5A8FD4",
-            border: `1px solid ${tool.tag === "New" ? "rgba(249,168,38,0.2)" : "rgba(26,75,140,0.3)"}`,
-          }}>
+          <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border 
+            ${tool.tag === "New" ? "bg-secondary/10 text-secondary border-secondary/20" : "bg-primary/10 text-primary border-primary/20"}`}>
             {tool.tag}
           </span>
         )}
       </div>
 
-      {/* Name */}
-      <h3 style={{
-        color: "#EEF4FF",
-        fontSize: "1.05rem",
-        fontWeight: 700,
-        fontFamily: "var(--font-display)",
-        marginBottom: "0.6rem",
-        lineHeight: 1.3,
-      }}>
+      <h3 className="text-[#EEF4FF] text-lg font-black font-display mb-2">
         {tool.name}
       </h3>
 
-      {/* Description */}
-      <p style={{
-        color: "#7A9DC4",
-        fontSize: "0.85rem",
-        lineHeight: 1.7,
-        flex: 1,
-        marginBottom: "1.75rem",
-      }}>
+      <p className="text-[#7A9DC4] text-sm leading-relaxed mb-6 flex-1 font-medium">
         {tool.desc}
       </p>
 
-      {/* CTA */}
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "0.4rem",
-        fontSize: "0.65rem",
-        fontWeight: 700,
-        textTransform: "uppercase",
-        letterSpacing: "0.15em",
-        color: isHovered ? "#F9A826" : "#5A8FD4",
-        borderTop: "1px solid rgba(255,255,255,0.05)",
-        paddingTop: "1.25rem",
-        transition: "color 0.3s ease",
-      }}>
+      <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#5A8FD4] group-hover:text-secondary border-t border-white/5 pt-5 transition-colors">
         Access Tool
-        <ArrowRight
-          size={13}
-          style={{
-            transform: isHovered ? "translateX(4px)" : "translateX(0)",
-            transition: "transform 0.3s ease",
-          }}
-        />
+        <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
       </div>
-    </div>
+    </motion.div>
   );
 }
