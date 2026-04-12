@@ -1,75 +1,147 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from '../ui/Button';
+import { Star, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const Hero = () => {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] }
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1,
+      }
+    }
+  };
+
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center mt-20 pt-32 pb-20 overflow-hidden bg-black">
+    <section className="relative min-h-[90vh] flex items-end justify-center pt-30 overflow-hidden bg-black">
       
-      {/* --- Background Image & Dark Overlay --- */}
-      <div className="absolute inset-0 z-0">
+      {/* Background image with scale animation */}
+      <motion.div 
+        initial={{ scale: 1.2, opacity: 0 }}
+        animate={{ scale: 1.05, opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute inset-0 z-0"
+      >
         <Image
-          src="https://i.pinimg.com/736x/d3/9f/d1/d39fd1958d5fa517a51979bf14082e0f.jpg"
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1800&q=80"
           alt="Nigerian professional at work"
           fill
-          className="object-cover"
+          className="object-cover object-top"
           priority
         />
-        <div className="absolute inset-0 bg-black/65 backdrop-blur-[1px] z-10" />
-        <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40 z-10" />
-      </div>
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-black/20 z-10" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/50 via-transparent to-transparent z-10" />
+      </motion.div>
 
-      {/* --- Content: Center Aligned --- */}
-      {/* Changed px-6 to px-4 for tighter mobile screens but added max-w to keep it safe */}
-      <div className="relative z-20 max-w-4xl mx-auto px-6 md:px-8 text-center">
+      {/* Floating rating badge — enters from right */}
+      <motion.div 
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.8, duration: 0.8 }}
+        className="absolute top-20 right-8 z-30 hidden lg:flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3"
+      >
+        <div className="flex gap-0.5">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} size={12} className="text-secondary fill-secondary" />
+          ))}
+        </div>
+        <div>
+          <p className="text-white text-xs font-bold leading-none mb-0.5">4.8 / 5.0</p>
+          <p className="text-white/50 text-[10px]">12,400+ reviews</p>
+        </div>
+      </motion.div>
+
+      {/* Content */}
+      <motion.div 
+        variants={staggerContainer}
+        initial="initial"
+        animate="animate"
+        className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-10 pb-16 md:pb-24"
+      >
         
-        <span className="mb-6 block text-[9px] md:text-xs uppercase tracking-[0.2em] font-bold text-secondary tracking-widest font-bold text-secondary bg-secondary/10 px-4 py-1 rounded-full inline-block">
-          Great services are delivered by great professionals
-        </span>
+        {/* Eyebrow */}
+        <motion.div variants={fadeInUp} className="mb-6">
+          <span className="inline-flex items-center gap-2 text-[9px] md:text-[10px] uppercase tracking-[0.25em] font-bold text-secondary">
+            <motion.span 
+              initial={{ width: 0 }}
+              animate={{ width: 24 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="h-px bg-secondary" 
+            />
+            Great services are delivered by great professionals
+          </span>
+        </motion.div>
 
-        {/* Changed text-5xl to text-4xl for mobile */}
-        <h1 className="text-white mb-6 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
-          Trusted Services. <br />
-          <span className="text-white/70">Verified Professionals.</span>
-        </h1>
+        {/* Headline */}
+        <motion.h1 
+          variants={fadeInUp}
+          className="text-white mb-6 text-5xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tight max-w-4xl"
+        >
+          Trusted<br />
+          Services.<br />
+          <span className="text-white/40">Verified<br />Professionals.</span>
+        </motion.h1>
 
-        {/* Changed text-lg to text-base for mobile */}
-        <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-base md:text-xl leading-relaxed">
-          HelpMe NG connects you with reliable, verified experts for all your service needs. 
-          Find the help you need, right when you need it.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <Button variant="primary" size="lg" className="w-full sm:w-auto px-8 py-4 text-lg">
-            Download the App
-          </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto px-8 py-4 text-lg text-white border-white hover:bg-white/10">
-            How It Works
-          </Button>
-        </div>
-
-        {/* Stats Section: Responsive stacking */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 border-t border-white/10 pt-10">
-          <div className="text-center">
-            <p className="font-bold text-white text-2xl md:text-3xl mb-1">5,000+</p>
-            <p className="text-[10px] md:text-xs uppercase text-gray-400 font-semibold tracking-widest">Verified Experts</p>
-          </div>
+        {/* Bottom row */}
+        <motion.div 
+          variants={fadeInUp}
+          className="flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-20 mt-10 pt-8 border-t border-white/10"
+        >
           
-          <div className="hidden md:block w-px h-12 bg-white/10" />
-          
-          <div className="text-center">
-            <p className="font-bold text-white text-2xl md:text-3xl mb-1">20,000+</p>
-            <p className="text-[10px] md:text-xs uppercase text-gray-400 font-semibold tracking-widest">Jobs Completed</p>
+          {/* Left: description + CTAs */}
+          <div className="lg:max-w-md">
+            <p className="text-white/60 mb-8 text-base md:text-lg leading-relaxed">
+              HelpMe NG connects you with reliable, verified experts for all your service needs — right when you need them.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button variant="primary" size="lg" className="px-8 py-4 text-sm font-bold uppercase tracking-widest">
+                Download the App
+              </Button>
+              <Button
+                variant="ghost"
+                size="lg"
+                className="px-0 py-4 text-sm font-bold uppercase tracking-widest text-white/70 hover:text-white flex items-center gap-2 group"
+              >
+                How It Works
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
           </div>
 
-          <div className="hidden md:block w-px h-12 bg-white/10" />
-
-          <div className="text-center">
-            <p className="font-bold text-white text-2xl md:text-3xl mb-1">4.8/5</p>
-            <p className="text-[10px] md:text-xs uppercase text-gray-400 font-semibold tracking-widest">Average Rating</p>
+          {/* Right: stats with individual pop-in */}
+          <div className="flex flex-wrap gap-x-12 gap-y-6 lg:ml-auto">
+            {[
+              { value: "5,000+", label: "Verified Experts" },
+              { value: "20,000+", label: "Jobs Completed" },
+              { value: "99%", label: "Satisfaction Rate" },
+            ].map((stat, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1 + (i * 0.1), duration: 0.5 }}
+                className="text-left"
+              >
+                <p className="font-bold text-white text-3xl md:text-4xl font-display leading-none mb-1">
+                  {stat.value}
+                </p>
+                <p className="text-[10px] uppercase text-white/40 font-semibold tracking-widest">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </div>
 
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

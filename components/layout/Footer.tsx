@@ -17,7 +17,6 @@ import {
 } from "react-icons/io5";
 import { Button } from "../ui/Button";
 import { AppStoreButtons } from '../ui/AppStoreButtons';
-import { useTheme } from '@/components/providers/ThemeProvider';
 
 interface FooterLink {
   label: string;
@@ -34,29 +33,29 @@ const footerLinks: Record<string, FooterSection> = {
     title: "For Clients",
     links: [
       { label: "How It Works", href: "/how-it-works" },
-      { label: "Post a Job", href: "/post-job" },
-      { label: "Find Experts", href: "/categories" },
-      { label: "Payment Options", href: "/how-it-works#payments" },
-      { label: "Safety Tips", href: "/safety" },
+      { label: "Post a Job", href: "/how-it-works" },
+      { label: "Find Experts", href: "/how-it-works" },
+      { label: "Payment Options", href: "/how-it-works" },
+      { label: "Safety Tips", href: "/how-it-works" },
     ],
   },
   experts: {
     title: "For Experts",
     links: [
       { label: "How It Works", href: "/how-it-works#experts" },
-      { label: "Become an Expert", href: "/register" },
-      { label: "Expert Earnings", href: "/for-experts#earnings" },
-      { label: "Verification", href: "/for-experts#verification" },
-      { label: "Payment Models", href: "/for-experts#models" },
+      { label: "Become an Expert", href: "/how-it-works" },
+      { label: "Expert Earnings", href: "/how-it-works" },
+      { label: "Verification", href: "/how-it-works" },
+      { label: "Payment Models", href: "/how-it-works" },
     ],
   },
   tas: {
     title: "For TAS",
     links: [
       { label: "How It Works", href: "/how-it-works#tas" },
-      { label: "Apply Now", href: "/for-tas#apply" },
-      { label: "TAS Tiers", href: "/for-tas#tiers" },
-      { label: "Earnings Calculator", href: "/for-tas#calculator" },
+      { label: "Apply Now", href: "/how-it-works#apply" },
+      { label: "TAS Tiers", href: "/how-it-works#tiers" },
+      { label: "Earnings Calculator", href: "/how-it-works#calculator" },
     ],
   },
   company: {
@@ -80,7 +79,7 @@ const footerLinks: Record<string, FooterSection> = {
   legal: {
     title: "Legal",
     links: [
-      { label: "Terms of Service", href: "/terms" },
+      { label: "Terms of Service", href: "/terms-of-service" },
       { label: "Privacy Policy", href: "/privacy" },
       { label: "TAS Agreement", href: "/tas-agreement" },
       { label: "Cookie Policy", href: "/cookies" },
@@ -90,40 +89,42 @@ const footerLinks: Record<string, FooterSection> = {
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
-  const { isDark } = useTheme();
   const year = new Date().getFullYear();
 
+
+
   return (
-    <footer className="bg-surface text-text-main pt-20 pb-10 font-sans border-t border-text-muted/10 transition-colors duration-300">
+    <footer className="bg-[#060D1A] text-[#D8E8FF] pt-20 pb-10 font-sans border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Newsletter & Brand Intro Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-text-muted/10 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/5 mb-16">
           <div className="lg:col-span-5">
             <Link href="/" className="shrink-0">
               <Image
                 src="/Logo.png"
                 alt="HelpMe NG"
-                width={120}
-                height={35}
-                className={`object-contain transition-all ${isDark ? "brightness-200" : ""}`}
+                width={120} // This is your desired width
+                height={35}  // This acts as a fallback/container hint
+                style={{ height: 'auto' }} // This forces the aspect ratio based on the width
+                className="object-contain transition-all brightness-200 w-auto h-auto"
                 priority
               />
             </Link>
-            <p className="text-text-muted text-sm leading-relaxed max-w-sm mt-8 font-medium">
+            <p className="text-white text-sm leading-relaxed max-w-sm mt-8 font-medium">
               Trusted Services. Verified Professionals. Nigeria&apos;s most trusted service marketplace connecting you with verified experts for every need.
             </p>
           </div>
 
           <div className="lg:col-span-7">
-            <div className="bg-primary/5 p-8 rounded-2xl border border-primary/10">
-              <h4 className="text-lg font-bold mb-2 font-display text-primary">Subscribe to our newsletter</h4>
-              <p className="text-sm text-text-muted mb-6">Get the latest updates on expert availability and TAS earning opportunities.</p>
+            <div className="bg-[#0E1E3A] p-8 rounded-2xl border border-primary/20 shadow-ambient">
+              <h4 className="text-lg font-bold mb-2 font-display text-white">Subscribe to our newsletter</h4>
+              <p className="text-sm text-gray-400 mb-6">Get the latest updates on expert availability and TAS earning opportunities.</p>
               <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 bg-surface border border-text-muted/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-text-main"
+                  className="flex-1 bg-[#060D1A] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-white"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -145,7 +146,7 @@ export const Footer: React.FC = () => {
               <ul className="space-y-4">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-sm text-text-muted hover:text-primary transition-colors font-medium">
+                    <Link href={link.href} className="text-sm text-white hover:text-primary transition-colors font-medium">
                       {link.label}
                     </Link>
                   </li>
@@ -156,7 +157,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Contact Strip */}
-        <div className="border-y border-text-muted/10 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+        <div className="border-y border-white/5 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <ContactItem icon={<IoCallOutline size={20} />} label="Call Support" value="+234 800 HELPME" />
           <ContactItem icon={<IoMailOutline size={20} />} label="Email Us" value="support@helpme.ng" />
           <ContactItem icon={<IoLocationOutline size={20} />} label="Offices" value="Lagos | Abuja, Nigeria" />
@@ -171,7 +172,7 @@ export const Footer: React.FC = () => {
               <SocialLink href="#" icon={<FaXTwitter size={18} />} />
               <SocialLink href="#" icon={<FaLinkedinIn size={20} />} />
             </div>
-            <p className="text-[12px] text-text-muted font-bold uppercase tracking-wider">
+            <p className="text-[12px] text-white font-bold uppercase tracking-wider">
               © {year} HelpMe NG. Built by Chrivon Tech Solutions Limited.
             </p>
           </div>
@@ -188,18 +189,18 @@ export const Footer: React.FC = () => {
 /* Helper Components */
 const ContactItem = ({ icon, label, value }: { icon: React.ReactNode, label: string, value: string }) => (
   <div className="flex items-center gap-4">
-    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+    <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
       {icon}
     </div>
     <div>
-      <p className="text-[9px] text-text-muted uppercase tracking-[0.2em] font-black mb-1">{label}</p>
-      <p className="text-sm font-bold text-text-main">{value}</p>
+      <p className="text-[9px] text-[#7A9DC4] uppercase tracking-[0.2em] font-black mb-1">{label}</p>
+      <p className="text-sm font-bold text-[#D8E8FF]">{value}</p>
     </div>
   </div>
 );
 
-const SocialLink = ({ href, icon }: { href: string, icon: React.ReactNode }) => (
-  <Link href={href} className="text-text-muted hover:text-primary transition-all hover:-translate-y-1">
+const SocialLink = ({ icon }: { href: string, icon: React.ReactNode }) => (
+  <button className="text-[#7A9DC4] hover:text-primary transition-all hover:-translate-y-1">
     {icon}
-  </Link>
+  </button>
 );

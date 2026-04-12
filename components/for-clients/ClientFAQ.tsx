@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
@@ -28,41 +29,70 @@ export const ClientFAQ: React.FC = () => {
   return (
     <section className="py-24 bg-background transition-colors duration-300">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-12">
+        
+        {/* HEADER */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
           <span className="text-secondary text-[10px] font-black uppercase tracking-[0.3em] mb-3 block">
             Got Questions?
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-text-main font-display">
             Frequently Asked Questions
           </h2>
-        </div>
+        </motion.div>
         
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div 
+            <motion.div 
               key={i} 
-              className="bg-surface rounded-2xl border border-text-muted/10 overflow-hidden transition-all duration-300 shadow-sm"
+              layout
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-surface rounded-2xl border border-text-muted/10 overflow-hidden shadow-sm"
             >
               <button 
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full p-6 text-left flex justify-between items-center hover:bg-primary/5 transition-colors cursor-pointer group"
               >
-                <span className={`font-bold font-display transition-colors ${openIndex === i ? 'text-primary' : 'text-text-main'}`}>
+                <span className={`font-bold font-display text-sm md:text-base transition-colors duration-300 ${openIndex === i ? 'text-primary' : 'text-text-main'}`}>
                   {faq.question}
                 </span>
-                <div className={`transition-transform duration-300 ${openIndex === i ? 'rotate-180 text-secondary' : 'text-text-muted'}`}>
+                <motion.div 
+                  animate={{ rotate: openIndex === i ? 180 : 0 }}
+                  className={`${openIndex === i ? 'text-secondary' : 'text-text-muted'}`}
+                >
                   <ChevronDown size={20} />
-                </div>
+                </motion.div>
               </button>
               
-              <div 
-                className={`transition-all duration-500 ease-in-out ${openIndex === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
-              >
-                <div className="px-6 pb-6 text-sm md:text-base text-text-muted leading-relaxed font-medium">
-                  {faq.answer}
-                </div>
-              </div>
-            </div>
+              <AnimatePresence initial={false}>
+                {openIndex === i && (
+                  <motion.div
+                    key="content"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <div className="px-6 pb-6 text-sm md:text-base text-text-muted leading-relaxed font-medium">
+                      <motion.div
+                        initial={{ y: -10 }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {faq.answer}
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
         </div>
       </div>
