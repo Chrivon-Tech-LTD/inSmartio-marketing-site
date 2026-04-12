@@ -1,9 +1,11 @@
-// src/components/blog/FeaturedGrid.tsx
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/Button";
 import { ArrowRight, Clock } from "lucide-react";
+import { motion, useInView, Variants } from "framer-motion";
 
 const articles = [
   {
@@ -40,32 +42,67 @@ const articles = [
   }
 ];
 
+/* ── Animation Variants ────────────────────────────────────────── */
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.1 }
+  }
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+  }
+};
+
 export function FeaturedGrid() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section className="py-24 md:py-32 bg-white dark:bg-background transition-colors duration-300">
+    <section className="py-24 md:py-32 bg-white dark:bg-background transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-32 items-start">
+        <motion.div 
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-32 items-start"
+        >
           {articles.map((article, i) => (
-            <article 
+            <motion.article 
               key={i} 
+              variants={cardVariants}
               className={`group transition-all duration-700 
                 ${i % 2 === 1 ? 'md:translate-y-24 lg:translate-y-32' : ''}
               `}
             >
-              {/* IMAGE CONTAINER */}
+              {/* IMAGE CONTAINER with Reveal Mask */}
               <div className="relative aspect-4/3 rounded-4xl md:rounded-[2.5rem] overflow-hidden mb-8 shadow-sm group-hover:shadow-ambient transition-all duration-500 bg-surface">
+                <motion.div 
+                  initial={{ scale: 1.2 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  className="relative w-full h-full"
+                >
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </motion.div>
+                
                 <span className="absolute top-6 left-6 z-10 bg-white/90 dark:bg-primary/90 backdrop-blur-md px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em] text-primary dark:text-white shadow-sm">
                   {article.tag}
                 </span>
-
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
               </div>
 
               {/* CONTENT AREA */}
@@ -96,11 +133,11 @@ export function FeaturedGrid() {
                   </Button>
                 </Link>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
-        {/* BOTTOM ACCENT (Prevents the footer from feeling too close to the offset card) */}
+        {/* BOTTOM ACCENT */}
         <div className="h-24 md:h-48 pointer-events-none" />
       </div>
     </section>
