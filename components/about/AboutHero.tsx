@@ -129,7 +129,7 @@ export function AboutHero() {
         >
           {/* Main photo */}
           <Image
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&auto=format&fit=crop&q=80"
+            src="https://i.pinimg.com/1200x/17/13/6b/17136bebb40d0faf881cfb44bb4badc1.jpg"
             alt="Nigerian professionals collaborating"
             width={900}
             height={600}

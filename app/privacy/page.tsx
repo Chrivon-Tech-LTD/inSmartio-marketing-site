@@ -153,7 +153,7 @@ export default function PrivacyPolicyPage() {
                 animate={heroInView ? "visible" : "hidden"}
                 className="font-display font-bold text-text-main text-4xl md:text-6xl lg:text-7xl leading-[1.06] tracking-tight mb-6"
               >
-                Privacy 
+                Privacy
                 <span className="text-primary italic">Policy.</span>
               </motion.h1>
 
@@ -224,11 +224,10 @@ export default function PrivacyPolicyPage() {
                   key={s.id}
                   href={`#${s.id}`}
                   onClick={() => setActiveSection(s.id)}
-                  className={`flex items-center gap-3 py-2 text-xs transition-colors duration-200 group border-l-2 pl-3 ${
-                    activeSection === s.id
+                  className={`flex items-center gap-3 py-2 text-xs transition-colors duration-200 group border-l-2 pl-3 ${activeSection === s.id
                       ? "border-primary text-primary font-semibold"
                       : "border-transparent text-text-muted/50 hover:text-text-main hover:border-text-muted/30"
-                  }`}
+                    }`}
                 >
                   <span className="tabular-nums text-[9px] text-text-muted/30 shrink-0">{s.number}</span>
                   <span className="leading-snug">{s.title}</span>
@@ -238,7 +237,7 @@ export default function PrivacyPolicyPage() {
           </aside>
 
           {/* Main content */}
-          <div className="lg:col-span-9 space-y-16">
+          <div className="lg:col-span-9 space-y-16 w-full max-w-70 mx-auto sm:max-w-7xl">
 
             {/* Quick Reference Banner */}
             <div className="bg-primary/5 border border-primary/15 rounded-2xl p-6 md:p-8">
@@ -315,21 +314,23 @@ export default function PrivacyPolicyPage() {
             {/* 03 Who We Are */}
             <div id="who-we-are" className="scroll-mt-28">
               <SectionHeading id="who-we-are" number="03" title="Who We Are (Data Controller Information)" />
-              <div className="bg-surface border border-text-muted/10 rounded-2xl p-6 md:p-8 space-y-3 text-sm">
-                {[
-                  ["Company Name", "HelpMe NG (CHRIVON TECH SOLUTIONS Limited)"],
-                  ["Nature of Business", "Peer-to-peer service marketplace connecting Clients with verified Experts, and Talent Acquisition Specialists (TAS) who recruit Experts"],
-                  ["Jurisdiction", "Nigeria"],
-                  ["Contact Address", "Admiralty Way, Lekki Phase 1, Lagos, Nigeria"],
-                  ["Email", "privacy@helpme.ng"],
-                  ["Phone", "+234 800 HELPME"],
-                  ["Website", "www.helpme.ng"],
-                ].map(([label, value]) => (
-                  <div key={label} className="flex gap-4 py-2 border-b border-text-muted/8 last:border-0">
-                    <span className="text-text-muted/50 font-semibold shrink-0 w-40">{label}</span>
-                    <span className="text-text-main">{value}</span>
-                  </div>
-                ))}
+              <div className="overflow-x-auto w-full">
+                <div className="bg-surface border border-text-muted/10 rounded-2xl p-6 md:p-8 space-y-3 text-sm min-w-120">
+                  {[
+                    ["Company Name", "HelpMe NG (CHRIVON TECH SOLUTIONS Limited)"],
+                    ["Nature of Business", "Peer-to-peer service marketplace connecting Clients with verified Experts, and Talent Acquisition Specialists (TAS) who recruit Experts"],
+                    ["Jurisdiction", "Nigeria"],
+                    ["Contact Address", "Admiralty Way, Lekki Phase 1, Lagos, Nigeria"],
+                    ["Email", "privacy@helpme.ng"],
+                    ["Phone", "+234 800 HELPME"],
+                    ["Website", "www.helpme.ng"],
+                  ].map(([label, value]) => (
+                    <div key={label} className="flex gap-4 py-2 border-b border-text-muted/8 last:border-0">
+                      <span className="text-text-muted/50 font-semibold shrink-0 w-40">{label}</span>
+                      <span className="text-text-main">{value}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
