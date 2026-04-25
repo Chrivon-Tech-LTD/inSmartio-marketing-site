@@ -12,23 +12,23 @@ interface TeamMember {
 }
 
 const team: TeamMember[] = [
-  { 
-    name: "Christian IKENNA", 
-    role: "CoFounder & CEO, Chrivon Tech Solutions", 
-    bio: "Vision-led operator focused on scaling software products for African markets.", 
-    img: "/assets/founder/christian.avif" 
+  {
+    name: "Christian IKENNA",
+    role: "CoFounder & CEO, Chrivon Tech Solutions",
+    bio: "Vision-led operator focused on scaling software products for African markets.",
+    img: "/assets/founder/christian.jpeg",
   },
-  { 
-    name: "B. Eugene LOKO", 
-    role: "CoFounder & Principal Data & Product Strategist", 
-    bio: "A cornerstone of Chrivon's pan-African brain trust with 19 years of experience.", 
-    img: "https://www.chrivon.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FBonna.4bacb802.png&w=256&q=75" 
+  {
+    name: "B. Eugene LOKO",
+    role: "CoFounder & Principal Data & Product Strategist",
+    bio: "A cornerstone of Chrivon's pan-African brain trust with 19 years of experience.",
+    img: "/assets/founder/Bonna.png",
   },
-  { 
-    name: "Onaneye Joseph", 
-    role: "Full-Stack Product Engineer & Tech Entrepreneur", 
-    bio: "Full-stack developer focused on building scalable fintech and growth platforms.", 
-    img: "/assets/founder/Adedire.avif" // FIXED: Removed the leading space
+  {
+    name: "Onaneye Joseph",
+    role: "Full-Stack Product Engineer & Tech Entrepreneur",
+    bio: "Full-stack developer focused on building scalable fintech and growth platforms.",
+    img: "/assets/founder/joseph.jpg",
   },
 ];
 
@@ -42,11 +42,11 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
+  visible: {
+    opacity: 1,
+    y: 0,
     scale: 1,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -55,13 +55,13 @@ export function Leadership() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 px-6 bg-surface transition-colors duration-300 overflow-hidden">
+    <section className="py-16 md:py-24 px-4 md:px-6 bg-surface transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          className="mb-16 md:mb-20 text-center md:text-left"
+          className="mb-12 md:mb-20 text-center md:text-left"
         >
           <span className="text-secondary text-[10px] font-black uppercase tracking-[0.3em] mb-3 block">
             The Architects
@@ -71,33 +71,37 @@ export function Leadership() {
           </h2>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {team.map((m, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               variants={itemVariants}
               whileHover={{ y: -5 }}
               className="group flex flex-col h-full"
             >
-              <div className="relative aspect-square rounded-4xl overflow-hidden shadow-ambient mb-8 border border-text-muted/10 bg-surface">
-                <Image 
-                  src={m.img} 
-                  alt={m.name} 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // FIXED: Added sizes prop
-                  className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105" 
+              {/* Image */}
+              <div className="relative w-full h-64 sm:h-72 md:aspect-square md:h-auto rounded-3xl overflow-hidden mb-6 border border-text-muted/10 bg-surface">
+                <Image
+                  src={m.img}
+                  alt={m.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className={`object-cover transition-transform duration-700 ease-in-out group-hover:scale-105 ${
+                    i === 1 ? "object-top" : "object-center"
+                  }`}
                 />
                 <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
               </div>
 
-              <div className="px-2 flex-1">
-                <h3 className="text-2xl font-display font-bold text-text-main mb-2 transition-colors group-hover:text-primary">
+              {/* Text */}
+              <div className="px-1 flex-1">
+                <h3 className="text-xl md:text-2xl font-display font-bold text-text-main mb-2 transition-colors group-hover:text-primary">
                   {m.name}
                 </h3>
                 <p className="text-primary font-black text-[10px] uppercase tracking-widest mb-4 leading-relaxed">
