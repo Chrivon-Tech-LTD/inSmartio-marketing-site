@@ -60,7 +60,7 @@ export const PaymentComparison: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           
-          {/* OPTION 1: HELPME ESCROW */}
+          {/* OPTION 1: INSMARTIO ESCROW */}
           <motion.div variants={cardVariants}>
             <Card className="h-full p-8 md:p-12 border-2 border-success bg-[#0E1E3A] relative shadow-xl overflow-hidden group transition-all duration-500 rounded-[2.5rem] md:rounded-[3rem] hover:border-success/60">
               <motion.div 
@@ -76,7 +76,7 @@ export const PaymentComparison: React.FC = () => {
                 >
                   <ShieldCheck size={32} />
                 </motion.div>
-                <h3 className="text-2xl md:text-3xl font-black text-[#D8E8FF] font-display">HelpMe Escrow</h3>
+                <h3 className="text-2xl md:text-3xl font-black text-[#D8E8FF] font-display">inSmartio Escrow</h3>
               </div>
 
               <ul className="space-y-6 mb-12 relative z-10">

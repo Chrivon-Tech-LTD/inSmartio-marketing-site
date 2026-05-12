@@ -240,7 +240,7 @@ export const CaseStudyOverview: React.FC = () => {
                     Christian Ikenna
                   </p>
                   <p className="text-[9px] text-text-muted uppercase font-black tracking-widest truncate">
-                    CEO, HelpMe
+                    CEO, inSmartio
                   </p>
                 </div>
               </div>

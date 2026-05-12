@@ -15,7 +15,7 @@ interface Step {
 }
 
 const steps: Step[] = [
-  { title: "Download the App", icon: Download, desc: "Get the HelpMe NG app on your iOS or Android device to begin your journey." },
+  { title: "Download the App", icon: Download, desc: "Get the inSmartio app on your iOS or Android device to begin your journey." },
   { title: "Select TAS Role", icon: UserCheck, desc: "Choose 'TAS' during registration or apply via 'Expert Mode' in your profile settings." },
   { title: "Application Form", icon: FileEdit, desc: "Complete the detailed application form with your professional recruitment background." },
   { title: "Submit Documents", icon: ShieldCheck, desc: "Upload your mandatory NIN and a valid ID for our trust-based verification process." },

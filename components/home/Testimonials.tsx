@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
   },
   {
     role: "Expert",
-    text: "Since joining HelpMe NG, I've gotten consistent work and I always get paid on time. The verification badge helps clients trust me. I've doubled my income.",
+    text: "Since joining inSmartio, I've gotten consistent work and I always get paid on time. The verification badge helps clients trust me. I've doubled my income.",
     name: "Adebayo S.",
     location: "Plumber",
     rating: 4.9,

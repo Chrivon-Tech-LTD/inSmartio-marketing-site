@@ -108,7 +108,7 @@ export const AppDownload: React.FC = () => {
                   <div className="relative w-32 h-32 md:w-48 md:h-48 mx-auto mb-4 md:mb-6 bg-white p-3 md:p-4 rounded-xl md:rounded-2xl shadow-inner">
                     <Image
                       src="https://i.pinimg.com/736x/78/d5/01/78d5016be7c774417abb6421183fa67c.jpg"
-                      alt="QR code to download HelpMe NG app"
+                      alt="QR code to download inSmartio app"
                       width={180}
                       height={180}
                       className="mx-auto w-full h-full object-contain"

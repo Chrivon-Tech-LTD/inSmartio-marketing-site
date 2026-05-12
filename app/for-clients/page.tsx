@@ -8,7 +8,7 @@ import { ClientFAQ } from '@/components/for-clients/ClientFAQ';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "HelpMe NG for Clients – Find Trusted Professionals",
+  title: "inSmartio for Clients – Find Trusted Professionals",
   description: "Need a reliable professional? Post a job, receive bids, and hire with confidence. Payment protection included. Free to use",
 };
 

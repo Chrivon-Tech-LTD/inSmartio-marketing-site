@@ -60,7 +60,7 @@ export function AppHero() {
             className="text-text-main text-3xl md:text-5xl lg:text-7xl font-black leading-[1.2] lg:leading-[1.1] mb-6 font-display tracking-tight"
           >
             Download the <br />
-            <span className="text-primary">HelpMe NG App.</span> <br />
+            <span className="text-primary">inSmartio App.</span> <br />
             Get help in minutes.
           </motion.h1>
 
@@ -117,7 +117,7 @@ export function AppHero() {
             className="hidden lg:block relative z-20 lg:w-56 aspect-9/19 rounded-4xl md:rounded-[3rem] border-4 md:border-8 border-text-main overflow-hidden shadow-2xl bg-surface transition-shadow duration-500 hover:shadow-primary/20"
           >
             <Image
-              src="/app-screen-1.jpg"
+              src="/assets/download.png"
               alt="App Home"
               fill
               className="object-cover"

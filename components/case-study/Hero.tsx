@@ -80,7 +80,7 @@ export function Hero() {
           className="text-text-main text-4xl md:text-6xl lg:text-8xl font-black leading-[1.1] md:leading-[1.05] mb-8 font-display tracking-tight px-2"
         >
           Case Study: <br /> 
-          <span className="text-primary italic font-bold">HelpMe NG</span>
+          <span className="text-primary italic font-bold">inSmartio</span>
         </motion.h1>
 
         {/* Supporting Text */}

@@ -48,7 +48,7 @@ const addOns: AddOn[] = [
     title: "API Access",
     price: "Custom",
     priceNote: "enterprise",
-    description: "Integrate HelpMe NG directly into your platform. Built for large-scale operations.",
+    description: "Integrate inSmartio directly into your platform. Built for large-scale operations.",
     icon: <Code2 className="w-5 h-5" />,
   },
 ];

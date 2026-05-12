@@ -80,7 +80,7 @@ export function StoryAndPillars() {
               <p>
                 For nearly two decades, Chrivon cofounders have been building the digital 
                 infrastructure for ambitious businesses across Africa. 
-                <span className="text-text-main font-bold"> HelpMe NG is our latest innovation</span>&mdash;a 
+                <span className="text-text-main font-bold"> inSmartio is our latest innovation</span>&mdash;a 
                 platform that solves the trust deficit in Nigeria&apos;s service industry.
               </p>
               
@@ -156,7 +156,7 @@ export function StoryAndPillars() {
             <h2 className="mb-4 text-text-main font-bold font-display text-3xl md:text-5xl">The 6 Pillars of Chrivon</h2>
             <p className="text-text-muted max-w-xl mx-auto font-medium">
               Our values aren&apos;t just words; they are the architectural framework 
-              of every interaction on HelpMe NG.
+              of every interaction on inSmartio
             </p>
           </motion.div>
 

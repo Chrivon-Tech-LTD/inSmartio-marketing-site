@@ -8,7 +8,7 @@ import { TASOpportunity } from '@/components/for-experts/TASOpportunity';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "HelpMe NG for Experts – Grow Your Business",
+  title: "inSmartio for Experts – Grow Your Business",
   description: "Become a verified expert. Get more clients, get paid on time, and build your reputation. Join thousands of professionals.",
 };
 

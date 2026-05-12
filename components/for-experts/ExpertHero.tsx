@@ -44,7 +44,7 @@ export const ExpertHero: React.FC = () => {
             className="text-primary text-4xl md:text-7xl font-black leading-[1.1] mb-8 font-display"
           >
             Grow Your Business <br />
-            with <span className="text-secondary italic">HelpMe NG.</span>
+            with <span className="text-secondary italic">inSmartio.</span>
           </motion.h1>
 
           <motion.p 

@@ -97,7 +97,7 @@ export const Values = () => (
         className="text-center mb-12 md:mb-20"
       >
         <span className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-primary bg-primary/8 px-4 py-1.5 rounded-full">
-          Why Nigerians Trust HelpMe NG
+          Why Nigerians Trust inSmartio
         </span>
         <h2 className="mt-6 text-3xl md:text-5xl font-bold text-text-main leading-tight font-display">
           Built on Trust. <br />

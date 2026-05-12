@@ -26,7 +26,7 @@ const tasSteps = [
   {
     id: 1,
     title: "Apply for TAS Program",
-    desc: "Whether you're an existing expert or new to HelpMe NG, you can apply to become a Talent Acquisition Specialist.",
+    desc: "Whether you're an existing expert or new to inSmartio, you can apply to become a Talent Acquisition Specialist.",
     icon: <UserPlus className="text-secondary w-7 h-7" />
   },
   {
@@ -141,7 +141,7 @@ export const TASTab: React.FC = () => {
                </motion.div>
                <h4 className="text-2xl md:text-3xl text-white font-black mb-6 font-display leading-tight">Step 6: Build Your Team <br /> (Tier 3+)</h4>
                <p className="text-white/80 text-sm leading-relaxed mb-10 font-medium">
-                 Recruit other TAS agents as your sub-TAS. Earn overrides on their recruitment and their experts&apos; performance. Scale your agency within HelpMe NG.
+                 Recruit other TAS agents as your sub-TAS. Earn overrides on their recruitment and their experts&apos; performance. Scale your agency within inSmartio NG.
                </p>
                <motion.div 
                  whileHover={{ scale: 1.05 }}

@@ -17,7 +17,7 @@ export const HowItWorksHero: React.FC = () => {
 
         {/* Main Headline */}
         <h1 className="text-text-main text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8 font-display">
-          How HelpMe NG Works <br />
+          How inSmartio Works <br />
           <span className="text-primary">— Simple, Safe, and Fair.</span>
         </h1>
 

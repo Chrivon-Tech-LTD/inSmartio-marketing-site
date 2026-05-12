@@ -43,7 +43,7 @@ const monexa = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "HelpMe NG – Trusted Services, Verified Professionals",
+  title: "inSmartio – Trusted Services, Verified Professionals",
   description: "Find trusted professionals in Nigeria. Post jobs, compare bids, and pay securely. Plumbers, electricians, tutors, cleaners, and more.",
 };
 

@@ -41,7 +41,7 @@ export const Navbar = () => {
         <Link href="/" className="shrink-0">
           <Image
             src="/Logo.png"
-            alt="HelpMe NG"
+            alt="inSmartio"
             width={100}
             height={30}
             className="object-contain w-auto h-auto"

@@ -162,7 +162,7 @@ export default function PrivacyPolicyPage() {
                 animate={heroInView ? "visible" : "hidden"}
                 className="text-text-muted text-base md:text-lg leading-relaxed max-w-xl font-medium"
               >
-                HelpMe NG is committed to protecting your personal data. This policy explains how we
+                inSmartio is committed to protecting your personal data. This policy explains how we
                 collect, use, and safeguard your information in full compliance with Nigerian law.
               </motion.p>
             </div>
@@ -269,8 +269,8 @@ export default function PrivacyPolicyPage() {
                 </div>
               </div>
               <div className="mt-6 pt-5 border-t border-primary/15 flex flex-wrap gap-6 text-sm">
-                <span className="text-text-muted">DPO Email: <span className="text-text-main font-semibold">dpo@helpme.ng</span></span>
-                <span className="text-text-muted">Phone: <span className="text-text-main font-semibold">+234 800 HELPME</span></span>
+                <span className="text-text-muted">DPO Email: <span className="text-text-main font-semibold">dpo@insmartio.io</span></span>
+                <span className="text-text-muted">Phone: <span className="text-text-main font-semibold">+234 800 INSMARTIO</span></span>
                 <span className="text-text-muted">Compliance: <span className="text-text-main font-semibold">NDPA 2023 | GAID 2025 | NDPC</span></span>
               </div>
             </div>
@@ -279,7 +279,7 @@ export default function PrivacyPolicyPage() {
             <div id="intro" className="scroll-mt-28">
               <SectionHeading id="intro" number="01" title="Introduction & Commitment" />
               <div className="space-y-4 text-text-muted text-[0.95rem] leading-relaxed">
-                <p>At HelpMe NG (&quot;we&quot;, &quot;us&quot;, &quot;our&#34;), we are committed to protecting the privacy and security of your personal data. This Privacy Policy explains how we collect, use, share, and protect your personal information when you use our platform, whether as a Client, Expert, or Talent Acquisition Specialist (TAS).</p>
+                <p>At inSmartio (&quot;we&quot;, &quot;us&quot;, &quot;our&#34;), we are committed to protecting the privacy and security of your personal data. This Privacy Policy explains how we collect, use, share, and protect your personal information when you use our platform, whether as a Client, Expert, or Talent Acquisition Specialist (TAS).</p>
                 <p>We process your personal data in compliance with the Nigeria Data Protection Act 2023 (NDPA), General Application and Implementation Directive (GAID) 2025, Section 37 of the Constitution of the Federal Republic of Nigeria 1999 (as amended), and other applicable data protection regulations.</p>
                 <div className="border-l-2 border-primary pl-5 py-1 my-5">
                   <p className="text-text-main font-medium italic">
@@ -297,15 +297,15 @@ export default function PrivacyPolicyPage() {
                 rows={[
                   ["Personal Data", "Any information relating to an identified or identifiable natural person (\"Data Subject\")"],
                   ["Data Subject", "You – the individual whose personal data is being processed"],
-                  ["Data Controller", "HelpMe NG – the entity that determines the purposes and means of processing your data"],
+                  ["Data Controller", "inSmartio – the entity that determines the purposes and means of processing your data"],
                   ["Data Processor", "Third parties who process data on our behalf (e.g., payment processors, cloud storage)"],
                   ["Processing", "Any operation performed on personal data (collection, storage, use, sharing, deletion)"],
                   ["Consent", "Freely given, specific, informed, and unambiguous agreement to process your data"],
                   ["DPO", "Data Protection Officer – our designated privacy expert"],
                   ["NDPC", "Nigeria Data Protection Commission – the regulatory authority"],
                   ["GAID", "General Application and Implementation Directive 2025"],
-                  ["Client", "A user seeking services on HelpMe NG"],
-                  ["Expert", "A verified service provider on HelpMe NG"],
+                  ["Client", "A user seeking services on inSmartio"],
+                  ["Expert", "A verified service provider on inSmartio"],
                   ["TAS", "Talent Acquisition Specialist – a recruiter of experts"],
                 ]}
               />
@@ -317,13 +317,13 @@ export default function PrivacyPolicyPage() {
               <div className="overflow-x-auto w-full">
                 <div className="bg-surface border border-text-muted/10 rounded-2xl p-6 md:p-8 space-y-3 text-sm min-w-120">
                   {[
-                    ["Company Name", "HelpMe NG (CHRIVON TECH SOLUTIONS Limited)"],
+                    ["Company Name", "inSmartio (CHRIVON TECH SOLUTIONS Limited)"],
                     ["Nature of Business", "Peer-to-peer service marketplace connecting Clients with verified Experts, and Talent Acquisition Specialists (TAS) who recruit Experts"],
                     ["Jurisdiction", "Nigeria"],
                     ["Contact Address", "Admiralty Way, Lekki Phase 1, Lagos, Nigeria"],
-                    ["Email", "privacy@helpme.ng"],
-                    ["Phone", "+234 800 HELPME"],
-                    ["Website", "www.helpme.ng"],
+                    ["Email", "privacy@insmartio.io"],
+                    ["Phone", "+234 800 INSMARTIO"],
+                    ["Website", "www.insmartio.io"],
                   ].map(([label, value]) => (
                     <div key={label} className="flex gap-4 py-2 border-b border-text-muted/8 last:border-0">
                       <span className="text-text-muted/50 font-semibold shrink-0 w-40">{label}</span>
@@ -363,7 +363,7 @@ export default function PrivacyPolicyPage() {
                   { title: "5.3 Verification Information (Experts and TAS only)", items: ["National Identification Number (NIN)", "Bank Verification Number (BVN)", "Means of identification (National ID, Passport, Driver's License)", "Proof of address (utility bill, tenancy agreement)", "Guarantor information (Tier 3 Experts)", "Police Clearance Certificate (Tier 3 Experts)", "Educational certificates and professional qualifications", "TAS referral code (if applicable)"] },
                   { title: "5.4 Financial Information", items: ["Bank account details (for payouts)", "Transaction history", "Payment records", "Subscription payment history", "Escrow transaction details"] },
                   { title: "5.5 Service Information", items: ["Job postings and descriptions", "Bids and quotes", "Photos/videos of work", "Portfolio images", "Service categories and skills", "Work samples"] },
-                  { title: "5.6 Communications", items: ["Chat messages between Clients and Experts", "Emails and SMS communications with HelpMe NG", "Call recordings (for quality assurance, with notice)", "Dispute resolution records"] },
+                  { title: "5.6 Communications", items: ["Chat messages between Clients and Experts", "Emails and SMS communications with inSmartio", "Call recordings (for quality assurance, with notice)", "Dispute resolution records"] },
                   { title: "5.7 Technical Information", items: ["IP address", "Device type and operating system", "Browser type and version", "App usage data", "Location data (with your permission)", "Cookies and tracking technologies"] },
                   { title: "5.8 TAS-Specific Information", items: ["TAS ID", "Recruitment network size", "Referral link clicks and conversions", "Sub-TAS relationships", "Override commission records"] },
                   { title: "5.9 Usage Information", items: ["Job history", "Ratings and reviews given/received", "Preferences and settings", "Mode selection (Client/Expert/TAS)"] },
@@ -449,7 +449,7 @@ export default function PrivacyPolicyPage() {
                     ["TAS Tier Calculation", "Automated calculation based on active expert count", "You can request manual review"],
                   ]}
                 />
-                <p className="text-sm text-text-muted mt-3">To request human review, contact <span className="text-primary font-semibold">dpo@helpme.ng</span>.</p>
+                <p className="text-sm text-text-muted mt-3">To request human review, contact <span className="text-primary font-semibold">dpo@insmartio.io</span>.</p>
               </div>
             </div>
 
@@ -494,8 +494,8 @@ export default function PrivacyPolicyPage() {
               <p className="text-sm text-text-muted leading-relaxed mb-6">To exercise any of your rights, please follow this process:</p>
               <div className="space-y-4">
                 {[
-                  { step: "Step 1", title: "Complete a DSAR Form", desc: "Available at our office or request via email at dpo@helpme.ng" },
-                  { step: "Step 2", title: "Submit to Our DPO", desc: "Via email: dpo@helpme.ng | WhatsApp: +234 800 HELPME | In-person: Admiralty Way, Lekki Phase 1, Lagos" },
+                  { step: "Step 1", title: "Complete a DSAR Form", desc: "Available at our office or request via email at dpo@insmartio.io" },
+                  { step: "Step 2", title: "Submit to Our DPO", desc: "Via email: dpo@insmartio.io | WhatsApp: +234 800 INSMARTIO | In-person: Admiralty Way, Lekki Phase 1, Lagos" },
                   { step: "Step 3", title: "Provide Identification", desc: "Two forms of ID (one photo ID, one address verification) to confirm your identity" },
                   { step: "Step 4", title: "Acknowledgment", desc: "Our DPO will acknowledge receipt within 5 working days" },
                   { step: "Step 5", title: "Full Response", desc: "We will respond fully within one month of receiving your request" },
@@ -616,7 +616,7 @@ export default function PrivacyPolicyPage() {
               />
               <div className="mt-4 text-sm text-text-muted leading-relaxed space-y-2">
                 <p><span className="font-semibold text-text-main">Account Deletion: </span>When you delete your account, your profile becomes inaccessible and personal data is anonymized or deleted (subject to legal holds). Reviews and ratings may remain anonymized to preserve platform integrity. Financial records are retained for 7 years per legal requirement.</p>
-                <p>To request account deletion, contact <span className="text-primary font-semibold">dpo@helpme.ng</span>.</p>
+                <p>To request account deletion, contact <span className="text-primary font-semibold">dpo@insmartio.io</span>.</p>
               </div>
             </div>
 
@@ -644,8 +644,8 @@ export default function PrivacyPolicyPage() {
                 <p className="font-display font-bold text-text-main text-xl mb-5">Eugene LOKO</p>
                 <div className="space-y-3 text-sm">
                   {[
-                    ["Email", "dpo@helpme.ng"],
-                    ["Phone", "+234 800 HELPME (0803 xxxxxxxx)"],
+                    ["Email", "dpo@insmartio.io"],
+                    ["Phone", "+234 800 INSMARTIO (0803 xxxxxxxx)"],
                     ["Address", "Admiralty Way, Lekki Phase 1, Attn: Data Protection Officer"],
                     ["Hours", "Monday – Friday, 9 AM – 5 PM WAT"],
                   ].map(([label, value]) => (
@@ -665,11 +665,11 @@ export default function PrivacyPolicyPage() {
               <p className="text-sm text-text-muted leading-relaxed mb-6">If you believe your data protection rights have been violated, follow this internal process:</p>
               <div className="space-y-3 mb-8">
                 {[
-                  ["Contact Our DPO", "Submit your complaint in writing to dpo@helpme.ng with your full name, contact details, description of the issue, relevant dates and evidence, and desired resolution."],
+                  ["Contact Our DPO", "Submit your complaint in writing to dpo@insmartio.io with your full name, contact details, description of the issue, relevant dates and evidence, and desired resolution."],
                   ["Acknowledgment", "We will acknowledge receipt within 48 hours."],
                   ["Investigation", "Our DPO will investigate thoroughly, involving relevant departments."],
                   ["Response", "We will respond with our findings and proposed resolution within 7 working days."],
-                  ["Escalation", "If unsatisfied, you may escalate within HelpMe NG for senior review."],
+                  ["Escalation", "If unsatisfied, you may escalate within inSmartio for senior review."],
                 ].map(([title, desc], i) => (
                   <div key={i} className="flex gap-5 items-start">
                     <div className="shrink-0 w-7 h-7 rounded-full border border-text-muted/20 flex items-center justify-center">
@@ -700,14 +700,14 @@ export default function PrivacyPolicyPage() {
               <div className="space-y-3 text-sm text-text-muted leading-relaxed">
                 <p>We may update this Privacy Policy to reflect changes in data protection laws (NDPA/GAID updates), changes in our data processing activities, new features or services, or regulatory guidance.</p>
                 <p><span className="font-semibold text-text-main">Notification: </span>Material changes will be notified via email, SMS, or in-app notification. The &#34;Last Updated&#34; date at the top will be revised. We encourage you to review this policy periodically.</p>
-                <p>If you continue to use HelpMe NG after changes take effect, you signify acceptance of the updated policy. If you do not agree, you may close your account.</p>
+                <p>If you continue to use inSmartio after changes take effect, you signify acceptance of the updated policy. If you do not agree, you may close your account.</p>
               </div>
             </div>
 
             {/* 20 Acceptance */}
             <div id="acceptance" className="scroll-mt-28">
               <SectionHeading id="acceptance" number="20" title="Acceptance of Policy" />
-              <p className="text-sm text-text-muted leading-relaxed mb-5">By registering on HelpMe NG, using our platform, or submitting your personal data to us, you acknowledge that you have read, understood, and agree to this Privacy Policy.</p>
+              <p className="text-sm text-text-muted leading-relaxed mb-5">By registering on inSmartio, using our platform, or submitting your personal data to us, you acknowledge that you have read, understood, and agree to this Privacy Policy.</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
                   ["For Clients", "This policy applies to your use of Client Mode."],
@@ -727,7 +727,7 @@ export default function PrivacyPolicyPage() {
             <div id="children" className="scroll-mt-28">
               <SectionHeading id="children" number="23" title="Children's Data" />
               <p className="text-sm text-text-muted leading-relaxed mb-3">Our platform is not intended for children under 18 years of age. We do not knowingly collect personal data from children under 18.</p>
-              <p className="text-sm text-text-muted leading-relaxed mb-3">If you are a parent or guardian and believe your child under 18 has provided personal data to us, please contact us immediately at <span className="text-primary font-semibold">dpo@helpme.ng</span>. We will take steps to delete such information.</p>
+              <p className="text-sm text-text-muted leading-relaxed mb-3">If you are a parent or guardian and believe your child under 18 has provided personal data to us, please contact us immediately at <span className="text-primary font-semibold">dpo@insmartio.io</span>. We will take steps to delete such information.</p>
               <p className="text-sm text-text-muted leading-relaxed">For users under 18: You must have parental consent to use our platform.</p>
             </div>
 
@@ -736,7 +736,7 @@ export default function PrivacyPolicyPage() {
               <SectionHeading id="marketing" number="24" title="Marketing Communications & Opt-Out" />
               <p className="text-sm text-text-muted leading-relaxed mb-5">We may send you marketing communications only with your explicit consent. You can opt out at any time via:</p>
               <ul className="space-y-2 text-sm text-text-muted mb-6">
-                {['Click "Unsubscribe" in any marketing email', 'Toggle off "Marketing Communications" in app settings', 'Reply "STOP" to any marketing SMS', 'Email dpo@helpme.ng with subject "Unsubscribe"'].map(i => (
+                {['Click "Unsubscribe" in any marketing email', 'Toggle off "Marketing Communications" in app settings', 'Reply "STOP" to any marketing SMS', 'Email dpo@insmartio.io with subject "Unsubscribe"'].map(i => (
                   <li key={i} className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-primary/50 shrink-0 mt-2" />{i}</li>
                 ))}
               </ul>
@@ -812,10 +812,10 @@ export default function PrivacyPolicyPage() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-[0.35em] text-text-muted/40 mb-1">Document Control</p>
-                  <p className="text-sm text-text-muted">Version 1.0 — Initial release by HelpMe NG Legal, March 2026</p>
+                  <p className="text-sm text-text-muted">Version 1.0 — Initial release by inSmartio Legal, March 2026</p>
                 </div>
                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-text-muted/40 text-right">
-                  HelpMe NG: Trusted Services,<br />Verified Professionals.
+                  inSmartio: Trusted Services,<br />Verified Professionals.
                 </p>
               </div>
             </div>

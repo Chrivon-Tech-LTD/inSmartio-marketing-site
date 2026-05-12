@@ -120,7 +120,7 @@ export const CaseStudy: React.FC = () => {
             {/* LEFT SIDE (STORY) */}
             <div className="order-2 lg:order-1">
               <motion.h3 variants={itemVariants} className="text-xl md:text-2xl font-bold text-text-main mb-6 md:mb-10 font-display">
-                HelpMe NG – Nigeria’s Trusted Service Marketplace
+                inSmartio – Nigeria’s Trusted Service Marketplace
               </motion.h3>
 
               {/* PROBLEM */}

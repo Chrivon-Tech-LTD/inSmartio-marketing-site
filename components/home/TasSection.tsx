@@ -72,7 +72,7 @@ export const TASSection: React.FC = () => {
             variants={itemVariants}
             className="text-base md:text-lg text-[#7A9DC4] mb-8 md:mb-10 max-w-xl mx-auto lg:mx-0 font-sans"
           >
-            Do you know skilled professionals? Refer them to HelpMe NG and earn:
+            Do you know skilled professionals? Refer them to inSmartio and earn:
           </motion.p>
 
           {/* BENEFITS GRID */}

@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
             <Link href="/" className="shrink-0">
               <Image
                 src="/Logo.png"
-                alt="HelpMe NG"
+                alt="inSmartio Logo"
                 width={120} // This is your desired width
                 height={35}  // This acts as a fallback/container hint
                 style={{ height: 'auto' }} // This forces the aspect ratio based on the width
@@ -158,8 +158,8 @@ export const Footer: React.FC = () => {
 
         {/* Contact Strip */}
         <div className="border-y border-white/5 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-          <ContactItem icon={<IoCallOutline size={20} />} label="Call Support" value="+234 800 HELPME" />
-          <ContactItem icon={<IoMailOutline size={20} />} label="Email Us" value="support@helpme.ng" />
+          <ContactItem icon={<IoCallOutline size={20} />} label="Call Support" value="+234 800 inSmartio" />
+          <ContactItem icon={<IoMailOutline size={20} />} label="Email Us" value="support@insmartio.ng" />
           <ContactItem icon={<IoLocationOutline size={20} />} label="Offices" value="Lagos | Abuja, Nigeria" />
         </div>
 
@@ -173,7 +173,7 @@ export const Footer: React.FC = () => {
               <SocialLink href="#" icon={<FaLinkedinIn size={20} />} />
             </div>
             <p className="text-[12px] text-white font-bold uppercase tracking-wider">
-              © {year} HelpMe NG. Built by Chrivon Tech Solutions Limited.
+              © {year} inSmartio. Built by Chrivon Tech Solutions Limited.
             </p>
           </div>
 

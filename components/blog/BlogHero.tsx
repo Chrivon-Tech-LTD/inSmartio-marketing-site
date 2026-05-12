@@ -83,7 +83,7 @@ export function BlogHero() {
           className="text-text-main text-4xl md:text-6xl lg:text-7xl font-black mb-8 max-w-5xl leading-[1.1] font-display tracking-tight px-2"
         >
           Insights from the <br className="hidden sm:block" />
-          <span className="text-primary">HelpMe NG Team</span>
+          <span className="text-primary">inSmartio Team</span>
         </motion.h1>
 
         {/* Supporting Text */}

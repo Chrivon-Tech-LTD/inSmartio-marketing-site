@@ -51,10 +51,10 @@ export function ContactSidebar() {
         </div>
         
         <div className="space-y-4">
-          <ContactLine label="General" value="hello@helpme.ng" />
-          <ContactLine label="Clients" value="clients@helpme.ng" />
-          <ContactLine label="Experts" value="experts@helpme.ng" />
-          <ContactLine label="TAS Agents" value="tas@helpme.ng" />
+          <ContactLine label="General" value="hello@insmartio.ng" />
+          <ContactLine label="Clients" value="clients@insmartio.ng" />
+          <ContactLine label="Experts" value="experts@insmartio.ng" />
+          <ContactLine label="TAS Agents" value="tas@insmartio.ng" />
         </div>
       </motion.div>
 
@@ -72,7 +72,7 @@ export function ContactSidebar() {
         </div>
         
         <div className="space-y-1">
-          <p className="text-lg font-black text-text-main font-display tracking-tight">+234 800 HELPME</p>
+          <p className="text-lg font-black text-text-main font-display tracking-tight">+234 800 inSmartio</p>
           <p className="text-[10px] text-text-muted font-black uppercase tracking-widest opacity-60 italic leading-none">
             Mon - Fri, 8am - 6pm WAT
           </p>
@@ -89,9 +89,9 @@ export function ContactSidebar() {
         </h4>
         
         <div className="flex justify-center gap-3 md:gap-4 flex-wrap">
-          <SocialIcon icon={<SiX size={16} />} href="https://x.com/helpme_ng" />
-          <SocialIcon icon={<SiInstagram size={18} />} href="https://instagram.com/helpme_ng" />
-          <SocialIcon icon={<FaLinkedinIn size={18} />} href="https://linkedin.com/company/helpme-ng" />
+          <SocialIcon icon={<SiX size={16} />} href="#" />
+          <SocialIcon icon={<SiInstagram size={18} />} href="#" />
+          <SocialIcon icon={<FaLinkedinIn size={18} />} href="#" />
           <SocialIcon icon={<SiWhatsapp size={18} />} href="#" />
         </div>
       </motion.div>

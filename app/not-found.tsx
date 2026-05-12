@@ -15,7 +15,7 @@ export default function NotFound() {
                404
              </span>
           </div>
-          {/* A floating glass-panel to make it feel "HelpMe" unique */}
+          {/* A floating glass-panel to make it feel "inSmartio" unique */}
           <div className="absolute bottom-4 glass-panel px-6 py-3 rounded-2xl shadow-ambient animate-float">
             <p className="text-sm font-bold text-primary flex items-center gap-2">
               <Search size={16} /> Location Unknown
@@ -46,7 +46,7 @@ export default function NotFound() {
         
         {/* Subtle Footer Link */}
         <p className="mt-16 text-[10px] text-text-muted uppercase tracking-[0.2em] font-bold">
-          Error Code: 404_NOT_FOUND • HelpMe NG
+          Error Code: 404_NOT_FOUND • inSmartio
         </p>
       </div>
     </main>

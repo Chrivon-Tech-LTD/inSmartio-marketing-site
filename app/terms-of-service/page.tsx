@@ -138,7 +138,7 @@ export default function TermsOfServicePage() {
                 custom={2} variants={fadeInUp} initial="hidden" animate={heroInView ? "visible" : "hidden"}
                 className="text-text-muted text-sm md:text-lg leading-relaxed max-w-xl font-medium"
               >
-                These Terms govern your use of HelpMe NG as a Client, Expert, or Talent Acquisition Specialist.
+                These Terms govern your use of inSmartio as a Client, Expert, or Talent Acquisition Specialist.
                 By using our platform, you agree to be bound by this legally binding agreement.
               </motion.p>
             </div>
@@ -236,11 +236,11 @@ export default function TermsOfServicePage() {
             <div id="intro" className="scroll-mt-28">
               <SectionHeading id="intro" number="01" title="Introduction & Acceptance" />
               <div className="space-y-4 text-text-muted text-[0.9rem] md:text-[0.95rem] leading-relaxed">
-                <p>Welcome to HelpMe NG (&quot;Platform&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;). These Terms of Service (&quot;Terms&quot;) govern your access to and use of the HelpMe NG mobile application, website, and related services (collectively, the &quot;Services&quot;).</p>
+                <p>Welcome to inSmartio (&quot;Platform&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;). These Terms of Service (&quot;Terms&quot;) govern your access to and use of the inSmartio mobile application, website, and related services (collectively, the &quot;Services&quot;).</p>
                 <p>By registering for, accessing, or using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Services.</p>
                 <div className="border-l-2 border-primary pl-5 py-1 my-5">
                   <p className="text-text-main font-medium italic">
-                    These Terms constitute a legally binding agreement between you and HelpMe NG (CHRIVON TECH SOLUTIONS Limited).
+                    These Terms constitute a legally binding agreement between you and inSmartio (CHRIVON TECH SOLUTIONS Limited).
                   </p>
                 </div>
               </div>
@@ -252,7 +252,7 @@ export default function TermsOfServicePage() {
               <Table
                 headers={["Term", "Definition"]}
                 rows={[
-                  ["Platform", "The HelpMe NG mobile application, website, and related services"],
+                  ["Platform", "The inSmartio mobile application, website, and related services"],
                   ["Client", "A user who seeks services from Experts on the Platform"],
                   ["Expert", "A verified service provider who offers services on the Platform"],
                   ["TAS", "Talent Acquisition Specialist – a user who recruits Experts and earns commissions"],
@@ -260,13 +260,13 @@ export default function TermsOfServicePage() {
                   ["Job", "A service request posted by a Client"],
                   ["Bid", "A price quote submitted by an Expert for a Job"],
                   ["Contract", "The agreement between a Client and an Expert for a specific Job"],
-                  ["Payment Protected", "Escrow payment method where funds are held by HelpMe NG until job completion"],
+                  ["Payment Protected", "Escrow payment method where funds are held by inSmartio until job completion"],
                   ["Cash Payment", "Direct payment from Client to Expert without Platform holding funds"],
                   ["Verification Tier", "The level of verification completed by an Expert (Tier 1, 2, or 3)"],
                   ["TAS ID", "Unique identifier assigned to each approved TAS agent"],
                   ["Sub-TAS", "A TAS agent recruited by another TAS agent (Tier 3+ only)"],
                   ["Commission", "Earnings paid to TAS agents for recruiting Experts"],
-                  ["Escrow", "Funds held by HelpMe NG in a designated account pending job completion"],
+                  ["Escrow", "Funds held by inSmartio in a designated account pending job completion"],
                   ["Dispute", "A disagreement between a Client and an Expert regarding a Job"],
                 ]}
               />
@@ -430,7 +430,7 @@ export default function TermsOfServicePage() {
                 </AccordionItem>
                 <AccordionItem title="7.10 TAS Referral Link Terms">
                   <div className="space-y-3 text-sm text-text-muted">
-                    <p>Each TAS receives a unique referral link (helpme.ng/join/TAS-XXXXX) shareable via WhatsApp, SMS, email, social media, or printed materials. TAS earns credit only when an expert registers using their link.</p>
+                    <p>Each TAS receives a unique referral link (insmartio.io/join/TAS-XXXXX) shareable via WhatsApp, SMS, email, social media, or printed materials. TAS earns credit only when an expert registers using their link.</p>
                     <p className="font-semibold text-text-main">Prohibited Link Sharing:</p>
                     <BulletList items={["Do not spam referral links", "Do not post on unrelated websites or forums", "Do not use misleading tactics to generate clicks", "Violations may result in TAS termination"]} />
                   </div>
@@ -448,18 +448,18 @@ export default function TermsOfServicePage() {
               <Table
                 headers={["Method", "Description", "Protection"]}
                 rows={[
-                  ["Payment Protected (Escrow)", "Client pays HelpMe NG; funds held until Client approves work", <span key="pp" className="flex items-center gap-1 text-green-600"><Check size={12} />Full protection</span>],
+                  ["Payment Protected (Escrow)", "Client pays inSmartio; funds held until Client approves work", <span key="pp" className="flex items-center gap-1 text-green-600"><Check size={12} />Full protection</span>],
                   ["Cash Payment", "Client pays Expert directly", <span key="cp" className="flex items-center gap-1 text-red-500"><X size={12} />No Platform protection</span>],
                 ]}
               />
               <SubHeading title="8.2 Payment Protected (Escrow) Process" />
               <div className="space-y-3 mb-6">
                 {[
-                  "Client pays agreed amount into HelpMe NG escrow account",
+                  "Client pays agreed amount into inSmartio escrow account",
                   "Funds are held securely",
                   "Expert performs the work",
                   "Client approves completion",
-                  "HelpMe NG releases payment to Expert within 24 hours",
+                  "inSmartio releases payment to Expert within 24 hours",
                 ].map((step, i) => (
                   <div key={i} className="flex gap-4 items-center">
                     <div className="shrink-0 w-7 h-7 rounded-full border border-primary/20 flex items-center justify-center">
@@ -490,7 +490,7 @@ export default function TermsOfServicePage() {
               <SectionHeading id="verification" number="09" title="Verification & Trust System" />
               <div className="space-y-4 text-sm text-text-muted leading-relaxed">
                 <p><span className="font-semibold text-text-main">9.1 Verification Process: </span>All Experts must complete verification based on their chosen tier. Verification includes NIN, BVN, and (for Tier 3) guarantor and police clearance. Verification may take 24–72 hours.</p>
-                <p><span className="font-semibold text-text-main">9.2 Verification Badges: </span>Badges must be displayed prominently on all Expert profiles. Clients should check badges before hiring. HelpMe NG does not guarantee the accuracy of verification but makes reasonable efforts.</p>
+                <p><span className="font-semibold text-text-main">9.2 Verification Badges: </span>Badges must be displayed prominently on all Expert profiles. Clients should check badges before hiring. inSmartio does not guarantee the accuracy of verification but makes reasonable efforts.</p>
                 <p><span className="font-semibold text-text-main">9.3 Verification Revocation: </span>Verification may be revoked if false information is discovered. Experts may appeal revocation within 14 days.</p>
               </div>
             </div>
@@ -547,7 +547,7 @@ export default function TermsOfServicePage() {
               <BulletList items={["Full refund if Job cancelled before work starts (minus bank charges)", "Partial refund if work partially completed", "Full refund if Expert fails to deliver as agreed"]} />
               <div className="mt-4 bg-surface border border-text-muted/10 rounded-xl p-4 text-sm text-text-muted">
                 <span className="font-semibold text-text-main">12.4 No Refunds (Cash Jobs): </span>
-                HelpMe NG cannot enforce refunds for Cash Payment jobs. We will mediate but cannot guarantee resolution.
+                inSmartio cannot enforce refunds for Cash Payment jobs. We will mediate but cannot guarantee resolution.
               </div>
             </div>
 
@@ -559,7 +559,7 @@ export default function TermsOfServicePage() {
                 headers={["Step", "Action", "Timeline"]}
                 rows={[
                   ["1", "Parties attempt to resolve directly", "48 hours"],
-                  ["2", "Escalate to HelpMe NG Dispute Team", "Within 48 hours"],
+                  ["2", "Escalate to inSmartio Dispute Team", "Within 48 hours"],
                   ["3", "Evidence collection", "48 hours"],
                   ["4", "Mediation", "48 hours"],
                   ["5", "Binding decision (if mediation fails)", "72 hours"],
@@ -609,7 +609,7 @@ export default function TermsOfServicePage() {
             <div id="ip" className="scroll-mt-28">
               <SectionHeading id="ip" number="16" title="Intellectual Property" />
               <div className="space-y-4 text-sm text-text-muted leading-relaxed">
-                <p><span className="font-semibold text-text-main">16.1 Our Intellectual Property: </span>The HelpMe NG name, logo, and brand assets are our property. You may not use our trademarks without written permission. The Platform&apos;s code, design, and content are protected by copyright.</p>
+                <p><span className="font-semibold text-text-main">16.1 Our Intellectual Property: </span>The inSmartio name, logo, and brand assets are our property. You may not use our trademarks without written permission. The Platform&apos;s code, design, and content are protected by copyright.</p>
                 <p><span className="font-semibold text-text-main">16.2 Your Content: </span>You retain ownership of content you post (photos, descriptions, etc.). You grant us a license to use, display, and distribute your content on the Platform. You represent that you have the right to post any content you upload.</p>
                 <p><span className="font-semibold text-text-main">16.3 Prohibited Content: </span>Do not post content that infringes third-party rights. Do not post obscene, defamatory, or illegal content.</p>
               </div>
@@ -630,14 +630,14 @@ export default function TermsOfServicePage() {
               </div>
               <div className="border border-text-muted/10 rounded-xl p-5 text-sm text-text-muted">
                 <span className="font-semibold text-text-main">17.3 Maximum Liability: </span>
-                To the extent permitted by law, our maximum liability shall not exceed the total fees paid by you to HelpMe NG in the 3 months preceding the claim, or ₦50,000, whichever is lower.
+                To the extent permitted by law, our maximum liability shall not exceed the total fees paid by you to inSmartio in the 3 months preceding the claim, or ₦50,000, whichever is lower.
               </div>
             </div>
 
             {/* 18 Indemnification */}
             <div id="indemnification" className="scroll-mt-28">
               <SectionHeading id="indemnification" number="18" title="Indemnification" />
-              <p className="text-sm text-text-muted leading-relaxed mb-4">You agree to indemnify, defend, and hold harmless HelpMe NG, its affiliates, officers, directors, employees, and agents from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable legal fees) arising from:</p>
+              <p className="text-sm text-text-muted leading-relaxed mb-4">You agree to indemnify, defend, and hold harmless inSmartio, its affiliates, officers, directors, employees, and agents from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable legal fees) arising from:</p>
               <BulletList items={["Your use of the Platform", "Your violation of these Terms", "Your violation of any third-party rights", "Your provision of services as an Expert", "Your recruitment activities as a TAS"]} />
             </div>
 
@@ -689,14 +689,14 @@ export default function TermsOfServicePage() {
               <SectionHeading id="general" number="24–32" title="General Provisions" />
               <div className="space-y-2">
                 {[
-                  ["24. Entire Agreement", "These Terms, together with the Privacy Policy and TAS Agreement (for TAS users), constitute the entire agreement between you and HelpMe NG. These Terms supersede all prior agreements, representations, or understandings."],
+                  ["24. Entire Agreement", "These Terms, together with the Privacy Policy and TAS Agreement (for TAS users), constitute the entire agreement between you and inSmartio. These Terms supersede all prior agreements, representations, or understandings."],
                   ["25. Severability", "If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect."],
                   ["26. No Warranties & Disclaimer", "THE PLATFORM AND SERVICES ARE PROVIDED \"AS IS\" AND \"AS AVAILABLE\" WITHOUT WARRANTIES OF ANY KIND. We do not warrant that the Platform will be uninterrupted, secure, or error-free, or that the quality of any services obtained through the Platform will meet your expectations. We expressly disclaim all warranties of merchantability, fitness for a particular purpose, and non-infringement."],
                   ["27. Class Action Waiver", "YOU AGREE THAT ANY DISPUTE RESOLUTION PROCEEDINGS WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT IN A CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION. Each party may bring claims only in their individual capacity."],
                   ["28. Electronic Communications", "By using the Platform, you consent to receive electronic communications (email, in-app, SMS, push notifications). All electronic communications satisfy any legal requirement that such communications be in writing."],
                   ["29. Assignment", "You may not assign or transfer these Terms without our prior written consent. Any attempt to assign or transfer without such consent will be null and void. We may assign or transfer these Terms, in whole or in part, without your consent."],
-                  ["30. Waiver", "Our failure to enforce any right or provision of these Terms will not be deemed a waiver of such right or provision. Any waiver shall be effective only if in writing and signed by an authorized representative of HelpMe NG."],
-                  ["31. Notices", "Notices to HelpMe NG: legal@helpme.ng or Admiralty Way, Lekki Phase 1, Lagos. Notices to you: email to registered address, in-app notification, or SMS. Notices are deemed received 24 hours after sending (email/SMS) or 5 days after mailing (physical mail)."],
+                  ["30. Waiver", "Our failure to enforce any right or provision of these Terms will not be deemed a waiver of such right or provision. Any waiver shall be effective only if in writing and signed by an authorized representative of inSmartio."],
+                  ["31. Notices", "Notices to inSmartio: legal@insmartio.io or Admiralty Way, Lekki Phase 1, Lagos. Notices to you: email to registered address, in-app notification, or SMS. Notices are deemed received 24 hours after sending (email/SMS) or 5 days after mailing (physical mail)."],
                 ].map(([title, desc]) => (
                   <AccordionItem key={title} title={title}>
                     <p>{desc}</p>
@@ -712,7 +712,7 @@ export default function TermsOfServicePage() {
                 <h2 className="font-display font-bold text-text-main text-lg md:text-2xl tracking-tight">Contact Information</h2>
               </div>
               <div className="bg-surface border border-text-muted/10 rounded-2xl p-5 md:p-8">
-                <p className="font-semibold text-text-main mb-4">HelpMe NG (CHRIVON TECH SOLUTIONS Limited)</p>
+                <p className="font-semibold text-text-main mb-4">inSmartio (CHRIVON TECH SOLUTIONS Limited)</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
                   <div>
                     <p className="text-[10px] font-black uppercase tracking-[0.3em] text-text-muted/50 mb-2">Address</p>
@@ -721,10 +721,10 @@ export default function TermsOfServicePage() {
                   <div className="space-y-1.5">
                     <p className="text-[10px] font-black uppercase tracking-[0.3em] text-text-muted/50 mb-2">Email Contacts</p>
                     {[
-                      ["General Inquiries", "hello@helpme.ng"],
-                      ["Legal Notices", "legal@helpme.ng"],
-                      ["Disputes", "disputes@helpme.ng"],
-                      ["TAS Program", "tas@helpme.ng"],
+                      ["General Inquiries", "hello@insmartio.io"],
+                      ["Legal Notices", "legal@insmartio.io"],
+                      ["Disputes", "disputes@insmartio.io"],
+                      ["TAS Program", "tas@insmartio.io"],
                     ].map(([label, email]) => (
                       <div key={label} className="flex flex-wrap gap-2 md:gap-3">
                         <span className="text-text-muted/50 shrink-0 w-32">{label}</span>
@@ -734,7 +734,7 @@ export default function TermsOfServicePage() {
                   </div>
                   <div>
                     <p className="text-[10px] font-black uppercase tracking-[0.3em] text-text-muted/50 mb-2">Phone</p>
-                    <p className="text-text-main font-semibold">+234 800 HELPME</p>
+                    <p className="text-text-main font-semibold">+234 800 INSMARTIO</p>
                   </div>
                   <div>
                     <p className="text-[10px] font-black uppercase tracking-[0.3em] text-text-muted/50 mb-2">Hours</p>
@@ -747,7 +747,7 @@ export default function TermsOfServicePage() {
             {/* Acknowledgment */}
             <div className="bg-primary/5 border border-primary/15 rounded-2xl p-5 md:p-8">
               <p className="text-[10px] font-black uppercase tracking-[0.35em] text-primary mb-5">Acknowledgment</p>
-              <p className="text-sm text-text-muted leading-relaxed mb-5">By registering for, accessing, or using the HelpMe NG Platform, you acknowledge that:</p>
+              <p className="text-sm text-text-muted leading-relaxed mb-5">By registering for, accessing, or using the inSmartio Platform, you acknowledge that:</p>
               <div className="space-y-3">
                 {[
                   "You have read and understood these Terms of Service",
@@ -771,10 +771,10 @@ export default function TermsOfServicePage() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-[0.35em] text-text-muted/40 mb-1">Document Control</p>
-                  <p className="text-sm text-text-muted">Version 1.0 — Initial release by HelpMe NG Legal, March 2026</p>
+                  <p className="text-sm text-text-muted">Version 1.0 — Initial release by inSmartio Legal, March 2026</p>
                 </div>
                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-text-muted/40 sm:text-right">
-                  HelpMe NG: Trusted Services,<br />Verified Professionals.
+                  inSmartio: Trusted Services,<br />Verified Professionals.
                 </p>
               </div>
             </div>

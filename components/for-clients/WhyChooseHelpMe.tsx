@@ -51,10 +51,10 @@ export const WhyChooseHelpMe: React.FC = () => {
           className="mb-16 md:border-l-4 md:border-primary md:pl-8"
         >
           <span className="text-secondary text-[10px] font-black uppercase tracking-[0.3em] mb-2 block">
-            The HelpMe Advantage
+            The inSmartio Advantage
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-text-main font-display">
-            Why choose HelpMe NG?
+            Why choose inSmartio?
           </h2>
           <p className="text-text-muted mt-4 max-w-2xl font-medium leading-relaxed">
             We&apos;ve built a platform focused on your security and satisfaction,

@@ -3,8 +3,8 @@ import { ContactSidebar } from "@/components/contact/ContactSidebar";
 import { OfficeLocations } from "@/components/contact/OfficeLocations";
 
 export const metadata = {
-  title: "Contact HelpMe NG – Support, Partnerships, Inquiries",
-  description: "Reach out to HelpMe NG for support, partnerships, or any questions. Email, phone, and office locations available.",
+  title: "Contact inSmartio – Support, Partnerships, Inquiries",
+  description: "Reach out to inSmartio for support, partnerships, or any questions. Email, phone, and office locations available.",
 };
 
 export default function ContactPage() {

@@ -22,27 +22,29 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-[90vh] flex items-end justify-center pt-30 overflow-hidden bg-black">
-      
+
       {/* Background image with scale animation */}
-      <motion.div 
+      <motion.div
         initial={{ scale: 1.2, opacity: 0 }}
         animate={{ scale: 1.05, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute inset-0 z-0"
       >
         <Image
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1800&q=80"
+          src="/assets/hom.jpeg"
           alt="Nigerian professional at work"
           fill
+          quality={100}
+          sizes="100vw"
           className="object-cover object-top"
           priority
         />
-        <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-black/20 z-10" />
-        <div className="absolute inset-0 bg-linear-to-r from-black/50 via-transparent to-transparent z-10" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-black/20 z-10" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/40 via-transparent to-transparent z-10" />
       </motion.div>
 
       {/* Floating rating badge — enters from right */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.8, duration: 0.8 }}
@@ -60,28 +62,28 @@ export const Hero = () => {
       </motion.div>
 
       {/* Content */}
-      <motion.div 
+      <motion.div
         variants={staggerContainer}
         initial="initial"
         animate="animate"
         className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-10 pb-16 md:pb-24"
       >
-        
+
         {/* Eyebrow */}
         <motion.div variants={fadeInUp} className="mb-6">
           <span className="inline-flex items-center gap-2 text-[9px] md:text-[10px] uppercase tracking-[0.25em] font-bold text-secondary">
-            <motion.span 
+            <motion.span
               initial={{ width: 0 }}
               animate={{ width: 24 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="h-px bg-secondary" 
+              className="h-px bg-secondary"
             />
             Great services are delivered by great professionals
           </span>
         </motion.div>
 
         {/* Headline */}
-        <motion.h1 
+        <motion.h1
           variants={fadeInUp}
           className="text-white mb-6 text-5xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tight max-w-4xl"
         >
@@ -91,15 +93,15 @@ export const Hero = () => {
         </motion.h1>
 
         {/* Bottom row */}
-        <motion.div 
+        <motion.div
           variants={fadeInUp}
           className="flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-20 mt-10 pt-8 border-t border-white/10"
         >
-          
+
           {/* Left: description + CTAs */}
           <div className="lg:max-w-md">
             <p className="text-white/60 mb-8 text-base md:text-lg leading-relaxed">
-              HelpMe NG connects you with reliable, verified experts for all your service needs — right when you need them.
+              inSmartio connects you with reliable, verified experts for all your service needs — right when you need them.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button variant="primary" size="lg" className="px-8 py-4 text-sm font-bold uppercase tracking-widest">
@@ -123,8 +125,8 @@ export const Hero = () => {
               { value: "20,000+", label: "Jobs Completed" },
               { value: "99%", label: "Satisfaction Rate" },
             ].map((stat, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1 + (i * 0.1), duration: 0.5 }}

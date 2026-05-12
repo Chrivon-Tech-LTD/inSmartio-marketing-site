@@ -5,8 +5,8 @@ import { AppFeatures } from "@/components/download/AppFeatures";
 
 import { DeviceMockups } from "@/components/download/DeviceMockup";
 export const metadata = {
-  title: "Download HelpMe NG App – iOS and Android",
-  description: "Download the HelpMe NG app to find trusted professionals. Available on App Store and Google Play. Get help in minutes.",
+  title: "Download inSmartio App – iOS and Android",
+  description: "Download the inSmartio app to find trusted professionals. Available on App Store and Google Play. Get help in minutes.",
 };
 
 export default function DownloadPage() {

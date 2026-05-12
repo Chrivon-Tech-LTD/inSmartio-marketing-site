@@ -10,7 +10,7 @@ import { Metadata } from 'next';
 import { ReferralTools } from '@/components/for-tas/ReferalTools';
 
 export const metadata: Metadata = {
-  title: "HelpMe NG TAS Program – Earn by Recruiting Experts",
+  title: "inSmartio TAS Program – Earn by Recruiting Experts",
   description: "Refer skilled professionals and earn ₦7,000 per expert plus ongoing commissions. Join the TAS program today.",
 };
 

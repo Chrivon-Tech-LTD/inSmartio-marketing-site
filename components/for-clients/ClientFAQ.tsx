@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
-    question: "How much does HelpMe NG cost for clients?",
+    question: "How much does inSmartio cost for clients?",
     answer: "Nothing! Posting jobs and hiring experts is completely free. You only pay for the service itself. Experts pay platform fees (either subscription or commission)."
   },
   {
