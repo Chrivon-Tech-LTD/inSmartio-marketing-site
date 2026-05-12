@@ -40,7 +40,7 @@ export const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="shrink-0">
           <Image
-            src="/Logo.png"
+            src="/logo.png"
             alt="inSmartio"
             width={100}
             height={30}

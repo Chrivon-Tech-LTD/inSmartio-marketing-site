@@ -102,12 +102,12 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-5">
             <Link href="/" className="shrink-0">
               <Image
-                src="/Logo.png"
+                src="/logo.png"
                 alt="inSmartio Logo"
-                width={120} // This is your desired width
-                height={35}  // This acts as a fallback/container hint
-                style={{ height: 'auto' }} // This forces the aspect ratio based on the width
-                className="object-contain transition-all brightness-200 w-auto h-auto"
+                width={120} 
+                height={35}  
+                style={{ height: 'auto' }} 
+                className="object-contain transition-all  w-auto h-auto"
                 priority
               />
             </Link>
