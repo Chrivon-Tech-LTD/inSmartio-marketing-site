@@ -863,7 +863,7 @@ export default function TASAgreementPage() {
             <div id="liability" className="scroll-mt-28">
               <SectionHeading id="liability" number="16" title="Limitation of Liability" />
               <div className="space-y-4 text-sm text-text-muted leading-relaxed">
-                <p><span className="font-semibold text-text-main">16.1 Our Liability: </span>HelpMe NG&apos;s total liability for any claim arising from this Agreement shall not exceed the total commissions paid to you in the 6 months preceding the claim, or ₦100,000, whichever is lower.</p>
+                <p><span className="font-semibold text-text-main">16.1 Our Liability: </span>inSmartio&apos;s total liability for any claim arising from this Agreement shall not exceed the total commissions paid to you in the 6 months preceding the claim, or ₦100,000, whichever is lower.</p>
                 <p><span className="font-semibold text-text-main">16.2 No Consequential Damages: </span>Neither party shall be liable for any indirect, incidental, special, consequential, or punitive damages, including lost profits, even if advised of the possibility of such damages.</p>
                 <div className="border border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-800/30 rounded-xl p-5">
                   <p className="font-semibold text-amber-800 dark:text-amber-300 text-sm mb-1">16.3 TAS Earnings Disclaimer</p>
