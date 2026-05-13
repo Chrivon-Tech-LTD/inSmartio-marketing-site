@@ -102,7 +102,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-5">
             <Link href="/" className="shrink-0">
               <Image
-                src="/logo.png"
+                src="/assets/insmartio.png"
                 alt="inSmartio Logo"
                 width={120} 
                 height={35}  
