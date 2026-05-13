@@ -31,7 +31,7 @@ export const Hero = () => {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/assets/hom.jpeg"
+          src="/assets/final.png"
           alt="Nigerian professional at work"
           fill
           quality={100}
@@ -39,8 +39,8 @@ export const Hero = () => {
           className="object-cover object-top"
           priority
         />
-        <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-black/20 z-10" />
-        <div className="absolute inset-0 bg-linear-to-r from-black/40 via-transparent to-transparent z-10" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-black/40 z-10" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/50 via-transparent to-transparent z-10" />
       </motion.div>
 
       {/* Floating rating badge — enters from right */}

@@ -37,18 +37,17 @@ export const Navbar = () => {
         className="max-w-7xl mx-auto h-full flex items-center justify-between gap-6"
         style={{ padding: "0 clamp(1.25rem,5vw,3rem)" }}
       >
-        {/* Logo */}
-        <Link href="/" className="shrink-0">
-          <Image
-            src="/logo.png"
-            alt="inSmartio"
-            width={100}
-            height={30}
-            className="object-contain w-auto h-auto"
-            loading="eager"
-          />
-        </Link>
-
+         <Link href="/" className="shrink-0">
+              <Image
+                src="/logo.png"
+                alt="inSmartio Logo"
+                width={120} 
+                height={35}  
+                style={{ height: 'auto' }} 
+                className="object-contain transition-all  w-auto h-auto"
+                priority
+              />
+            </Link>
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-10 flex-1 justify-center">
           {navLinks.map((l) => {
@@ -64,9 +63,8 @@ export const Navbar = () => {
               >
                 {l.label}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 bg-primary ${
-                    active ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
+                  className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 bg-primary ${active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
                 />
               </Link>
             );
