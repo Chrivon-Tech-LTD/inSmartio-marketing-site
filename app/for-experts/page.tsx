@@ -22,22 +22,27 @@ export default function ForExpertsPage() {
       <ExpertBenefits />
 
       {/* 5.3 Verification Table */}
-      <VerificationFramework />
+      <div id="tiers">
+        <VerificationFramework />
+      </div>
 
-       {/* 5.6 TAS Path Cross-sell */}
+      {/* 5.6 TAS Path Cross-sell */}
       <TASOpportunity />
 
       {/* 5.5 Calculator */}
-      <EarningsCalculator />
-      
+      <div id="earnings">
+        <EarningsCalculator />
+      </div>
+
       {/* 5.4 Payment Models */}
-      <ExpertPaymentModels />
+      <div id="payment">
+        <ExpertPaymentModels />
+      </div>
 
-      
 
-      
 
-      
+
+
     </main>
   );
 }

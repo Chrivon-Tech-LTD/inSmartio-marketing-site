@@ -9,6 +9,7 @@ import Image from "next/image";
 import { Button } from "../ui/Button";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "For Clients", href: "/for-clients" },
   { label: "For Experts", href: "/for-experts" },

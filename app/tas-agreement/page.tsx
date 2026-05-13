@@ -224,14 +224,7 @@ export default function TASAgreementPage() {
               <span className="text-text-muted/30">×</span>
               <span className="text-sm text-text-muted">TAS Agent (Contractor)</span>
             </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-text-muted/40">Related:</span>
-              {["Terms of Service", "Privacy Policy", "Cookie Policy"].map((doc) => (
-                <span key={doc} className="text-[10px] font-black uppercase tracking-[0.2em] text-text-muted/50 border border-text-muted/15 rounded-full px-4 py-2 hover:border-primary hover:text-primary transition-colors duration-200 cursor-pointer">
-                  {doc}
-                </span>
-              ))}
-            </div>
+           
           </motion.div>
         </div>
       </div>

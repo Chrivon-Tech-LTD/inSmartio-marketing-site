@@ -5,7 +5,7 @@ import { motion, Variants } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { Card } from '../ui/Card';
 import { Check } from 'lucide-react';
-
+import Link from 'next/link';
 interface PricingTier {
   plan: string;
   price: string;
@@ -187,13 +187,14 @@ const PricingCard: React.FC<{ tier: PricingTier }> = ({ tier }) => {
           </motion.li>
         ))}
       </ul>
-
+      <Link href='/download'>
       <Button 
         variant={isPopular ? "secondary" : "primary"} 
         className={`w-full py-5 md:py-6 font-bold uppercase tracking-widest text-[10px] md:text-[11px] ${isPopular ? 'hover:brightness-110 shadow-xl' : ''}`}
       >
         Get Started
       </Button>
+      </Link>
     </Card>
   );
 };

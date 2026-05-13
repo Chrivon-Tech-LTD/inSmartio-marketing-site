@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Button } from '../ui/Button';
 import { Users, BadgePercent, ArrowRight } from 'lucide-react';
 import { motion, useInView, Variants } from 'framer-motion';
-
+import Link from 'next/link';
 /* ── Animation Variants ─── */
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -110,9 +110,12 @@ export const TASOpportunity: React.FC = () => {
             custom={5} variants={fadeInUp} initial="hidden" animate={isInView ? "visible" : "hidden"}
             className="flex flex-wrap gap-5"
           >
+            <Link href="/for-tas">
             <Button variant="primary" size="lg" className="px-10 py-7 text-lg font-black uppercase tracking-widest shadow-2xl shadow-secondary/20 transition-all hover:scale-105 active:scale-95">
               Learn About TAS
             </Button>
+            </Link>
+            <Link href="/how-it-works">
             <Button 
               variant="outline" 
               size="lg" 
@@ -121,6 +124,7 @@ export const TASOpportunity: React.FC = () => {
               Compare Roles
               <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
+            </Link>
           </motion.div>
 
         </div>

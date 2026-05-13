@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from '../ui/Button';
 import { motion, Variants } from 'framer-motion';
-
+import Link from 'next/link';
 const EXPERT_HERO = "https://i.pinimg.com/736x/d6/ac/6d/d6ac6d5bd234d8676a7fb99d1d02eb42.jpg";
 
 /* ── Animation Variants ────────────────────────────────────────── */
@@ -58,10 +58,12 @@ export const ExpertHero: React.FC = () => {
             custom={3} variants={fadeInUp} initial="hidden" animate="visible"
             className="flex flex-wrap gap-4 justify-center lg:justify-start"
           >
+            <Link href="/download">
             <Button variant="primary" size="lg" className="px-10 shadow-xl group">
               Become an Expert
               <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">→</span>
             </Button>
+            </Link>
           </motion.div>
         </div>
 

@@ -4,7 +4,7 @@ import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Card } from '../ui/Card';
 import { TrendingUp, BadgeCheck, Building2, Headset, Code2, ArrowRight } from 'lucide-react';
-
+import Link from 'next/link';
 interface AddOn {
   title: string;
   price: string;
@@ -195,7 +195,8 @@ function AddOnCard({ item }: { item: AddOn }) {
           {item.description}
         </p>
 
-        {/* CTA */}
+        {/* CTA  */}
+        <Link href="/download">
         <motion.button
           whileHover={{ x: 5 }}
           className={`
@@ -210,6 +211,8 @@ function AddOnCard({ item }: { item: AddOn }) {
           Add to plan
           <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
         </motion.button>
+        </Link>
+       
       </Card>
     </motion.div>
   );

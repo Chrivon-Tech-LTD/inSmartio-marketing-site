@@ -167,21 +167,7 @@ export default function TermsOfServicePage() {
             </motion.div>
           </div>
 
-          {/* Related docs */}
-          <motion.div
-            custom={4} variants={fadeInUp} initial="hidden" animate={heroInView ? "visible" : "hidden"}
-            className="flex flex-wrap gap-3 mt-8 md:mt-10 pt-8 md:pt-10 border-t border-text-muted/10"
-          >
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-text-muted/40 self-center mr-2">Related:</span>
-            {["Privacy Policy", "TAS Agreement", "Cookie Policy"].map((doc) => (
-              <span
-                key={doc}
-                className="text-[10px] font-black uppercase tracking-[0.2em] text-text-muted/50 border border-text-muted/15 rounded-full px-4 py-2 hover:border-primary hover:text-primary transition-colors duration-200 cursor-pointer"
-              >
-                {doc}
-              </span>
-            ))}
-          </motion.div>
+        
         </div>
       </div>
 

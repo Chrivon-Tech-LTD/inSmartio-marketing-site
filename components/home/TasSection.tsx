@@ -5,7 +5,7 @@ import { motion, Variants } from "framer-motion";
 import { Button } from "../ui/Button";
 import { FaWallet, FaChartLine, FaUsers, FaCircleCheck } from "react-icons/fa6";
 import Image from "next/image";
-
+import Link from "next/link";
 const IMAGE = "https://i.pinimg.com/1200x/d4/eb/76/d4eb7675c8533ab32cefcbc953fbd2e8.jpg";
 
 export const TASSection: React.FC = () => {
@@ -96,9 +96,11 @@ export const TASSection: React.FC = () => {
           </div>
 
           <motion.div variants={itemVariants} className="flex justify-center lg:justify-start">
+           <Link href="/for-tas">
             <Button size="lg" variant="primary" className="w-full sm:w-auto px-10">
               Learn About TAS Program
             </Button>
+            </Link>
           </motion.div>
         </motion.div>
 

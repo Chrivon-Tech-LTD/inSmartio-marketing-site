@@ -32,30 +32,30 @@ const footerLinks: Record<string, FooterSection> = {
   clients: {
     title: "For Clients",
     links: [
-      { label: "How It Works", href: "/how-it-works" },
-      { label: "Post a Job", href: "/how-it-works" },
-      { label: "Find Experts", href: "/how-it-works" },
-      { label: "Payment Options", href: "/how-it-works" },
-      { label: "Safety Tips", href: "/how-it-works" },
+      { label: "How It Works", href: "/how-it-works?tab=client" },
+      { label: "Post a Job", href: "/how-it-works?tab=client" },
+      { label: "Find Experts", href: "/how-it-works?tab=client" },
+      { label: "Payment Options", href: "/how-it-works#payment" },
+      { label: "Safety Tips", href: "/coming-soon" },
     ],
   },
   experts: {
     title: "For Experts",
     links: [
-      { label: "How It Works", href: "/how-it-works#experts" },
-      { label: "Become an Expert", href: "/how-it-works" },
-      { label: "Expert Earnings", href: "/how-it-works" },
-      { label: "Verification", href: "/how-it-works" },
-      { label: "Payment Models", href: "/how-it-works" },
+      { label: "How It Works", href: "/how-it-works?tab=expert" },
+      { label: "Become an Expert", href: "/for-experts" },
+      { label: "Expert Earnings", href: "/for-experts#earnings" },
+      { label: "Verification Tiers", href: "/for-experts#tiers" },
+      { label: "Payment Models", href: "/for-experts#payment" },
     ],
   },
   tas: {
     title: "For TAS",
     links: [
-      { label: "How It Works", href: "/how-it-works#tas" },
-      { label: "Apply Now", href: "/how-it-works#apply" },
-      { label: "TAS Tiers", href: "/how-it-works#tiers" },
-      { label: "Earnings Calculator", href: "/how-it-works#calculator" },
+      { label: "How It Works", href: "/how-it-works?tab=ta" },
+      { label: "Apply Now", href: "/for-tas#apply" },
+      { label: "TAS Tiers", href: "/for-tas#tiers" },
+      { label: "Earnings Calculator", href: "/for-tas#calculator" },
     ],
   },
   company: {
@@ -72,7 +72,7 @@ const footerLinks: Record<string, FooterSection> = {
     links: [
       { label: "Blog", href: "/blog" },
       { label: "Case Studies", href: "/case-study" },
-      { label: "FAQs", href: "/faqs" },
+      { label: "FAQs", href: "/for-clients#faq" },
       { label: "Help Center", href: "/help" },
     ],
   },

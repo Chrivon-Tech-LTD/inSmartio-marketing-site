@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Button } from '../ui/Button';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
-
+import Link from 'next/link';
 const TAS_HERO = "https://i.pinimg.com/1200x/c1/59/f4/c159f47aea63fd7f76436684fd9c62d8.jpg";
 
 /* ── Animation Variants ────────────────────────────────────────── */
@@ -65,10 +65,12 @@ export const TASHero: React.FC = () => {
             custom={3} variants={fadeInUp} initial="hidden" animate="visible"
             className="flex flex-wrap gap-4 justify-center lg:justify-start"
           >
+            <Link href="/download">
             <Button variant="primary" size="lg" className="px-10 shadow-xl group">
               Apply for TAS Program
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
+            </Link>
           </motion.div>
         </div>
 

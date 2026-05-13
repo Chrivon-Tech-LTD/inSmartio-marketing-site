@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from "next";
 import { HowItWorksHero } from '@/components/how-it-works/HowItWorksHero';
 import { HowItWorksTabs } from '@/components/how-it-works/HowItWorksTabs';
-
+import { Suspense } from 'react';
 export const metadata: Metadata = {
   title: "How inSmartio Works – Step by Step Guide",
   description: "Learn how to post a job, receive bids, hire experts, and pay securely. Simple 4-step process for clients, experts, and TAS.",
@@ -16,7 +16,9 @@ export default function HowItWorksPage() {
       <HowItWorksHero />
       
       <div className="pb-24">
-        <HowItWorksTabs />
+        <Suspense>
+          <HowItWorksTabs />
+        </Suspense>
       </div>
 
       

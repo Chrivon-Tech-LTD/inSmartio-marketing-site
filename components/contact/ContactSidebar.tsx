@@ -5,7 +5,7 @@ import { HiOutlineEnvelope, HiOutlinePhone } from "react-icons/hi2";
 import { SiInstagram, SiX, SiWhatsapp } from "react-icons/si";
 import { FaLinkedinIn } from "react-icons/fa6"; 
 import { motion, useInView, Variants } from "framer-motion";
-
+import Link from "next/link";
 /* ── Animation Variants ────────────────────────────────────────── */
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -51,7 +51,9 @@ export function ContactSidebar() {
         </div>
         
         <div className="space-y-4">
-          <ContactLine label="General" value="hello@insmartio.ng" />
+          <Link href="mailto:support@insmartio.com">
+            <ContactLine label="General" value="support@insmartio.com" />
+          </Link>
           <ContactLine label="Clients" value="clients@insmartio.ng" />
           <ContactLine label="Experts" value="experts@insmartio.ng" />
           <ContactLine label="TAS Agents" value="tas@insmartio.ng" />

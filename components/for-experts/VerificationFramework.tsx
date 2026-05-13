@@ -198,7 +198,7 @@ const RequirementItem = ({ label, active, delay }: { label: string, active: bool
     initial={{ opacity: 0, x: -5 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ delay }}
-    className={`flex items-center gap-3 ${active ? 'text-[#D8E8FF]' : 'opacity-20'}`}
+    className={`flex items-center gap-3 text-white`}
   >
     {active ? (
       <CheckCircle2 className="text-success shrink-0" size={16} />

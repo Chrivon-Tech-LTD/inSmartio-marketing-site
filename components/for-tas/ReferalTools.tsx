@@ -10,7 +10,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { motion, useInView, Variants } from 'framer-motion';
-
+import Link from 'next/link';
 const tools = [
   { 
     name: "Unique Referral Link", 
@@ -156,11 +156,12 @@ function ToolCard({ tool }: { tool: typeof tools[0] }) {
       <p className="text-[#7A9DC4] text-sm leading-relaxed mb-6 flex-1 font-medium">
         {tool.desc}
       </p>
-
+       <Link href="/download">
       <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#5A8FD4] group-hover:text-secondary border-t border-white/5 pt-5 transition-colors">
         Access Tool
         <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
       </div>
+      </Link>
     </motion.div>
   );
 }

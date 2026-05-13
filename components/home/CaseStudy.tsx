@@ -3,6 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { Button } from "../ui/Button";
+import Link from "next/link";
 
 interface Metric {
   value: string;
@@ -193,9 +194,11 @@ export const CaseStudy: React.FC = () => {
             variants={itemVariants}
             className="mt-10 md:mt-16 flex justify-center"
           >
+            <Link href="/case-study">
             <Button size="lg" variant="primary" className="w-full sm:w-auto px-12">
               Read Full Case Study
             </Button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

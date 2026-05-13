@@ -23,13 +23,18 @@ export default function ForClientsPage() {
       <WhyChooseHelpMe />
 
       {/* Payment Comparison (4.3) */}
+      <div id="payment">
       <PaymentComparison />
+      </div>
 
       {/* Verification Tiers (4.4) */}
       <VerificationTiers />
 
       {/* FAQ Section (4.5) */}
+      <div id="faq">
       <ClientFAQ />
+      </div>
+      
 
      
 

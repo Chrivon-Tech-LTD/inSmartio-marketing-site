@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { motion, useInView, Variants, AnimatePresence } from 'framer-motion';
 import { Button } from '../ui/Button';
-
+import Link from 'next/link';
 interface Step {
   title: string;
   icon: LucideIcon;
@@ -81,10 +81,12 @@ export const TASSteps: React.FC = () => {
                 <p className="text-text-muted leading-relaxed mb-8 text-sm">
                   {path.desc}
                 </p>
+                <Link href="/download"> 
                 <Button variant="ghost" className={`px-0! group-hover:text-${path.color} transition-colors font-bold text-xs uppercase tracking-widest`}>
                   {path.type === 'expert' ? 'Apply in-app' : 'Register Directly'} 
                   <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
+                </Link>
               </motion.div>
             ))}
           </div>

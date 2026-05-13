@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Button } from '../ui/Button';
 import { Star, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-
+import Link from 'next/link';
 export const Hero = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -104,9 +104,12 @@ export const Hero = () => {
               inSmartio connects you with reliable, verified experts for all your service needs — right when you need them.
             </p>
             <div className="flex flex-wrap gap-4">
+              <Link href="/download" >
               <Button variant="primary" size="lg" className="px-8 py-4 text-sm font-bold uppercase tracking-widest">
                 Download the App
               </Button>
+              </Link>
+              <Link href="/how-it-works" >
               <Button
                 variant="ghost"
                 size="lg"
@@ -115,6 +118,7 @@ export const Hero = () => {
                 How It Works
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Button>
+              </Link>
             </div>
           </div>
 
