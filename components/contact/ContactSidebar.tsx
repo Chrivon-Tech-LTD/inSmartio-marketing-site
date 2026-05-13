@@ -54,9 +54,9 @@ export function ContactSidebar() {
           <Link href="mailto:support@insmartio.com">
             <ContactLine label="General" value="support@insmartio.com" />
           </Link>
-          <ContactLine label="Clients" value="clients@insmartio.ng" />
-          <ContactLine label="Experts" value="experts@insmartio.ng" />
-          <ContactLine label="TAS Agents" value="tas@insmartio.ng" />
+          <ContactLine label="Clients" value="clients@insmartio.com" />
+          <ContactLine label="Experts" value="experts@insmartio.com" />
+          <ContactLine label="TAS Agents" value="tas@insmartio.com" />
         </div>
       </motion.div>
 
