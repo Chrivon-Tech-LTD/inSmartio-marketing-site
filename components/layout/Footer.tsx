@@ -159,7 +159,7 @@ export const Footer: React.FC = () => {
         {/* Contact Strip */}
         <div className="border-y border-white/5 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <ContactItem icon={<IoCallOutline size={20} />} label="Call Support" value="+234 800 inSmartio" />
-          <ContactItem icon={<IoMailOutline size={20} />} label="Email Us" value="support@insmartio.ng" />
+          <ContactItem icon={<IoMailOutline size={20} />} label="Email Us" value="support@insmartio.com" />
           <ContactItem icon={<IoLocationOutline size={20} />} label="Offices" value="Lagos | Abuja, Nigeria" />
         </div>
 
