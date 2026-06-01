@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import Link from "next/link";
@@ -13,7 +14,7 @@ const navLinks = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "For Clients", href: "/for-clients" },
   { label: "For Experts", href: "/for-experts" },
-  { label: "For TAS", href: "/for-tas" },
+  { label: "For TAs", href: "/for-tas" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -23,49 +24,61 @@ export const Navbar = () => {
   const { toggleTheme, isDark } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 w-full glass-panel"
+      className="fixed top-0 left-0 right-0 z-50 w-full"
       style={{
-        height: "70px",
-        borderBottom: "none",
+        height: "76px",
+        background: "rgba(10, 15, 30, 0.85)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        borderBottom: "1px solid rgba(55, 138, 221, 0.12)",
       }}
     >
       <div
-        className="max-w-7xl mx-auto h-full flex items-center justify-between gap-6"
-        style={{ padding: "0 clamp(1.25rem,5vw,3rem)" }}
+        className="max-w-7xl mx-auto h-full flex items-center justify-between"
+        style={{ padding: "0 clamp(1.25rem, 5vw, 1rem)", gap: "32px" }}
       >
-         <Link href="/" className="shrink-0">
-              <Image
-                src="/assets/insmartio.png"
-                alt="inSmartio Logo"
-                width={120} 
-                height={35}  
-                style={{ height: 'auto' }} 
-                className="object-contain transition-all  w-auto h-auto"
-                priority
-              />
-            </Link>
+        {/* Logo */}
+        <Link href="/" className="shrink-0 flex items-center gap-3 -mt-6 -ml-12 md:-ml-8">
+          <Image
+            src="/assets/insmartio.png"
+            alt="inSmartio Logo"
+            width={180}
+            height={64}
+            style={{ height: "200px", width: "auto" }}
+            className="object-contain"
+            priority
+          />
+        </Link>
+
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-10 flex-1 justify-center">
+        <nav className="hidden lg:flex items-center gap-9 flex-1 justify-center">
           {navLinks.map((l) => {
             const active = pathname === l.href;
             return (
               <Link
                 key={l.label}
                 href={l.href}
-                className="text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-300 relative group font-sans"
+                className="relative group font-sans"
                 style={{
-                  color: active ? "var(--primary)" : "var(--text-secondary)",
+                  fontSize: "11px",
+                  fontWeight: 600,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: active ? "var(--primary)" : "rgba(255,255,255,0.5)",
+                  transition: "color 0.2s",
+                  paddingBottom: "2px",
+                  textDecoration: "none",
                 }}
               >
                 {l.label}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 bg-primary ${active ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
+                  className={`absolute -bottom-1 left-0 h-0.5 rounded-full bg-primary transition-all duration-300 ${
+                    active ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
                 />
               </Link>
             );
@@ -73,15 +86,19 @@ export const Navbar = () => {
         </nav>
 
         {/* Action Group */}
-        <div className="flex items-center gap-4 shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
-            className="flex items-center justify-center w-10 h-10 rounded-xl bg-(--surface-low) transition-all duration-300 hover:brightness-110 cursor-pointer"
-            style={{ color: "var(--primary)" }}
+            className="flex items-center justify-center w-9.5 h-9.5 rounded-[10px] cursor-pointer transition-all duration-200 hover:brightness-110"
+            style={{
+              background: "rgba(55,138,221,0.1)",
+              border: "1px solid rgba(55,138,221,0.2)",
+              color: "var(--primary)",
+            }}
           >
-            {mounted && (isDark ? <Sun size={18} /> : <Moon size={18} />)}
+            {mounted && (isDark ? <Sun size={16} /> : <Moon size={16} />)}
           </button>
 
           {/* CTA */}
@@ -91,13 +108,17 @@ export const Navbar = () => {
             </Button>
           </Link>
 
-          {/* Mobile hamburger */}
+          {/* Mobile Hamburger */}
           <button
             onClick={() => setOpen(!open)}
-            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-(--surface-low) transition-colors"
-            style={{ color: "var(--primary)" }}
+            className="lg:hidden flex items-center justify-center w-9.5 h-9.5 rounded-[10px] transition-colors"
+            style={{
+              background: "rgba(55,138,221,0.1)",
+              border: "1px solid rgba(55,138,221,0.2)",
+              color: "var(--primary)",
+            }}
           >
-            {open ? <X size={20} /> : <Menu size={20} />}
+            {open ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </div>
@@ -105,10 +126,14 @@ export const Navbar = () => {
       {/* Mobile Drawer */}
       {open && (
         <div
-          className="lg:hidden absolute top-17 left-0 right-0 z-50 flex flex-col shadow-ambient"
-          style={{ background: "var(--surface)" }}
+          className="lg:hidden absolute top-19 left-0 right-0 z-50 flex flex-col shadow-ambient"
+          style={{
+            background: "rgba(10, 15, 30, 0.97)",
+            backdropFilter: "blur(16px)",
+            borderBottom: "1px solid rgba(55,138,221,0.12)",
+          }}
         >
-          <nav className="flex flex-col px-8 py-6 gap-2">
+          <nav className="flex flex-col px-8 py-6 gap-1">
             {navLinks.map((l) => {
               const active = pathname === l.href;
               return (
@@ -116,10 +141,16 @@ export const Navbar = () => {
                   key={l.label}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="text-[14px] font-bold uppercase tracking-[0.15em] py-4 transition-colors font-sans"
+                  className="font-sans"
                   style={{
-                    color: active ? "var(--primary)" : "var(--text-secondary)",
-                    borderBottom: "1px solid var(--surface-low)",
+                    fontSize: "13px",
+                    fontWeight: 600,
+                    letterSpacing: "0.15em",
+                    textTransform: "uppercase",
+                    padding: "14px 0",
+                    color: active ? "var(--primary)" : "rgba(255,255,255,0.5)",
+                    borderBottom: "1px solid rgba(55,138,221,0.08)",
+                    textDecoration: "none",
                   }}
                 >
                   {l.label}
@@ -127,7 +158,6 @@ export const Navbar = () => {
               );
             })}
           </nav>
-
           <div className="px-8 pb-8">
             <Link href="/download" onClick={() => setOpen(false)}>
               <Button variant="primary" fullWidth>
