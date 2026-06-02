@@ -23,7 +23,7 @@ const BG_ICONS = [
 const CATEGORIES = [
   "Plumbers", "Electricians", "Tutors", "Cleaners",
   "Mechanics", "Photographers", "Tailors", "Carpenters",
-  "Painters", "Event Planners",
+  "Painters", "Event Planners", "IT Support"
 ];
 
 export default function ComingSoonPage() {
