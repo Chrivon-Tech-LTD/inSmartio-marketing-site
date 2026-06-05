@@ -100,14 +100,14 @@ export const Footer: React.FC = () => {
         {/* Newsletter & Brand Intro Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/5 mb-16">
           <div className="lg:col-span-5">
-            <Link href="/" className="shrink-0">
+            <Link href="/" className="shrink-0 flex items-center gap-3 -mt-35 md:-mt-20 -ml-12 md:-ml-12 -mb-20 ">
               <Image
                 src="/assets/insmartio.png"
                 alt="inSmartio Logo"
-                width={120} 
-                height={35}  
-                style={{ height: 'auto' }} 
-                className="object-contain transition-all  w-auto h-auto"
+                width={200}
+                height={64}
+                style={{ height: "220px", width: "auto" }}
+                className="object-contain"
                 priority
               />
             </Link>
@@ -160,7 +160,7 @@ export const Footer: React.FC = () => {
         <div className="border-y border-white/5 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <ContactItem icon={<IoCallOutline size={20} />} label="Call Support" value="+234 800 inSmartio" />
           <Link href="mailto:support@insmartio.com">
-          <ContactItem icon={<IoMailOutline size={20} />} label="Email Us" value="support@insmartio.com" />
+            <ContactItem icon={<IoMailOutline size={20} />} label="Email Us" value="support@insmartio.com" />
           </Link>
           <ContactItem icon={<IoLocationOutline size={20} />} label="Offices" value="Lagos | Abuja, Nigeria" />
         </div>
