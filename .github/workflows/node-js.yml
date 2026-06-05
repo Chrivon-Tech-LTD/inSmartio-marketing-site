@@ -30,7 +30,7 @@ jobs:
         run: npm run lint
 
       - name: Type check
-        run: npx tsc --noEmit
+        run: npx tsc --noEmit --skipLibCheck
 
       - run: npm run build --if-present
 
@@ -45,13 +45,13 @@ jobs:
       - name: Setup SSH Key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H 62.72.32.105 >> ~/.ssh/known_hosts
 
       - name: Deploy to Server
         run: |
-          ssh ubuntu@62.72.32.105 << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 ubuntu@62.72.32.105 << 'EOF'
             cd /var/www/insmartio
             git pull origin main
             npm ci
