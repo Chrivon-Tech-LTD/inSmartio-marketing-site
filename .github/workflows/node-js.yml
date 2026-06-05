@@ -51,7 +51,7 @@ jobs:
 
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 ubuntu@62.72.32.105 << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 root@62.72.32.105 << 'EOF'
             cd /var/www/insmartio
             git pull origin main
             npm ci
