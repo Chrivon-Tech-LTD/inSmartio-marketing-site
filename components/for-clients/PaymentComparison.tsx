@@ -51,11 +51,9 @@ export const PaymentComparison: React.FC = () => {
             ● RECOMMENDED
           </motion.span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#D8E8FF] mb-6 font-display leading-tight">
-            Choose Your Way to Pay
+            Two Ways to pay - You choose
           </h2>
-          <p className="text-[#7A9DC4] max-w-2xl mx-auto font-medium text-base md:text-lg leading-relaxed">
-            Flexible payment systems designed for your convenience and security.
-          </p>
+          
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
@@ -76,15 +74,15 @@ export const PaymentComparison: React.FC = () => {
                 >
                   <ShieldCheck size={32} />
                 </motion.div>
-                <h3 className="text-2xl md:text-3xl font-black text-[#D8E8FF] font-display">inSmartio Escrow</h3>
+                <h3 className="text-2xl md:text-3xl font-black text-[#D8E8FF] font-display">Payment Protected (Escrow)</h3>
               </div>
 
               <ul className="space-y-6 mb-12 relative z-10">
                 {[
-                  { label: "Most Secure", desc: "Money held until you're 100% satisfied." },
-                  { label: "Full Refund Guarantee", desc: "Refund possible if issue arises or expert cancels." },
-                  { label: "Automatic Dispute Resolution", desc: "Our team mediates if things don't go as planned." },
-                  { label: "Secure Digital Ledger", desc: "Clear proof of payment for your professional records." }
+                  { label: "Secured", desc: "Most Secured" },
+                  { label: "Full Refund Guarantee", desc: "Money held until you're 100% satisfied." },
+                  { label: "Automatic Dispute Resolution", desc: "Refund possible if issue arises " },
+                  { label: "Fee", desc: "10% fee paid by expert" }
                 ].map((item, i) => (
                   <motion.li 
                     key={i} 
@@ -107,7 +105,7 @@ export const PaymentComparison: React.FC = () => {
                 className="bg-[#060D1A]/50 p-5 rounded-2xl border border-success/20 shadow-sm relative z-10"
               >
                 <p className="text-[10px] font-black text-success uppercase tracking-widest mb-1">Best for:</p>
-                <p className="text-sm text-[#D8E8FF] font-bold">First-time hires, large jobs, and total peace of mind.</p>
+                <p className="text-sm text-[#D8E8FF] font-bold">First-time hires, large jobs, any job where you want peace of mind.</p>
               </motion.div>
             </Card>
           </motion.div>
@@ -123,14 +121,15 @@ export const PaymentComparison: React.FC = () => {
                 >
                   <AlertTriangle size={32} />
                 </motion.div>
-                <h3 className="text-2xl md:text-3xl font-black text-[#D8E8FF] font-display">Direct Cash</h3>
+                <h3 className="text-2xl md:text-3xl font-black text-[#D8E8FF] font-display">Cash Payment</h3>
               </div>
 
               <ul className="space-y-6 mb-12 relative z-10">
                 {[
-                  { label: "Pay Expert Directly", desc: "Cash or bank transfer outside the platform." },
-                  { label: "No Platform Fees", desc: "Save on the 10% platform transaction fee." },
-                  { label: "Fast and Simple", desc: "Immediate payment settlement between parties." }
+                  { label: "Direct Payment", desc: "Pay expert directly" },
+                  { label: "Platform Fees", desc: "NO platform fees." },
+                  { label: "Rate", desc: "Fast and simple" },
+                 
                 ].map((item, i) => (
                   <motion.li 
                     key={i} 

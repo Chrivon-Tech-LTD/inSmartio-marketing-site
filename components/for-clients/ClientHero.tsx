@@ -59,7 +59,7 @@ export const ClientHero: React.FC = () => {
             custom={2} variants={fadeInUp} initial="hidden" animate="visible"
             className="text-text-muted text-base md:text-xl leading-relaxed max-w-xl mb-10 mx-auto lg:mx-0 font-medium"
           >
-            No more searching endlessly. No more overpaying. Just reliable, verified experts at fair prices. Experience a curated marketplace where quality meets reliability.
+            No more searching endlessly. No more overpaying. Just reliable, verified experts at fair prices. 
           </motion.p>
           
           <motion.div 

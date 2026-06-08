@@ -74,8 +74,7 @@ export const WhyChooseHelpMe: React.FC = () => {
               <div>
                 <h3 className="text-2xl font-black text-text-main mb-4 font-display">Verified Experts</h3>
                 <p className="text-text-muted leading-relaxed text-sm md:text-base font-medium">
-                  Every expert undergoes a multi-stage background check, including physical address
-                  verification, NIN/BVN confirmation, and skill assessment.
+                  Every expert is verified with NIN, BVN and background checks. Tier 3 experts have guarantors and police clearance.
                 </p>
               </div>
             </Card>
@@ -86,28 +85,28 @@ export const WhyChooseHelpMe: React.FC = () => {
             colSpan="md:col-span-4"
             icon={<Lock className="w-8 h-8 text-primary" />}
             title="Payment Protection"
-            desc="Pay into escrow. Money is held securely until you approve the work."
+            desc="Pay into escrow. Money is held securely until you approve the work. If there's an issue, you're protected"
           />
 
           <FeatureCard
             colSpan="md:col-span-4"
             icon={<Users className="w-8 h-8 text-primary" />}
-            title="Compare Bids"
-            desc="Get quotes from multiple experts. Choose the one that fits your budget."
+            title="Compare Multiple Bids"
+            desc="Get quotes from multiple experts. Choose the one that fits your budget and timeline."
           />
 
           <FeatureCard
             colSpan="md:col-span-4"
             icon={<MessageSquare className="w-8 h-8 text-primary" />}
-            title="Direct Negotiation"
-            desc="Chat securely to finalize terms, milestones, and deliverables."
+            title="Negotiate Fair Prices"
+            desc="Message experts directly, Discuss details, ask questions, and agree on a price that works for both of you"
           />
 
           <FeatureCard
             colSpan="md:col-span-4"
             icon={<MapPin className="w-8 h-8 text-primary" />}
             title="Safety First"
-            desc="Real-time location sharing with trusted contacts during active jobs."
+            desc="Share your location with trusted contacts. All experts vetted, report any concerns instantly"
           />
 
           {/* 6. Honest Reviews - Bottom Wide Card */}
@@ -123,7 +122,7 @@ export const WhyChooseHelpMe: React.FC = () => {
                 </motion.div>
                 <div>
                   <h3 className="text-2xl font-black text-text-main font-display">Honest Reviews</h3>
-                  <p className="text-text-muted font-medium">100% verified feedback from clients in your neighborhood.</p>
+                  <p className="text-text-muted font-medium">See what other clients say. Leave reviews to help the community.</p>
                 </div>
               </div>
 

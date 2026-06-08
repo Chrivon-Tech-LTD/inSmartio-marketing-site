@@ -16,7 +16,7 @@ interface AddOn {
 
 const addOns: AddOn[] = [
   {
-    title: "Featured Listing",
+    title: "Featured Expert Listing",
     price: "₦5,000",
     priceNote: "per month",
     description: "Your profile appears at the top of search results — maximum visibility to clients actively hiring.",
@@ -75,14 +75,14 @@ export const AddOns: React.FC = () => {
         >
           <div>
             <p className="text-secondary text-xs font-semibold uppercase tracking-[0.2em] mb-3">
-              Add-ons
+             Popular Add-ons
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary font-display tracking-tight leading-tight">
               Enhance Your<br className="hidden md:block" /> Experience
             </h2>
           </div>
           <p className="text-text-muted text-sm md:text-base max-w-xs leading-relaxed">
-            Powerful extras for experts and businesses ready to grow faster on the platform.
+            Add-on services for experts and businesses to grow faster.
           </p>
         </motion.div>
 

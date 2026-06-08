@@ -11,8 +11,8 @@ interface Metric {
 }
 
 const metrics: Metric[] = [
-  { value: "+45%", label: "expert registration growth" },
-  { value: "-67%", label: "dispute rate reduction" },
+  { value: "+45%", label: "expert registration month-over-month" },
+  { value: "-67%", label: "dispute rate vs. industry average" },
   { value: "+89%", label: "repeat client rate" },
 ];
 

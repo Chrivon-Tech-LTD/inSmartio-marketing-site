@@ -22,6 +22,7 @@ const testimonials: Testimonial[] = [
     text: "I needed a plumber urgently on a Sunday. Within 30 minutes, I had 4 bids. The plumber I hired was professional, on time, and the price was fair. Payment protection gave me peace of mind.",
     name: "Chiamaka O.",
     location: "Lekki",
+    subtext: "Client",
     rating: 5.0,
     image: "https://i.pinimg.com/1200x/1d/d1/7d/1dd17d3fd13e4f719c0ae4db99b470aa.jpg"
   },
@@ -30,6 +31,7 @@ const testimonials: Testimonial[] = [
     text: "Since joining inSmartio, I've gotten consistent work and I always get paid on time. The verification badge helps clients trust me. I've doubled my income.",
     name: "Adebayo S.",
     location: "Plumber",
+    subtext: "Verified Expert",
     rating: 4.9,
     image: "https://i.pinimg.com/736x/fc/e6/93/fce693e4be192e6943e4a0fc3957a005.jpg"
   },

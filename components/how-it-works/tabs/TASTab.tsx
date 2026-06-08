@@ -38,8 +38,14 @@ const tasSteps = [
   {
     id: 3,
     title: "Share Your Referral Link",
-    desc: "Share your unique referral link via WhatsApp, SMS, or social media. Hand out physical referral cards to local pros.",
+    desc: "Share your unique referral link via WhatsApp, SMS, or social media. ",
     icon: <Share2 className="text-secondary w-7 h-7" />
+  },
+  {
+    id: 4,
+    title: "Recruits Experts",
+    desc: "When experts register using your link and get verified, you earn #7000 instantly",
+    icon: <LineChart className="text-secondary w-7 h-7" />
   }
 ];
 
@@ -57,7 +63,7 @@ export const TASTab: React.FC = () => {
     >
       
       {/* 1. Onboarding Steps */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         {tasSteps.map((step) => (
           <motion.div 
             key={step.id} 
@@ -99,9 +105,7 @@ export const TASTab: React.FC = () => {
             <h3 className="text-3xl md:text-4xl font-black text-primary mb-6 font-display">
               Earn Ongoing Commissions
             </h3>
-            <p className="text-text-muted mb-10 font-medium leading-relaxed">
-              When experts register using your link and get verified, you earn <span className="text-text-main font-bold">₦7,000 instantly</span>. But it doesn&apos;t stop there—you earn as they work.
-            </p>
+            
             
             <div className="space-y-4">
               {[
@@ -143,15 +147,7 @@ export const TASTab: React.FC = () => {
                <p className="text-white/80 text-sm leading-relaxed mb-10 font-medium">
                  Recruit other TAS agents as your sub-TAS. Earn overrides on their recruitment and their experts&apos; performance. Scale your agency within inSmartio NG.
                </p>
-               <motion.div 
-                 whileHover={{ scale: 1.05 }}
-                 className="flex items-center gap-4 p-5 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm"
-               >
-                 <LineChart className="text-secondary shrink-0" />
-                 <span className="text-xs font-black uppercase tracking-widest leading-none">
-                   Overrides: +2% to +5% on sub-TAS activity
-                 </span>
-               </motion.div>
+              
              </div>
              
              {/* Dynamic Mesh Animation */}

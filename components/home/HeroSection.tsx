@@ -5,6 +5,8 @@ import { Button } from '../ui/Button';
 import { Star, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { AppStoreButtons } from '../ui/AppStoreButtons';
+
 export const Hero = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -23,7 +25,7 @@ export const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-end justify-center pt-30 overflow-hidden bg-black">
 
-      {/* Background image with scale animation */}
+      {/* Background image */}
       <motion.div
         initial={{ scale: 1.2, opacity: 0 }}
         animate={{ scale: 1.05, opacity: 1 }}
@@ -43,7 +45,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-linear-to-r from-black/50 via-transparent to-transparent z-10" />
       </motion.div>
 
-      {/* Floating rating badge — enters from right */}
+      {/* Floating rating badge */}
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
@@ -103,26 +105,32 @@ export const Hero = () => {
             <p className="text-white/60 mb-8 text-base md:text-lg leading-relaxed">
               inSmartio connects you with reliable, verified experts for all your service needs — right when you need them.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/download" >
-              <Button variant="primary" size="lg" className="px-8 py-4 text-sm font-bold uppercase tracking-widest">
-                Download the App
-              </Button>
-              </Link>
-              <Link href="/how-it-works" >
-              <Button
-                variant="ghost"
-                size="lg"
-                className="px-0 py-4 text-sm font-bold uppercase tracking-widest text-white/70 hover:text-white flex items-center gap-2 group"
-              >
-                How It Works
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Button>
-              </Link>
+
+            <div className="flex flex-col gap-5">
+
+              {/* Row 1: Download App + How It Works */}
+              <div className="flex items-center gap-4">
+                <Link href="/download">
+                  <Button variant="primary" size="lg" className="px-8 py-4 text-sm font-bold uppercase tracking-widest">
+                    Download the App
+                  </Button>
+                </Link>
+                <Link
+                  href="/how-it-works"
+                  className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white/60 hover:text-white transition-colors group border border-white/40 hover:border-white px-6 py-4 rounded-lg"
+                >
+                  How It Works
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+
+              {/* Row 2: Store badges */}
+              <AppStoreButtons align="left" size="sm" />
+
             </div>
           </div>
 
-          {/* Right: stats with individual pop-in */}
+          {/* Right: stats */}
           <div className="flex flex-wrap gap-x-12 gap-y-6 lg:ml-auto">
             {[
               { value: "5,000+", label: "Verified Experts" },

@@ -69,7 +69,7 @@ export const ExpertTab: React.FC = () => {
           <h3 className="text-2xl md:text-3xl font-black text-primary font-display">Register & Verify</h3>
         </div>
         <p className="text-text-muted mb-10 max-w-2xl font-medium">
-          Sign up and choose your verification tier to unlock higher-value opportunities. The more we know you, the more you earn.
+          Sign up and choose your verification tier to unlock higher-value opportunities. 
         </p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -108,7 +108,7 @@ export const ExpertTab: React.FC = () => {
               <p className="font-black text-primary mb-3 uppercase tracking-widest text-xs">Model 1 (Subscription)</p>
               <p className="text-2xl font-black text-text-main mb-4 font-display">₦10,000<span className="text-sm opacity-60">/mo</span></p>
               <p className="text-sm text-text-muted leading-relaxed font-medium">
-                <span className="text-secondary font-bold">0% commission</span> on jobs. Cash payments allowed. Best for full-time professionals.
+                <span className="text-secondary font-bold">0% commission</span> on jobs. Cash payments allowed. 
               </p>
             </motion.div>
 
@@ -119,7 +119,7 @@ export const ExpertTab: React.FC = () => {
               <p className="font-black text-text-muted mb-3 uppercase tracking-widest text-xs">Model 2 (Commission)</p>
               <p className="text-2xl font-black text-text-main mb-4 font-display">₦0<span className="text-sm opacity-60">/mo</span></p>
               <p className="text-sm text-text-muted leading-relaxed font-medium">
-                <span className="text-primary font-bold">10% commission</span> on jobs. Digital payments only. Start earning with zero upfront costs.
+                <span className="text-primary font-bold">10% commission</span> on jobs. Digital payments only. 
               </p>
             </motion.div>
           </div>
