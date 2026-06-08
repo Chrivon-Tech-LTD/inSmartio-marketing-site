@@ -37,23 +37,23 @@ const TiersData = [
 /* ── Animation Variants ────────────────────────────────────────── */
 const tableContainerVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { 
-      duration: 0.8, 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
       ease: [0.22, 1, 0.36, 1],
-      staggerChildren: 0.1 
-    } 
+      staggerChildren: 0.1
+    }
   }
 };
 
 const rowVariants: Variants = {
   hidden: { opacity: 0, x: -20 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.5, ease: "easeOut" } 
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
   }
 };
 
@@ -64,9 +64,9 @@ export const VerificationFramework: React.FC = () => {
   return (
     <section className="py-24 bg-[#060D1A] transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* HEADER */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-16"
@@ -80,7 +80,7 @@ export const VerificationFramework: React.FC = () => {
         </motion.div>
 
         {/* TABLE CONTAINER */}
-        <motion.div 
+        <motion.div
           ref={ref}
           variants={tableContainerVariants}
           initial="hidden"
@@ -95,7 +95,7 @@ export const VerificationFramework: React.FC = () => {
                 </th>
                 {TiersData.map((t, idx) => (
                   <th key={t.name} className="p-8 border-b border-white/5">
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.5 + (idx * 0.1) }}
@@ -108,7 +108,7 @@ export const VerificationFramework: React.FC = () => {
                 ))}
               </tr>
             </thead>
-            
+
             <tbody className="text-sm md:text-base">
               {/* Badge Row */}
               <motion.tr variants={rowVariants} className="group hover:bg-white/2 transition-colors">
@@ -137,8 +137,12 @@ export const VerificationFramework: React.FC = () => {
                 {TiersData.map((t, tIdx) => (
                   <td key={t.name} className="p-8 border-b border-white/5 space-y-3">
                     <RequirementItem label={t.identity} active={true} delay={1.2 + (tIdx * 0.1)} />
-                    <RequirementItem label={t.security || "Police Check"} active={!!t.security} delay={1.3 + (tIdx * 0.1)} />
-                    <RequirementItem label={t.guarantor || "Guarantors"} active={!!t.guarantor} delay={1.4 + (tIdx * 0.1)} />
+                    {t.security && (
+                      <RequirementItem label={t.security} active={true} delay={1.3 + (tIdx * 0.1)} />
+                    )}
+                    {t.guarantor && (
+                      <RequirementItem label={t.guarantor} active={true} delay={1.4 + (tIdx * 0.1)} />
+                    )}
                   </td>
                 ))}
               </motion.tr>
@@ -173,7 +177,7 @@ export const VerificationFramework: React.FC = () => {
         </motion.div>
 
         {/* FOOTNOTE */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 1.8 }}
@@ -194,7 +198,7 @@ export const VerificationFramework: React.FC = () => {
 
 /* Requirements Helper with Animation */
 const RequirementItem = ({ label, active, delay }: { label: string, active: boolean, delay: number }) => (
-  <motion.div 
+  <motion.div
     initial={{ opacity: 0, x: -5 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ delay }}
