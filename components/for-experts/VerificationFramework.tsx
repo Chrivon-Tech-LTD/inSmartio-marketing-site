@@ -28,7 +28,7 @@ const TiersData = [
     badgeCount: 3,
     identity: "NIN + BVN",
     security: "Police Clearance",
-    guarantor: "Required",
+    guarantor: "Guarantor ",
     maxJob: "Unlimited",
     time: "~72h"
   }
@@ -186,10 +186,7 @@ export const VerificationFramework: React.FC = () => {
           <p className="text-sm text-[#7A9DC4] font-medium italic">
             * Tier 3 requires a one-time processing fee of <span className="text-[#D8E8FF] font-black">₦5,000</span> for background clearance.
           </p>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-success">Systems Online</span>
-          </div>
+          
         </motion.div>
       </div>
     </section>

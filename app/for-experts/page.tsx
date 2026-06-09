@@ -25,20 +25,21 @@ export default function ForExpertsPage() {
       <div id="tiers">
         <VerificationFramework />
       </div>
-
-      {/* 5.6 TAS Path Cross-sell */}
-      <TASOpportunity />
-
-      {/* 5.5 Calculator */}
+       {/* 5.4 Payment Models */}
+      <div id="payment">
+        <ExpertPaymentModels />
+      </div>
+          {/* 5.5 Calculator */}
       <div id="earnings">
         <EarningsCalculator />
       </div>
 
-      {/* 5.4 Payment Models */}
-      <div id="payment">
-        <ExpertPaymentModels />
-      </div>
+      {/* 5.6 TAS Path Cross-sell */}
+      <TASOpportunity />
 
+     
+
+     
 
 
 

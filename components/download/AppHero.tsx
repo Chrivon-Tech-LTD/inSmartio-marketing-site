@@ -64,16 +64,7 @@ export function AppHero() {
             Get help in minutes.
           </motion.h1>
 
-          <motion.p 
-            custom={2} 
-            variants={fadeInUp} 
-            initial="hidden" 
-            animate="visible"
-            className="text-text-muted text-sm md:text-xl leading-relaxed max-w-lg mb-10 mx-auto lg:mx-0 font-medium"
-          >
-            Access Nigeria&apos;s most trusted marketplace for professional services directly from your pocket.
-          </motion.p>
-
+         
           <motion.div 
             custom={3} 
             variants={fadeInUp} 

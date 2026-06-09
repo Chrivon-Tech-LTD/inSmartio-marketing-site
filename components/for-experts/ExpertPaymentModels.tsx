@@ -143,9 +143,7 @@ export const ExpertPaymentModels: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-[10px] md:text-[11px] text-text-muted font-medium italic mt-4 opacity-60">
-                  * {m.recommended ? "Perfect for established full-time pros." : "Ideal for starting out with zero risk."}
-                </p>
+                
               </Card>
             </motion.div>
           ))}

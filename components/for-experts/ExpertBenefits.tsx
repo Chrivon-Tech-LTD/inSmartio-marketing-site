@@ -22,7 +22,7 @@ const benefits = [
     icon: <ShieldCheck className="w-6 h-6" /> 
   },
   { 
-    title: "Build Reputation", 
+    title: "Build your Reputation", 
     desc: "Collect reviews and ratings. Good reputation = more work.", 
     icon: <Star className="w-6 h-6" /> 
   },
@@ -32,7 +32,7 @@ const benefits = [
     icon: <Globe className="w-6 h-6" /> 
   },
   { 
-    title: "Flexible Models", 
+    title: "Flexible payment Models", 
     desc: "Choose between subscription (0% commission) or commission (no monthly fee).", 
     icon: <Wallet className="w-6 h-6" /> 
   },

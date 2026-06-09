@@ -21,13 +21,13 @@ const team: TeamMember[] = [
   {
     name: "B. Eugene LOKO",
     role: "CoFounder & Principal Data & Product Strategist",
-    bio: "A cornerstone of Chrivon's pan-African brain trust with 19 years of experience.",
+    bio: "A cornerstone of Chrivon's pan-African brain trust with 19 years of experience shaping digital lansdcapes across Africa and Europe",
     img: "/assets/founder/Bonna.png",
   },
   {
     name: "Onaneye Joseph",
     role: "Full-Stack Product Engineer & Tech Entrepreneur",
-    bio: "Full-stack developer focused on building scalable fintech and growth platforms.",
+    bio: "Full-stack developer turned product-focused founder building scalable software, fintech, ecommerce, and growth platforms for African markets.",
     img: "/assets/founder/joseph.jpg",
   },
 ];
@@ -67,7 +67,7 @@ export function Leadership() {
             The Architects
           </span>
           <h2 className="text-text-main font-display text-3xl md:text-5xl font-bold">
-            Leadership Team
+            Leadership Team (Chrivon Leadership)
           </h2>
         </motion.div>
 

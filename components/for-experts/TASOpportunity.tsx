@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { Button } from '../ui/Button';
-import { Users, BadgePercent, ArrowRight } from 'lucide-react';
+import { Users, BadgePercent } from 'lucide-react';
 import { motion, useInView, Variants } from 'framer-motion';
 import Link from 'next/link';
 /* ── Animation Variants ─── */
@@ -59,8 +59,8 @@ export const TASOpportunity: React.FC = () => {
             custom={1} variants={fadeInUp} initial="hidden" animate={isInView ? "visible" : "hidden"}
             className="text-text-main text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.1] font-display tracking-tight"
           >
-            Master the Marketplace <br /> 
-            <span className="text-primary italic">with TAS.</span>
+           Already an Expert? <br /> 
+            <span className="text-primary italic">Become a TAS Too!</span>
           </motion.h2>
 
           {/* Description */}
@@ -68,8 +68,8 @@ export const TASOpportunity: React.FC = () => {
             custom={2} variants={fadeInUp} initial="hidden" animate={isInView ? "visible" : "hidden"}
             className="text-text-muted text-lg md:text-xl mb-12 max-w-xl leading-relaxed font-medium"
           >
-            Become a <span className="text-text-main font-black">Technical Account Supervisor (TAS)</span>. 
-            Earn passive income by vetting new experts, managing service quality, and leading regional growth. 
+           As a verified expert, you can also become a  <span className="text-text-main font-black">Talent Acquisition Specialist (TAS)</span>. 
+            Recruit other experts and earn: 
           </motion.p>
 
           {/* Stats Grid */}
@@ -87,7 +87,7 @@ export const TASOpportunity: React.FC = () => {
                   <BadgePercent size={24} />
                 </motion.div>
                 <span className="text-text-main text-sm font-black uppercase tracking-wider leading-tight">
-                  1% lifetime commission <br /> on recruits
+                  1% of their jobs <br />
                 </span>
              </motion.div>
 
@@ -100,9 +100,28 @@ export const TASOpportunity: React.FC = () => {
                   <Users size={24} />
                 </div>
                 <span className="text-text-main text-sm font-black uppercase tracking-wider leading-tight">
-                  ₦7,000 instant <br /> verification bonus
+                  ₦7,000 per expert <br /> Recruited
                 </span>
              </motion.div>
+
+                          <motion.div 
+               custom={3} variants={fadeInUp} initial="hidden" animate={isInView ? "visible" : "hidden"}
+               whileHover={{ y: -5, borderColor: "var(--color-secondary)" }}
+               className="flex items-center gap-5 p-4 rounded-2xl bg-surface/50 backdrop-blur-md border border-text-muted/10 transition-colors"
+             >
+                <motion.div 
+                  animate={{ rotate: [0, 5, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center text-white shadow-lg shadow-secondary/20"
+                >
+                  <BadgePercent size={24} />
+                </motion.div>
+                <span className="text-text-main text-sm font-black uppercase tracking-wider leading-tight">
+                  #1,000/month for <br /> Subscribed Experts
+                </span>
+             </motion.div>
+
+             
           </div>
           
           {/* CTA Group */}
@@ -112,19 +131,10 @@ export const TASOpportunity: React.FC = () => {
           >
             <Link href="/for-tas">
             <Button variant="primary" size="lg" className="px-10 py-7 text-lg font-black uppercase tracking-widest shadow-2xl shadow-secondary/20 transition-all hover:scale-105 active:scale-95">
-              Learn About TAS
+              Apply for TAS program
             </Button>
             </Link>
-            <Link href="/how-it-works">
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="px-10 py-7 border-text-muted/20 text-text-main font-bold hover:bg-surface transition-all group"
-            >
-              Compare Roles
-              <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
-            </Link>
+           
           </motion.div>
 
         </div>

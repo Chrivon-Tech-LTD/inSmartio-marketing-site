@@ -15,31 +15,31 @@ const tools = [
   { 
     name: "Unique Referral Link", 
     icon: Link2, 
-    desc: "Share your personalized link. Track clicks and conversions in real-time.",
+    desc: "Share your personalized link. Track clicks and conversions.",
     tag: "Most Used",
   },
   { 
     name: "Digital Referral Cards", 
     icon: Smartphone, 
-    desc: "Customizable high-fidelity cards optimized for WhatsApp and social media.",
+    desc: "Customizable cards for WhatsApp and social media.",
     tag: null,
   },
   { 
     name: "Physical Referral Cards", 
     icon: Contact, 
-    desc: "Order professionally printed physical cards to hand out in person.",
+    desc: "Order printed cards to hand out in person.",
     tag: null,
   },
   { 
     name: "Analytics Dashboard", 
     icon: BarChart3, 
-    desc: "See exactly how many people clicked, registered, and passed verification.",
+    desc: "See exactly how many people clicked, registered, and verified.",
     tag: "New",
   },
   { 
     name: "Message Templates", 
     icon: MessageSquareText, 
-    desc: "Pre-written, high-conversion messages for WhatsApp, SMS, and email.",
+    desc: "Pre-written, messages for WhatsApp, SMS, and email.",
     tag: null,
   }
 ];
@@ -84,16 +84,14 @@ export const ReferralTools: React.FC = () => {
           className="flex flex-col gap-4 mb-16"
         >
           <span className="text-secondary text-[10px] font-black uppercase tracking-[0.2em]">
-            Agent Toolkit
+            Referral Tools
           </span>
 
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="text-[#EEF4FF] text-3xl md:text-5xl font-black font-display leading-[1.15] max-w-md">
               Everything you need to scale your network.
             </h2>
-            <p className="text-[#7A9DC4] text-sm md:text-base leading-relaxed max-w-sm font-medium">
-              A suite of professional marketing and tracking tools to help you recruit and manage experts efficiently.
-            </p>
+           
           </div>
         </motion.div>
 

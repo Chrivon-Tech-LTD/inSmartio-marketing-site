@@ -25,6 +25,7 @@ const impactStats: ImpactStat[] = [
   { label: "Transaction Volume", value: "₦100M+", icon: Banknote, desc: "Secured through our escrow protection." },
   { label: "Cities Across Nigeria", value: "10+", icon: MapPin, desc: "Bridging the trust gap in major hubs." },
   { label: "Average Rating", value: "4.8/5", icon: Star, desc: "Top-tier quality maintained by our pros." },
+  { label: "Active TAS Agents", value: "200+", icon: Star, desc: "Top-tier quality maintained by our pros." },
 ];
 
 /* ── Animation Variants ────────────────────────────────────────── */
@@ -83,7 +84,7 @@ export function OurImpact() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {impactStats.map((stat, i) => {
             const Icon = stat.icon;
@@ -118,9 +119,7 @@ export function OurImpact() {
                     </div>
                   </div>
                   
-                  <p className="mt-6 text-[12px] text-text-muted leading-relaxed relative z-10 font-medium opacity-80 group-hover:opacity-100 transition-opacity">
-                    {stat.desc}
-                  </p>
+                  
                 </Card>
               </motion.div>
             );

@@ -8,21 +8,24 @@ const verificationTiers = [
   {
     tier: "Tier 1 – Basic",
     meaning: "NIN verified.",
-    limit: "Jobs up to ₦20,000",
+    limit: "Jobs up to ₦20,000,",
+    more: "Entry-level trust",
     badges: 1,
     theme: "border-blue-500/20 bg-blue-500/5 text-blue-500",
   },
   {
     tier: "Tier 2 – Verified",
     meaning: "NIN + BVN verified.",
-    limit: "Jobs up to ₦100,000",
+    limit: "Jobs up to ₦100,000,",
+    more: "Professional trust",
     badges: 2,
     theme: "border-purple-500/20 bg-purple-500/5 text-purple-500",
   },
   {
     tier: "Tier 3 – Expert+",
     meaning: "Background check + Guarantor + Police clearance.",
-    limit: "Unlimited jobs",
+    limit: "Unlimited jobs,",
+    more: "Maximum trust",
     badges: 3,
     theme: "border-success/20 bg-success/5 text-success",
   },
@@ -73,7 +76,7 @@ export const VerificationTiers: React.FC = () => {
           <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
             <ShieldCheck className="text-secondary" size={20} />
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-text-muted">
-              Security Architecture
+              Verification Badges
             </span>
           </motion.div>
           <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-black text-text-main mb-8 leading-[1.1] tracking-tight font-display">
@@ -81,10 +84,6 @@ export const VerificationTiers: React.FC = () => {
             <span className="text-primary italic">Multi-Tier</span> Trust System
           </motion.h2>
 
-          <motion.p variants={fadeInUp} className="text-text-muted mb-12 max-w-lg leading-relaxed font-medium">
-            Every professional goes through a structured verification process.
-            The more verified they are, the higher the trust.
-          </motion.p>
 
           <div className="space-y-4">
             {verificationTiers.map((tier, i) => (
@@ -107,6 +106,7 @@ export const VerificationTiers: React.FC = () => {
                       className="h-1 bg-current rounded-full" 
                     />
                     <p className="text-[10px] font-black uppercase tracking-widest">{tier.limit}</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest">{tier.more}</p>
                   </div>
                 </div>
 

@@ -6,8 +6,6 @@ import {
   ArrowRight, UserRoundCheck, Briefcase, LucideIcon, Check
 } from 'lucide-react';
 import { motion, useInView, Variants, AnimatePresence } from 'framer-motion';
-import { Button } from '../ui/Button';
-import Link from 'next/link';
 interface Step {
   title: string;
   icon: LucideIcon;
@@ -60,8 +58,8 @@ export const TASSteps: React.FC = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {[
-              { type: 'expert', icon: UserRoundCheck, title: "Existing Expert", color: 'primary', desc: "Already providing services? Apply in-app. We leverage your existing trust score to fast-track your agent status." },
-              { type: 'dedicated', icon: Briefcase, title: "Dedicated TAS", color: 'secondary', desc: "Register as TAS directly. Ideal for business developers looking to manage a fleet of high-quality professionals." }
+              { type: 'expert', icon: UserRoundCheck, title: "Existing Expert", color: 'primary', desc: " Apply in-app. Your expert history helps your application." },
+              { type: 'dedicated', icon: Briefcase, title: "Dedicated TAS", color: 'secondary', desc: "Register as TAS directly. Focus solely on recruitment." }
             ].map((path, i) => (
               <motion.div
                 key={path.type}
@@ -81,12 +79,7 @@ export const TASSteps: React.FC = () => {
                 <p className="text-text-muted leading-relaxed mb-8 text-sm">
                   {path.desc}
                 </p>
-                <Link href="/download"> 
-                <Button variant="ghost" className={`px-0! group-hover:text-${path.color} transition-colors font-bold text-xs uppercase tracking-widest`}>
-                  {path.type === 'expert' ? 'Apply in-app' : 'Register Directly'} 
-                  <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                </Link>
+               
               </motion.div>
             ))}
           </div>

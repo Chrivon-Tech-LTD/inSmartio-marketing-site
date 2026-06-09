@@ -51,7 +51,7 @@ export const ExpertHero: React.FC = () => {
             custom={2} variants={fadeInUp} initial="hidden" animate="visible"
             className="text-text-muted text-base md:text-xl leading-relaxed max-w-lg mb-10 mx-auto lg:mx-0 font-medium"
           >
-            Join Nigeria&apos;s most trusted ecosystem of skilled professionals. Get more clients, get paid on time, and build your reputation as a verified professional.
+           Get more clients, get paid on time, and build your reputation as a verified professional.
           </motion.p>
           
           <motion.div 

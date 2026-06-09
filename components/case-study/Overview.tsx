@@ -44,9 +44,9 @@ export const CaseStudyOverview: React.FC = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const results = [
-    "5,000+ verified experts",
+    "5,000+ verified experts in first 6 months",
     "20,000+ jobs completed",
-    "₦100M+ volume",
+    "₦100M+  transaction volume",
     "4.8/5 average rating",
     "89% repeat client rate",
     "200+ active TAS agents"
@@ -78,10 +78,10 @@ export const CaseStudyOverview: React.FC = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
-            { label: "Type", value: "Marketplace" },
-            { label: "Duration", value: "6 Mo Build" },
-            { label: "Tech", value: "React Native" },
-            { label: "Team", value: "8 Experts" }
+            { label: "Project Type", value: "Marketplace Platform" },
+            { label: "Duration", value: "6 Months" },
+            { label: "Technologies", value: "React Native, Node.js, PostgreSQL, AWS" },
+            { label: "Team", value: "5 Engineers, 2 designers, 1 product manager" }
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -92,7 +92,7 @@ export const CaseStudyOverview: React.FC = () => {
               <p className="text-[10px] uppercase font-black text-text-muted tracking-widest mb-1">
                 {item.label}
               </p>
-              <p className="text-sm font-black text-text-main truncate">
+              <p className="text-sm font-black text-text-main ">
                 {item.value}
               </p>
             </motion.div>
@@ -125,7 +125,7 @@ export const CaseStudyOverview: React.FC = () => {
                     </h3>
                   </div>
                   <p className="text-text-muted leading-relaxed text-sm md:text-base font-medium">
-                    Nigerians struggle to find trustworthy professionals. Clients face overcharging and poor workmanship, while experts face irregular income. No unified system existed to solve this trust gap.
+                    Nigerians struggle to find trustworthy professionals. Clients face overcharging, no-shows and poor workmanship, while experts face irregular income and payment delays. No platform existed to bridge this trust gap.
                   </p>
                 </motion.div>
 
@@ -144,10 +144,10 @@ export const CaseStudyOverview: React.FC = () => {
                   </div>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-y-4 md:gap-x-8">
                     {[
-                      "Multi-tier verification",
-                      "Escrow payments",
-                      "Bidding system",
-                      "TAS program"
+                      "Multi-tier verification(NIN, BVN, guarantor, police)",
+                      "Dual payment models (escrow protection & cash)",
+                      "Bidding and negotiation system",
+                      "TAS recruitment program for scalable growth"
                     ].map((item, i) => (
                       <motion.li 
                         key={i} 
@@ -228,7 +228,8 @@ export const CaseStudyOverview: React.FC = () => {
               <Quote className="text-primary opacity-20 mb-4" size={28} />
 
               <p className="text-text-main font-bold italic mb-6 leading-relaxed text-sm">
-                “Chrivon engineered a trust ecosystem. The execution was precise and deeply aligned with the Nigerian market.”
+                “Chrivon understood our vision from day one. They didn&apos;t just build an app - they built a complete
+                ecosystem that solves real problems. The TAS program alone has transformed how we recruit experts. engineered a trust ecosystem. ”
               </p>
 
               <div className="flex items-center gap-4">
@@ -240,7 +241,7 @@ export const CaseStudyOverview: React.FC = () => {
                     Christian Ikenna
                   </p>
                   <p className="text-[9px] text-text-muted uppercase font-black tracking-widest truncate">
-                    CEO, inSmartio
+                    Founder & CEO, Chrivon
                   </p>
                 </div>
               </div>

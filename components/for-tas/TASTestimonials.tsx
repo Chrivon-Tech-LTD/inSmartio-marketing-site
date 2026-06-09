@@ -56,8 +56,8 @@ export const TASTestimonials: React.FC = () => {
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           className="mb-16"
         >
-          <span className="block mb-2 uppercase tracking-[0.2em] font-black text-secondary text-[10px]">Social Proof</span>
-          <h2 className="text-text-main font-display text-4xl md:text-5xl font-black">Voices of Our Agents</h2>
+          
+          <h2 className="text-text-main font-display text-3xl md:text-4xl font-black">Testimonials (TAS)</h2>
         </motion.div>
 
         <motion.div 

@@ -17,17 +17,6 @@ const fadeInUp: Variants = {
   }),
 };
 
-const metaVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-      delay: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
 
 export function Hero() {
   return (
@@ -91,44 +80,11 @@ export function Hero() {
           animate="visible"
           className="text-text-muted text-base md:text-xl lg:text-2xl leading-relaxed max-w-3xl mb-12 font-medium px-4"
         >
-          Nigeria&apos;s Trusted Service Marketplace. A strategic exploration into building 
-          trust, efficiency, and professional accountability in a fragmented digital economy.
+          Nigeria&apos;s Trusted Service Marketplace. How we built a multi-tier verification system, dual payment models, and a TAS recruitment program to solve 
+          Nigeria&apos;s service industry trust deficit.
         </motion.p>
         
-        {/* Meta Metadata - Fade and Scale line */}
-        <motion.div 
-          variants={metaVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 pt-8 relative w-full max-w-2xl"
-        >
-          {/* Top Border Animation */}
-          <motion.div 
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1.5, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute top-0 left-0 w-full h-px bg-text-muted/10 origin-center"
-          />
-
-          <div className="flex items-center gap-3">
-             <motion.div 
-               animate={{ opacity: [0.4, 1, 0.4] }}
-               transition={{ duration: 2, repeat: Infinity }}
-               className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_rgba(34,197,94,0.4)]" 
-             />
-             <p className="text-[10px] md:text-xs font-black uppercase tracking-widest text-text-main">
-               Partner Verified
-             </p>
-          </div>
-          <div className="hidden md:block w-px h-4 bg-text-muted/20" />
-          <p className="text-[10px] md:text-xs font-black uppercase tracking-widest text-text-muted opacity-70">
-            Published April 2026 • 6 Min Read
-          </p>
-          <div className="hidden md:block w-px h-4 bg-text-muted/20" />
-          <p className="text-[10px] md:text-xs font-black uppercase tracking-widest text-text-muted opacity-70">
-            Strategy & Engineering
-          </p>
-        </motion.div>
+       
 
         {/* Floating Decorative Elements with subtle hover drift */}
         <motion.div 

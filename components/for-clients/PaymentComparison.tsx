@@ -70,7 +70,7 @@ export const PaymentComparison: React.FC = () => {
               <div className="flex items-center gap-5 mb-10 relative z-10">
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 10 }}
-                  className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center text-white shadow-lg shadow-success/20"
+                  className="w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-success/20"
                 >
                   <ShieldCheck size={32} />
                 </motion.div>
@@ -117,7 +117,7 @@ export const PaymentComparison: React.FC = () => {
               <div className="flex items-center gap-5 mb-10 relative z-10">
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: -10 }}
-                  className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-white shadow-lg shadow-secondary/20"
+                  className="w-14 h-14 bg-orange-400 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-secondary/20"
                 >
                   <AlertTriangle size={32} />
                 </motion.div>

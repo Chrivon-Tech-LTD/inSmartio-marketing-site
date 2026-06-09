@@ -11,7 +11,7 @@ const offices = [
     tag: "Headquarters"
   },
   {
-    city: "Abuja HQ",
+    city: "Abuja ",
     address: "Suite 45, Maitama District, Abuja, FCT, Nigeria.",
     tag: "Regional Hub"
   }

@@ -19,12 +19,13 @@ export default function ForTASPage() {
     <main className="min-h-screen bg-white">
       <TASHero />
       <TASEarningsGrid />
-     <div id="calculator">
-      <TASCalculator />
-      </div>
       <div id="tiers">
       <GrowthPathways />
       </div>
+     <div id="calculator">
+      <TASCalculator />
+      </div>
+      
       <div id="apply">
       <TASSteps />
       </div>

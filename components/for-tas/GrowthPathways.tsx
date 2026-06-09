@@ -9,7 +9,7 @@ const pathways = [
     tier: "Tier 1: Associate",
     experts: "0-9",
     bonus: "0%",
-    benefits: "Base rates & platform access",
+    benefits: "Base rates",
     icon: <TrendingUp size={16} />
   },
   {

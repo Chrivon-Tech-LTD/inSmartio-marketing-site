@@ -62,7 +62,7 @@ export function AboutHero() {
               className="h-px bg-secondary/50"
             />
             <span className="text-secondary text-[10px] md:text-xs font-black uppercase tracking-[0.4em] block">
-              The Chrivon Standard
+              About Insmartio
             </span>
           </motion.div>
 
@@ -74,22 +74,12 @@ export function AboutHero() {
             animate="visible"
             className="text-text-main mb-8 leading-[1.15] md:leading-[1.1] font-bold font-display text-4xl md:text-5xl lg:text-6xl tracking-tight"
           >
-            Bridging the gap between{" "}
-            <span className="text-primary font-black italic">Talent and Trust.</span>
+            Trusted Services. Verified Professionals.
+            {" "}
+            <span className="text-primary font-black italic">Built by Chrivon Tech Solutions.</span>
           </motion.h1>
 
-          {/* Supporting Text */}
-          <motion.p
-            custom={2}
-            variants={fadeInUp}
-            initial="hidden"
-            animate="visible"
-            className="text-text-muted text-base md:text-lg max-w-lg leading-relaxed font-medium mb-12"
-          >
-            We are creating a marketplace where Nigerian professionalism meets
-            global standards through verification and integrity.
-            Ensuring that every connection is built on a foundation of accountability.
-          </motion.p>
+        
 
           {/* Decorative Indicator */}
           <motion.div

@@ -63,17 +63,9 @@ export function AppFeatures() {
           transition={{ delay: 0.1 }}
           className="text-3xl md:text-5xl font-black text-primary font-display mb-6 tracking-tight leading-tight"
         >
-          Mastering your day is <br className="hidden md:block" /> just a tap away
+          Features Preview
         </motion.h2>
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.2 }}
-          className="text-text-muted max-w-2xl mx-auto font-medium leading-relaxed"
-        >
-          We’ve distilled the entire marketplace experience into a powerful, 
-          lightweight mobile companion designed for the Nigerian landscape.
-        </motion.p>
+       
       </div>
 
       {/* FEATURES GRID */}
