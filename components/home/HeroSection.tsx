@@ -109,7 +109,7 @@ export const Hero = () => {
             <div className="flex flex-col gap-5">
 
               {/* Row 1: Download App + How It Works */}
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col md:flex-row items-center gap-4">
                 <Link href="/download">
                   <Button variant="primary" size="lg" className="px-8 py-4 text-sm font-bold uppercase tracking-widest">
                     Download the App

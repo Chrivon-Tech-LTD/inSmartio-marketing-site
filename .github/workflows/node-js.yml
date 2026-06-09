@@ -10,11 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [20.x]
-
     steps:
       - uses: actions/checkout@v4
 
@@ -38,20 +36,21 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup SSH Key
-  run: |
-    mkdir -p ~/.ssh
-    echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_ed25519
-    chmod 600 ~/.ssh/id_ed25519
-    ssh-keyscan -H 62.72.32.105 >> ~/.ssh/known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          echo "|1|EH16F3ayro72Hh4UsgjbGCDGQZE=|EKeMD2XnRkTGyCeqhevSP4yD/2M= ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCwHKb3bQq+CLnCxKSFcYQL80y/Lftge86a2aFjo7z7ADaH7IMuTOoJItt5NMlD7Rop5oPkasWhiMBbeHD6lPqz6lECd/OQKLN+BNfOjGrpB4FXg3SJ8IR2N2EvMAtuRNl9qYdAXqpcH49Q/9xMhnENdJpHfuVhGJGkSiuThVlNshCnHFQMM4Rcz+5KUmCWVBZqco/SqnwuW6svCvfSSYFAFgD5nYycfkGCdMUetCNC0kggnzRaYWI58/ILXWgnswevelAGmtaBJhS1YmZnaJH9TFbTym51TDLq/uO3cSwMIpjLDMAjuFYalXu88n2VeTWf4Hbr5sDglNEVpvnOI/MAFKM8eyx4PCUwrX/jsOdxaq6PEIT72LNCyXx4duJkwAQ1tEqBmB+SAi+ePN0qm8oPYNvCylsHk9Ul8pItMz10FV1IymoNEZDFo0Cp0K3Zq1QqoEbEDtIQ07ckkgtjbL+b2sKkUVHenyVwYthjE5CiPKdZyb1vd4vAdwcXh5HueyE=" >> ~/.ssh/known_hosts
+          echo "|1|Yu50JAVBFImz7kSEDc0QHvYkO4Y=|NQRxlC+EtWP5j7P9WJ6kvrom7uM= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAGabSU/WirR/YildWH0mwoBDMMiUN39rDua0uj8tUjzsBYvtF83WX6aM8u4HDZLeRu86AghcGJDTlUYM7PsiJY=" >> ~/.ssh/known_hosts
+          echo "|1|vR4O0l4Co4ybXy+4VNlaplVL01o=|HDsaLfgTdEtJMEosb0vsA7ZcpDE= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMaHH6FfChUY9nk98K21AOBO0juIDsfLVcuy9PIIIB+Q" >> ~/.ssh/known_hosts
 
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 root@62.72.32.105 << 'EOF'
+          ssh -i ~/.ssh/id_ed25519 root@62.72.32.105 << 'EOF'
             cd /var/www/insmartio
             git pull origin main
             npm ci
