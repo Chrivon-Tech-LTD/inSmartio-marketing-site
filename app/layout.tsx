@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { DM_Sans, Montserrat } from "next/font/google"; // Import DM Sans from Google
+import { DM_Sans, Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
-//import ToolBackground from "@/components/ui/ToolBackground";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -16,11 +15,9 @@ const dmSans = DM_Sans({
 const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-montserrat', // This creates a CSS variable
+  variable: '--font-montserrat',
 });
 
-
-// ── Setup Monexa for Body ──
 const monexa = localFont({
   src: [
     {
@@ -57,14 +54,14 @@ export default function RootLayout({
       lang="en"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      /* Combined both font variables here */
       className={` ${monexa.variable} ${dmSans.variable} ${montserrat.variable} h-full antialiased`}
     >
+      <head>
+        <meta name="google-site-verification" content="9v3FOf9Xrk--Be4udxmL5dY1fdcCvD_cpTSET_JQgh4" />
+      </head>
       <body className="min-h-full flex flex-col font-sans">
-        
         <ThemeProvider defaultTheme="light">
           <div className="flex flex-col min-h-screen">
-            
             <Navbar />
             <main className="grow">
               {children}
