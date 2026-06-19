@@ -25,7 +25,7 @@ const mockupTransition: Transition = {
   delay: 0.4,
 };
 
-const APK_PATH = "/downloads/insmartio.crdownload";
+const APK_PATH = "https://github.com/Chrivon-Tech-LTD/inSmartio-marketing-site/releases/download/v1.0.1/insmartio.apk";
 const APK_VERSION = "1.0.1";
 
 export function AppHero() {
@@ -74,7 +74,6 @@ export function AppHero() {
             <AppStoreButtons align="left" size="sm" />
           </motion.div>
 
-          {/* APK Download Button */}
           <motion.div
             custom={3.5}
             variants={fadeInUp}
@@ -89,22 +88,21 @@ export function AppHero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-3 px-5 py-3 bg-text-main text-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 group"
+              className="inline-flex items-center gap-3 px-5 py-3 bg-text-main dark:bg-white text-white dark:text-black rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 group"
             >
-              <div className="bg-white/10 p-1.5 rounded-lg group-hover:bg-white/20 transition-colors">
-                <Download size={16} className="text-white" />
+              <div className="bg-white/10 dark:bg-black/10 p-1.5 rounded-lg group-hover:bg-white/20 dark:group-hover:bg-black/20 transition-colors">
+                <Download size={16} className="text-white dark:text-black" />
               </div>
               <div className="text-left leading-none">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-0.5">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-white/60 dark:text-black/60 mb-0.5">
                   Android APK
                 </p>
-                <p className="text-sm font-black text-white">
+                <p className="text-sm font-black text-white dark:text-black">
                   Download v{APK_VERSION}
                 </p>
               </div>
             </motion.a>
           </motion.div>
-
           {/* QR Code Card */}
           <motion.div
             custom={4}
