@@ -14,7 +14,7 @@ import {
 const earningsMetrics = [
   {
     title: "Registration Bonus",
-    value: "₦7,000 per expert",
+    value: "₦7,000 per expert(phase 2)",
     desc: "Upfront payment for every verified expert you recruit into the ecosystem.",
     icon: <UserPlus className="text-primary" />,
   },

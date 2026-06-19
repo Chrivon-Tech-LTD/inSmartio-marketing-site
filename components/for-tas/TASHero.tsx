@@ -58,7 +58,7 @@ export const TASHero: React.FC = () => {
             custom={2} variants={fadeInUp} initial="hidden" animate="visible"
             className="text-text-muted text-base md:text-xl leading-relaxed max-w-lg mb-10 mx-auto lg:mx-0 font-medium"
           >
-            Know skilled professionals? Refer them to inSmartio and earn <span className="text-text-main font-black">7,000 per expert</span>, plus ongoing commissions. Build a team and scale your earnings.
+            Know skilled professionals? Refer them to inSmartio and earn <span className="text-text-main font-black">7,000 per expert(phase 2)</span>, plus ongoing commissions. Build a team and scale your earnings.
           </motion.p>
           
           <motion.div 

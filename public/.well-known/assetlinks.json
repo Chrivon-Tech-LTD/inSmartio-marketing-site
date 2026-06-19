@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.chrivon.insmartio",
+      "sha256_cert_fingerprints":
+        ["DE:C3:AC:26:FD:17:11:33:B8:24:2A:C3:D3:DC:BE:DE:76:DF:D9:64:EA:10:7F:25:F7:51:99:88:61:1A:47:AD"]
+    }
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "9TJ2SXL9L8.com.chrivon.insmartio",
+        "paths": [ "/join/*" ]
+      }
+    ]
+  }
+}
