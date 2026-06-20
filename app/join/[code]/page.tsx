@@ -43,7 +43,29 @@ function saveReferralCode(code: string) {
     localStorage.setItem("insmart_referral_code", code);
     sessionStorage.setItem("insmart_referral_code", code);
   } catch {}
-  try { navigator.clipboard.writeText(code); } catch {}
+}
+
+async function copyToClipboard(code: string): Promise<boolean> {
+  // Modern async clipboard API (requires user gesture — works fine inside onClick)
+  if (navigator?.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(code);
+      return true;
+    } catch {}
+  }
+  // Fallback: execCommand for older browsers / Android WebViews
+  try {
+    const el = document.createElement("textarea");
+    el.value = code;
+    el.style.cssText = "position:fixed;top:-9999px;left:-9999px;opacity:0";
+    document.body.appendChild(el);
+    el.focus();
+    el.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(el);
+    return ok;
+  } catch {}
+  return false;
 }
 
 // ─── Drifting background icons (lucide) ───────────────────────────────────────
@@ -94,10 +116,13 @@ export default function JoinPage({
     };
   }, [referralCode]);
 
-  function handleCopy() {
+  async function handleCopy() {
     saveReferralCode(referralCode);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
+    const ok = await copyToClipboard(referralCode);
+    if (ok) {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
   }
 
   function openStore() {
