@@ -5,6 +5,8 @@ import { TASCalculator } from '@/components/for-tas/TASCalculator';
 import { GrowthPathways } from '@/components/for-tas/GrowthPathways';
 import { TASSteps } from '@/components/for-tas/TASSteps';
 import { TASTestimonials } from '@/components/for-tas/TASTestimonials';
+import { SubTASRecruitment } from '@/components/for-tas/SubtasRecruitment';
+import { TASFAQ } from '@/components/for-tas/TASFAQ';
 
 import { Metadata } from 'next';
 import { ReferralTools } from '@/components/for-tas/ReferalTools';
@@ -20,18 +22,18 @@ export default function ForTASPage() {
       <TASHero />
       <TASEarningsGrid />
       <div id="tiers">
-      <GrowthPathways />
+        <GrowthPathways />
       </div>
-     <div id="calculator">
-      <TASCalculator />
+      <SubTASRecruitment />
+      <div id="calculator">
+        <TASCalculator />
       </div>
-      
       <div id="apply">
-      <TASSteps />
+        <TASSteps />
       </div>
-      <ReferralTools/>
+      <ReferralTools />
+      <TASFAQ />
       <TASTestimonials />
-      
     </main>
   );
 }

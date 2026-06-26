@@ -21,12 +21,12 @@ import {
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 
 // ─── Config — swap these when ready ───────────────────────────────────────────
-const APP_STORE_ID     = "YOUR_APP_ID_HERE";       // e.g. "id1234567890"
-const ANDROID_PACKAGE  = "com.insmart.app";         // your actual package name
-const DEEP_LINK_SCHEME = "insmart://join/";          // confirm with mobile dev
+const APP_STORE_ID     = "YOUR_APP_ID_HERE";      
+const ANDROID_PACKAGE  = "com.insmart.app";         
+const DEEP_LINK_SCHEME = "insmart://join/";          
 const APP_STORE_URL    = `https://apps.apple.com/app/${APP_STORE_ID}`;
 const PLAY_STORE_URL   = `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`;
-// ──────────────────────────────────────────────────────────────────────────────
+
 
 type Platform = "ios" | "android" | "desktop";
 type Stage    = "prompt" | "fallback" | "desktop";
@@ -67,7 +67,7 @@ async function copyToClipboard(code: string): Promise<boolean> {
   return false;
 }
 
-// ─── Drifting background icons ────────────────────────────────────────────────
+// ─── Drifting background icons 
 const BG_ICONS = [
   { Icon: Settings2,   style: { top: "8%",    left: "6%",   size: 52 }, drift: "drift-1" },
   { Icon: Link2,       style: { top: "14%",   right: "10%", size: 38 }, drift: "drift-2" },
@@ -76,7 +76,7 @@ const BG_ICONS = [
   { Icon: ShieldCheck, style: { top: "50%",   left: "3%",   size: 34 }, drift: "drift-2" },
 ];
 
-// ─── State icon + label config ────────────────────────────────────────────────
+// ─── State icon + label config 
 // Each stage maps to: icon, icon color, small label shown under the circle
 const STATE_CONFIG: Record<
   Stage | "opening",
@@ -101,7 +101,7 @@ const STATE_CONFIG: Record<
   },
 };
 
-// ─── Main page ────────────────────────────────────────────────────────────────
+// ─── Main page 
 export default function JoinPage({
   params,
 }: {

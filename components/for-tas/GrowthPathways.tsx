@@ -1,38 +1,58 @@
 "use client";
 
 import React, { useRef } from 'react';
-import { TrendingUp, Award, Zap, Star } from 'lucide-react';
+import { TrendingUp, Award, Zap, Star, Crown, Rocket } from 'lucide-react';
 import { motion, useInView, Variants } from 'framer-motion';
 
 const pathways = [
   {
     tier: "Tier 1: Associate",
-    experts: "0-9",
+    experts: "10–49",
     bonus: "0%",
-    benefits: "Base rates",
+    override: "N/A",
+    benefits: "Base rates — get started and build momentum",
     icon: <TrendingUp size={16} />
   },
   {
     tier: "Tier 2: Senior",
-    experts: "10-24",
+    experts: "50–199",
     bonus: "+5%",
+    override: "N/A",
     benefits: "Priority support, monthly recognition",
     isPopular: true,
     icon: <Award size={16} />
   },
   {
     tier: "Tier 3: Master",
-    experts: "25-49",
+    experts: "200–499",
     bonus: "+10%",
-    benefits: "Recruit sub-TAS, override on sub-TAS",
+    override: "0.1%",
+    benefits: "Recruit Sub-TAS, override on sub-TAS recruits",
     icon: <Zap size={16} />
   },
   {
     tier: "Tier 4: Regional Lead",
-    experts: "50+",
-    bonus: "+15%",
-    benefits: "Higher overrides, team leaderboard",
+    experts: "500–999",
+    bonus: "+12%",
+    override: "0.15%",
+    benefits: "Higher overrides, team leaderboard access",
     icon: <Star size={16} />
+  },
+  {
+    tier: "Tier 5: Director",
+    experts: "1,000–2,499",
+    bonus: "+15%",
+    override: "0.2%",
+    benefits: "Executive perks, dedicated account manager",
+    icon: <Rocket size={16} />
+  },
+  {
+    tier: "Tier 6: National Elite",
+    experts: "2,500+",
+    bonus: "+20%",
+    override: "0.25%",
+    benefits: "Highest overrides, strategic partner status",
+    icon: <Crown size={16} />
   }
 ];
 
@@ -41,7 +61,7 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    transition: { staggerChildren: 0.08, delayChildren: 0.2 }
   }
 };
 
@@ -75,7 +95,7 @@ export const GrowthPathways: React.FC = () => {
             Growth Pathways
           </h2>
           <p className="text-[#7A9DC4] mt-4 max-w-2xl mx-auto font-medium">
-            Scale your impact and unlock higher performance bonuses and exclusive platform benefits.
+            Scale your impact and unlock higher performance bonuses, Sub-TAS overrides, and exclusive platform benefits.
           </p>
         </motion.div>
 
@@ -87,13 +107,14 @@ export const GrowthPathways: React.FC = () => {
           animate={isInView ? "visible" : "hidden"}
           className="overflow-x-auto rounded-lg border border-white/5 shadow-ambient bg-[#0E1E3A]"
         >
-          <table className="w-full text-left border-collapse min-w-200">
+          <table className="w-full text-left border-collapse min-w-[700px]">
             <thead>
               <tr className="bg-primary/2 border-b border-white/5">
-                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Tier Level</th>
-                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Expert Count</th>
-                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Perf. Bonus</th>
-                <th className="p-8 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Exclusive Benefits</th>
+                <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Tier Level</th>
+                <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Active Experts</th>
+                <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Bonus</th>
+                <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Override Rate</th>
+                <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Exclusive Benefits</th>
               </tr>
             </thead>
             
@@ -106,17 +127,17 @@ export const GrowthPathways: React.FC = () => {
                     ${p.isPopular ? 'bg-secondary/10 hover:bg-secondary/15' : 'hover:bg-primary/5'}
                   `}
                 >
-                  <td className="p-8">
-                    <div className="flex items-center gap-4">
+                  <td className="p-6">
+                    <div className="flex items-center gap-3">
                       <motion.div 
                         whileHover={{ rotate: 15, scale: 1.1 }}
-                        className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors shadow-sm
+                        className={`w-9 h-9 rounded-xl flex items-center justify-center transition-colors shadow-sm shrink-0
                         ${p.isPopular ? 'bg-secondary text-white' : 'bg-primary/10 text-primary'}
                       `}>
                         {p.icon}
                       </motion.div>
                       <div className="flex flex-col">
-                        <span className="font-black text-[#D8E8FF] font-display text-lg tracking-tight">
+                        <span className="font-black text-[#D8E8FF] font-display text-base tracking-tight">
                           {p.tier}
                         </span>
                         {p.isPopular && (
@@ -133,22 +154,39 @@ export const GrowthPathways: React.FC = () => {
                     </div>
                   </td>
                   
-                  <td className="p-8">
+                  <td className="p-6">
                     <span className="text-[#D8E8FF] font-bold">
                       {p.experts} <span className="text-[#7A9DC4] text-xs font-medium ml-1">Experts</span>
                     </span>
                   </td>
                   
-                  <td className="p-8">
+                  <td className="p-6">
                     <motion.div 
                       whileHover={{ scale: 1.05 }}
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-success/10 text-success font-black text-lg"
+                      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full font-black text-base
+                        ${p.bonus === "0%" 
+                          ? "bg-white/5 text-[#7A9DC4]" 
+                          : "bg-success/10 text-success"
+                        }`}
                     >
                       {p.bonus}
                     </motion.div>
                   </td>
+
+                  <td className="p-6">
+                    {p.override === "N/A" ? (
+                      <span className="text-[#7A9DC4]/40 text-sm font-medium">—</span>
+                    ) : (
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        className="inline-flex items-center px-3 py-1.5 rounded-full bg-secondary/10 text-secondary font-black text-sm"
+                      >
+                        {p.override}
+                      </motion.div>
+                    )}
+                  </td>
                   
-                  <td className="p-8 text-[#7A9DC4] leading-relaxed max-w-xs font-medium">
+                  <td className="p-6 text-[#7A9DC4] leading-relaxed max-w-xs font-medium text-sm">
                     {p.benefits}
                   </td>
                 </motion.tr>
