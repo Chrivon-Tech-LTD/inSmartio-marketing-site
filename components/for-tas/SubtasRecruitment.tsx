@@ -235,7 +235,7 @@ export const SubTASRecruitment: React.FC = () => {
               <Card className="rounded-[2.5rem] shadow-ambient border border-slate-100! bg-surface overflow-hidden flex flex-col h-full">
                 <div className="px-10 pt-10 pb-4">
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-text-muted block mb-2">
-                    Sub-TAS Override Example
+                    Sub-TAS Override Examples
                   </span>
                  
                 </div>
