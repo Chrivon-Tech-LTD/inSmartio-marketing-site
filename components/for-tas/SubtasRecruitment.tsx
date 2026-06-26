@@ -90,7 +90,7 @@ export const SubTASRecruitment: React.FC = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 bg-background px-6 overflow-hidden">
+    <section className="py-16 md:py-24 bg-background px-4 md:px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto" ref={ref}>
 
         {/* ── Header ── */}
@@ -123,7 +123,7 @@ export const SubTASRecruitment: React.FC = () => {
 
             {/* What is Sub-TAS */}
             <motion.div variants={fadeUp} className="h-full">
-              <Card className="p-10 rounded-[2.5rem] shadow-ambient border border-slate-100! bg-surface flex flex-col h-full">
+              <Card className="p-6 md:p-10 rounded-[2.5rem] shadow-ambient border border-slate-100! bg-surface flex flex-col h-full">
                 <div className="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-8 shrink-0">
                   <Info size={22} className="text-primary" />
                 </div>
@@ -139,7 +139,7 @@ export const SubTASRecruitment: React.FC = () => {
 
             {/* Why Recruit Sub-TAS */}
             <motion.div variants={fadeUp} className="h-full">
-              <Card className="p-10 rounded-[2.5rem] shadow-ambient border-none! bg-primary! text-white flex flex-col h-full shadow-2xl shadow-primary/20">
+              <Card className="p-6 md:p-10 rounded-[2.5rem] shadow-ambient border-none! bg-primary! text-white flex flex-col h-full shadow-primary/20">
                 <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-8 shrink-0">
                   <Users size={22} className="text-white" />
                 </div>
@@ -178,7 +178,7 @@ export const SubTASRecruitment: React.FC = () => {
                   whileHover={{ y: -6 }}
                   className="h-full"
                 >
-                  <Card className="p-8 rounded-[2rem] shadow-ambient border border-slate-100! bg-surface hover:border-primary/20 transition-all duration-500 flex flex-col h-full">
+                  <Card className="p-6 md:p-8 rounded-4xl shadow-ambient border border-slate-100! bg-surface hover:border-primary/20 transition-all duration-500 flex flex-col h-full">
                     <span className="text-[9px] font-black text-primary/40 uppercase tracking-widest mb-4 block">
                       {step.number}
                     </span>
@@ -205,7 +205,7 @@ export const SubTASRecruitment: React.FC = () => {
 
             {/* Sub-TAS Earnings */}
             <motion.div variants={fadeUp} className="h-full">
-              <Card className="p-10 rounded-[2.5rem] shadow-ambient border border-slate-100! bg-surface flex flex-col h-full">
+              <Card className="p-6 md:p-10 rounded-[2.5rem] shadow-ambient border border-slate-100! bg-surface flex flex-col h-full">
                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-6 text-text-muted">
                   Sub-TAS Earnings
                 </h3>
@@ -233,42 +233,47 @@ export const SubTASRecruitment: React.FC = () => {
             {/* Override Rate Table */}
             <motion.div variants={fadeUp} className="h-full">
               <Card className="rounded-[2.5rem] shadow-ambient border border-slate-100! bg-surface overflow-hidden flex flex-col h-full">
-                <div className="px-10 pt-10 pb-4">
+                <div className="px-6 md:px-10 pt-8 md:pt-10 pb-4">
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-text-muted block mb-2">
-                    Sub-TAS Override Examples
+                    Sub-TAS Override Example
                   </span>
-                 
+                  <p className="text-text-main font-display font-black text-lg md:text-xl tracking-tight">
+                    Based on ₦1,000,000 in recruits&apos; jobs
+                  </p>
                 </div>
 
-                <table className="w-full text-sm flex-1">
-                  <thead>
-                    <tr className="border-b border-slate-100">
-                      <th className="px-6 py-3 text-left text-[10px] font-black uppercase tracking-widest text-text-muted">Tier</th>
-                      <th className="px-6 py-3 text-left text-[10px] font-black uppercase tracking-widest text-text-muted">Override Rate</th>
-                      <th className="px-6 py-3 text-left text-[10px] font-black uppercase tracking-widest text-text-muted">Recruits&apos; Jobs</th>
-                      <th className="px-6 py-3 text-left text-[10px] font-black uppercase tracking-widest text-text-muted">Override Earnings</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {overrideTable.map((row, i) => (
-                      <tr
-                        key={i}
-                        className="border-b border-slate-100/60 last:border-none hover:bg-primary/3 transition-colors"
-                      >
-                        <td className="px-6 py-4 font-black text-text-main font-display">{row.tier}</td>
-                        <td className="px-6 py-4">
-                          <span className="inline-flex items-center px-3 py-1 rounded-full bg-success/10 text-success font-black text-xs">
-                            {row.rate}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 text-text-muted font-medium">{row.recruitsJobs}</td>
-                        <td className="px-6 py-4 text-text-main font-bold">{row.earnings}</td>
+                {/* Horizontal scroll wrapper for mobile */}
+                <div className="overflow-x-auto flex-1">
+                  <table className="w-full text-sm min-w-120">
+                    <thead>
+                      <tr className="border-b border-slate-100">
+                        <th className="px-4 md:px-6 py-3 text-left text-[10px] font-black uppercase tracking-widest text-text-muted whitespace-nowrap">Tier</th>
+                        <th className="px-4 md:px-6 py-3 text-left text-[10px] font-black uppercase tracking-widest text-text-muted whitespace-nowrap">Override Rate</th>
+                        <th className="px-4 md:px-6 py-3 text-left text-[10px] font-black uppercase tracking-widest text-text-muted whitespace-nowrap">Recruits&apos; Jobs</th>
+                        <th className="px-4 md:px-6 py-3 text-left text-[10px] font-black uppercase tracking-widest text-text-muted whitespace-nowrap">Override Earnings</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {overrideTable.map((row, i) => (
+                        <tr
+                          key={i}
+                          className="border-b border-slate-100/60 last:border-none hover:bg-primary/3 transition-colors"
+                        >
+                          <td className="px-4 md:px-6 py-4 font-black text-text-main font-display whitespace-nowrap">{row.tier}</td>
+                          <td className="px-4 md:px-6 py-4">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full bg-success/10 text-success font-black text-xs whitespace-nowrap">
+                              {row.rate}
+                            </span>
+                          </td>
+                          <td className="px-4 md:px-6 py-4 text-text-muted font-medium whitespace-nowrap">{row.recruitsJobs}</td>
+                          <td className="px-4 md:px-6 py-4 text-text-main font-bold whitespace-nowrap">{row.earnings}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
 
-                <div className="px-10 py-5 bg-primary/3 border-t border-slate-100">
+                <div className="px-6 md:px-10 py-4 md:py-5 bg-primary/3 border-t border-slate-100">
                   <p className="text-[10px] text-text-muted font-medium">
                     Your recruits&apos; jobs refers to all jobs completed by experts your Sub-TAS agents recruited.
                   </p>
@@ -280,7 +285,7 @@ export const SubTASRecruitment: React.FC = () => {
           {/* ── Phase 2 Banner ── */}
           <motion.div
             variants={fadeUp}
-            className="rounded-[2rem] border border-primary/10 bg-primary/3 px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+            className="rounded-4xl border border-primary/10 bg-primary/3 px-5 md:px-8 py-5 md:py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
           >
             <div className="flex items-center gap-4">
               <div className="w-2 h-2 rounded-full bg-secondary animate-pulse shrink-0" />
