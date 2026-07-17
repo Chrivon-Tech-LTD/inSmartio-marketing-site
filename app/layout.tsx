@@ -58,6 +58,7 @@ export default function RootLayout({
     >
       <head>
         <meta name="google-site-verification" content="9v3FOf9Xrk--Be4udxmL5dY1fdcCvD_cpTSET_JQgh4" />
+        <meta name="apple-itunes-app" content="app-id=6777578294, app-argument={{ current_url }}"/>
       </head>
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider defaultTheme="light">

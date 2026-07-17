@@ -6,6 +6,9 @@ interface AppStoreButtonsProps {
   size?: "sm" | "md" | "lg";
 }
 
+const APP_STORE_URL  = "https://apps.apple.com/gb/app/insmartio/id6777578294";
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.chrivon.insmartio";
+
 export function AppStoreButtons({ 
   align = "center", 
   size = "sm" 
@@ -25,7 +28,9 @@ export function AppStoreButtons({
       
       {/* App Store Wrapper */}
       <Link
-        href="/download"
+        href={APP_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         className={`relative ${selected.h} ${selected.w} transition-transform hover:scale-105 active:scale-95`}
       >
         <Image
@@ -40,7 +45,9 @@ export function AppStoreButtons({
 
       {/* Google Play Wrapper */}
       <Link
-        href="/download"
+        href={PLAY_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         className={`relative ${selected.h} ${selected.w} transition-transform hover:scale-105 active:scale-95`}
       >
         <Image

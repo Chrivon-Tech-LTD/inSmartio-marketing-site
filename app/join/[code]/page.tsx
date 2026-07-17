@@ -3,6 +3,7 @@
 "use client";
 
 import { useEffect, useState, use } from "react";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -21,11 +22,8 @@ import {
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 
 // ─── Config — swap these when ready ───────────────────────────────────────────
-const APP_STORE_ID     = "YOUR_APP_ID_HERE";      
-const ANDROID_PACKAGE  = "com.insmart.app";         
-const DEEP_LINK_SCHEME = "insmart://join/";          
-const APP_STORE_URL    = `https://apps.apple.com/app/${APP_STORE_ID}`;
-const PLAY_STORE_URL   = `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`;
+
+const DEEP_LINK_SCHEME = "insmart://join/";
 
 
 type Platform = "ios" | "android" | "desktop";
@@ -67,7 +65,7 @@ async function copyToClipboard(code: string): Promise<boolean> {
   return false;
 }
 
-// ─── Drifting background icons 
+// ─── Drifting background icons
 const BG_ICONS = [
   { Icon: Settings2,   style: { top: "8%",    left: "6%",   size: 52 }, drift: "drift-1" },
   { Icon: Link2,       style: { top: "14%",   right: "10%", size: 38 }, drift: "drift-2" },
@@ -76,12 +74,14 @@ const BG_ICONS = [
   { Icon: ShieldCheck, style: { top: "50%",   left: "3%",   size: 34 }, drift: "drift-2" },
 ];
 
-// ─── State icon + label config 
-// Each stage maps to: icon, icon color, small label shown under the circle
-const STATE_CONFIG: Record<
-  Stage | "opening",
-  { icon: React.ReactNode; label: string; labelColor?: string }
-> = {
+// ─── State icon + label config
+interface StateConfigEntry {
+  icon: ReactNode;
+  label: string;
+  labelColor?: string;
+}
+
+const STATE_CONFIG: Record<Stage | "opening", StateConfigEntry> = {
   opening: {
     icon:  <Loader2 size={28} className="animate-spin" style={{ color: "var(--primary)" }} />,
     label: "Launching InSmart…",
@@ -101,7 +101,7 @@ const STATE_CONFIG: Record<
   },
 };
 
-// ─── Main page 
+// ─── Main page
 export default function JoinPage({
   params,
 }: {
@@ -154,11 +154,6 @@ export default function JoinPage({
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     }
-  }
-
-  function openStore() {
-    saveReferralCode(referralCode);
-    window.location.href = platform === "ios" ? APP_STORE_URL : PLAY_STORE_URL;
   }
 
   const stateKey = opening ? "opening" : stage;
@@ -301,9 +296,9 @@ export default function JoinPage({
             </button>
           )}
 
-          {/* Mobile — prompt: "Open in App" + store button */}
+          {/* Mobile — prompt: "Open in App" + store buttons */}
           {stage === "prompt" && (platform === "ios" || platform === "android") && (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3 items-center">
               <button
                 onClick={handleOpenApp}
                 disabled={opening}
@@ -315,30 +310,13 @@ export default function JoinPage({
                 }
                 {opening ? "Opening app…" : "Open in App"}
               </button>
-              <button
-                onClick={openStore}
-                className="w-full flex items-center justify-center gap-2 py-2 text-sm rounded-xl transition-all hover:brightness-95"
-                style={{
-                  background: "rgba(26,75,140,0.06)",
-                  border: "1px solid rgba(26,75,140,0.15)",
-                  color: "var(--primary)",
-                }}
-              >
-                <Smartphone size={16} />
-                {platform === "ios" ? "Download on the App Store" : "Get it on Google Play"}
-              </button>
+              <AppStoreButtons align="center" size="sm" />
             </div>
           )}
 
           {/* Mobile — fallback: go to store */}
           {stage === "fallback" && (platform === "ios" || platform === "android") && (
-            <button
-              onClick={openStore}
-              className="btn-primary w-full flex items-center justify-center gap-2"
-            >
-              <Smartphone size={18} />
-              {platform === "ios" ? "Download on the App Store" : "Get it on Google Play"}
-            </button>
+            <AppStoreButtons align="center" size="sm" />
           )}
 
           {/* Desktop */}
