@@ -14,14 +14,12 @@ import {
   Sparkles,
   Copy,
   Check,
-  Loader2,
   PartyPopper,
-  ExternalLink,
   AppWindow,
 } from "lucide-react";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 
-// ─── Config — swap these when ready ───────────────────────────────────────────
+// ─── Config — swap these when ready
 
 const DEEP_LINK_SCHEME = "insmart://join/";
 
@@ -81,11 +79,7 @@ interface StateConfigEntry {
   labelColor?: string;
 }
 
-const STATE_CONFIG: Record<Stage | "opening", StateConfigEntry> = {
-  opening: {
-    icon:  <Loader2 size={28} className="animate-spin" style={{ color: "var(--primary)" }} />,
-    label: "Launching InSmart…",
-  },
+const STATE_CONFIG: Record<Stage, StateConfigEntry> = {
   prompt: {
     icon:  <PartyPopper size={26} style={{ color: "var(--secondary)" }} />,
     label: "You're one tap away!",
@@ -113,7 +107,6 @@ export default function JoinPage({
   const [platform, setPlatform] = useState<Platform>("desktop");
   const [stage,    setStage]    = useState<Stage>("prompt");
   const [copied,   setCopied]   = useState(false);
-  const [opening,  setOpening]  = useState(false);
 
   useEffect(() => {
     const p = detectPlatform();
@@ -121,31 +114,6 @@ export default function JoinPage({
     if (p === "desktop") setStage("desktop");
     if (referralCode) saveReferralCode(referralCode);
   }, [referralCode]);
-
-  function handleOpenApp() {
-    setOpening(true);
-    saveReferralCode(referralCode);
-
-    const deepLink = `${DEEP_LINK_SCHEME}${referralCode}`;
-    const a = document.createElement("a");
-    a.href = deepLink;
-    a.style.display = "none";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    const timer = setTimeout(() => {
-      setOpening(false);
-      setStage("fallback");
-    }, 1800);
-
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        clearTimeout(timer);
-        setOpening(false);
-      }
-    }, { once: true });
-  }
 
   async function handleCopy() {
     saveReferralCode(referralCode);
@@ -156,8 +124,7 @@ export default function JoinPage({
     }
   }
 
-  const stateKey = opening ? "opening" : stage;
-  const { icon: stateIcon, label: stateLabel, labelColor } = STATE_CONFIG[stateKey];
+  const { icon: stateIcon, label: stateLabel, labelColor } = STATE_CONFIG[stage];
 
   const heading =
     stage === "fallback" ? "Download InSmart to continue"
@@ -165,7 +132,7 @@ export default function JoinPage({
 
   const subtext =
     stage === "prompt"
-      ? "Tap below to open InSmart. Your referral code will be applied automatically."
+      ? "Tap below to open InSmartio. Your referral code will be applied automatically."
       : stage === "fallback"
       ? "Install the app — your referral code is saved and will be applied automatically when you sign up."
       : "Open this link on your phone. Your referral code will be applied automatically when you register.";
@@ -175,7 +142,7 @@ export default function JoinPage({
       ? "No need to enter the code manually — just install and sign up."
       : stage === "desktop"
       ? "Scan or open this link on your iPhone or Android device."
-      : "Already have the app? Tap \"Open in App\" above.";
+      : "Don't have the app yet? Tap below to download.";
 
   return (
     <>
@@ -296,28 +263,11 @@ export default function JoinPage({
             </button>
           )}
 
-          {/* Mobile — prompt: "Open in App" + store buttons */}
-          {stage === "prompt" && (platform === "ios" || platform === "android") && (
-            <div className="flex flex-col gap-3 items-center">
-              <button
-                onClick={handleOpenApp}
-                disabled={opening}
-                className="btn-primary w-full flex items-center justify-center gap-2"
-              >
-                {opening
-                  ? <Loader2 size={18} className="animate-spin" />
-                  : <ExternalLink size={18} />
-                }
-                {opening ? "Opening app…" : "Open in App"}
-              </button>
+          {/* Mobile — prompt or fallback: store buttons */}
+          {(stage === "prompt" || stage === "fallback") &&
+            (platform === "ios" || platform === "android") && (
               <AppStoreButtons align="center" size="sm" />
-            </div>
-          )}
-
-          {/* Mobile — fallback: go to store */}
-          {stage === "fallback" && (platform === "ios" || platform === "android") && (
-            <AppStoreButtons align="center" size="sm" />
-          )}
+            )}
 
           {/* Desktop */}
           {stage === "desktop" && (
