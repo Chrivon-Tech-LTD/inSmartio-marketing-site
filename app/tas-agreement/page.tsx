@@ -342,7 +342,7 @@ export default function TASAgreementPage() {
                   ["Referral Link", "Unique URL assigned to each TAS Agent for tracking referrals"],
                   ["Referral Code", "Unique alphanumeric code assigned to each TAS Agent"],
                   ["Active Expert", "An Expert who has completed at least one job in the last 30 days"],
-                  ["Model 1 Expert", "An Expert on subscription payment model (₦10,000/month)"],
+                  ["Model 1 Expert", "An Expert on subscription payment model (₦3000/month)"],
                   ["Model 2 Expert", "An Expert on commission payment model (10% per job)"],
                   ["Registration Bonus", "₦7,000 paid per verified Expert recruited"],
                   ["Job Commission", "1% of job value for Model 2 Experts recruited"],

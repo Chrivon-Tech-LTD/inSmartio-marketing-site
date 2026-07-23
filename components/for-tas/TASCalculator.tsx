@@ -24,11 +24,10 @@ export const TASCalculator: React.FC = () => {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   const totalRecruits = model1Experts + model2Experts;
-  const regBonusTotal = totalRecruits * 7000;
   const model1Earnings = model1Experts * 1000;
   const model2Earnings = model2Experts * jobsPerMonth * avgJobValue * 0.01;
   const totalMonthlyCommission = model1Earnings + model2Earnings;
-  const estimatedAnnual = (totalMonthlyCommission * 12) + regBonusTotal;
+  const estimatedAnnual = totalMonthlyCommission * 12;
 
   return (
     <section className="py-24 bg-background overflow-hidden">
@@ -108,10 +107,6 @@ export const TASCalculator: React.FC = () => {
             </div>
             
             <div className="space-y-5 pt-8 border-t border-white/10 mb-10">
-              <div className="flex justify-between text-sm">
-                <span className="text-white/60">One-time Bonuses (Reg.)</span>
-                <span className="font-bold">₦{regBonusTotal.toLocaleString()}</span>
-              </div>
               <div className="flex justify-between text-sm">
                 <span className="text-white/60">Fixed Mgmt. (Model 1)</span>
                 <span className="font-bold">₦{model1Earnings.toLocaleString()}</span>

@@ -44,7 +44,7 @@ const tasSteps = [
   {
     id: 4,
     title: "Recruits Experts",
-    desc: "When experts register using your link and get verified, you earn #7000 instantly",
+    desc: "When experts register using your link and get verified, you earn (phase 2)",
     icon: <LineChart className="text-secondary w-7 h-7" />
   }
 ];

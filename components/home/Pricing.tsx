@@ -30,7 +30,7 @@ const expertPlans: PricingTier[] = [
   },
   {
     plan: "Pro Expert",
-    price: "₦10,000/month",
+    price: "₦3000/month",
     category: "For Experts",
     isPopular: true,
     features: ["Model 1: 0% commission", "10 bids/month", "Cash allowed", "Max ₦50,000/job"]

@@ -106,7 +106,7 @@ export const ExpertTab: React.FC = () => {
               className="p-8 rounded-4xl border-2 border-secondary bg-secondary/5 transition-all"
             >
               <p className="font-black text-primary mb-3 uppercase tracking-widest text-xs">Model 1 (Subscription)</p>
-              <p className="text-2xl font-black text-text-main mb-4 font-display">₦10,000<span className="text-sm opacity-60">/mo</span></p>
+              <p className="text-2xl font-black text-text-main mb-4 font-display">₦3000<span className="text-sm opacity-60">/mo</span></p>
               <p className="text-sm text-text-muted leading-relaxed font-medium">
                 <span className="text-secondary font-bold">0% commission</span> on jobs. Cash payments allowed. 
               </p>

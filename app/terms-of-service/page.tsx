@@ -341,7 +341,7 @@ export default function TermsOfServicePage() {
               <Table
                 headers={["Model", "Monthly Fee", "Commission", "Bids/Month", "Max Job Value", "Cash Payment"]}
                 rows={[
-                  ["Model 1 (Subscription)", "₦10,000", "0%", "10", "₦50,000", <span key="m1" className="flex items-center gap-1 text-green-600"><Check size={12} />Allowed</span>],
+                  ["Model 1 (Subscription)", "₦3000", "0%", "10", "₦50,000", <span key="m1" className="flex items-center gap-1 text-green-600"><Check size={12} />Allowed</span>],
                   ["Model 2 (Commission)", "₦0", "10%", "Unlimited", "Based on tier", <span key="m2" className="flex items-center gap-1 text-red-500"><X size={12} />Digital only</span>],
                 ]}
               />
@@ -463,7 +463,7 @@ export default function TermsOfServicePage() {
                   <BulletList items={["Client and Expert agree on cash payment", "Expert performs the work", "Client pays Expert directly in cash", "Both parties mark Job complete in the app"]} />
                 </AccordionItem>
                 <AccordionItem title="8.5 Subscription Payments (Model 1 Experts)">
-                  <BulletList items={["Monthly subscription fee of ₦10,000", "Auto-renewing unless cancelled", "Cancellation takes effect at end of current billing period", "No refunds for partial months"]} />
+                  <BulletList items={["Monthly subscription fee of ₦3000", "Auto-renewing unless cancelled", "Cancellation takes effect at end of current billing period", "No refunds for partial months"]} />
                 </AccordionItem>
                 <AccordionItem title="8.6 TAS Payouts">
                   <BulletList items={["Registration bonuses paid within 7 days of Expert verification", "Job commissions paid monthly by the 10th", "Minimum payout: ₦2,000 (amounts below roll over)", "Payouts made to registered bank account"]} />

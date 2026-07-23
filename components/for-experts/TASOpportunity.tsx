@@ -100,7 +100,7 @@ export const TASOpportunity: React.FC = () => {
                   <Users size={24} />
                 </div>
                 <span className="text-text-main text-sm font-black uppercase tracking-wider leading-tight">
-                  ₦7,000 per expert <br /> Recruited
+                  Bonus per expert <br /> Recruited (phase 2)
                 </span>
              </motion.div>
 

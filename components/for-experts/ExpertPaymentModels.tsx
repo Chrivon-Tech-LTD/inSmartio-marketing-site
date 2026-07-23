@@ -8,7 +8,7 @@ import { motion, useInView, Variants } from 'framer-motion';
 const models = [
   {
     type: "Subscription Model",
-    fee: "₦10,000/mo",
+    fee: "₦3000/mo",
     commission: "0%",
     bids: "10 per month",
     maxJob: "₦50,000",

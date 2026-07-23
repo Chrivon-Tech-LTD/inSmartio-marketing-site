@@ -107,7 +107,7 @@ export const GrowthPathways: React.FC = () => {
           animate={isInView ? "visible" : "hidden"}
           className="overflow-x-auto rounded-lg border border-white/5 shadow-ambient bg-[#0E1E3A]"
         >
-          <table className="w-full text-left border-collapse min-w-[700px]">
+          <table className="w-full text-left border-collapse min-w-175">
             <thead>
               <tr className="bg-primary/2 border-b border-white/5">
                 <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[#7A9DC4]">Tier Level</th>

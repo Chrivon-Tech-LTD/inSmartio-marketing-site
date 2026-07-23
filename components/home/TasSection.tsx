@@ -3,7 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { Button } from "../ui/Button";
-import { FaWallet, FaChartLine, FaUsers, FaCircleCheck } from "react-icons/fa6";
+import { FaChartLine, FaUsers, FaCircleCheck } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
 const IMAGE = "https://i.pinimg.com/1200x/d4/eb/76/d4eb7675c8533ab32cefcbc953fbd2e8.jpg";
@@ -30,10 +30,9 @@ export const TASSection: React.FC = () => {
   };
 
   const benefits = [
-    { icon: FaWallet, text: "₦7,000 per expert recruited (one-time)" },
-    { icon: FaChartLine, text: "1% of every job they complete (ongoing)" },
-    { icon: FaUsers, text: "₦1,000 per month for subscribed experts" },
-    { icon: FaCircleCheck, text: "Up to 15% tier bonuses" },
+    { icon: FaChartLine, text: "1% of every job they complete (ongoing) (phase 2)" },
+    { icon: FaUsers, text: "₦1,000 per month for subscribed experts (phase 2)" },
+    { icon: FaCircleCheck, text: "Up to 15% tier bonuses (phase 2)" },
   ];
 
   return (
@@ -72,7 +71,7 @@ export const TASSection: React.FC = () => {
             variants={itemVariants}
             className="text-base md:text-lg text-[#7A9DC4] mb-8 md:mb-10 max-w-xl mx-auto lg:mx-0 font-sans"
           >
-            Do you know skilled professionals? Refer them to inSmartio and earn:
+            Do you know skilled professionals? Refer them to inSmartio and earn: (phase 2)
           </motion.p>
 
           {/* BENEFITS GRID */}
@@ -149,9 +148,9 @@ export const TASSection: React.FC = () => {
             <p className="text-[8px] md:text-[10px] uppercase tracking-widest text-[#7A9DC4] mb-1 font-bold">
               Recruitment Bonus
             </p>
-            <p className="text-2xl md:text-3xl font-black text-primary">₦7,000</p>
+            <p className="text-2xl md:text-3xl font-black text-primary">Bonus (phase 2)</p>
             <div className="mt-1 md:mt-2 flex items-center gap-2 text-[10px] md:text-xs font-bold text-green-400">
-              <FaChartLine /> +15% Tier Bonus
+              <FaChartLine /> +15% Tier Bonus (phase 2)
             </div>
           </motion.div>
 
@@ -162,7 +161,7 @@ export const TASSection: React.FC = () => {
             transition={{ delay: 0.8, duration: 0.5 }}
             className="absolute top-8 -right-4 md:top-12 md:-right-6 bg-[#0E1E3A]/90 backdrop-blur-md text-white px-4 py-3 rounded-xl shadow-lg text-[10px] md:text-xs font-bold border border-white/10 z-10"
           >
-            Earn per referral
+            Earn per referral (phase 2)
           </motion.div>
 
         </motion.div>

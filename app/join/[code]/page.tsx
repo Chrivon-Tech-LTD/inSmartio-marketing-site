@@ -21,7 +21,6 @@ import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 
 // ─── Config — swap these when ready
 
-const DEEP_LINK_SCHEME = "insmart://join/";
 
 
 type Platform = "ios" | "android" | "desktop";

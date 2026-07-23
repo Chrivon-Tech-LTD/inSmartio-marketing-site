@@ -45,7 +45,7 @@ const tasFAQs: FAQItem[] = [
 const expertFAQs: FAQItem[] = [
   {
     q: "How much does it cost to join?",
-    a: "It's free to join! You only pay if you choose Model 2 (10% commission on jobs) or Model 1 (₦10,000/month subscription).",
+    a: "It's free to join! You only pay if you choose Model 2 (10% commission on jobs) or Model 1 (₦3000/month subscription).",
   },
   {
     q: "Do I need to register with the government?",
@@ -163,7 +163,7 @@ export const TASFAQ: React.FC = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2.5 rounded-xl text-sm font-black uppercase tracking-[0.1em] transition-all duration-300
+              className={`px-6 py-2.5 rounded-xl text-sm font-black uppercase tracking-widest transition-all duration-300
                 ${activeTab === tab
                   ? "bg-primary text-white shadow-sm"
                   : "text-text-muted hover:text-text-main"
