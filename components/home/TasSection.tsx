@@ -30,9 +30,9 @@ export const TASSection: React.FC = () => {
   };
 
   const benefits = [
-    { icon: FaChartLine, text: "1% of every job they complete (ongoing) (phase 2)" },
-    { icon: FaUsers, text: "₦1,000 per month for subscribed experts (phase 2)" },
-    { icon: FaCircleCheck, text: "Up to 15% tier bonuses (phase 2)" },
+    { icon: FaChartLine, text: "1% of every job they complete (ongoing)" },
+    { icon: FaUsers, text: "₦1,000 per month for subscribed experts" },
+    { icon: FaCircleCheck, text: "Up to 15% tier bonuses #1000 bonus" },
   ];
 
   return (
@@ -71,7 +71,7 @@ export const TASSection: React.FC = () => {
             variants={itemVariants}
             className="text-base md:text-lg text-[#7A9DC4] mb-8 md:mb-10 max-w-xl mx-auto lg:mx-0 font-sans"
           >
-            Do you know skilled professionals? Refer them to inSmartio and earn: (phase 2)
+            Do you know skilled professionals? Refer them to inSmartio and earn.
           </motion.p>
 
           {/* BENEFITS GRID */}
@@ -146,7 +146,7 @@ export const TASSection: React.FC = () => {
             className="absolute bottom-6 left-4 md:bottom-10 md:-left-6 bg-[#0E1E3A] text-[#D8E8FF] p-4 md:p-6 rounded-2xl shadow-2xl border border-white/10 z-10"
           >
             <p className="text-[8px] md:text-[10px] uppercase tracking-widest text-[#7A9DC4] mb-1 font-bold">
-              Recruitment Bonus
+              Recruitment Bonus #1000 bonus
             </p>
             <p className="text-2xl md:text-3xl font-black text-primary">Bonus (phase 2)</p>
             <div className="mt-1 md:mt-2 flex items-center gap-2 text-[10px] md:text-xs font-bold text-green-400">
@@ -161,7 +161,7 @@ export const TASSection: React.FC = () => {
             transition={{ delay: 0.8, duration: 0.5 }}
             className="absolute top-8 -right-4 md:top-12 md:-right-6 bg-[#0E1E3A]/90 backdrop-blur-md text-white px-4 py-3 rounded-xl shadow-lg text-[10px] md:text-xs font-bold border border-white/10 z-10"
           >
-            Earn per referral (phase 2)
+            Earn per referral
           </motion.div>
 
         </motion.div>

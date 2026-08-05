@@ -87,7 +87,7 @@ export const TASOpportunity: React.FC = () => {
                   <BadgePercent size={24} />
                 </motion.div>
                 <span className="text-text-main text-sm font-black uppercase tracking-wider leading-tight">
-                  1% of their jobs <br />
+                  3% Commission of their jobs <br />
                 </span>
              </motion.div>
 
@@ -100,7 +100,7 @@ export const TASOpportunity: React.FC = () => {
                   <Users size={24} />
                 </div>
                 <span className="text-text-main text-sm font-black uppercase tracking-wider leading-tight">
-                  Bonus per expert <br /> Recruited (phase 2)
+                 #1,000 Bonus per expert<br /> Recruited
                 </span>
              </motion.div>
 

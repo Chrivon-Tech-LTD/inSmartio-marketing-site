@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { QrCode, Download } from "lucide-react";
+import { QrCode } from "lucide-react";
 import { motion, Variants, Transition } from "framer-motion";
 import { AppStoreButtons } from "../ui/AppStoreButtons";
 
@@ -24,9 +24,6 @@ const mockupTransition: Transition = {
   ease: [0.22, 1, 0.36, 1],
   delay: 0.4,
 };
-
-const APK_PATH = "https://github.com/Chrivon-Tech-LTD/inSmartio-marketing-site/releases/download/v1.0.1/insmartio.apk";
-const APK_VERSION = "1.0.1";
 
 export function AppHero() {
   return (
@@ -69,40 +66,11 @@ export function AppHero() {
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            className="flex justify-center lg:justify-start mb-4"
+            className="flex justify-center lg:justify-start mb-8"
           >
             <AppStoreButtons align="left" size="sm" />
           </motion.div>
 
-          <motion.div
-            custom={3.5}
-            variants={fadeInUp}
-            initial="hidden"
-            animate="visible"
-            className="flex justify-center lg:justify-start mb-8"
-          >
-            <motion.a
-              href={APK_PATH}
-              download={`insmartio-v${APK_VERSION}.apk`}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-3 px-5 py-3 bg-text-main dark:bg-white text-white dark:text-black rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 group"
-            >
-              <div className="bg-white/10 dark:bg-black/10 p-1.5 rounded-lg group-hover:bg-white/20 dark:group-hover:bg-black/20 transition-colors">
-                <Download size={16} className="text-white dark:text-black" />
-              </div>
-              <div className="text-left leading-none">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-white/60 dark:text-black/60 mb-0.5">
-                  Android APK
-                </p>
-                <p className="text-sm font-black text-white dark:text-black">
-                  Download v{APK_VERSION}
-                </p>
-              </div>
-            </motion.a>
-          </motion.div>
           {/* QR Code Card */}
           <motion.div
             custom={4}
@@ -132,7 +100,7 @@ export function AppHero() {
             animate={{ opacity: 1, y: 0, rotate: -6 }}
             transition={mockupTransition}
             whileHover={{ rotate: 0, y: -10 }}
-            className="hidden lg:block relative z-20 lg:w-56 aspect-9/19 rounded-4xl md:rounded-[3rem] border-4 md:border-8 border-text-main overflow-hidden shadow-2xl bg-surface transition-shadow duration-500 hover:shadow-primary/20"
+            className="relative z-20 w-64 sm:w-72 lg:w-56 aspect-9/19 rounded-4xl md:rounded-[3rem] border-4 md:border-8 border-text-main overflow-hidden shadow-2xl bg-surface transition-shadow duration-500 hover:shadow-primary/20"
           >
             <Image
               src="/assets/download.png"
@@ -148,7 +116,7 @@ export function AppHero() {
             animate={{ opacity: 1, y: 0, rotate: 6 }}
             transition={{ ...mockupTransition, delay: 0.5 }}
             whileHover={{ rotate: 0, y: -10 }}
-            className="w-64 sm:w-72 lg:w-56 aspect-9/19 rounded-4xl md:rounded-[3rem] border-4 md:border-8 border-slate-900 overflow-hidden shadow-2xl bg-primary flex transition-shadow duration-500 hover:shadow-secondary/20 lg:mt-12"
+            className="hidden lg:flex w-64 sm:w-72 lg:w-56 aspect-9/19 rounded-4xl md:rounded-[3rem] border-4 md:border-8 border-slate-900 overflow-hidden shadow-2xl bg-primary transition-shadow duration-500 hover:shadow-secondary/20 lg:mt-12"
           >
             <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8 text-center text-white">
               <motion.p

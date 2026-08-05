@@ -44,7 +44,7 @@ const tasSteps = [
   {
     id: 4,
     title: "Recruits Experts",
-    desc: "When experts register using your link and get verified, you earn (phase 2)",
+    desc: "When experts register using your link and get verified, you earn.",
     icon: <LineChart className="text-secondary w-7 h-7" />
   }
 ];
@@ -109,7 +109,7 @@ export const TASTab: React.FC = () => {
             
             <div className="space-y-4">
               {[
-                { label: "Model 2 Experts", value: "1% of every job they complete" },
+                { label: "Model 2 Experts", value: "3% of every job they complete" },
                 { label: "Model 1 Experts", value: "₦1,000 per month they stay subscribed" },
                 { label: "Performance Bonus", value: "Tier bonuses up to 15% on ALL earnings" }
               ].map((item, i) => (

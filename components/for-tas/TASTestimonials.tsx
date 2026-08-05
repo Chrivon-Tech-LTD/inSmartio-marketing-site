@@ -8,14 +8,14 @@ import { Card } from '../ui/Card';
 
 const testimonials = [
   {
-    quote: "I've recruited 28 experts from my community. The ₦7,000 upfront per expert helped me pay for my children's school fees, and the ongoing commissions provide steady income. Now I'm training others to become sub-TAS under me.",
+    quote: "I've recruited 28 experts from my community. The ₦1,000 upfront per expert and several bonuses helped me pay for my children's school fees, and the ongoing commissions provide steady income. Now I'm training others to become sub-TAS under me.",
     author: "Chidi E.",
     location: "Enugu",
     tier: "Tier 3 Master TAS",
     image: "https://i.pinimg.com/736x/f2/32/02/f232022f5082fc77fcbd6aa3edc1aed4.jpg" 
   },
   {
-    quote: "I'm a social media manager, so reaching people online is easy. I've recruited 15 experts in 3 months just by sharing my referral link on Instagram. The dashboard shows me exactly how many people signed up through my link.",
+    quote: "I'm a social media manager, so reaching people online is easy. I've recruited 150 experts in 3 months just by sharing my referral link on Instagram. The dashboard shows me exactly how many people signed up through my link.",
     author: "Grace A.",
     location: "Lagos",
     tier: "Tier 2 Senior TAS",

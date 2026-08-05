@@ -25,7 +25,7 @@ export const TASCalculator: React.FC = () => {
 
   const totalRecruits = model1Experts + model2Experts;
   const model1Earnings = model1Experts * 1000;
-  const model2Earnings = model2Experts * jobsPerMonth * avgJobValue * 0.01;
+  const model2Earnings = model2Experts * jobsPerMonth * avgJobValue * 0.03;
   const totalMonthlyCommission = model1Earnings + model2Earnings;
   const estimatedAnnual = totalMonthlyCommission * 12;
 
@@ -58,7 +58,7 @@ export const TASCalculator: React.FC = () => {
               {/* Model 2 Slider */}
               <motion.div custom={3} variants={fadeInUp} initial="hidden" animate={isInView ? "visible" : "hidden"} className="flex flex-col gap-4">
                 <div className="flex justify-between items-center">
-                  <label className="text-[10px] font-black text-text-muted uppercase tracking-widest">Model 2 Experts (1% Commission)</label>
+                  <label className="text-[10px] font-black text-text-muted uppercase tracking-widest">Model 2 Experts (3% Commission)</label>
                   <motion.span key={model2Experts} initial={{ scale: 1.2, color: "var(--color-primary)" }} animate={{ scale: 1, color: "var(--color-text-main)" }} className="font-bold text-xl">{model2Experts}</motion.span>
                 </div>
                 <input type="range" min="0" max="100" value={model2Experts} onChange={(e) => setModel2Experts(Number(e.target.value))} className="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-primary" />
@@ -112,7 +112,7 @@ export const TASCalculator: React.FC = () => {
                 <span className="font-bold">₦{model1Earnings.toLocaleString()}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-white/60">1% Performance (Model 2)</span>
+                <span className="text-white/60">3% Performance (Model 2)</span>
                 <span className="font-bold">₦{model2Earnings.toLocaleString()}</span>
               </div>
 

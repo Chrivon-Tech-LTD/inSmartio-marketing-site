@@ -15,10 +15,10 @@ const cardVariants: Variants = {
 };
 
 const clientSteps = [
-  { id: "1", label: "Post Your Job",    img: "/assets/post-a-job.png", desc: "Tell us what you need. Add photos, describe the job, set your budget, and choose preferences." },
-  { id: "2", label: "Receive Bids",     img: "/assets/bid.png",        desc: "Verified experts in your area send you bids. Compare prices, ratings, and verification levels." },
-  { id: "3", label: "Negotiate & Hire", img: "/assets/Chat.png",       desc: "Message experts to ask questions or negotiate price. Choose the best fit for you." },
-  { id: "4", label: "Pay & Complete",   img: "/assets/payment.png",    desc: "Pay securely into escrow (funds held until you're satisfied) or pay cash directly." },
+  { id: "1", label: "Post Your Job",    img: "/assets/posts.jpg", desc: "Tell us what you need. Add photos, describe the job, set your budget, and choose preferences." },
+  { id: "2", label: "Receive Bids",     img: "/assets/bids.jpg",        desc: "Verified experts in your area send you bids. Compare prices, ratings, and verification levels." },
+  { id: "3", label: "Negotiate & Hire", img: "/assets/chats.jpg",       desc: "Message experts to ask questions or negotiate price. Choose the best fit for you." },
+  { id: "4", label: "Pay & Complete",   img: "/assets/payments.jpg",    desc: "Pay securely into escrow (funds held until you're satisfied) or pay cash directly." },
   { id: "5", label: "Review",           img: "/assets/review.png",     desc: "Share your experience. Your feedback builds trust in the community." },
 ];
 

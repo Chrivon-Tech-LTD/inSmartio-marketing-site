@@ -38,7 +38,7 @@ const tasFAQs: FAQItem[] = [
   },
   {
     q: "What's the minimum payout for my earnings?",
-    a: "₦2,000. If you earn less than that in a month, it will roll over to the next month.",
+    a: "₦1,000. If you earn less than that in a month, it will roll over to the next month.",
   },
 ];
 
