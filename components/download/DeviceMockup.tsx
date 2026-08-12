@@ -15,7 +15,7 @@ type Screen = {
 const screens: Screen[] = [
   { id: "home", title: "Home Explorer", color: "bg-primary",   img: "/assets/Home.jpg", desc: "Browse top-rated professionals near you instantly." },
   { id: "post", title: "Smart Post",    color: "bg-secondary", img: "/assets/posts.jpg", desc: "Describe your needs and set a precise budget." },
-  { id: "bids", title: "Live Bidding",  color: "bg-success",   img: "/assets/bids.jpg", desc: "Compare verified expert quotes in real-time." },
+  { id: "bids", title: "Live Bidding",  color: "bg-success",   img: "/assets/Ebid.jpg", desc: "Compare verified expert quotes in real-time." },
   { id: "chat", title: "Secure Chat",   color: "bg-primary",   img: "/assets/chats.jpg", desc: "Encrypted messaging to finalize job details." },
   { id: "pay",  title: "Safe Pay",      color: "bg-slate-900", img: "/assets/payments.jpg",  desc: "Secure escrow release only upon your satisfaction." },
 ];
