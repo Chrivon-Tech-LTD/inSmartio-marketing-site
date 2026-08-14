@@ -16,7 +16,7 @@ const cardVariants: Variants = {
 
 const clientSteps = [
   { id: "1", label: "Select Category",         img: "/assets/category.jpg",  desc: "Choose the category that best fits your job so the right experts can find you." },
-  { id: "2", label: "Post Your Job",           img: "/assets/post.jpg",      desc: "Tell us what you need. Add photos, describe the job, and set your budget." },
+  { id: "2", label: "Post Your Job",           img: "/assets/Post.jpg",      desc: "Tell us what you need. Add photos, describe the job, and set your budget." },
   { id: "3", label: "Set Timeline & Location", img: "/assets/location.jpg",  desc: "Let experts know when you need the job done and where it's located." },
   { id: "4", label: "Pay Securely",            img: "/assets/payments.jpg",  desc: "Fund your job upfront into escrow. Your money is held safely until you're satisfied." },
   { id: "5", label: "Receive Bids",            img: "/assets/bid.jpg",       desc: "Verified experts in your area send you bids. Compare prices, ratings, and verification levels." },
