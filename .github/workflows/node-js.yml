@@ -50,8 +50,8 @@ jobs:
 
       - name: Deploy to Server
         run: |
-          ssh -i ~/.ssh/id_ed25519 root@62.72.32.105 << 'EOF'
-            cd /var/www/insmartio
+          ssh -i ~/.ssh/id_ed25519 deploy@62.72.32.105 << 'EOF'
+            cd /home/deploy/var/www/inSmartio-marketing-site
             git pull origin main
             npm ci
             npm run build
